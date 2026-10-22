@@ -152,7 +152,7 @@
     app.innerHTML = `
       ${controls(S, r, "map")}
       <h1>Texas ${CHAMBER[S.ch]}, ${ord(S.leg)} Legislature <span class="muted" style="font-weight:500">${esc(S.years)}</span></h1>
-      <p class="lede">Each dot is a member, placed by every contested record vote they cast. Members who vote alike sit close together. Left to right is the main divide in Texas votes; up and down is the second-biggest. <a href="#/about">How to read this</a></p>
+      <p class="lede">Each dot is a member, placed by every contested record vote of their career since 1995. Members who vote alike sit close together. Left to right is the main divide in Texas votes; up and down is the second-biggest. <a href="#/about">How to read this</a></p>
       <div class="mapwrap">
         <div class="card">
           <div class="plot" id="plot"></div>
@@ -202,7 +202,7 @@
           <dt>${esc(ax.x.short)}</dt><dd>${num(m.x)} <span class="muted small">(${esc(ax.x.neg.toLowerCase())} −1 … +1 ${esc(ax.x.pos.toLowerCase())})</span></dd>
           <dt>${esc(ax.y.short)}</dt><dd>${num(m.y)}</dd>
           <dt>Rank</dt><dd>${rank + 1} of ${rows.length} from the ${esc(ax.x.neg.toLowerCase())} end; ${prank + 1} of ${sameParty.length} ${PARTY[m.p] ? PARTY[m.p] + "s" : "in party"}</dd>
-          <dt>Votes</dt><dd>${m.v.toLocaleString()} contested votes this session</dd>
+          <dt>Votes</dt><dd>${m.v.toLocaleString()} contested votes this session (the position reflects their whole career)</dd>
         </dl>`}
         <button id="clr" type="button">Clear</button>`;
       document.getElementById("clr").addEventListener("click", () => {
@@ -221,6 +221,28 @@
     const m = (a || "").match(/(Representatives?|Senators?)\s+(.+?)\s+offered the following amendments?\s+to\s+(.+?)\s*:?\s*$/i);
     return m ? `Amendment by ${m[1].startsWith("S") ? "Sen." : "Rep."} ${m[2]}` : "";
   }
+  // the journal's parliamentary phrasing, in plain English
+  const MOTIONS = [
+    [/moved to suspend the regular order of business to take up for consideration .*?on its (second|third) reading/i, m => `Motion to take up on ${m[1]} reading`],
+    [/moved that .*?(Constitutional Rule|constitutional rule) requiring bills to be read on three several days be suspended/i, () => "Motion to suspend the three-readings rule"],
+    [/moved to table (Amendment No\. \d+|the amendment|the motion[^.]*)/i, m => `Motion to table ${m[1].replace(/^the /, "the ")}`],
+    [/moved to concur in (the )?(House|Senate) amendments?/i, m => `Motion to concur in ${m[2]} amendments`],
+    [/moved to adopt the conference committee report/i, () => "Motion to adopt the conference committee report"],
+    [/moved (the )?previous question/i, () => "Motion for the previous question"],
+    [/moved to reconsider the vote by which/i, () => "Motion to reconsider"],
+    [/moved to postpone/i, () => "Motion to postpone"],
+    [/moved to (re-?refer|recommit)/i, () => "Motion to send back to committee"],
+    [/moved to adjourn/i, () => "Motion to adjourn"],
+  ];
+  function shortMotion(m) {
+    const name = (m.match(/^(?:On behalf of [^,]+,\s*)?(Representatives?|Senators?)\s+([A-Z][\w'’.-]*(?:,\s*[A-Z]\.)?(?:\s+[A-Z][\w'’.-]*)?)\s+moved/) || []);
+    const by = name[2] ? ` (${name[1].startsWith("S") ? "Sen." : "Rep."} ${name[2]})` : "";
+    for (const [re, fn] of MOTIONS) {
+      const x = m.match(re);
+      if (x) return fn(x) + by;
+    }
+    return who(m);
+  }
   function describe(S, rc) {
     let t = (rc.t || "").replace(/\s+/g, " ").trim();
     let verified = false;
@@ -233,8 +255,7 @@
     }
     const generic = !t || /^the motion( to [a-z ]+)? (prevailed|was lost)|^the (bill|resolution) was/i.test(t);
     if (generic && rc.m) {
-      const outcome = /prevailed/i.test(t) ? " (prevailed)" : /was lost/i.test(t) ? " (lost)" : "";
-      t = who(rc.m) + outcome;
+      t = shortMotion(rc.m);                       // the outcome shows as a badge / check mark
     } else if (!t && rc.a) {
       t = amendmentBy(rc.a) || who(rc.a);
     }

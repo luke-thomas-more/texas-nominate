@@ -54,6 +54,8 @@ def bill_ref(text):
 
 def paragraphs_html(raw):
     s = re.sub(r"(?s)<!--.*?-->", " ", raw)
+    # the 2003-09 Senate journals pad text with invisible white "i"s: <FONT color=White>ii</FONT>
+    s = re.sub(r"(?is)<font[^>]*color\s*=\s*[\"']?white[\"']?[^>]*>.*?</font>", " ", s)
     s = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", s)
     s = re.sub(r"(?i)<br[^>]*>", " ", s)
     s = re.sub(r"(?i)</?(p|div|tr|td|table|hr|h\d|li|ul|center)\b[^>]*>", " ", s)

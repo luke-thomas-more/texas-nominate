@@ -36,10 +36,16 @@ committed. The published data is in `docs/data/` (see `docs/data/downloads/`).
   serving that day, which must also equal the printed count.
 - The scaling uses Voteview's filters: roll calls with under 2.5% on the losing side are
   dropped, and so are members with fewer than 20 scaled votes.
-- The model is standard DW-NOMINATE (normal errors, Gaussian utility, linear movement over a
-  career), estimated by alternating Fisher-scoring blocks followed by a joint L-BFGS polish.
-  On dimensions 2+, the scale is pinned by stretching until the outermost legislator reaches
-  the unit circle.
+- The model is DW-NOMINATE (normal errors, Gaussian utility). It's estimated by alternating
+  Fisher-scoring blocks followed by a joint L-BFGS polish. On dimensions 2+, the scale is
+  pinned by stretching until the outermost legislator reaches the unit circle.
+- v1 uses DW-NOMINATE's **constant** model: one position per member for their whole career.
+  The linear-movement model let the whole 1995–2025 space rotate. The party split sat on
+  dimension 2 in 1995 and dimension 1 by 2025, because the early years are weakly anchored and
+  the vote-heavy recent sessions dominate. Holding positions fixed keeps the axes' meaning
+  stable, at a small cost in fit (APRE 0.627 vs about 0.64).
+- β (signal-to-noise) trades off against the roll call spreads along a nearly flat direction.
+  It's estimated first, then held fixed while positions converge.
 - `pipeline/validate_voteview.py` checks the estimator against Voteview's published U.S. House
   scores.
 

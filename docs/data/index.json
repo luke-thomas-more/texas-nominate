@@ -3,9 +3,9 @@
  "dims": 2,
  "w": [
   1.0,
-  0.7564156644402217
+  0.7794230557703813
  ],
- "beta": 8.752325409960726,
+ "beta": 8.809071253210083,
  "axes": {
   "x": {
    "name": "liberal to conservative",
@@ -19,7 +19,7 @@
    "short": "Establishment",
    "neg": "Anti-establishment",
    "pos": "Establishment",
-   "desc": "The second divide separates members who vote with their chamber's leadership from those who buck it, in both parties. In the House the top of the map is each era's Speaker's team, from Talmadge Heflin under Craddick to Andrew Murr, Four Price and Stan Lambert; the bottom is the rebels, from the anti-Craddick Republicans of 2007–09 to Jonathan Stickland, Brian Harrison and Andy Hopper, along with maverick Democrats like Terry Canales. In the Senate it separates institutionalists such as Robert Nichols and Charles Schwertner from members such as Mayes Middleton and Sarah Eckhardt."
+   "desc": "The second divide separates members who vote with their chamber's leadership from those who buck it, within both parties. Among House Republicans the top is each era's Speaker's team: Talmadge Heflin and Fred Hill under Craddick, Four Price and Stan Lambert more recently. The bottom is the rebels: the anti-Craddick Republicans of 2007–09 (Tommy Merritt, Delwin Jones), then Jonathan Stickland, Brian Harrison and Andy Hopper. Among Democrats, mavericks like Terry Canales sit lowest. In the Senate the axis separates institutionalists such as Robert Nichols and Charles Schwertner from members such as Mayes Middleton and Sarah Eckhardt."
   },
   "dims": {
    "note": "The second dimension earns its place: it cuts the remaining errors noticeably. A third adds almost as much again, because Texas votes are less one-dimensional than Congress's. But it doesn't have a clear, stable meaning yet, so the maps show the first two. We'll revisit that as older legislatures are added."
@@ -176,9 +176,15 @@
    "chambers": {
     "H": {
      "members": 151,
-     "rollcalls": 1643,
-     "scaled": 387,
-     "excluded": 12
+     "rollcalls": 1648,
+     "scaled": 391,
+     "excluded": 7
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2639,
+     "scaled": 1073,
+     "excluded": 1
     }
    }
   },
@@ -188,9 +194,15 @@
    "chambers": {
     "H": {
      "members": 150,
-     "rollcalls": 1952,
+     "rollcalls": 1953,
      "scaled": 689,
-     "excluded": 2
+     "excluded": 1
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2267,
+     "scaled": 737,
+     "excluded": 0
     }
    }
   },
@@ -203,6 +215,12 @@
      "rollcalls": 1048,
      "scaled": 570,
      "excluded": 3
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1861,
+     "scaled": 819,
+     "excluded": 7
     }
    }
   },
@@ -215,6 +233,12 @@
      "rollcalls": 982,
      "scaled": 563,
      "excluded": 5
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 1300,
+     "scaled": 572,
+     "excluded": 0
     }
    }
   },
@@ -293,51 +317,25 @@
  ],
  "fit": {
   "2": {
-   "correct": 0.9129913931650273,
-   "apre": 0.6318690729870948,
-   "gmp": 0.8235379189813183,
-   "loglik": -446000.0083903008,
-   "n_votes": 2297244,
-   "beta": 8.752325409960726,
+   "correct": 0.9137325921696663,
+   "apre": 0.6282047820397201,
+   "gmp": 0.8250790945719608,
+   "loglik": -460357.4497668432,
+   "n_votes": 2394253,
+   "beta": 8.809071253210083,
    "w": [
     1.0,
-    0.7564156644402217
+    0.7794230557703813
    ],
-   "seconds": 857.6
-  },
-  "1": {
-   "correct": 0.9048411923156617,
-   "apre": 0.5973858062947662,
-   "gmp": 0.8047553167962609,
-   "loglik": -499000.4546743519,
-   "n_votes": 2297244,
-   "beta": 9.840472553100444,
-   "w": [
-    1.0
-   ],
-   "seconds": 752.6
-  },
-  "3": {
-   "correct": 0.9191657481747694,
-   "apre": 0.6579925924425233,
-   "gmp": 0.8371123167814443,
-   "loglik": -408443.15531359054,
-   "n_votes": 2297244,
-   "beta": 9.63647838638833,
-   "w": [
-    1.0,
-    0.754370414937284,
-    0.7624363438860078
-   ],
-   "seconds": 1403.7
+   "seconds": 1323.7
   }
  },
  "totals": {
-  "rollcalls": 52881,
-  "scaled": 27422,
+  "rollcalls": 60954,
+  "scaled": 30627,
   "members": 617,
-  "both_chambers": 29,
-  "votes": 2297244,
-  "excluded": 270
+  "both_chambers": 32,
+  "votes": 2394253,
+  "excluded": 272
  }
 }

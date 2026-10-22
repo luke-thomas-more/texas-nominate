@@ -141,6 +141,8 @@ class DWNominate:
         """beta and the squared weights of dimensions 2..K (w_1 = 1)."""
         g, H = nk.block_global(*self._state(), *self._data(), self.T)
         step = np.linalg.solve(H + 1e-3 * np.diag(np.diag(H)) + 1e-9 * np.eye(len(g)), g)
+        if getattr(self, "fix_beta", False):
+            step[0] = 0.0                      # beta held at its current value
         old = self.loglik()
         for a in (1.0, 0.5, 0.25, 0.125, 0.0625):
             beta = float(np.clip(self.beta + a * step[0], 0.5, 60.0))
@@ -169,6 +171,8 @@ class DWNominate:
         return self
 
     def alternate(self, iters=30, verbose=True, warmup=5):
+        if iters <= 0:
+            return self
         for _ in range(warmup):
             self.step_rollcalls()
         for it in range(1, iters + 1):

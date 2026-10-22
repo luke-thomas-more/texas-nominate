@@ -59,6 +59,25 @@ def build(rcs, obs, min_frac=0.025, min_votes=20):
     return dict(rc=rc, mem=mem, yea=yea, frac=frac, rc_keys=rc_keys, mem_keys=mem_keys, first=first, last=last, leg=leg)
 
 
+def warm_start(m, d, folder, K):
+    """Start from an earlier fit's positions, outcomes, beta and weights (constant model)."""
+    pos = {}
+    for r in csv.DictReader(open(os.path.join(folder, "member_scores.csv"))):
+        pos[int(r["member_id"])] = [float(r[f"dim{k + 1}"]) for k in range(K)]
+    for i, mid in enumerate(d["mem_keys"]):
+        if int(mid) in pos:
+            m.Pm[i] = m.Pp[i] = pos[int(mid)]
+    rcp = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(folder, "rollcall_params.csv")))}
+    for j, k in enumerate(d["rc_keys"]):
+        if k in rcp:
+            m.M[j] = [float(rcp[k][f"mid{q + 1}"]) for q in range(K)]
+            m.D[j] = [float(rcp[k][f"spread{q + 1}"]) for q in range(K)]
+    summ = json.load(open(os.path.join(folder, "summary.json")))
+    m.beta = float(summ["beta"])
+    m.w2 = np.array([w * w for w in summ["w"]])
+    print(f"    warm start from {folder}: beta {m.beta:.2f}", flush=True)
+
+
 def party_lookup():
     party = {}
     for t in csv.DictReader(open(os.path.join(PROC, "terms.csv"))):
@@ -93,7 +112,11 @@ def main():
         t0 = time.time()
         print(f"--- {K} dimension(s)", flush=True)
         m = DWNominate(d["rc"], d["mem"], d["yea"], d["frac"], n_rc, n_mem, K=K, trend=os.environ.get("TREND", "1") == "1")
-        m.start(X0[:, :K]).fit(verbose=True)
+        m.start(X0[:, :K])
+        if os.environ.get("FIT_START"):
+            warm_start(m, d, os.environ["FIT_START"], K)
+        m.fix_beta = os.environ.get("FIX_BETA") == "1"
+        m.fit(verbose=True, alternate_iters=int(os.environ.get("ALT_ITERS", 30)), rounds=int(os.environ.get("ROUNDS", 4)))
         st = m.fit_stats()
         st["seconds"] = round(time.time() - t0, 1)
         summary["by_dims"][K] = st
