@@ -1,0 +1,343 @@
+{
+ "built": "2026-10-22",
+ "dims": 2,
+ "w": [
+  1.0,
+  0.7564156644402217
+ ],
+ "beta": 8.752325409960726,
+ "axes": {
+  "x": {
+   "name": "liberal to conservative",
+   "short": "Left–right",
+   "neg": "More liberal",
+   "pos": "More conservative",
+   "desc": "The main divide in Texas votes. Today it's almost entirely Democrats against Republicans; in the 1990s, when many rural and South Texas Democrats voted conservatively, the parties overlapped much more."
+  },
+  "y": {
+   "name": "establishment to anti-establishment",
+   "short": "Establishment",
+   "neg": "Anti-establishment",
+   "pos": "Establishment",
+   "desc": "The second divide separates members who vote with their chamber's leadership from those who buck it, in both parties. In the House the top of the map is each era's Speaker's team, from Talmadge Heflin under Craddick to Andrew Murr, Four Price and Stan Lambert; the bottom is the rebels, from the anti-Craddick Republicans of 2007–09 to Jonathan Stickland, Brian Harrison and Andy Hopper, along with maverick Democrats like Terry Canales. In the Senate it separates institutionalists such as Robert Nichols and Charles Schwertner from members such as Mayes Middleton and Sarah Eckhardt."
+  },
+  "dims": {
+   "note": "The second dimension earns its place: it cuts the remaining errors noticeably. A third adds almost as much again, because Texas votes are less one-dimensional than Congress's. But it doesn't have a clear, stable meaning yet, so the maps show the first two. We'll revisit that as older legislatures are added."
+  }
+ },
+ "legislatures": [
+  {
+   "leg": 89,
+   "years": "2025–26",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 4234,
+     "scaled": 2787,
+     "excluded": 1
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 3694,
+     "scaled": 2367,
+     "excluded": 1
+    }
+   }
+  },
+  {
+   "leg": 88,
+   "years": "2023–24",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 2322,
+     "scaled": 1552,
+     "excluded": 3
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2929,
+     "scaled": 1771,
+     "excluded": 1
+    }
+   }
+  },
+  {
+   "leg": 87,
+   "years": "2021–22",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 2035,
+     "scaled": 1266,
+     "excluded": 0
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2330,
+     "scaled": 1086,
+     "excluded": 0
+    }
+   }
+  },
+  {
+   "leg": 86,
+   "years": "2019–20",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 1951,
+     "scaled": 1008,
+     "excluded": 1
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2430,
+     "scaled": 1252,
+     "excluded": 1
+    }
+   }
+  },
+  {
+   "leg": 85,
+   "years": "2017–18",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 2115,
+     "scaled": 1243,
+     "excluded": 6
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2778,
+     "scaled": 1696,
+     "excluded": 0
+    }
+   }
+  },
+  {
+   "leg": 84,
+   "years": "2015–16",
+   "chambers": {
+    "H": {
+     "members": 152,
+     "rollcalls": 1735,
+     "scaled": 963,
+     "excluded": 5
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 2452,
+     "scaled": 1429,
+     "excluded": 4
+    }
+   }
+  },
+  {
+   "leg": 83,
+   "years": "2013–14",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 1401,
+     "scaled": 682,
+     "excluded": 11
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2050,
+     "scaled": 782,
+     "excluded": 1
+    }
+   }
+  },
+  {
+   "leg": 82,
+   "years": "2011–12",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 1766,
+     "scaled": 998,
+     "excluded": 25
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2388,
+     "scaled": 1166,
+     "excluded": 1
+    }
+   }
+  },
+  {
+   "leg": 81,
+   "years": "2009–10",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 1643,
+     "scaled": 387,
+     "excluded": 12
+    }
+   }
+  },
+  {
+   "leg": 80,
+   "years": "2007–08",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 1952,
+     "scaled": 689,
+     "excluded": 2
+    }
+   }
+  },
+  {
+   "leg": 79,
+   "years": "2005–06",
+   "chambers": {
+    "H": {
+     "members": 156,
+     "rollcalls": 1048,
+     "scaled": 570,
+     "excluded": 3
+    }
+   }
+  },
+  {
+   "leg": 78,
+   "years": "2003–04",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 982,
+     "scaled": 563,
+     "excluded": 5
+    }
+   }
+  },
+  {
+   "leg": 77,
+   "years": "2001–02",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 534,
+     "scaled": 175,
+     "excluded": 22
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1599,
+     "scaled": 757,
+     "excluded": 63
+    }
+   }
+  },
+  {
+   "leg": 76,
+   "years": "1999–00",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 428,
+     "scaled": 151,
+     "excluded": 10
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1468,
+     "scaled": 699,
+     "excluded": 7
+    }
+   }
+  },
+  {
+   "leg": 75,
+   "years": "1997–98",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 544,
+     "scaled": 231,
+     "excluded": 1
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1893,
+     "scaled": 488,
+     "excluded": 45
+    }
+   }
+  },
+  {
+   "leg": 74,
+   "years": "1995–96",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 501,
+     "scaled": 200,
+     "excluded": 2
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1679,
+     "scaled": 464,
+     "excluded": 37
+    }
+   }
+  }
+ ],
+ "fit": {
+  "2": {
+   "correct": 0.9129913931650273,
+   "apre": 0.6318690729870948,
+   "gmp": 0.8235379189813183,
+   "loglik": -446000.0083903008,
+   "n_votes": 2297244,
+   "beta": 8.752325409960726,
+   "w": [
+    1.0,
+    0.7564156644402217
+   ],
+   "seconds": 857.6
+  },
+  "1": {
+   "correct": 0.9048411923156617,
+   "apre": 0.5973858062947662,
+   "gmp": 0.8047553167962609,
+   "loglik": -499000.4546743519,
+   "n_votes": 2297244,
+   "beta": 9.840472553100444,
+   "w": [
+    1.0
+   ],
+   "seconds": 752.6
+  },
+  "3": {
+   "correct": 0.9191657481747694,
+   "apre": 0.6579925924425233,
+   "gmp": 0.8371123167814443,
+   "loglik": -408443.15531359054,
+   "n_votes": 2297244,
+   "beta": 9.63647838638833,
+   "w": [
+    1.0,
+    0.754370414937284,
+    0.7624363438860078
+   ],
+   "seconds": 1403.7
+  }
+ },
+ "totals": {
+  "rollcalls": 52881,
+  "scaled": 27422,
+  "members": 617,
+  "both_chambers": 29,
+  "votes": 2297244,
+  "excluded": 270
+ }
+}

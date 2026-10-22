@@ -1,0 +1,57 @@
+<h1>How this works</h1>
+<p>TX-NOMINATE places every member of the Texas House and Senate on a map using nothing but their record votes. Members who vote alike end up close together, and members who usually vote against each other end up far apart. It's a Texas version of DW-NOMINATE, the method behind <a href="https://voteview.com">Voteview</a>'s maps of Congress.</p>
+
+<div class="stat">
+  <div><b>{{ROLLCALLS}}</b><span>record votes, {{FIRST}}th–{{LAST}}th Legislatures (1995–2025)</span></div>
+  <div><b>{{SCALED}}</b><span>contested votes used to draw the map</span></div>
+  <div><b>{{MEMBERS}}</b><span>legislators placed</span></div>
+  <div><b>{{VOTES}}</b><span>individual yea and nay votes</span></div>
+</div>
+
+<h2>Reading the map</h2>
+<ul>
+  <li><b>Left to right: {{AX_X_NAME}}.</b> {{AX_X_DESC}}</li>
+  <li><b>Up and down: {{AX_Y_NAME}}.</b> {{AX_Y_DESC}}</li>
+  <li><b>Scores run from −1 to +1</b> and only describe positions relative to other Texas legislators. A "moderate" here is someone between the parties' blocs in Austin, not a moderate by any national standard.</li>
+  <li><b>Only contested votes count.</b> A vote counts as contested when at least 2.5% of those voting were on the losing side. Most record votes are near-unanimous and say nothing about who disagrees with whom. They're still listed in the vote explorer.</li>
+  <li><b>On a vote's page, the dashed line is the cutting line.</b> It's where the model draws the split for that vote: members on the shaded side are expected to vote yea, members on the other side nay. Members on the "wrong" side are the surprises.</li>
+</ul>
+
+<h2>How many dimensions?</h2>
+<p>The model can use as many axes as you like, but each additional one has to earn its place. Here's how well the map predicts members' yea and nay votes with one, two and three dimensions:</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>Dimensions</th><th class="num">Votes predicted correctly</th><th class="num">APRE</th></tr></thead>
+  <tbody>
+    <tr><td>1</td><td class="num">{{CORRECT1}}%</td><td class="num">{{APRE1}}</td></tr>
+    <tr><td>2</td><td class="num">{{CORRECT2}}%</td><td class="num">{{APRE2}}</td></tr>
+    <tr><td>3</td><td class="num">{{CORRECT3}}%</td><td class="num">{{APRE3}}</td></tr>
+  </tbody>
+</table></div>
+<p class="small muted">APRE (aggregate proportional reduction in error) is the share of the losing-side votes the model gets right beyond the trivial guess that everyone voted with the majority. 0 means no better than that guess and 1 means perfect.</p>
+<p>{{AX_DIMS_NOTE}}</p>
+
+<h2>Where the votes come from</h2>
+<ul>
+  <li><b>The official House and Senate Journals,</b> which list how each member voted on every record vote. They come from the Legislature's journal site (House from 1995, Senate from 1999) and, for the 1995–97 Senate, the <a href="https://lrl.texas.gov/collections/journals.cfm">Legislative Reference Library</a>'s copies.</li>
+  <li><b>Who's who</b> comes from the Library's <a href="https://lrl.texas.gov/legeLeaders/members/lrlhome.cfm">Texas Legislators: Past &amp; Present</a>: names, parties, districts and exact service dates.</li>
+  <li><b>The journals name members by surname</b> ("Bell, C.", "Taylor of Collin", "Mr. Speaker"). Each name is matched to one member using that session's roster, initials, counties and service dates. Where the Senate prints only the nays and absentees, the yeas are everyone else serving that day.</li>
+  <li><b>Every roll call is checked</b> name by name against the totals printed in the journal. {{EXCLUDED}} roll calls whose names couldn't be matched exactly are left out rather than guessed.</li>
+</ul>
+
+<h2>The method</h2>
+<p>DW-NOMINATE (Poole and Rosenthal) gives each legislator an ideal point and each roll call two outcomes, yea and nay, placed in the same space. A legislator tends to vote for whichever outcome is closer, with some randomness. The positions that best explain every vote at once are the map. A member's position can drift in a straight line over their career. The House and Senate share one scale, linked by the {{BOTH}} members who served in both chambers.</p>
+<p>We wrote our own implementation from the published model, because Voteview's code isn't licensed for reuse. To check it, we ran it on U.S. House votes from the {{VV_CONG}} Congresses. Our first dimension correlates {{VV_R1}} with Voteview's published scores (at least {{VV_RW}} within each party), and our second dimension correlates {{VV_R2}}.</p>
+<p>Against Shor and McCarty's state legislator scores, the standard academic measure, our first dimension correlates {{SM_R}} across {{SM_N}} Texas legislators: {{SM_RD}} among Democrats and {{SM_RR}} among Republicans. Theirs combine roll calls with a national candidate survey, so they won't match exactly.</p>
+
+<h2>Caveats</h2>
+<ul>
+  <li><b>Record votes aren't the whole story.</b> Much of the Legislature's work happens in committee and in what never comes to a vote.</li>
+  <li><b>The Speaker rarely votes,</b> so a Speaker's position comes mostly from their votes before taking the gavel.</li>
+  <li><b>Members with fewer than 20 contested votes</b> aren't placed on the map, though their votes still appear in the explorer.</li>
+  <li><b>"Liberal" and "conservative" are labels for the axis,</b> not verdicts on any member. The axis is simply the line along which Texas votes split most often.</li>
+</ul>
+
+<h2>Data and code</h2>
+<p>Download the data: <a href="data/downloads/members.csv">members.csv</a>, <a href="data/downloads/member_scores.csv">member_scores.csv</a> (positions by legislature), <a href="data/downloads/rollcalls.csv.gz">rollcalls.csv.gz</a>, <a href="data/downloads/votes.csv.gz">votes.csv.gz</a>. The code that builds everything, from downloading the journals to fitting the model, is on <a href="https://github.com/luke-thomas-more/texas-nominate">GitHub</a>.</p>
+<p><b>Coming next:</b> older legislatures, back to statehood in 1846, read from the Library's scanned journals.</p>
+<p class="small muted">Built {{BUILT}}. Scores are re-estimated as more history is added, so they can shift a little between versions.</p>
