@@ -324,6 +324,9 @@ def parse_printout(path, i, words):
 
 # ---- 1973-1978: a printed grid, four blocks of NAME | Y | N | P, one member a row in a fixed order
 GRID_DOMINANT = 0.6  # a second mark in another cell at least this size (vs the largest) makes the row unreadable
+PEN_BAND = int(os.environ.get("PEN_BAND", 2))                         # px blanked each side of a line
+PEN_CLOSE = tuple(map(int, os.environ.get("PEN_CLOSE", "5,5").split(",")))   # rejoins a stroke across it
+DOT_DOMINANT = 0.8   # on a dotted sheet: scraps of a thickened rule run to two-thirds of a dot's size
 
 
 def skew(img):
@@ -417,8 +420,8 @@ def grid_geometry(img):
 
 def is_x(yy, xx):
     """Whether a mark's pixels (relative to its box) make an X, drawn corner to corner (absent-excused):
-    ink in all four corners of its box and in the middle. A dot is too small; a check misses its top
-    left corner."""
+    ink in its corners and in the middle. One arm often runs into a rule and is lost, so the top right
+    corner isn't required. A dot is too small; a check misses its top left corner."""
     if len(yy) < 40:
         return False
     h, w = yy.max() + 1, xx.max() + 1
@@ -426,7 +429,30 @@ def is_x(yy, xx):
         return False
     def has(ya, xa):
         return (((yy * 3 // h) == ya) & ((xx * 3 // w) == xa)).sum() >= 3
-    return has(0, 0) and has(0, 2) and has(2, 0) and has(2, 2) and has(1, 1)
+    return has(0, 0) and has(2, 0) and has(2, 2) and has(1, 1)
+
+
+def pen_kind(yy, xx, strict=False):
+    """What a pen mark on a dotted sheet is: "X" (absent-excused), "C" (in the chair), "check" (a late or
+    changed vote, counted where its foot is) or None. A check's strokes meet at its bottom left, so its
+    bottom right is empty; an X has ink in its bottom corners and middle. Tops are unreliable: strokes
+    break up where they cross a rule; on a pen-marked sheet (strict), where the rules are blanked out
+    rather than opened away, an X keeps all four arms and a check's tail can reach the bottom right."""
+    h, w = yy.max() + 1, xx.max() + 1
+    least = max(3, 0.04 * len(yy))
+    def has(ya, xa):
+        return (((yy * 3 // h) == ya) & ((xx * 3 // w) == xa)).sum() >= least
+    if strict:
+        if has(0, 0) and has(0, 2) and has(2, 0) and has(2, 2) and has(1, 1):
+            return "X"
+        return "C" if is_c(yy, xx) else "check"
+    if not has(2, 2):
+        return "check"
+    if has(2, 0) and has(1, 1) and (has(0, 0) or has(0, 2)):
+        return "X"
+    if is_c(yy, xx):        # a C's middle is open, so an X can't pass for one
+        return "C"
+    return None
 
 
 def is_c(yy, xx):
@@ -440,6 +466,63 @@ def is_c(yy, xx):
     def has(ya, xa):
         return (((yy * 3 // h) == ya) & ((xx * 3 // w) == xa)).sum() >= 3
     return has(1, 0) and not has(1, 2) and (has(0, 1) or has(0, 2)) and (has(2, 1) or has(2, 2))
+
+
+def pen_cells(img, G):
+    """{(block, row): code} for a pen-marked sheet, read cell by cell: a check's point sits low in its
+    member's cell (its stroke rises into the row above), so the vote is the cell with clearly the most
+    ink in the lower part of its inside; an X (absent-excused) inks all four corners of its cell. Some
+    clerks drew every mark up to half a row high, so the sheet's cells are read at the vertical offset
+    that leaves the most rows with one clear mark."""
+    pitch = float(np.median(np.diff(G["rows"])))
+    best = None
+    for f in PEN_OFFSETS:
+        out = pen_cells_at(img, G, int(round(f * pitch)))
+        vals = list(out.values())
+        score = sum(c in ("Y", "N", "P", "E") for c in vals) - 3 * vals.count("?")
+        if best is None or score > best[0]:
+            best = (score, out)
+    return best[1]
+
+
+PEN_OFFSETS = tuple(map(float, os.environ.get("PEN_OFFSETS", "0").split(",")))   # tried: -0.5..0.2 pitch
+# didn't help (1978 clerks mixed high and in-cell checks on one sheet), so one offset
+
+
+def pen_cells_at(img, G, off):
+    dark = img < 160
+    rows, out = G["rows"], {}
+    for b, (xn, xy, xnp, xe) in enumerate(G["blocks"]):
+        edges = (xn, xy, xnp, xe)
+        for r in range(len(rows) - 1):
+            ya, yb = max(rows[r] + 3 + off, 0), rows[r + 1] - 2 + off
+            ym = int(ya + PEN_LOW * (yb - ya))
+            low, quad = [], []
+            for c in range(3):
+                xa, xb = edges[c] + 3, edges[c + 1] - 2
+                low.append(int(dark[ym:yb, xa:xb].sum()))
+                xm, yh = (xa + xb) // 2, (ya + yb) // 2
+                quad.append([int(dark[y0:y1, x0:x1].sum()) for y0, y1, x0, x1 in
+                             ((ya, yh, xa, xm), (ya, yh, xm, xb), (yh, yb, xa, xm), (yh, yb, xm, xb))])
+            order = sorted(range(3), key=lambda c: -low[c])
+            c = order[0]
+            if low[c] < PEN_MIN:
+                code = None
+            elif (b, r) == (0, 0) and c == 2:
+                code = "P"                      # the Speaker's C
+            elif low[order[1]] >= GRID_DOMINANT * low[c]:
+                code = "?"
+            elif min(quad[c]) >= PEN_X * max(quad[c]) and min(quad[c]) >= 4:
+                code = "E"
+            else:
+                code = "YNP"[c]
+            out[(b, r)] = code
+    return out
+
+
+PEN_LOW = float(os.environ.get("PEN_LOW", 0.35))  # the lower part of a cell, where a check's point is
+PEN_MIN = int(os.environ.get("PEN_MIN", 8))       # dark pixels there that make a mark
+PEN_X = float(os.environ.get("PEN_X", 0.8))       # an X's emptiest corner has this share of its fullest
 
 
 def parse_grid(path, i, words, img=None):
@@ -470,8 +553,9 @@ def parse_grid(path, i, words, img=None):
     clean = ndimage.binary_opening(dark, structure=np.ones((1, 4), bool))
     clean = ndimage.binary_opening(clean, structure=np.ones((4, 1), bool))
     # the marks, as pieces of ink with a centre and a size (scraps of a thick rule, short and wide, aren't)
-    pieces = []
-    for b, (xn, xy, xnp, xe) in enumerate(blocks):
+    def pieces_of(clean):
+      pieces = []
+      for b, (xn, xy, xnp, xe) in enumerate(blocks):
         lab, n = ndimage.label(clean[rows[0] - 2:rows[-1] + 4, xn - 4:xe + 6])
         for k, sl in enumerate(ndimage.find_objects(lab), 1):
             yy, xx = np.nonzero(lab[sl] == k)
@@ -480,8 +564,12 @@ def parse_grid(path, i, words, img=None):
                 continue
             gy, gx = yy + sl[0].start + rows[0] - 2, xx + sl[1].start + xn - 4
             foot = gy >= gy.max() - 0.3 * h
+            # a printed dot is round and solid; ink thickening a rule is long, thin or hollow
+            solid = len(yy) >= 0.55 * h * w and max(h, w) <= 1.6 * min(h, w)
             pieces.append((b, len(yy), float(gy.mean()), float(gx.mean()) - xn, gy - gy.min(), gx - gx.min(),
-                           float(gy.max()), float(gx[foot].mean()) - xn))
+                           float(gy.max()), float(gx[foot].mean()) - xn, solid))
+      return pieces
+    pieces = pieces_of(clean)
     # likewise a sheet's dots can sit a few pixels off its rows: centre them in the rows (positions in
     # rows, u = row + fraction of the way down it; the rows aren't evenly spaced to the pixel)
     def u_of(cy):
@@ -490,22 +578,51 @@ def parse_grid(path, i, words, img=None):
     # A sheet marked in pen throughout (1973: checks, not printed dots) has no printing offset; a check
     # was drawn with its foot in the member's row and its stroke rising into the row above.
     pitch = float(np.median(np.diff(rows)))
-    dotted = sum(1 for p in pieces if p[1] < 90) >= 40
+    # printed dots are solid and round; a pen-marked sheet's checks break into bits, a good third of them not
+    small = [p for p in pieces if p[1] < 90]
+    dotted = sum(p[8] for p in small) >= 40 and sum(not p[8] for p in small) <= 0.2 * len(small)
+    if not dotted:
+        # pen strokes can be as thin as the rules (1973), and the opening loses them: blank out the
+        # form's own lines instead, then rejoin the strokes they cut
+        clean = dark.copy()
+        for y in rows:
+            clean[max(0, y - PEN_BAND):y + PEN_BAND + 1, :] = False
+        for blk in blocks:
+            for x in blk:
+                clean[:, max(0, x - PEN_BAND):x + PEN_BAND + 1] = False
+        clean = ndimage.binary_closing(clean, structure=np.ones(PEN_CLOSE, bool))
+        pieces = pieces_of(clean)
     ph = np.array([u_of(p[2]) % 1 for p in pieces if p[1] < 90]) * 2 * np.pi
     lift = 0.0
     if dotted and len(ph) >= 10:
         lift = (np.angle(np.exp(1j * ph).mean()) / (2 * np.pi)) % 1 - 0.5
-    marks = {}
-    for b, a, cy, cx, yy, xx, fy, fx in pieces:
-        if not dotted and a >= 60:
-            cy, cx = fy - 0.25 * pitch, fx
+    marks, checks = {}, []
+    for b, a, cy, cx, yy, xx, fy, fx, solid in pieces:
+        pen = a >= 60 and not (dotted and solid)
+        if pen and pen_kind(yy, xx) not in ("X", "C"):
+            checks.append((b, a, cy, cx, yy, xx, fy, fx, solid))
+            continue
         r = int(np.floor(u_of(cy) - lift))
         if 0 <= r < len(rows) - 1:
-            marks.setdefault((b, r), []).append((a, cx, yy, xx))
+            marks.setdefault((b, r), []).append((a, cx, yy, xx, solid, pen))
+    # a check is placed by its foot (its stroke rises into the row above), but a hurried one can cross a
+    # rule either way: on a dotted sheet it's a late vote, so it goes in a row it touches that has no dot
+    last = len(rows) - 2
+    for b, a, cy, cx, yy, xx, fy, fx, solid in checks:
+        r = int(np.floor(u_of(fy - 0.25 * pitch)))
+        if not -1 <= r <= last + 1:
+            continue
+        r = min(max(r, 0), last)
+        if dotted:
+            top, bot = int(np.floor(u_of(fy - yy.max()))), int(np.floor(u_of(fy)))
+            near = [r] + [q for q in range(max(top, 0), min(bot, last) + 1) if q != r]
+            free = [q for q in near if not marks.get((b, q))]
+            r = free[0] if free else r
+        marks.setdefault((b, r), []).append((a, fx, yy, xx, solid, True))
     # the dots were printed onto the ruled form, sometimes up to half a cell off its lines: the sheet's
     # offset is the shift that best centres its dots in the cells
     c = float(np.median([blk[3] - blk[0] for blk in blocks])) / 3
-    xs = np.array([cx for ms in marks.values() for a, cx, _, _ in ms if a < 90])
+    xs = np.array([cx for ms in marks.values() for a, cx, _, _, _, _ in ms if a < 90])
     shift = 0.0
     if dotted and len(xs) >= 10:
         cand = np.arange(-c / 2, c / 2 + 0.01, 0.5)
@@ -513,22 +630,32 @@ def parse_grid(path, i, words, img=None):
         shift = float(cand[int(np.argmin(cost))])
     if os.environ.get("GRID_DEBUG"):
         print("grid offsets: dotted", dotted, "lift", round(float(lift), 3), "shift", shift, "cell", round(c, 1), file=sys.stderr)
+    cells = pen_cells(img, G) if not dotted and os.environ.get("PEN_CELLS", "1") == "1" else None
     out = []
     for b in range(len(blocks)):
         for r in range(len(rows) - 1):
-            ms = sorted(marks.get((b, r), []), key=lambda m: -m[0])
+            if cells is not None:
+                name = re.sub(r"[^\w,.' -]", "", " ".join(t for _, t in sorted(names.get((b, r), [])))).strip(" .,'-")
+                out.append(((b, r), name or None, cells[(b, r)]))
+                continue
+            # on a dotted sheet a pen mark (an X, a C, or a check for a late or changed vote) outranks the
+            # printed dot, and a solid dot any bigger scrap of a rule
+            ms = sorted(marks.get((b, r), []), key=lambda m: (not (dotted and m[5]), not (dotted and m[4]), -m[0]))
             code = None
             if ms:
-                area, cx, yy, xx = ms[0]
+                area, cx, yy, xx, solid, pen = ms[0]
                 col = int((cx - shift) // c)
-                if not 0 <= col <= 2:
-                    code = "?"
-                elif len(ms) > 1 and ms[1][0] > GRID_DOMINANT * area and int((ms[1][1] - shift) // c) != col:
+                rival = [] if dotted and pen else [m for m in ms[1:] if m[0] > (DOT_DOMINANT if dotted else GRID_DOMINANT) * area and (m[4] or not dotted)
+                         and int((m[1] - shift) // c) != col]
+                kind = pen_kind(yy, xx) if pen else None
+                if kind == "C" or ((b, r) == (0, 0) and (is_c(yy, xx) or (dotted and not solid and area >= 90))):
+                    # the Speaker, first on the sheet, is usually in the chair: a C, drawn by hand on a
+                    # dotted sheet and often run into the rules (a check elsewhere can pass for one)
+                    code = "P"
+                elif not 0 <= col <= 2 or rival:
                     code = "?"
                 else:
-                    # the Speaker, first on the sheet, is usually in the chair: a C (a check elsewhere
-                    # can pass for one)
-                    code = "E" if is_x(yy, xx) else "P" if (b, r) == (0, 0) and is_c(yy, xx) else "YNP"[col]
+                    code = "E" if kind == "X" else "YNP"[col]
             name = re.sub(r"[^\w,.' -]", "", " ".join(t for _, t in sorted(names.get((b, r), [])))).strip(" .,'-")
             out.append(((b, r), name or None, code))
     counts = {}
