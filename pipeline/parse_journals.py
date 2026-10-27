@@ -422,7 +422,7 @@ def write_tally(tally, out):
     first = tally[0][0]
     chair = [m for m, a, b in speakers() if any(a <= v["date"] <= b for v, _ in tally)]
     members = tally_sheets.resolve({k: rows for k, (v, rows) in enumerate(tally) if rows},
-                                   _terms.get(("H", first["leg"]), []), chair)
+                                   _terms.get(("H", first["leg"]), []), chair, ordered=first["leg"] <= 65)
     for k, (v, rows) in enumerate(tally):
         v["lists"] = {}
         for pos, name, code in rows:

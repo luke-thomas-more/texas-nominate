@@ -765,16 +765,22 @@ MIN_SCORE = 60      # how well a row position's names must match its member, on 
 MIN_GROUP = 5       # sheets with the same layout that settle its positions among themselves
 GAP = 10            # an alignment's cost for skipping a row or a member (a rule missed or doubled)
 ALIGNED_SCORE = 40  # a name read on an odd sheet, held in line by the rows around it, needs only this much
+GAP_FILL = 20       # fill_gaps: cost of leaving a position between placed members empty
+FILL_SCORE = 25     # ... and the name score a member needs there unless the gap's members fit it exactly
+ORDER_BASE = 30     # order_align: a pairing scoring under this costs more than skipping
+ORDER_MIN = 15      # ... and the least a pairing held in place by the alphabetical order may score
 
 
-def resolve(sheets, roster, chair=()):
-    """Members' votes on a session's sheets: {key: [((column, row), name, code)]} -> {key: {member_id: code}}."""
-    placed = place_rows(sheets, roster, chair)
+def resolve(sheets, roster, chair=(), ordered=False):
+    """Members' votes on a session's sheets: {key: [((column, row), name, code)]} -> {key: {member_id: code}}.
+    ordered: the sheets list the members alphabetically (the 1973-78 grid forms; the 1979-82
+    printouts don't)."""
+    placed = place_rows(sheets, roster, chair, ordered)
     return {key: {placed[key][pos][0]: code for pos, _, code in rows if code and pos in placed[key]}
             for key, rows in sheets.items()}
 
 
-def place_rows(sheets, roster, chair=()):
+def place_rows(sheets, roster, chair=(), ordered=False):
     """The member at each row position of a session's sheets: {key: {(column, row): (member_id, score)}}.
     Every sheet prints the same members in the same order, so a row position is read on all the
     sheets with its layout (rows per column) and goes to the member its names match best on average,
@@ -837,6 +843,92 @@ def place_rows(sheets, roster, chair=()):
                     j -= 1
         return placed
 
+    def alpha(m):
+        t = sm.terms[m]
+        # surn holds the surname and longer forms of it ("abel adams"): sort by the bare surname, with
+        # its particle ("von dohlen"), as the clerks filed it: Mc as Mac, apostrophes dropped
+        sn = min(t["surn"], key=len) if t["surn"] else ""
+        for f in t["surn"]:
+            if f.endswith(" " + sn) and f.split()[0] in ("von", "van", "de", "del", "la", "o"):
+                sn = f
+        sn = re.sub(r"^mc", "mac", re.sub(r"[^a-z]", "", sn))
+        return (sn, t["toks"][0][0] if t["toks"] and t["toks"][0] else "")
+
+    def fill_gaps(placed, positions, S):
+        """The grid sheets (1973-78) print the members in alphabetical order down the columns, so a run
+        of positions the names couldn't settle (OCR of a neighbour's row, a garbled name) takes, in order,
+        the members not yet placed who sort between the placed members around it: all of them when they
+        fit exactly, else the in-order subset the names match best (DP)."""
+        used = {m for m, _ in placed.values()}
+        free = sorted((m for m in sm.members if m not in used), key=alpha)
+        k = 0
+        while k < len(positions):
+            if positions[k] in placed:
+                k += 1
+                continue
+            j = k
+            while j < len(positions) and positions[j] not in placed:
+                j += 1
+            lo = alpha(placed[positions[k - 1]][0]) if k else None
+            hi = alpha(placed[positions[j]][0]) if j < len(positions) else None
+            cand = [m for m in free if (lo is None or alpha(m) > lo) and (hi is None or alpha(m) < hi)]
+            run = list(range(k, j))
+            if cand and lo is not None and hi is not None:
+                ci = [sm.idx[m] for m in cand]
+                G = S[np.array(run)][:, ci]
+                # D[a, b]: best score placing positions run[:a] with candidates cand[:b], each position
+                # taking a candidate or staying empty (cost GAP_FILL), candidates skipped freely
+                D = np.full((len(run) + 1, len(cand) + 1), -1e9)
+                D[0, :] = 0
+                for a in range(1, len(run) + 1):
+                    D[a, 0] = D[a - 1, 0] - GAP_FILL
+                    for b in range(1, len(cand) + 1):
+                        D[a, b] = max(D[a - 1, b - 1] + G[a - 1, b - 1], D[a, b - 1], D[a - 1, b] - GAP_FILL)
+                a, b = len(run), len(cand)
+                while a and b:
+                    if D[a, b] == D[a - 1, b - 1] + G[a - 1, b - 1]:
+                        if G[a - 1, b - 1] >= FILL_SCORE or len(cand) == len(run):
+                            placed[positions[run[a - 1]]] = (cand[b - 1], G[a - 1, b - 1])
+                        a, b = a - 1, b - 1
+                    elif D[a, b] == D[a, b - 1]:
+                        b -= 1
+                    else:
+                        a -= 1
+            k = j
+
+    def order_align(positions, S, assigned):
+        """The sheets print the members alphabetically, down each column in turn: line the positions up
+        in that order against the session's members sorted the same way (DP, both sides may skip: an
+        empty row, a member not serving), scoring each pairing by its names' average match. The
+        Speaker's place at the head of the first column is left to the assignment. Falls back to the
+        assignment when the order explains the names worse (a sheet not in alphabetical order)."""
+        head = positions[0]
+        pos = [p for p in positions if p != head]
+        mem = sorted(sm.members, key=alpha)
+        P = np.array([positions.index(p) for p in pos])
+        G = S[P][:, [sm.idx[m] for m in mem]] - ORDER_BASE
+        n, m = G.shape
+        D = np.zeros((n + 1, m + 1))
+        for a in range(1, n + 1):
+            for b in range(1, m + 1):
+                D[a, b] = max(D[a - 1, b - 1] + G[a - 1, b - 1], D[a - 1, b], D[a, b - 1])
+        out, a, b = {}, n, m
+        while a and b:
+            if D[a, b] == D[a - 1, b - 1] + G[a - 1, b - 1]:
+                if G[a - 1, b - 1] + ORDER_BASE >= ORDER_MIN:
+                    out[pos[a - 1]] = (mem[b - 1], G[a - 1, b - 1] + ORDER_BASE)
+                a, b = a - 1, b - 1
+            elif D[a, b] == D[a - 1, b]:
+                a -= 1
+            else:
+                b -= 1
+        if head in assigned and assigned[head][0] not in {x for x, _ in out.values()}:
+            out[head] = assigned[head]
+        agree = sum(1 for p, (x, _) in assigned.items() if out.get(p, (None,))[0] == x)
+        if os.environ.get("GRID_DEBUG"):
+            print("order_align: placed", len(out), "assignment", len(assigned), "agree", agree, file=sys.stderr)
+        return out if agree >= 0.8 * len(assigned) else assigned
+
     groups = collections.defaultdict(list)
     for key, rows in sheets.items():
         groups[tuple(sorted(collections.Counter(pos[0] for pos, _, _ in rows).items()))].append(key)
@@ -855,6 +947,10 @@ def place_rows(sheets, roster, chair=()):
         S /= np.maximum(seen, 1)[:, None]
         rows, cols = linear_sum_assignment(-S)
         settled[layout] = {positions[r]: (sm.members[c], S[r, c]) for r, c in zip(rows, cols) if S[r, c] >= MIN_SCORE}
+        if ordered and os.environ.get("ORDER_ALIGN", "1") == "1":
+            settled[layout] = order_align(positions, S, settled[layout])
+        elif ordered and os.environ.get("FILL_GAPS", "1") == "1":
+            fill_gaps(settled[layout], positions, S)
         for key in keys:
             out[key] = settled[layout]
     ref = settled[max(settled, key=lambda layout: len(groups[layout]))]
