@@ -27,7 +27,7 @@ def main():
 
     people = {int(r["member_id"]): r for r in csv.DictReader(open(os.path.join(PROC, "members.csv")))}
     scores = {}
-    for r in csv.DictReader(open(os.path.join(PROC, "fit", "member_scores.csv"))):
+    for r in csv.DictReader(open(os.path.join(os.environ.get("FIT_DIR", os.path.join(PROC, "fit")), "member_scores.csv"))):
         scores.setdefault(int(r["member_id"]), []).append((int(r["leg"]), r["chamber"], float(r["dim1"]), r["party"]))
     # in the modern era legislature n covers years 1847 + 2n and the next (74th = 1995-96, 89th = 2025-26)
     ours = {}

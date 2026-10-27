@@ -1,29 +1,139 @@
 {
- "built": "2026-10-22",
+ "built": "2026-10-27",
  "dims": 2,
  "w": [
   1.0,
-  0.7794230557703813
+  0.8709462301232529
  ],
- "beta": 8.809071253210083,
+ "beta": 10.455527458808817,
  "axes": {
   "x": {
    "name": "liberal to conservative",
    "short": "Left–right",
    "neg": "More liberal",
    "pos": "More conservative",
-   "desc": "The main divide in Texas votes. Today it's almost entirely Democrats against Republicans; in the 1990s, when many rural and South Texas Democrats voted conservatively, the parties overlapped much more."
+   "desc": "The main line along which Texas votes split. What it stands for depends on the era; see the guide for each era."
   },
   "y": {
-   "name": "establishment to anti-establishment",
-   "short": "Establishment",
-   "neg": "Anti-establishment",
-   "pos": "Establishment",
-   "desc": "The second divide separates members who vote with their chamber's leadership from those who buck it, within both parties. Among House Republicans the top is each era's Speaker's team: Talmadge Heflin and Fred Hill under Craddick, Four Price and Stan Lambert more recently. The bottom is the rebels: the anti-Craddick Republicans of 2007–09 (Tommy Merritt, Delwin Jones), then Jonathan Stickland, Brian Harrison and Andy Hopper. Among Democrats, mavericks like Terry Canales sit lowest. In the Senate the axis separates institutionalists such as Robert Nichols and Charles Schwertner from members such as Mayes Middleton and Sarah Eckhardt."
+   "name": "the second divide",
+   "short": "Second",
+   "neg": "Down",
+   "pos": "Up",
+   "desc": "The second line along which votes split, after the main one. Its meaning changes more from era to era than the main divide's."
   },
   "dims": {
-   "note": "The second dimension earns its place: it cuts the remaining errors noticeably. A third adds about two-thirds as much again, because Texas votes are less one-dimensional than Congress's. But it doesn't have a clear, stable meaning yet, so the maps show the first two. We'll revisit that as older legislatures are added."
-  }
+   "note": "The second dimension earns its place: it cuts the remaining errors by about a fifth. A third adds much less, and it has no clear, stable meaning across eras, so the maps show the first two."
+  },
+  "eras": [
+   {
+    "from": 1,
+    "to": 13,
+    "label": "1846–1873: statehood, Civil War and Reconstruction",
+    "x": {
+     "desc": "Before the Civil War there was no lasting two-party divide in Austin, and the axis is hard to name: the fire-eater Louis T. Wigfall sits well to the left and the Unionist James W. Throckmorton near the center, but with so few members' parties on record, two careers can't say what the sides stood for. In the Reconstruction House of 1870–73, Republicans sit mostly to the left and Democrats to the right. Most members before Reconstruction have no party on record.",
+     "name": "the main divide",
+     "neg": "Left",
+     "pos": "Right"
+    },
+    "y": {
+     "name": "no strong pattern",
+     "neg": "Down",
+     "pos": "Up",
+     "desc": "Only a weak pattern: Houston and the border counties (Starr, Webb) sit somewhat low, and rural East and North Texas slightly high. Most votes split left to right, so read the map mainly that way."
+    }
+   },
+   {
+    "from": 14,
+    "to": 26,
+    "label": "1874–1900: after Reconstruction",
+    "x": {
+     "desc": "Democrats held most seats, and the main divide ran through them. On regulating corporations and trusts and on protecting labor unions, reformers sit to the left and their opponents to the right. The parties that challenged the Democrats land on different sides by decade: Republicans and Greenbackers of the 1870s and 1880s sit to the left, while the Populists of the 1890s and the Republicans who worked with them sit to the right. In this era the axis partly tracks who opposed the Democratic majority at the time, not one fixed ideology.",
+     "name": "reform to conservative",
+     "neg": "Reform",
+     "pos": "Conservative"
+    },
+    "y": {
+     "name": "countryside to cities and border",
+     "neg": "Cities, border, German counties",
+     "pos": "Rural Anglo counties",
+     "desc": "Members from the rural Anglo counties, especially in North Texas, sit at the top. At the bottom are the cities (Galveston, Houston, San Antonio, Beaumont), the border counties such as Webb, and the German counties (Fayette, DeWitt, Blanco). Most votes still split left to right, but about a third split up and down."
+    }
+   },
+   {
+    "from": 27,
+    "to": 41,
+    "label": "1901–1930: prohibition and the Progressive Era",
+    "x": {
+     "desc": "Progressives sit to the left, conservatives to the right. Prohibition, the era's defining fight, runs mostly up and down the map instead: on the 1911 and 1913 liquor votes the drys sit at the top and the wets at the bottom, with the drys a little to the left.",
+     "name": "progressive to conservative",
+     "neg": "More progressive",
+     "pos": "More conservative"
+    },
+    "y": {
+     "name": "dry countryside to wet cities",
+     "neg": "Wet: cities, border, German counties",
+     "pos": "Dry: rural Anglo counties",
+     "desc": "The top is the dry countryside: rural Anglo counties of East, North and West Texas. The bottom is the wet Texas of San Antonio, Houston, Galveston and Beaumont, the border, and the German and Czech counties of Central Texas. With nearly every member a Democrat, this regional and cultural split decided about as many votes as the left–right one."
+    }
+   },
+   {
+    "from": 42,
+    "to": 56,
+    "label": "1931–1960: New Deal liberals and conservative Democrats",
+    "x": {
+     "desc": "Liberal Democrats such as Maury Maverick Jr. and Henry B. González sit to the left, and conservative Democrats such as Dorsey Hardeman, Wardlow Lane and Coke Stevenson to the right."
+    },
+    "y": {
+     "name": "countryside to cities and border",
+     "neg": "Cities, border",
+     "pos": "Rural Anglo counties",
+     "desc": "As before 1930, rural Anglo counties of East and North Texas sit at the top, and the big cities (Houston, Dallas, Fort Worth, San Antonio) and the Rio Grande Valley at the bottom. In these one-party decades this was still the most common way votes split."
+    }
+   },
+   {
+    "from": 57,
+    "to": 67,
+    "label": "1961–1982: liberals, conservatives and the first Republicans",
+    "x": {
+     "desc": "Liberals such as Bob Eckhardt, Barbara Jordan, Oscar Mauzy and Sissy Farenthold sit to the left, conservative Democrats to the right. The first modern Republicans join the conservatives on the right."
+    },
+    "y": {
+     "name": "countryside to cities",
+     "neg": "Cities",
+     "pos": "Rural and small-city Texas",
+     "desc": "Rural and small-city members sit at the top, and the Dallas delegation at the bottom, with Fort Worth, El Paso, Laredo and Duval County also below the middle. Most contested votes now cut across both axes at once."
+    }
+   },
+   {
+    "from": 68,
+    "to": 73,
+    "label": "1983–1994: the Republicans' rise",
+    "x": {
+     "desc": "Liberal Democrats to the left, Republicans to the right, with conservative rural Democrats in between."
+    },
+    "y": {
+     "name": "Republican suburbs to Democratic Texas",
+     "neg": "Democrats",
+     "pos": "Suburban Republicans",
+     "desc": "As Republicans won the suburbs, this axis came to separate them (top: Collin, Denton and Midland counties, suburban Dallas) from Democrats, rural and urban alike (bottom). Party now shows up on both axes."
+    }
+   },
+   {
+    "from": 74,
+    "to": 89,
+    "label": "1995–2025: the two-party era",
+    "x": {
+     "desc": "Almost entirely Democrats against Republicans. In the 1990s, when many rural and South Texas Democrats voted conservatively, the parties overlapped much more."
+    },
+    "y": {
+     "name": "establishment to anti-establishment",
+     "short": "Establishment",
+     "neg": "Anti-establishment",
+     "pos": "Establishment",
+     "desc": "Within both parties, this separates members who vote with their chamber's leadership from those who buck it. Among House Republicans, the top is each era's Speaker's team: Talmadge Heflin and Fred Hill under Craddick, Stan Lambert more recently. The bottom is the rebels: Jonathan Stickland, Brian Harrison and Andy Hopper. Among Democrats, mavericks like Terry Canales sit lowest. In the Senate the axis separates institutionalists such as Robert Nichols and Charles Schwertner from members such as Mayes Middleton and Sarah Eckhardt."
+    }
+   }
+  ]
  },
  "legislatures": [
   {
@@ -32,9 +142,9 @@
    "chambers": {
     "H": {
      "members": 150,
-     "rollcalls": 4234,
-     "scaled": 2787,
-     "excluded": 1
+     "rollcalls": 4235,
+     "scaled": 2788,
+     "excluded": 0
     },
     "S": {
      "members": 31,
@@ -266,9 +376,9 @@
    "chambers": {
     "H": {
      "members": 150,
-     "rollcalls": 428,
-     "scaled": 151,
-     "excluded": 10
+     "rollcalls": 434,
+     "scaled": 153,
+     "excluded": 4
     },
     "S": {
      "members": 31,
@@ -290,9 +400,9 @@
     },
     "S": {
      "members": 31,
-     "rollcalls": 1893,
-     "scaled": 488,
-     "excluded": 45
+     "rollcalls": 1894,
+     "scaled": 489,
+     "excluded": 44
     }
    }
   },
@@ -308,60 +418,1344 @@
     },
     "S": {
      "members": 31,
-     "rollcalls": 1679,
-     "scaled": 464,
-     "excluded": 37
+     "rollcalls": 1681,
+     "scaled": 465,
+     "excluded": 35
+    }
+   }
+  },
+  {
+   "leg": 73,
+   "years": "1993–94",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 429,
+     "scaled": 281,
+     "excluded": 49
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1615,
+     "scaled": 266,
+     "excluded": 59
+    }
+   }
+  },
+  {
+   "leg": 72,
+   "years": "1991–92",
+   "chambers": {
+    "H": {
+     "members": 157,
+     "rollcalls": 627,
+     "scaled": 397,
+     "excluded": 118
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1609,
+     "scaled": 403,
+     "excluded": 48
+    }
+   }
+  },
+  {
+   "leg": 71,
+   "years": "1989–90",
+   "chambers": {
+    "H": {
+     "members": 153,
+     "rollcalls": 486,
+     "scaled": 225,
+     "excluded": 126
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1298,
+     "scaled": 502,
+     "excluded": 85
+    }
+   }
+  },
+  {
+   "leg": 70,
+   "years": "1987–88",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 489,
+     "scaled": 274,
+     "excluded": 85
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 999,
+     "scaled": 416,
+     "excluded": 49
+    }
+   }
+  },
+  {
+   "leg": 69,
+   "years": "1985–86",
+   "chambers": {
+    "H": {
+     "members": 154,
+     "rollcalls": 454,
+     "scaled": 252,
+     "excluded": 201
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 877,
+     "scaled": 597,
+     "excluded": 428
+    }
+   }
+  },
+  {
+   "leg": 68,
+   "years": "1983–84",
+   "chambers": {
+    "H": {
+     "members": 157,
+     "rollcalls": 579,
+     "scaled": 433,
+     "excluded": 111
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1179,
+     "scaled": 758,
+     "excluded": 129
+    }
+   }
+  },
+  {
+   "leg": 67,
+   "years": "1981–82",
+   "chambers": {
+    "S": {
+     "members": 31,
+     "rollcalls": 1186,
+     "scaled": 567,
+     "excluded": 153
+    }
+   }
+  },
+  {
+   "leg": 66,
+   "years": "1979–80",
+   "chambers": {
+    "S": {
+     "members": 31,
+     "rollcalls": 1074,
+     "scaled": 548,
+     "excluded": 90
+    }
+   }
+  },
+  {
+   "leg": 65,
+   "years": "1977–78",
+   "chambers": {
+    "S": {
+     "members": 33,
+     "rollcalls": 878,
+     "scaled": 606,
+     "excluded": 151
+    }
+   }
+  },
+  {
+   "leg": 64,
+   "years": "1975–76",
+   "chambers": {
+    "S": {
+     "members": 31,
+     "rollcalls": 712,
+     "scaled": 333,
+     "excluded": 200
+    }
+   }
+  },
+  {
+   "leg": 63,
+   "years": "1973–74",
+   "chambers": {
+    "S": {
+     "members": 32,
+     "rollcalls": 399,
+     "scaled": 258,
+     "excluded": 139
+    }
+   }
+  },
+  {
+   "leg": 62,
+   "years": "1971–72",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 1836,
+     "scaled": 1095,
+     "excluded": 228
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1379,
+     "scaled": 578,
+     "excluded": 32
+    }
+   }
+  },
+  {
+   "leg": 61,
+   "years": "1969–70",
+   "chambers": {
+    "H": {
+     "members": 152,
+     "rollcalls": 1190,
+     "scaled": 615,
+     "excluded": 287
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2694,
+     "scaled": 523,
+     "excluded": 26
+    }
+   }
+  },
+  {
+   "leg": 60,
+   "years": "1967–68",
+   "chambers": {
+    "H": {
+     "members": 162,
+     "rollcalls": 592,
+     "scaled": 342,
+     "excluded": 526
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 2279,
+     "scaled": 692,
+     "excluded": 9
+    }
+   }
+  },
+  {
+   "leg": 59,
+   "years": "1965–66",
+   "chambers": {
+    "H": {
+     "members": 153,
+     "rollcalls": 494,
+     "scaled": 268,
+     "excluded": 299
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1886,
+     "scaled": 448,
+     "excluded": 58
+    }
+   }
+  },
+  {
+   "leg": 58,
+   "years": "1963–64",
+   "chambers": {
+    "H": {
+     "members": 154,
+     "rollcalls": 452,
+     "scaled": 294,
+     "excluded": 100
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1188,
+     "scaled": 435,
+     "excluded": 57
+    }
+   }
+  },
+  {
+   "leg": 57,
+   "years": "1961–62",
+   "chambers": {
+    "H": {
+     "members": 158,
+     "rollcalls": 1118,
+     "scaled": 713,
+     "excluded": 307
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1947,
+     "scaled": 732,
+     "excluded": 38
+    }
+   }
+  },
+  {
+   "leg": 56,
+   "years": "1959–60",
+   "chambers": {
+    "H": {
+     "members": 154,
+     "rollcalls": 1237,
+     "scaled": 810,
+     "excluded": 397
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1699,
+     "scaled": 737,
+     "excluded": 15
+    }
+   }
+  },
+  {
+   "leg": 55,
+   "years": "1957–58",
+   "chambers": {
+    "H": {
+     "members": 152,
+     "rollcalls": 1242,
+     "scaled": 532,
+     "excluded": 397
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1627,
+     "scaled": 482,
+     "excluded": 17
+    }
+   }
+  },
+  {
+   "leg": 54,
+   "years": "1955–56",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 1517,
+     "scaled": 800,
+     "excluded": 121
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1598,
+     "scaled": 540,
+     "excluded": 20
+    }
+   }
+  },
+  {
+   "leg": 53,
+   "years": "1953–54",
+   "chambers": {
+    "H": {
+     "members": 155,
+     "rollcalls": 1407,
+     "scaled": 1089,
+     "excluded": 368
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1529,
+     "scaled": 430,
+     "excluded": 31
+    }
+   }
+  },
+  {
+   "leg": 52,
+   "years": "1951–52",
+   "chambers": {
+    "H": {
+     "members": 160,
+     "rollcalls": 1569,
+     "scaled": 530,
+     "excluded": 156
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1533,
+     "scaled": 441,
+     "excluded": 27
+    }
+   }
+  },
+  {
+   "leg": 51,
+   "years": "1949–50",
+   "chambers": {
+    "H": {
+     "members": 157,
+     "rollcalls": 2332,
+     "scaled": 993,
+     "excluded": 166
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 2260,
+     "scaled": 890,
+     "excluded": 45
+    }
+   }
+  },
+  {
+   "leg": 50,
+   "years": "1947–48",
+   "chambers": {
+    "H": {
+     "members": 153,
+     "rollcalls": 1508,
+     "scaled": 772,
+     "excluded": 178
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 1435,
+     "scaled": 494,
+     "excluded": 48
+    }
+   }
+  },
+  {
+   "leg": 49,
+   "years": "1945–46",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 1311,
+     "scaled": 462,
+     "excluded": 121
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1452,
+     "scaled": 541,
+     "excluded": 32
+    }
+   }
+  },
+  {
+   "leg": 48,
+   "years": "1943–44",
+   "chambers": {
+    "H": {
+     "members": 151,
+     "rollcalls": 1202,
+     "scaled": 477,
+     "excluded": 324
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1389,
+     "scaled": 485,
+     "excluded": 6
+    }
+   }
+  },
+  {
+   "leg": 47,
+   "years": "1941–42",
+   "chambers": {
+    "H": {
+     "members": 157,
+     "rollcalls": 2401,
+     "scaled": 1077,
+     "excluded": 105
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 2025,
+     "scaled": 649,
+     "excluded": 40
+    }
+   }
+  },
+  {
+   "leg": 46,
+   "years": "1939–40",
+   "chambers": {
+    "H": {
+     "members": 155,
+     "rollcalls": 2363,
+     "scaled": 1062,
+     "excluded": 133
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2103,
+     "scaled": 779,
+     "excluded": 53
+    }
+   }
+  },
+  {
+   "leg": 45,
+   "years": "1937–38",
+   "chambers": {
+    "H": {
+     "members": 158,
+     "rollcalls": 2350,
+     "scaled": 1155,
+     "excluded": 77
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 2267,
+     "scaled": 991,
+     "excluded": 58
+    }
+   }
+  },
+  {
+   "leg": 44,
+   "years": "1935–36",
+   "chambers": {
+    "H": {
+     "members": 155,
+     "rollcalls": 2177,
+     "scaled": 1280,
+     "excluded": 107
+    },
+    "S": {
+     "members": 35,
+     "rollcalls": 2370,
+     "scaled": 1225,
+     "excluded": 94
+    }
+   }
+  },
+  {
+   "leg": 43,
+   "years": "1933–34",
+   "chambers": {
+    "H": {
+     "members": 158,
+     "rollcalls": 2700,
+     "scaled": 1760,
+     "excluded": 99
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2772,
+     "scaled": 1457,
+     "excluded": 254
+    }
+   }
+  },
+  {
+   "leg": 42,
+   "years": "1931–32",
+   "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 1871,
+     "scaled": 1132,
+     "excluded": 147
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 2323,
+     "scaled": 968,
+     "excluded": 101
+    }
+   }
+  },
+  {
+   "leg": 41,
+   "years": "1929–30",
+   "chambers": {
+    "H": {
+     "members": 158,
+     "rollcalls": 1834,
+     "scaled": 1159,
+     "excluded": 569
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 2992,
+     "scaled": 1098,
+     "excluded": 69
+    }
+   }
+  },
+  {
+   "leg": 40,
+   "years": "1927–28",
+   "chambers": {
+    "H": {
+     "members": 155,
+     "rollcalls": 551,
+     "scaled": 372,
+     "excluded": 591
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1117,
+     "scaled": 379,
+     "excluded": 61
+    }
+   }
+  },
+  {
+   "leg": 39,
+   "years": "1925–26",
+   "chambers": {
+    "H": {
+     "members": 164,
+     "rollcalls": 899,
+     "scaled": 383,
+     "excluded": 873
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1936,
+     "scaled": 390,
+     "excluded": 60
+    }
+   }
+  },
+  {
+   "leg": 38,
+   "years": "1923–24",
+   "chambers": {
+    "H": {
+     "members": 152,
+     "rollcalls": 1024,
+     "scaled": 717,
+     "excluded": 388
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1286,
+     "scaled": 743,
+     "excluded": 47
+    }
+   }
+  },
+  {
+   "leg": 37,
+   "years": "1921–22",
+   "chambers": {
+    "H": {
+     "members": 145,
+     "rollcalls": 285,
+     "scaled": 177,
+     "excluded": 165
+    },
+    "S": {
+     "members": 35,
+     "rollcalls": 966,
+     "scaled": 428,
+     "excluded": 54
+    }
+   }
+  },
+  {
+   "leg": 36,
+   "years": "1919–20",
+   "chambers": {
+    "H": {
+     "members": 160,
+     "rollcalls": 456,
+     "scaled": 204,
+     "excluded": 197
+    },
+    "S": {
+     "members": 34,
+     "rollcalls": 1583,
+     "scaled": 518,
+     "excluded": 60
+    }
+   }
+  },
+  {
+   "leg": 35,
+   "years": "1917–18",
+   "chambers": {
+    "H": {
+     "members": 160,
+     "rollcalls": 374,
+     "scaled": 262,
+     "excluded": 272
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 1496,
+     "scaled": 597,
+     "excluded": 130
+    }
+   }
+  },
+  {
+   "leg": 34,
+   "years": "1915–16",
+   "chambers": {
+    "H": {
+     "members": 153,
+     "rollcalls": 455,
+     "scaled": 341,
+     "excluded": 78
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1101,
+     "scaled": 575,
+     "excluded": 36
+    }
+   }
+  },
+  {
+   "leg": 33,
+   "years": "1913–14",
+   "chambers": {
+    "H": {
+     "members": 158,
+     "rollcalls": 277,
+     "scaled": 188,
+     "excluded": 216
+    },
+    "S": {
+     "members": 38,
+     "rollcalls": 1551,
+     "scaled": 718,
+     "excluded": 83
+    }
+   }
+  },
+  {
+   "leg": 32,
+   "years": "1911–12",
+   "chambers": {
+    "H": {
+     "members": 137,
+     "rollcalls": 427,
+     "scaled": 232,
+     "excluded": 114
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1288,
+     "scaled": 613,
+     "excluded": 95
+    }
+   }
+  },
+  {
+   "leg": 31,
+   "years": "1909–10",
+   "chambers": {
+    "H": {
+     "members": 146,
+     "rollcalls": 743,
+     "scaled": 410,
+     "excluded": 158
+    },
+    "S": {
+     "members": 34,
+     "rollcalls": 1590,
+     "scaled": 612,
+     "excluded": 122
+    }
+   }
+  },
+  {
+   "leg": 30,
+   "years": "1907–08",
+   "chambers": {
+    "H": {
+     "members": 134,
+     "rollcalls": 676,
+     "scaled": 445,
+     "excluded": 76
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1453,
+     "scaled": 814,
+     "excluded": 22
+    }
+   }
+  },
+  {
+   "leg": 29,
+   "years": "1905–06",
+   "chambers": {
+    "H": {
+     "members": 137,
+     "rollcalls": 542,
+     "scaled": 413,
+     "excluded": 94
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1074,
+     "scaled": 640,
+     "excluded": 79
+    }
+   }
+  },
+  {
+   "leg": 28,
+   "years": "1903–04",
+   "chambers": {
+    "H": {
+     "members": 133,
+     "rollcalls": 352,
+     "scaled": 251,
+     "excluded": 92
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 792,
+     "scaled": 322,
+     "excluded": 10
+    }
+   }
+  },
+  {
+   "leg": 27,
+   "years": "1901–02",
+   "chambers": {
+    "H": {
+     "members": 131,
+     "rollcalls": 506,
+     "scaled": 403,
+     "excluded": 85
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 732,
+     "scaled": 435,
+     "excluded": 11
+    }
+   }
+  },
+  {
+   "leg": 26,
+   "years": "1899–00",
+   "chambers": {
+    "H": {
+     "members": 129,
+     "rollcalls": 627,
+     "scaled": 474,
+     "excluded": 129
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1138,
+     "scaled": 853,
+     "excluded": 33
+    }
+   }
+  },
+  {
+   "leg": 25,
+   "years": "1897–98",
+   "chambers": {
+    "H": {
+     "members": 129,
+     "rollcalls": 690,
+     "scaled": 585,
+     "excluded": 254
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 1173,
+     "scaled": 883,
+     "excluded": 45
+    }
+   }
+  },
+  {
+   "leg": 24,
+   "years": "1895–96",
+   "chambers": {
+    "H": {
+     "members": 131,
+     "rollcalls": 430,
+     "scaled": 346,
+     "excluded": 139
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1060,
+     "scaled": 855,
+     "excluded": 51
+    }
+   }
+  },
+  {
+   "leg": 23,
+   "years": "1893–94",
+   "chambers": {
+    "H": {
+     "members": 128,
+     "rollcalls": 261,
+     "scaled": 216,
+     "excluded": 415
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 666,
+     "scaled": 499,
+     "excluded": 136
+    }
+   }
+  },
+  {
+   "leg": 22,
+   "years": "1891–92",
+   "chambers": {
+    "H": {
+     "members": 109,
+     "rollcalls": 98,
+     "scaled": 62,
+     "excluded": 280
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 832,
+     "scaled": 576,
+     "excluded": 97
+    }
+   }
+  },
+  {
+   "leg": 21,
+   "years": "1889–90",
+   "chambers": {
+    "H": {
+     "members": 106,
+     "rollcalls": 153,
+     "scaled": 77,
+     "excluded": 164
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 502,
+     "scaled": 310,
+     "excluded": 140
+    }
+   }
+  },
+  {
+   "leg": 20,
+   "years": "1887–88",
+   "chambers": {
+    "H": {
+     "members": 109,
+     "rollcalls": 362,
+     "scaled": 290,
+     "excluded": 164
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 686,
+     "scaled": 533,
+     "excluded": 68
+    }
+   }
+  },
+  {
+   "leg": 19,
+   "years": "1885–86",
+   "chambers": {
+    "H": {
+     "members": 106,
+     "rollcalls": 280,
+     "scaled": 213,
+     "excluded": 171
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 545,
+     "scaled": 400,
+     "excluded": 84
+    }
+   }
+  },
+  {
+   "leg": 18,
+   "years": "1883–84",
+   "chambers": {
+    "H": {
+     "members": 112,
+     "rollcalls": 563,
+     "scaled": 449,
+     "excluded": 144
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 964,
+     "scaled": 709,
+     "excluded": 103
+    }
+   }
+  },
+  {
+   "leg": 17,
+   "years": "1881–82",
+   "chambers": {
+    "H": {
+     "members": 97,
+     "rollcalls": 416,
+     "scaled": 340,
+     "excluded": 142
+    },
+    "S": {
+     "members": 35,
+     "rollcalls": 670,
+     "scaled": 364,
+     "excluded": 110
+    }
+   }
+  },
+  {
+   "leg": 16,
+   "years": "1879–80",
+   "chambers": {
+    "H": {
+     "members": 96,
+     "rollcalls": 405,
+     "scaled": 291,
+     "excluded": 278
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 1217,
+     "scaled": 694,
+     "excluded": 152
+    }
+   }
+  },
+  {
+   "leg": 15,
+   "years": "1876–77",
+   "chambers": {
+    "H": {
+     "members": 95,
+     "rollcalls": 409,
+     "scaled": 235,
+     "excluded": 157
+    },
+    "S": {
+     "members": 31,
+     "rollcalls": 740,
+     "scaled": 446,
+     "excluded": 132
+    }
+   }
+  },
+  {
+   "leg": 14,
+   "years": "1874–75",
+   "chambers": {
+    "H": {
+     "members": 95,
+     "rollcalls": 106,
+     "scaled": 67,
+     "excluded": 131
+    },
+    "S": {
+     "members": 32,
+     "rollcalls": 278,
+     "scaled": 199,
+     "excluded": 68
+    }
+   }
+  },
+  {
+   "leg": 13,
+   "years": "1873–74",
+   "chambers": {
+    "H": {
+     "members": 94,
+     "rollcalls": 262,
+     "scaled": 217,
+     "excluded": 53
+    },
+    "S": {
+     "members": 30,
+     "rollcalls": 184,
+     "scaled": 89,
+     "excluded": 171
+    }
+   }
+  },
+  {
+   "leg": 12,
+   "years": "1870–71",
+   "chambers": {
+    "H": {
+     "members": 106,
+     "rollcalls": 1363,
+     "scaled": 1247,
+     "excluded": 300
+    },
+    "S": {
+     "members": 35,
+     "rollcalls": 1047,
+     "scaled": 781,
+     "excluded": 173
+    }
+   }
+  },
+  {
+   "leg": 11,
+   "years": "1866–67",
+   "chambers": {
+    "H": {
+     "members": 90,
+     "rollcalls": 268,
+     "scaled": 158,
+     "excluded": 99
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 279,
+     "scaled": 140,
+     "excluded": 29
+    }
+   }
+  },
+  {
+   "leg": 10,
+   "years": "1863–64",
+   "chambers": {
+    "H": {
+     "members": 90,
+     "rollcalls": 36,
+     "scaled": 34,
+     "excluded": 20
+    },
+    "S": {
+     "members": 35,
+     "rollcalls": 70,
+     "scaled": 67,
+     "excluded": 6
+    }
+   }
+  },
+  {
+   "leg": 9,
+   "years": "1863–64",
+   "chambers": {
+    "H": {
+     "members": 80,
+     "rollcalls": 24,
+     "scaled": 19,
+     "excluded": 15
+    },
+    "S": {
+     "members": 42,
+     "rollcalls": 154,
+     "scaled": 139,
+     "excluded": 11
+    }
+   }
+  },
+  {
+   "leg": 8,
+   "years": "1859–60",
+   "chambers": {
+    "H": {
+     "members": 104,
+     "rollcalls": 239,
+     "scaled": 167,
+     "excluded": 147
+    },
+    "S": {
+     "members": 39,
+     "rollcalls": 328,
+     "scaled": 209,
+     "excluded": 57
+    }
+   }
+  },
+  {
+   "leg": 7,
+   "years": "1857–58",
+   "chambers": {
+    "H": {
+     "members": 92,
+     "rollcalls": 93,
+     "scaled": 77,
+     "excluded": 42
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 195,
+     "scaled": 124,
+     "excluded": 15
+    }
+   }
+  },
+  {
+   "leg": 6,
+   "years": "1855–56",
+   "chambers": {
+    "H": {
+     "members": 98,
+     "rollcalls": 163,
+     "scaled": 114,
+     "excluded": 60
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 119,
+     "scaled": 72,
+     "excluded": 101
+    }
+   }
+  },
+  {
+   "leg": 5,
+   "years": "1854–55",
+   "chambers": {
+    "H": {
+     "members": 35,
+     "rollcalls": 3,
+     "scaled": 0,
+     "excluded": 72
+    },
+    "S": {
+     "members": 33,
+     "rollcalls": 207,
+     "scaled": 125,
+     "excluded": 38
+    }
+   }
+  },
+  {
+   "leg": 4,
+   "years": "1851–52",
+   "chambers": {
+    "H": {
+     "members": 74,
+     "rollcalls": 50,
+     "scaled": 18,
+     "excluded": 135
+    },
+    "S": {
+     "members": 29,
+     "rollcalls": 197,
+     "scaled": 148,
+     "excluded": 25
+    }
+   }
+  },
+  {
+   "leg": 3,
+   "years": "1849–50",
+   "chambers": {
+    "H": {
+     "members": 56,
+     "rollcalls": 216,
+     "scaled": 183,
+     "excluded": 71
+    },
+    "S": {
+     "members": 24,
+     "rollcalls": 138,
+     "scaled": 109,
+     "excluded": 146
+    }
+   }
+  },
+  {
+   "leg": 2,
+   "years": "1847–48",
+   "chambers": {
+    "H": {
+     "members": 67,
+     "rollcalls": 50,
+     "scaled": 35,
+     "excluded": 83
+    },
+    "S": {
+     "members": 21,
+     "rollcalls": 46,
+     "scaled": 29,
+     "excluded": 12
+    }
+   }
+  },
+  {
+   "leg": 1,
+   "years": "1846–47",
+   "chambers": {
+    "H": {
+     "members": 65,
+     "rollcalls": 112,
+     "scaled": 69,
+     "excluded": 55
+    },
+    "S": {
+     "members": 21,
+     "rollcalls": 115,
+     "scaled": 94,
+     "excluded": 34
     }
    }
   }
  ],
  "fit": {
   "2": {
-   "correct": 0.9137325921696663,
-   "apre": 0.6282047820397201,
-   "gmp": 0.8250790945719608,
-   "loglik": -460357.4497668432,
-   "n_votes": 2394253,
-   "beta": 8.809071253210083,
+   "correct": 0.8473402058282377,
+   "apre": 0.39950371926507733,
+   "gmp": 0.7281964233950812,
+   "loglik": -2196254.9457702064,
+   "n_votes": 6924220,
+   "beta": 10.455527458808817,
    "w": [
     1.0,
-    0.7794230557703813
+    0.8709462301232529
    ],
-   "seconds": 1323.7
+   "seconds": 13797.4
   },
   "1": {
-   "correct": 0.9039520886055066,
-   "apre": 0.586052774162657,
-   "gmp": 0.8040217827802867,
-   "loglik": -522255.814296777,
-   "n_votes": 2394253,
-   "beta": 10.338376342308596,
+   "correct": 0.8134186955353816,
+   "apre": 0.26607146306242024,
+   "gmp": 0.6739315033807913,
+   "loglik": -2732482.782935582,
+   "n_votes": 6924220,
+   "beta": 9.152275223717423,
    "w": [
     1.0
    ],
-   "seconds": 603.6
+   "seconds": 3764.1
   },
   "3": {
-   "correct": 0.9199445505550166,
-   "apre": 0.6549770762343462,
-   "gmp": 0.8387062037649214,
-   "loglik": -421136.67206677725,
-   "n_votes": 2394253,
-   "beta": 9.809100718282442,
+   "correct": 0.85990624214713,
+   "apre": 0.4489329623347009,
+   "gmp": 0.7485140205670247,
+   "loglik": -2005706.5664688852,
+   "n_votes": 6924220,
+   "beta": 13.223793903793672,
    "w": [
     1.0,
-    0.7513717727527062,
-    0.7616979218693773
+    1.0300155088400345,
+    0.8259466624853343
    ],
-   "seconds": 1009.5
+   "seconds": 5389.5
   }
  },
  "totals": {
-  "rollcalls": 60954,
-  "scaled": 30627,
-  "members": 617,
-  "both_chambers": 32,
-  "votes": 2394253,
-  "excluded": 272
+  "rollcalls": 200065,
+  "scaled": 99781,
+  "members": 5319,
+  "both_chambers": 390,
+  "votes": 6924220,
+  "excluded": 18910
  }
 }

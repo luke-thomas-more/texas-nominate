@@ -22,6 +22,12 @@ that dimension is stretched until the outermost legislator touches the unit circ
 NOMINATE solutions look. (Freeing beta during the joint polish would let it trade off against the
 spreads and drift, so it is only updated in its own step.)
 
+Hybrid model (G and hybrid=True): dimension 1 is shared by all of history, and each later
+dimension belongs to one group of roll calls (a shared second axis, or an era's own). G[j, k] = 1
+where roll call j uses dimension k. A legislator's point in each plane (dim 1, dim k) stays inside
+the unit circle (x_1^2 + x_k^2 <= 1), parameterized for the polish as x_1 = tanh v_1,
+x_k = sech v_1 * tanh v_k; a legislator who never votes on dimension k keeps x_k = 0.
+
 The inner loops are compiled (nominate_kernels.py) and run on all cores.
 """
 import os
@@ -59,7 +65,7 @@ class DWNominate:
     frac    : where the vote falls in the member's career, 0 = first period, 1 = last
     """
 
-    def __init__(self, rc, mem, yea, frac, n_rc, n_mem, K=2, trend=True):
+    def __init__(self, rc, mem, yea, frac, n_rc, n_mem, K=2, trend=True, G=None, hybrid=False):
         self.rc = np.ascontiguousarray(rc, np.int64)
         self.mem = np.ascontiguousarray(mem, np.int64)
         self.s = np.where(yea, 1.0, -1.0)
@@ -67,9 +73,48 @@ class DWNominate:
         self.n_rc, self.n_mem, self.K, self.trend = n_rc, n_mem, K, trend
         self.T = nk.n_threads()
         self.log = []
+        self.G = np.ascontiguousarray(np.ones((n_rc, K)) if G is None else G, float)
+        self.hybrid = hybrid
 
     def _data(self):
-        return self.rc, self.mem, self.s, self.frac
+        return self.rc, self.mem, self.s, self.frac, self.G
+
+    # ---- the feasible region: the unit ball, or in the hybrid model the unit disc in each plane
+    def _ball(self, P, r=1.0):
+        if not self.hybrid:
+            return to_ball(P, r)
+        P = P.copy()
+        P[:, 0] = np.clip(P[:, 0], -r, r)
+        lim = np.sqrt(np.maximum(r * r - P[:, 0] ** 2, 0.0))[:, None]
+        P[:, 1:] = np.clip(P[:, 1:], -lim, lim)
+        return P
+
+    def _sq(self, V):
+        if not self.hybrid:
+            return self._squash(V)
+        X = np.empty_like(V)
+        X[:, 0] = np.tanh(V[:, 0])
+        X[:, 1:] = np.tanh(V[:, 1:]) / np.cosh(V[:, :1])
+        return X
+
+    def _unsq(self, X, cap=0.999):
+        if not self.hybrid:
+            return self._unsquash(X, cap)
+        V = np.empty_like(X)
+        x0 = np.clip(X[:, 0], -cap, cap)
+        V[:, 0] = np.arctanh(x0)
+        V[:, 1:] = np.arctanh(np.clip(X[:, 1:] / np.sqrt(1 - x0 ** 2)[:, None], -cap, cap))
+        return V
+
+    def _sq_grad(self, V, G):
+        if not self.hybrid:
+            return self._squash_grad(V, G)
+        sech0, tanh0 = 1 / np.cosh(V[:, :1]), np.tanh(V[:, :1])
+        tk = np.tanh(V[:, 1:])
+        out = np.empty_like(G)
+        out[:, :1] = G[:, :1] * sech0 ** 2 - (G[:, 1:] * tk).sum(1, keepdims=True) * sech0 * tanh0
+        out[:, 1:] = G[:, 1:] * sech0 * (1 - tk ** 2)
+        return out
 
     def _state(self, **kw):
         return (kw.get("Pm", self.Pm), kw.get("Pp", self.Pp), kw.get("M", self.M), kw.get("D", self.D),
@@ -87,8 +132,8 @@ class DWNominate:
         mu_y = np.stack([np.bincount(self.rc[yea], weights=Xo[yea, k], minlength=self.n_rc) for k in range(self.K)], 1) / np.maximum(cy, 1)
         mu_n = np.stack([np.bincount(self.rc[~yea], weights=Xo[~yea, k], minlength=self.n_rc) for k in range(self.K)], 1) / np.maximum(cn, 1)
         self.Pm, self.Pp = X0.copy(), X0.copy()
-        self.M = to_ball((mu_y + mu_n) / 2, 0.99)
-        self.D = (mu_n - mu_y) / 2
+        self.M = self._ball((mu_y + mu_n) / 2 * self.G, 0.99)
+        self.D = (mu_n - mu_y) / 2 * self.G
         self.beta = float(beta)
         self.w2 = np.array([1.0] + [w2] * (self.K - 1))
         return self
@@ -123,18 +168,18 @@ class DWNominate:
         g, H = nk.block_rollcalls(*self._state(), *self._data(), self.T)
         K = self.K
         self._line_search(0, self.n_rc, self._solve(g, H),
-                          lambda st: {"M": to_ball(self.M + st[:, :K]), "D": self.D + st[:, K:]})
+                          lambda st: {"M": self._ball(self.M + st[:, :K]), "D": self.D + st[:, K:]})
 
     def step_members(self):
         g, H = nk.block_members(*self._state(), *self._data(), self.T)
         K = self.K
         if self.trend:
-            apply = lambda st: {"Pm": to_ball(self.Pm + st[:, :K]), "Pp": to_ball(self.Pp + st[:, K:])}
+            apply = lambda st: {"Pm": self._ball(self.Pm + st[:, :K]), "Pp": self._ball(self.Pp + st[:, K:])}
             step = self._solve(g, H)
         else:
             g1, H1 = g[:, :K], H[:, :K, :K]
             step = self._solve(g1, H1)
-            apply = lambda st: {"Pm": to_ball(self.Pm + st), "Pp": to_ball(self.Pm + st)}
+            apply = lambda st: {"Pm": self._ball(self.Pm + st), "Pp": self._ball(self.Pm + st)}
         self._line_search(1, self.n_mem, step, apply)
 
     def step_global(self):
@@ -158,7 +203,7 @@ class DWNominate:
         touches the unit circle, dividing its weight to match (the likelihood is unchanged)."""
         for k in range(1, self.K):
             P = np.vstack([self.Pm, self.Pp])
-            other = (P ** 2).sum(1) - P[:, k] ** 2
+            other = P[:, 0] ** 2 if self.hybrid else (P ** 2).sum(1) - P[:, k] ** 2
             room = np.where(P[:, k] ** 2 > 1e-12, (1 - np.minimum(other, 1)) / np.maximum(P[:, k] ** 2, 1e-12), np.inf)
             c = float(np.sqrt(room.min()))
             if not np.isfinite(c) or abs(c - 1) < 1e-6:
@@ -167,7 +212,7 @@ class DWNominate:
                 arr[:, k] *= c
             self.w2 = self.w2.copy()
             self.w2[k] /= c * c
-            self.M = to_ball(self.M, 0.999)
+            self.M = self._ball(self.M, 0.999)
         return self
 
     def alternate(self, iters=30, verbose=True, warmup=5):
@@ -212,8 +257,8 @@ class DWNominate:
         return self.n_mem * self.K, self.n_rc * self.K
 
     def _pack(self):
-        return np.concatenate([self._unsquash(self.Pm).ravel(), self._unsquash(self.Pp).ravel(),
-                               self._unsquash(self.M).ravel(), self.D.ravel()])
+        return np.concatenate([self._unsq(self.Pm).ravel(), self._unsq(self.Pp).ravel(),
+                               self._unsq(self.M).ravel(), self.D.ravel()])
 
     def _unpack(self, theta):
         nm, nr = self._sizes()
@@ -223,13 +268,13 @@ class DWNominate:
 
     def _objective(self, theta):
         Vm, Vp, Mr, D = self._unpack(theta)
-        Pm, M = self._squash(Vm), self._squash(Mr)
-        Pp = self._squash(Vp) if self.trend else Pm
+        Pm, M = self._sq(Vm), self._sq(Mr)
+        Pp = self._sq(Vp) if self.trend else Pm
         ll, gPm, gPp, gM, gD = nk.objective(Pm, Pp, M, np.ascontiguousarray(D), self.beta, self.w2, *self._data(), self.T)
         if not self.trend:
             gPm, gPp = gPm + gPp, np.zeros_like(gPp)
-        grad = np.concatenate([self._squash_grad(Vm, gPm).ravel(), self._squash_grad(Vp, gPp).ravel(),
-                               self._squash_grad(Mr, gM).ravel(), gD.ravel()])
+        grad = np.concatenate([self._sq_grad(Vm, gPm).ravel(), self._sq_grad(Vp, gPp).ravel(),
+                               self._sq_grad(Mr, gM).ravel(), gD.ravel()])
         return -ll, -grad
 
     @staticmethod
@@ -279,8 +324,8 @@ class DWNominate:
     def polish(self, maxiter=1500, verbose=True):
         x, f, nit, nfev = self._lbfgs(self._objective, self._pack(), maxiter, verbose=verbose)
         Vm, Vp, Mr, D = self._unpack(x)
-        self.Pm, self.M, self.D = self._squash(Vm), self._squash(Mr), np.ascontiguousarray(D)
-        self.Pp = self._squash(Vp) if self.trend else self.Pm
+        self.Pm, self.M, self.D = self._sq(Vm), self._sq(Mr), np.ascontiguousarray(D)
+        self.Pp = self._sq(Vp) if self.trend else self.Pm
         self.polish_result = optimize.OptimizeResult(x=x, fun=f, nit=nit, nfev=nfev)
         return self
 

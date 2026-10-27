@@ -139,3 +139,7 @@ tr.click:hover td { background: var(--soft); }
 
 .tip { position: fixed; z-index: 20; pointer-events: none; background: var(--panel); color: var(--ink); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; font-size: .85rem; box-shadow: 0 4px 16px rgba(0,0,0,.12); max-width: 260px; }
 .tip b { display: block; }
+
+/* what the two axes mean in the era on screen */
+.eranote { max-width: 720px; margin-top: 28px; }
+.eranote p { margin: 0 0 10px; }

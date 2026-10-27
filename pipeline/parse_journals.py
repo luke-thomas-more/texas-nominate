@@ -9,9 +9,12 @@ Writes data/interim/rollcalls_raw.jsonl and data/interim/statements_raw.jsonl.
 """
 import html, json, os, re, subprocess, sys
 
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import tally_sheets
+
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 RAW = os.path.join(ROOT, "data", "raw", "journals")
-OUT = os.path.join(ROOT, "data", "interim")
+OUT = os.environ.get("PARSE_OUT", os.path.join(ROOT, "data", "interim"))   # PARSE_OUT: a trial run elsewhere
 
 DASH = r"\s*[—–-]+\s*"
 # House list labels, longest first so "Absent, Excused, Committee Meeting" wins over "Absent"
@@ -25,6 +28,24 @@ SENATE_LIST_RE = re.compile(r"(?:^|(?<=\.)\s+)(" + "|".join(re.escape(l).replace
 
 HOUSE_VOTE_RE = re.compile(r"\(Record\s+(?:No\.\s*)?(\d+)\)\s*:\s*(\d+)\s+Yeas?\s*,\s*(\d+)\s+Nays?"
                            r"(?:\s*,\s*(\d+)\s+Present\s*,?\s*not\s+voting)?", re.I)
+# The scanned years (before 1995) as their text layer reads them: "(Record 34 ); 13 7 Yeas. I Nay, J Present,
+# not voting.", "(Record Ill): 27 Yeas, 117 N<Jys", "Ycas - Agnich; ...", "Present. not voting- Mr. Speaker(C)".
+OCR_NUM = r"[\dIlJ|Oo]{1,3}(?:\s[\dIlJ|Oo]{1,2})?"
+HOUSE_VOTE_OCR_RE = re.compile(r"\(\s*Rec?c?ord\s*(?:No\.?\s*)?(" + OCR_NUM + r")\s*\)\s*[:;.,]?\s*(" + OCR_NUM + r")?\s*(Y\s?[ec]\s?as?)\b\s*[,.;:]?\s*"
+                               r"(" + OCR_NUM + r")?\s*(N\S{0,2}ys?)\b(?:\s*[,.;:~]?\s*(" + OCR_NUM + r")?\s*Present\W{0,2}\s*not\s+voting)?")
+HOUSE_LIST_OCR = [("M", r"Absent\W{0,2}\s*Excused\W{0,2}\s*Committee\s*Meeting"), ("E", r"Absent\W{0,2}\s*Excused"),
+                  ("P", r"Present\w?\W{0,2}\s*not\s*voting"), ("Y", r"Y\s?[ec]\s?as?"), ("N", r"Nays?"), ("A", r"Absent")]
+HOUSE_LIST_OCR_RE = re.compile(r"^(?:" + "|".join(f"(?P<{c}>{p})" for c, p in HOUSE_LIST_OCR) + r")(?:\s*[—–~-]+\s*|\s+(?=[A-Z]))(.*)$")
+
+
+def ocr_count(s, word=""):
+    """An OCR'd count ("I 06" = 106, "Ill" = 111, "J" = 1); a missing one before a singular "Nay" is 1."""
+    if not s:
+        return 1 if re.fullmatch(r"\S*a[yv]|Y\s?[ec]\s?a", word) else None
+    s = re.sub(r"\s", "", s).translate(str.maketrans("IlJ|Oo", "111100"))
+    return int(s) if s.isdigit() else None
+
+
 SENATE_VOTE_RE = re.compile(r"(?:by\s+the\s+following\s+(?:record\s+)?vote|vote\s+was\s+as\s+follows)\s*:?\s*"
                             r"Yeas\s+(\d+)\s*,\s*Nays\s+(\d+)(?:\s*,\s*Present\s*[-,]?\s*not\s+voting\s+(\d+))?", re.I)
 SAME_AS_RE = re.compile(r"same as previous roll call", re.I)
@@ -96,6 +117,8 @@ def trim_last(elem):
     keep the shortest prefix ending at a period that is a complete name."""
     for m in re.finditer(r"\.\s+", elem):
         head = elem[:m.start() + 1].strip()
+        if re.fullmatch(r"(?:[A-Z]\.?\s*){1,3}", elem[m.end():].strip()):
+            continue                       # "Solis, J. F.": more initials, not the end of the list
         if head in ("Mr.", "Mrs.", "Ms.") or re.fullmatch(r"(?:.*,\s*)?[A-Z]\.", head) and not re.search(r",\s*(?:[A-Z]\.\s?)+$", head):
             continue
         if WHOLE_NAME.fullmatch(head):
@@ -107,10 +130,21 @@ def split_names(chamber, s):
     s = s.strip()
     if not s or s.lower() in ("none", "none."):
         return []
-    # Senate OCR (1995-97) sometimes reads a comma as a period: "West. Whitmire"
-    parts = s.split(";") if chamber == "H" else re.split(r",|(?<=[a-z]{2})\.\s+(?=[A-Z])", s)
-    if parts:
-        parts[-1] = trim_last(parts[-1])
+    # OCR in the scanned years: ";" read as ":" ("Agnich: Aikin"), "," as "." ("Cuellar. R",
+    # "West. Whitmire"), "(C)" as "( C)"
+    s = re.sub(r"\(\s*C\s*\)", "(C)", s)
+    if chamber == "H":
+        parts = []
+        for p in re.split(r"[;:]", s):
+            p = re.sub(r"^(\s*[A-Z][\w'’ -]*[a-z])\.\s*([A-Z])\.?\s*$", r"\1, \2.", p)    # "Cuellar. R" = "Cuellar, R."
+            t = trim_last(p)
+            parts.append(t.strip())
+            if t.strip() != p.strip().rstrip(".").strip() and t.strip() != p.strip():
+                break                      # the list ended inside this piece ("Wilson. Floor Packet Page No. 3: ...")
+    else:
+        parts = re.split(r",|(?<=[a-z]{2})\.\s+(?=[A-Z])", s)
+        if parts:
+            parts[-1] = trim_last(parts[-1])
     return [p.strip().rstrip(".").strip() for p in parts if p.strip().rstrip(".").strip() and p.strip().lower() not in ("none", "none.")]
 
 
@@ -119,8 +153,11 @@ def senate_lists(text):
     found = {}
     marks = list(SENATE_LIST_RE.finditer(text))
     for i, m in enumerate(marks):
-        label = re.sub(r"\s+", " ", m.group(1)).lower().replace(" - ", "-")
-        code = next(c for l, c in SENATE_LISTS if l.lower() == label or l.lower().replace(" - ", "-") == label)
+        label = re.sub(r"\s*-\s*", "-", re.sub(r"\s+", " ", m.group(1)).lower())
+        code = next((c for l, c in SENATE_LISTS if re.sub(r"\s*-\s*", "-", l.lower()) == label), None)
+        if code is None:                     # odd spacing or case: go by the words
+            code = ("P" if "present" in label else "E" if "excused" in label else "Y" if label.startswith("yea")
+                    else "N" if label.startswith("nay") else "A")
         end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
         found.setdefault(code, []).extend(split_names("S", text[m.end():end]))
     return found
@@ -138,6 +175,7 @@ def is_heading(p):
 def parse_day(day, paras, captions):
     """captions: bill -> caption, shared across the days of a session so third-reading votes get them."""
     chamber = day["chamber"]
+    scanned = day["leg"] < 74          # OCR'd text layer: digits, labels and punctuation come garbled
     votes, statements = [], []
     ctx = {"bill": None, "heading": None, "caption": None, "amendment": None, "motion": None}
     prev_named = None   # last Senate vote with names, for "same as previous roll call"
@@ -184,25 +222,37 @@ def parse_day(day, paras, captions):
         if chamber == "H":
             m = HOUSE_VOTE_RE.search(p)
             if m:
+                record, printed = int(m.group(1)), {"Y": int(m.group(2)), "N": int(m.group(3)), "P": int(m.group(4) or 0)}
+            elif scanned:
+                m = HOUSE_VOTE_OCR_RE.search(p)
+                if m:
+                    record = ocr_count(m.group(1))
+                    printed = {"Y": ocr_count(m.group(2), m.group(3)), "N": ocr_count(m.group(4), m.group(5)), "P": ocr_count(m.group(6)) or 0}
+                    m = m if record else None
+            if m:
                 rv = {"chamber": "H", "leg": day["leg"], "session": day["session"], "date": day["date"],
-                      "file": day["file"], "record": int(m.group(1)),
-                      "printed": {"Y": int(m.group(2)), "N": int(m.group(3)), "P": int(m.group(4) or 0)},
+                      "file": day["file"], "record": record, "printed": printed,
                       "text": p[:m.start()].strip(" ,:(").strip()[:500], **ctx, "lists": {}}
                 rv["text"] = re.sub(r"\s*by\s*$", "", rv["text"])
                 j, last, text = i + 1, None, {}
                 while j < len(paras):
                     q = paras[j]
                     lm = HOUSE_LIST_RE.match(q)
-                    if lm:
-                        label = re.sub(r"\s+", " ", lm.group(1)).lower()
-                        code = next(c for l, c in HOUSE_LISTS if l.lower() == label)
-                        text[code] = (text.get(code, "") + "; " + lm.group(2)) if code in text else lm.group(2)
+                    om = None if lm or not scanned else HOUSE_LIST_OCR_RE.match(q)
+                    if lm or om:
+                        if lm:
+                            label = re.sub(r"\s+", " ", lm.group(1)).lower()
+                            code, names = next(c for l, c in HOUSE_LISTS if l.lower() == label), lm.group(2)
+                        else:
+                            code, names = next(c for c, _ in HOUSE_LIST_OCR if om.group(c)), om.groups()[-1]
+                        text[code] = (text.get(code, "") + "; " + names) if code in text else names
                         last = code
                         j += 1
                         continue
                     # a list broken by a page boundary continues in a paragraph of bare names,
                     # sometimes mid-name ("Smith," | "W.; Solomons; ...")
-                    if last and re.match(r"^[A-Z][A-Za-zÀ-ÿ'\-. ]*(?:,\s*(?:[A-Z]\.\s*){1,3})?(?:\(C\))?[;.]", q) and not HOUSE_VOTE_RE.search(q):
+                    if last and re.match(r"^[A-Z][A-Za-zÀ-ÿ'\-. ]*(?:,\s*(?:[A-Z]\.\s*){1,3})?(?:\(C\))?[;.]", q) and not HOUSE_VOTE_RE.search(q) \
+                            and not (scanned and HOUSE_VOTE_OCR_RE.search(q)):
                         text[last] = text[last] + " " + q
                         j += 1
                         continue
@@ -211,6 +261,19 @@ def parse_day(day, paras, captions):
                 votes.append(rv)
                 i = j
                 continue
+            tm = TALLY_RE.search(p) if day["leg"] <= 67 else None
+            if tm:
+                # 1979-1982: "... was lost by: Record No. 2 (Appendix, March 21)", the totals after it ("36 Yeas",
+                # "96 Nays", "18 Not Voting"), the names on the day's tally sheet (filled in by main())
+                tail = " ".join([p[tm.end():]] + paras[i + 1:i + 4])
+                y = re.match(r"\W*(?:\w+\W+){0,4}?(" + OCR_NUM + r")\s*(Y\s?[ec]\s?as?)\b\W*(" + OCR_NUM + r")?\s*(N\S{0,2}ys?)\b", tail)
+                if y and ocr_count(tm.group(1)):
+                    rv = {"chamber": "H", "leg": day["leg"], "session": day["session"], "date": day["date"],
+                          "file": day["file"], "record": ocr_count(tm.group(1)),
+                          "printed": {"Y": ocr_count(y.group(1), y.group(2)), "N": ocr_count(y.group(3), y.group(4)), "P": 0},
+                          "text": re.sub(r"\s*by\s*:?\s*$", "", p[:tm.start()].strip(" ,:(").strip())[:500], **ctx,
+                          "lists": {}, "tally": True}
+                    votes.append(rv)
         else:
             m = SENATE_VOTE_RE.search(p)
             if m:
@@ -251,18 +314,73 @@ def parse_day(day, paras, captions):
     return votes, statements
 
 
+MODERN_HOUSE_RE = re.compile(r"\(Record\s+(?:No\.\s*)?\d+\)\s*:")
+# 1973-1982: the text gives each record vote's totals and points to a tally sheet printed at the back
+# of the day ("Record No. 2 (Appendix, March 29)", in 1973 "Record No.2 (page 1896)"); tally_sheets.py
+# reads the 1979-1982 sheets
+TALLY_RE = re.compile(r"Re?[ce]{1,2}[o0]rd\s*No\W{0,2}\s*([\dIlO]{1,3}(?:\s[\dIlO]{1,2})?)\s*[,(;j]?\s*\(?\s*(?:Appendix|page|p\s?age)\b", re.I)   # "Reeord No. I I"
+MODERN_SENATE_RE = re.compile(r"Yeas\s+\d+\s*,\s*Nays\s+\d+")
+SENATE_COLON_LIST_RE = re.compile(r"\b(?:Yeas|Nays|Absent-excused|Present-not voting)\s*:\s*[A-Z]")
+_FORMAT_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data", "interim", "modern_format.json")
+
+
+_format = None
+
+
+def modern_format(day):
+    """Does this journal day use the modern record-vote format ("(Record 81): 87 Yeas, 57 Nays" in
+    the House, "Yeas 30, Nays 0." in the Senate)? True for every day from 1995 on; for scanned
+    days it's read from the text layer (the switch came sometime between 1973 and 1987)."""
+    global _format
+    if day["leg"] >= 74:
+        return True
+    if _format is None:
+        try:
+            _format = json.load(open(_FORMAT_CACHE))
+        except (OSError, ValueError):
+            _format = {}
+    if day["file"] not in _format:
+        path = os.path.join(RAW, day["file"])
+        txt = subprocess.run(["pdftotext", path, "-"], capture_output=True, text=True).stdout if os.path.exists(path) else ""
+        if day["chamber"] == "H":
+            _format[day["file"]] = bool(MODERN_HOUSE_RE.search(txt) or TALLY_RE.search(txt))
+        else:   # not just "the vote was announced Yeas 59, Nays 58": the lists must be the colon kind too
+            _format[day["file"]] = bool(MODERN_SENATE_RE.search(txt) and SENATE_COLON_LIST_RE.search(txt))
+        if len(_format) % 200 == 0:
+            save_format_cache()
+    return _format[day["file"]]
+
+
+def save_format_cache():
+    if _format is not None:
+        os.makedirs(os.path.dirname(_FORMAT_CACHE), exist_ok=True)
+        tmp = f"{_FORMAT_CACHE}.{os.getpid()}.tmp"
+        json.dump(_format, open(tmp, "w"))
+        os.replace(tmp, _FORMAT_CACHE)
+
+
 def main():
     index = json.load(open(os.path.join(RAW, "index.json")))
+    # scanned days count only from the first legislature that used the modern format (checked per day)
+    first_modern = int(os.environ.get("MODERN_FROM", 60))
+    index = [d for d in index if d["leg"] >= 74 or (d["leg"] >= first_modern and modern_format(d))]
+    if os.environ.get("LEGS"):              # e.g. LEGS=63-67 CHAMBERS=H, for trial runs
+        a, b = map(int, os.environ["LEGS"].split("-"))
+        index = [d for d in index if a <= d["leg"] <= b and d["chamber"] in os.environ.get("CHAMBERS", "HS")]
+    save_format_cache()
     os.makedirs(OUT, exist_ok=True)
     rc_out = open(os.path.join(OUT, "rollcalls_raw.jsonl"), "w")
     st_out = open(os.path.join(OUT, "statements_raw.jsonl"), "w")
     n, captions, session = 0, {}, None
     all_captions = {}
+    tally = []          # the session's tally-sheet record votes and their sheets' rows, written at its end
     for day in sorted(index, key=lambda d: (d["chamber"], d["leg"], d["session"], d["date"], d["file"])):
         path = os.path.join(RAW, day["file"])
         if not os.path.exists(path):
             continue
         if (day["chamber"], day["leg"], day["session"]) != session:
+            n += write_tally(tally, rc_out)
+            tally = []
             session, captions = (day["chamber"], day["leg"], day["session"]), {}
             all_captions["|".join(map(str, session))] = captions
         if day["kind"] == "html":
@@ -270,13 +388,49 @@ def main():
         else:
             paras = paragraphs_pdf(path)
         votes, statements = parse_day(day, paras, captions)
+        held = [v for v in votes if v.pop("tally", False)]
+        if held:
+            # the day's highest record number counts its sheets, quorum calls (no totals) included
+            n_sheets = max(ocr_count(m.group(1)) or 0 for m in TALLY_RE.finditer(" ".join(paras)))
+            sheets = tally_sheets.read_day(os.path.abspath(path), n_sheets,
+                                           {v["record"]: (v["printed"]["Y"], v["printed"]["N"]) for v in held})
+            tally += [(v, sheets.get(v["record"], [])) for v in held]
         for v in votes:
-            rc_out.write(json.dumps(v) + "\n")
+            if not any(v is h for h in held):
+                rc_out.write(json.dumps(v) + "\n")
         for s in statements:
             st_out.write(json.dumps(s) + "\n")
-        n += len(votes)
+        n += len(votes) - len(held)
+    n += write_tally(tally, rc_out)
     json.dump(all_captions, open(os.path.join(OUT, "captions.json"), "w"))
     print("record votes:", n)
+
+
+_terms = None
+
+
+def write_tally(tally, out):
+    """Write a session's tally-sheet record votes, their sheets' rows resolved to members together
+    (tally_sheets.resolve): "members" holds them for match_votes, "lists" the names as read."""
+    global _terms
+    if not tally:
+        return 0
+    from match_scans import speakers
+    from match_votes import load_roster
+    if _terms is None:
+        _terms = load_roster()[1]
+    first = tally[0][0]
+    chair = [m for m, a, b in speakers() if any(a <= v["date"] <= b for v, _ in tally)]
+    members = tally_sheets.resolve({k: rows for k, (v, rows) in enumerate(tally) if rows},
+                                   _terms.get(("H", first["leg"]), []), chair)
+    for k, (v, rows) in enumerate(tally):
+        v["lists"] = {}
+        for pos, name, code in rows:
+            if name and code:
+                v["lists"].setdefault(code, []).append(name)
+        v["members"] = {str(m): code for m, code in members.get(k, {}).items()}
+        out.write(json.dumps(v) + "\n")
+    return len(tally)
 
 
 if __name__ == "__main__":

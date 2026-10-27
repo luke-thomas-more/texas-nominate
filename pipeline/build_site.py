@@ -14,8 +14,12 @@ from datetime import date
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 PROC = os.path.join(ROOT, "data", "processed")
 FIT = os.environ.get("FIT_DIR", os.path.join(PROC, "fit"))
-DOCS = os.path.join(ROOT, "docs", "data")
-SESSION_NAMES = {"R": "Regular session"}
+DOCS = os.environ.get("DOCS_DIR", os.path.join(ROOT, "docs", "data"))
+SESSION_NAMES = {"R": "Regular session", "A": "Adjourned session", "P": "Provisional session"}
+GOOD = {"ok", "near", "ok_digit", "ok_lists"}       # verified roll calls (see extract_history.py)
+# the Library's party labels, spelled out where it abbreviates
+PARTY_NAMES = {"PO": "Populist", "GB": "Greenback", "ID": "Independent Democrat", "RA": "Radical Republican",
+               "U": "Union", "GG": "Greenback", "American Party of the United States": "American Party"}
 
 
 def session_name(s):
@@ -25,17 +29,65 @@ def session_name(s):
     return f"{n}{'st' if n == 1 else 'nd' if n == 2 else 'rd' if n == 3 else 'th'} called session"
 
 
+def ordinal(n):
+    return f"{n}{'th' if 10 <= n % 100 <= 20 else {1: 'st', 2: 'nd', 3: 'rd'}.get(n % 10, 'th')}"
+
+
+def eras_html(axes):
+    """The About page's era-by-era guide to the axes (the same wording the map pages show)."""
+    from html import escape
+    out = []
+    for e in axes.get("eras", []):
+        x, y = {**axes["x"], **e.get("x", {})}, {**axes["y"], **e.get("y", {})}
+        out.append(f'<h3>{escape(e["label"])}</h3>\n<p><b>Left to right: {escape(x["name"])}.</b> {escape(x["desc"])}</p>\n'
+                   f'<p><b>Up and down: {escape(y["name"])}.</b> {escape(y["desc"])}</p>')
+    return "\n".join(out)
+
+
+def repair_dates(rows, span):
+    """Dates as YYYY-MM-DD within the legislature's service dates. The modern journals' API adds a
+    time ("2011-05-23 00:00:00Z"), and a few scan file names carry a wrong year ("1979" among
+    1879-80 pages, "968-"), which fix_dates in extract_history doesn't catch. A date outside the
+    legislature gets the year that puts it inside its session's run of dates."""
+    lo, hi = span
+    for r in rows:
+        r["date"] = r["date"][:10]
+    good = lambda d: len(d) == 10 and d[:4].isdigit() and lo <= d <= hi
+    by_sess = collections.defaultdict(list)
+    for r in rows:
+        if good(r["date"]):
+            by_sess[r["session"]].append(r["date"])
+    fixed = 0
+    for r in rows:
+        if good(r["date"]):
+            continue
+        ds = sorted(by_sess.get(r["session"]) or [lo, hi])
+        md = r["date"][-5:]
+        cands = [f"{y}-{md}" for y in range(int(lo[:4]), int(hi[:4]) + 1) if good(f"{y}-{md}")]
+        if cands:
+            mid = ds[len(ds) // 2]
+            r["date"] = min(cands, key=lambda c: (not ds[0] <= c <= ds[-1], abs(int(c[:4]) - int(mid[:4]))))
+            fixed += 1
+    return fixed
+
+
 def party_code(p):
-    return "R" if p.startswith("Republican") else "D" if p.startswith("Democrat") else "O"
+    return "R" if p.startswith("Republican") or p == "RA" else "D" if p.startswith("Democrat") else "O"
+
+
+def party_name(p):
+    """The party as written out, for members outside the two major parties ("" if not known)."""
+    return "" if p in ("", "Unknown", "O") else PARTY_NAMES.get(p, p)
 
 
 def main():
     os.makedirs(os.path.join(DOCS, "s"), exist_ok=True)
     axes = json.load(open(os.path.join(ROOT, "pipeline", "axes.json")))
     fit = json.load(open(os.path.join(FIT, "summary.json")))
-    # fits with other numbers of dimensions (same model), for the About page's comparison table
+    # fits with other numbers of dimensions (same model and data, warm-started from this fit, in
+    # <fit>_k1/ and <fit>_k3/), for the About page's comparison table
     for k in (1, 2, 3):
-        other = os.path.join(PROC, f"fit_k{k}", "summary.json")
+        other = os.path.join(f"{FIT}_k{k}", "summary.json")
         if os.path.exists(other):
             fit["by_dims"].update(json.load(open(other))["by_dims"])
     people = {int(r["member_id"]): r for r in csv.DictReader(open(os.path.join(PROC, "members.csv")))}
@@ -44,18 +96,31 @@ def main():
     params = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(FIT, "rollcall_params.csv")))}
     day_url = {d["file"]: d["url"] for d in json.load(open(os.path.join(ROOT, "data", "raw", "journals", "index.json")))}
 
+    # roll calls from both pipelines: the record-vote format (1973 on) and the older scanned journals
     rcs = collections.defaultdict(list)
     excluded = collections.Counter()
-    for r in csv.DictReader(open(os.path.join(PROC, "rollcalls.csv"))):
-        if r["status"] == "ok":
-            rcs[(int(r["leg"]), r["chamber"])].append(r)
-        else:
-            excluded[(int(r["leg"]), r["chamber"])] += 1
     votes = collections.defaultdict(dict)
-    with gzip.open(os.path.join(PROC, "votes.csv.gz"), "rt") as f:
-        rd = csv.reader(f); next(rd)
-        for rc_id, mid, v in rd:
-            votes[rc_id][int(mid)] = "E" if v == "M" else v
+    for rc_file, v_file in (("rollcalls.csv", "votes.csv.gz"), ("rollcalls_hist.csv", "votes_hist.csv.gz")):
+        if not os.path.exists(os.path.join(PROC, rc_file)):
+            continue
+        for r in csv.DictReader(open(os.path.join(PROC, rc_file))):
+            if r["status"] in GOOD:
+                rcs[(int(r["leg"]), r["chamber"])].append(r)
+            else:
+                excluded[(int(r["leg"]), r["chamber"])] += 1
+        with gzip.open(os.path.join(PROC, v_file), "rt") as f:
+            rd = csv.reader(f); next(rd)
+            for rc_id, mid, v in rd:
+                votes[rc_id][int(mid)] = "E" if v == "M" else v
+
+    # each legislature's span, from its members' service dates
+    span = {}
+    for t in terms.values():
+        if t.get("start") and t.get("end"):
+            a, b = span.get(int(t["leg"]), (t["start"], t["end"]))
+            span[int(t["leg"])] = (min(a, t["start"]), max(b, t["end"]))
+    fixed = sum(repair_dates(rcs[k], span[k[0]]) for k in rcs if k[0] in span)
+    print(f"dates repaired: {fixed}")
 
     session_caps = json.load(open(os.path.join(ROOT, "data", "interim", "captions.json")))
     legislatures = []
@@ -74,7 +139,10 @@ def main():
         for m in mids:
             t = terms.get((m, leg, ch), {})
             sc = scores.get((m, leg, ch))
-            members.append({"id": m, "n": people[m]["name"], "p": party_code(t.get("party", "")), "d": t.get("district", ""),
+            members.append({"id": m, "n": people[m]["name"], "p": party_code(t.get("party", "")),
+                            **({"pn": party_name(t.get("party", ""))} if party_code(t.get("party", "")) == "O" and
+                               party_name(t.get("party", "")) else {}),
+                            "d": t.get("district", ""),
                             "x": round(float(sc["dim1"]), 3) if sc else None,
                             "y": round(float(sc["dim2"]), 3) if sc and "dim2" in sc else None,
                             "v": int(sc["scaled_votes"]) if sc else 0})
@@ -93,6 +161,8 @@ def main():
                     "b": r["bill"], "c": cap_idx.get(r["caption"]), "t": r["text"][:300], "m": r["motion"][:300],
                     "a": r["amendment"][:240], "y": int(r["n_y"]), "n": int(r["n_n"]), "p": int(r["printed_p"]),
                     "f": day_idx[url], "v": "".join(v)}
+            if r.get("page"):
+                item["pg"] = int(r["page"]) + 1          # page within the day's PDF, for a #page= link
             p = params.get(r["rc_id"])
             if p:
                 item["mid"] = [round(float(p["mid1"]), 4), round(float(p["mid2"]), 4)]
@@ -132,7 +202,9 @@ def main():
         "ROLLCALLS": f"{index['totals']['rollcalls']:,}", "SCALED": f"{index['totals']['scaled']:,}",
         "MEMBERS": f"{index['totals']['members']:,}", "BOTH": f"{index['totals']['both_chambers']}",
         "VOTES": f"{index['totals']['votes']:,}", "EXCLUDED": f"{index['totals']['excluded']:,}",
-        "FIRST": str(min(l["leg"] for l in legislatures)), "LAST": str(max(l["leg"] for l in legislatures)),
+        "FIRST_ORD": ordinal(min(l["leg"] for l in legislatures)), "LAST_ORD": ordinal(max(l["leg"] for l in legislatures)),
+        "YEAR0": min(l["years"][:4] for l in legislatures), "YEAR1": str(max(int(l["years"][:4]) for l in legislatures)),
+        "AXES_ERAS": eras_html(axes),
         "CORRECT1": f"{100 * by['1']['correct']:.1f}" if "1" in by else "–", "APRE1": f"{by['1']['apre']:.2f}" if "1" in by else "–",
         "CORRECT2": f"{100 * by['2']['correct']:.1f}" if "2" in by else "–", "APRE2": f"{by['2']['apre']:.2f}" if "2" in by else "–",
         "CORRECT3": f"{100 * by['3']['correct']:.1f}" if "3" in by else "–", "APRE3": f"{by['3']['apre']:.2f}" if "3" in by else "–",
@@ -150,6 +222,8 @@ def main():
     for k, v in fill.items():
         tmpl = tmpl.replace("{{" + k + "}}", v)
     for k, v in axes.items():
+        if not isinstance(v, dict):          # "eras": the per-era wording, used by the app
+            continue
         for kk, vv2 in v.items():
             tmpl = tmpl.replace("{{AX_" + k.upper() + "_" + kk.upper() + "}}", vv2)
     json.dump({"html": tmpl}, open(os.path.join(DOCS, "about.json"), "w"), ensure_ascii=False)

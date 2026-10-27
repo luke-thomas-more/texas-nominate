@@ -20,21 +20,8 @@ HOSTS = {"H": "https://journals.house.texas.gov", "S": "https://journals.senate.
 LRL = "https://lrl.texas.gov"
 UA = "Mozilla/5.0 (X11; Linux x86_64) texas-nominate research crawler"
 
-opener = urllib.request.build_opener(urllib.request.ProxyHandler({
-    "http": os.environ.get("HTTP_PROXY", "http://127.0.0.1:3128"),
-    "https": os.environ.get("HTTPS_PROXY", "http://127.0.0.1:3128")}))
-
-
-def get(url, tries=4):
-    for i in range(tries):
-        try:
-            req = urllib.request.Request(url, headers={"User-Agent": UA})
-            with opener.open(req, timeout=120) as r:
-                return r.read()
-        except Exception as e:
-            if i == tries - 1:
-                raise RuntimeError(f"{url}: {e}")
-            time.sleep(5 * (i + 1))
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from http_util import get
 
 
 def api_days(leg, chamber):
@@ -68,23 +55,30 @@ def lrl_days(leg, chamber, index):
             continue
         sess = "R" if m.group(3) == "0" else m.group(3)
         for p in v["pdfs"]:
-            f = re.search(r"/(\d{2})(\d{2})(\d{4})_(\d+)_(\d+)\.pdf$", p)
+            # MMDDYYYY_day_startpage.pdf, or MMDDYYYY_startpage.pdf in the oldest journals
+            f = re.search(r"/(\d{2})(\d{2})(\d{4})_(?:(\d+)_)?(\d+)[a-z]?\.pdf$", p, re.I)
             if f:
                 days.append({"chamber": chamber, "leg": leg, "session": sess,
-                             "date": f"{f.group(3)}-{f.group(1)}-{f.group(2)}", "day": f.group(4),
+                             "date": f"{f.group(3)}-{f.group(1)}-{f.group(2)}", "day": f.group(4) or "",
                              "pages": f.group(5), "url": LRL + p, "kind": "pdf"})
-    return sorted(days, key=lambda d: (d["session"], int(d["day"])))
+    return sorted(days, key=lambda d: (d["session"], d["date"], int(d["pages"])))
 
 
 def main():
-    first, last = (int(sys.argv[1]), int(sys.argv[2])) if len(sys.argv) > 2 else (74, 89)
+    # legislatures: "74 89" (a range) or "1,12,24" (a list, fetched in that order)
+    if len(sys.argv) > 2:
+        legs = list(range(int(sys.argv[1]), int(sys.argv[2]) + 1))
+    elif len(sys.argv) == 2:
+        legs = [int(x) for x in sys.argv[1].split(",")]
+    else:
+        legs = list(range(74, 90))
     lrl_index = json.load(open(os.path.join(RAW, "lrl_index.json")))
     idx_path = os.path.join(RAW, "index.json")
     index = json.load(open(idx_path)) if os.path.exists(idx_path) else []
     seen = {d["url"] for d in index}
-    for leg in range(first, last + 1):
+    for leg in legs:
         for chamber in "HS":
-            days = api_days(leg, chamber) or lrl_days(leg, chamber, lrl_index)
+            days = (api_days(leg, chamber) if leg >= 74 else []) or lrl_days(leg, chamber, lrl_index)
             got = 0
             for d in days:
                 folder = os.path.join(RAW, chamber, f"{leg}{d['session']}")
@@ -94,14 +88,13 @@ def main():
                 if not os.path.exists(full):
                     try:
                         body = get(d["url"])
-                    except RuntimeError as e:
-                        print("FAILED", e, flush=True)
+                    except Exception as e:
+                        print("FAILED", d["url"], e, flush=True)
                         continue
                     with open(full + ".part", "wb") as f:
                         f.write(body)
                     os.replace(full + ".part", full)
                     got += 1
-                    time.sleep(0.4)
                 if d["url"] not in seen:
                     index.append(d)
                     seen.add(d["url"])

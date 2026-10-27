@@ -19,8 +19,9 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from parse_journals import bill_ref
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
-INTERIM = os.path.join(ROOT, "data", "interim")
-OUT = os.path.join(ROOT, "data", "processed")
+INTERIM = os.environ.get("PARSE_OUT", os.path.join(ROOT, "data", "interim"))
+PROC = os.path.join(ROOT, "data", "processed")
+OUT = os.environ.get("MATCH_OUT", PROC)          # PARSE_OUT / MATCH_OUT: a trial run elsewhere
 SUFFIXES = {"jr", "sr", "ii", "iii", "iv", "v"}
 CODES = {"Y", "N", "P", "E", "M", "A"}
 
@@ -106,9 +107,9 @@ def initial_score(ini, seqs):
 
 
 def load_roster():
-    people = {int(r["member_id"]): r for r in csv.DictReader(open(os.path.join(OUT, "members.csv")))}
+    people = {int(r["member_id"]): r for r in csv.DictReader(open(os.path.join(PROC, "members.csv")))}
     terms = collections.defaultdict(list)
-    for t in csv.DictReader(open(os.path.join(OUT, "terms.csv"))):
+    for t in csv.DictReader(open(os.path.join(PROC, "terms.csv"))):
         t["member_id"] = int(t["member_id"])
         p = people[t["member_id"]]
         t["surn"], t["weak"], t["toks"], t["nicks"] = name_keys(p["name"], p["full_name"])
@@ -144,12 +145,13 @@ def resolve_session(names, roster, fuzzy_log, reserved=()):
         if county and len({t["member_id"] for t in c}) > 1:
             c = [t for t in c if county in t["places"]] or c
         if not c:
+            from match_scans import fold        # OCR-confusion folding: "Hom"/"horn", "Oark"/"clark"
             best = {}
             for t in roster:
-                score = max(fuzz.ratio(sn, k) for k in t["surn"])
+                score = max(max(fuzz.ratio(sn, k), fuzz.ratio(fold(sn), fold(k))) for k in t["surn"])
                 best[t["member_id"]] = max(best.get(t["member_id"], (0, None)), (score, t), key=lambda x: x[0])
             ranked = sorted(best.values(), key=lambda x: -x[0])
-            if ranked and ranked[0][0] >= 80 and (len(ranked) == 1 or ranked[1][0] <= ranked[0][0] - 8):
+            if ranked and ranked[0][0] >= 75 and (len(ranked) == 1 or ranked[1][0] <= ranked[0][0] - 6):
                 c = [ranked[0][1]]
                 fuzzy_log.append((sn, ini, ranked[0][1]["member_id"], ranked[0][0]))
         cand[key] = c
@@ -180,6 +182,10 @@ def main():
     for (chamber, leg, sess), rvs in sorted(sessions.items(), key=lambda x: (x[0][1], x[0][0], x[0][2])):
         roster = terms.get((chamber, leg), [])
         speaker = [t for t in roster if chamber == "H" and re.match(r"^Speaker\b(?!\s+pro)", t["note"], re.I)]
+        if chamber == "H" and not speaker:          # roster rows without notes: use the Library's list of Speakers
+            from match_scans import speakers as speaker_list
+            ids = {m for m, a, b in speaker_list() if any(a <= r["date"] <= b for r in rvs)}
+            speaker = [t for t in roster if t["member_id"] in ids]
         alias = {n: mid for (ch, lg, n), mid in aliases.items() if ch == chamber and lg in (None, leg)}
         parsed = {}
         for rv in rvs:
@@ -191,12 +197,34 @@ def main():
                                roster, fuzzy_log, reserved={t["member_id"] for t in speaker})
         by_day = {}
         rvs.sort(key=lambda r: (r["date"], r["file"], r.get("record") or 0, r.get("seq") or 0))
+        # scanned years (before 1995): OCR'd names go through the scan matcher instead
+        scanned = leg < 74
+        if scanned:
+            from match_scans import SessionMatcher, speakers as speaker_list, presidents_pro_tem, chair_on
+            sm = SessionMatcher(roster)
+            chairs = speaker_list() if chamber == "H" else presidents_pro_tem()
+
+            def scan_match(rv):
+                sm.set_speaker([m for m, a, b in chairs if a <= rv["date"] <= b] if chamber == "H" else chair_on(chairs, rv["date"]))
+                # names in aliases.csv (a member printed under another name) bypass the fuzzy matcher
+                bare = lambda n: re.sub(r"\(C\)$", "", n).strip()
+                votes, unmatched = sm.match({code: [n for n in lst if bare(n) not in alias] for code, lst in rv["lists"].items()})
+                votes.update({alias[bare(n)]: code for code, lst in rv["lists"].items() for n in lst if bare(n) in alias})
+                return votes, unmatched
+            sm.learn_activity([scan_match(rv)[0] for rv in rvs if "members" not in rv]); sm.cache = {}
         for n_in_session, rv in enumerate(rvs, 1):
             date = rv["date"]
             votes, problems = {}, []
             if rv.get("same_as") and (rv["file"], rv["same_as"]) in by_day:
                 votes = dict(by_day[(rv["file"], rv["same_as"])])
-            for code, lst in rv["lists"].items():
+            if scanned and "members" in rv:
+                # a tally sheet's rows, resolved to members across the session's sheets by parse_journals
+                votes.update({int(m): code for m, code in rv["members"].items()})
+            elif scanned:
+                got, unmatched = scan_match(rv)
+                votes.update(got)
+                problems = [f"unmatched: {u}" for u in unmatched]
+            for code, lst in ({} if scanned else rv["lists"]).items():
                 for n in lst:
                     sn, ini, county, chair = parsed[n]
                     bare = re.sub(r"\(C\)$", "", n).strip()
@@ -240,7 +268,9 @@ def main():
             status_count[(chamber, status)] += 1
             if status != "ok":
                 report.append(f"{leg}{sess} {chamber} {date} rec={rv.get('record')} seq={rv.get('seq')} printed={rv['printed']} got Y={ny} N={nn} {status} {'; '.join(problems[:4])}")
-            if chamber == "H":
+            if chamber == "H" and "members" in rv:      # tally sheets: record numbers restart every day
+                rc_id = f"{leg}{sess}-HT{n_in_session:04d}"
+            elif chamber == "H":
                 rc_id = f"{leg}{sess}-H{rv['record']:04d}"
             else:
                 rc_id = f"{leg}{sess}-S{n_in_session:04d}"
@@ -264,7 +294,7 @@ def main():
         w.writerow(["rc_id", "member_id", "vote"]); w.writerows(vote_rows)
     with open(os.path.join(OUT, "match_report.txt"), "w") as f:
         f.write("STATUS\n" + "\n".join(f"{k}: {v}" for k, v in sorted(status_count.items())) + "\n\nFUZZY MATCHES\n")
-        f.write("\n".join(f"{sn!r} {ini} -> {people[mid]['name']} ({score:.0f})" for sn, ini, mid, score in sorted(set(fuzzy_log))) + "\n\nPROBLEMS\n")
+        f.write("\n".join(f"{sn!r} {ini} -> {people[mid]['name']} ({score:.0f})" for sn, ini, mid, score in sorted(set(fuzzy_log), key=lambda x: (x[0], x[1] or "", str(x[2]), x[3]))) + "\n\nPROBLEMS\n")
         f.write("\n".join(report) + "\n")
     print("\n".join(f"{k}: {v}" for k, v in sorted(status_count.items())))
     print(f"fuzzy matches: {len(set(fuzzy_log))}; votes: {len(vote_rows):,}")

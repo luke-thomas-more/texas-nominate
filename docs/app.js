@@ -5,8 +5,9 @@
   const tip = document.getElementById("tip");
   const cache = {};
   let INDEX = null;
+  let AX = null;          // the axis labels for the legislature on screen (they read differently by era)
 
-  const PARTY = { R: "Republican", D: "Democrat", O: "Other" };
+  const PARTY = { R: "Republican", D: "Democrat", O: "Other or not recorded" };
   const VOTE = { Y: "Yea", N: "Nay", P: "Present, not voting", E: "Absent, excused", A: "Absent" };
   const CHAMBER = { H: "House", S: "Senate" };
 
@@ -40,6 +41,7 @@
       if (!meta) { location.hash = "#/"; return; }
       if (!meta.chambers[r.ch]) r.ch = Object.keys(meta.chambers)[0];
       const S = await json(`data/s/${r.leg}${r.ch}.json`);
+      AX = axesFor(r.leg);
       if (r.page === "map") renderMap(S, r);
       else if (r.page === "votes") renderVotes(S, r);
       else renderVote(S, r);
@@ -71,6 +73,12 @@
     });
   }
   const partyClass = p => `party-${p in PARTY ? p : "O"}`;
+  const partyOf = m => (m.p === "O" ? m.pn || "Party not recorded" : PARTY[m.p]);
+  // the shared axis labels, with the era's own wording where axes.json gives one
+  function axesFor(leg) {
+    const e = (INDEX.axes.eras || []).find(e => leg >= e.from && leg <= e.to) || {};
+    return { x: { ...INDEX.axes.x, ...(e.x || {}) }, y: { ...INDEX.axes.y, ...(e.y || {}) }, era: e };
+  }
   const partyColor = p => `var(--${p === "R" ? "rep" : p === "D" ? "dem" : "oth"})`;
 
   function showTip(evt, html) {
@@ -90,7 +98,7 @@
   // members: [{id, n, p, d, x, y}], opts: {votes, cut: {mid, spr}, highlight, onClick}
   function plot(el, members, opts = {}) {
     const W = 560, pad = 34, R = (W - 2 * pad) / 2, cx = W / 2, cy = W / 2;
-    const ax = INDEX.axes;
+    const ax = AX;
     const sx = v => cx + v * R, sy = v => cy - v * R;
     const svg = d3.select(el).append("svg").attr("viewBox", `0 0 ${W} ${W}`).attr("role", "img")
       .attr("aria-label", `Map of members: horizontal axis ${ax.x.name}, vertical axis ${ax.y.name}`);
@@ -132,7 +140,7 @@
         return "var(--line)";
       })
       .attr("stroke", m => (opts.votes && !"YN".includes(m.vote) ? "none" : opts.votes && m.vote === "N" ? partyColor(m.p) : "var(--panel)"))
-      .on("pointermove", (e, m) => showTip(e, `<b>${esc(m.n)}</b>${PARTY[m.p] || "Other"}${m.d ? `, District ${esc(m.d)}` : ""}${opts.votes ? `<br>${VOTE[m.vote] || "Not voting"}` : ""}<br><span class="muted">${esc(INDEX.axes.x.short)} ${num(m.x)} · ${esc(INDEX.axes.y.short)} ${num(m.y)}</span>`))
+      .on("pointermove", (e, m) => showTip(e, `<b>${esc(m.n)}</b>${partyOf(m)}${m.d ? `, District ${esc(m.d)}` : ""}${opts.votes ? `<br>${VOTE[m.vote] || "Not voting"}` : ""}<br><span class="muted">${esc(AX.x.short)} ${num(m.x)} · ${esc(AX.y.short)} ${num(m.y)}</span>`))
       .on("pointerleave", hideTip)
       .on("click", (e, m) => opts.onClick && opts.onClick(m));
     if (opts.highlight != null) sel.filter(m => m.id === opts.highlight).raise();
@@ -144,25 +152,42 @@
     };
   }
 
+  // when only one chamber's votes survive (or have been read) for a legislature, say why
+  function missingNote(S) {
+    const meta = INDEX.legislatures.find(l => l.leg === S.leg);
+    const other = S.ch === "H" ? "S" : "H";
+    if (meta.chambers[other]) return "";
+    const why = other === "H" && S.leg >= 63 && S.leg <= 67 ? "The House Journal printed these years' votes as tally sheets, which we can't read reliably yet."
+      : other === "H" && (S.leg === 9 || S.leg === 10) ? "The House Journals for these years survive only as newspaper reconstructions with almost no roll calls."
+      : "No verified roll calls for it.";
+    return `<p class="muted small">No ${CHAMBER[other]} map for this legislature. ${why} <a href="#/about">More</a></p>`;
+  }
+
   // ---------- map page
   function renderMap(S, r) {
-    const ax = INDEX.axes;
+    const ax = AX;
     const scaled = S.members.filter(m => m.x != null);
     const unscaled = S.members.filter(m => m.x == null);
     app.innerHTML = `
       ${controls(S, r, "map")}
+      ${missingNote(S)}
       <h1>Texas ${CHAMBER[S.ch]}, ${ord(S.leg)} Legislature <span class="muted" style="font-weight:500">${esc(S.years)}</span></h1>
-      <p class="lede">Each dot is a member, placed by every contested record vote of their career since 1995. Members who vote alike sit close together. Left to right is the main divide in Texas votes; up and down is the second-biggest. <a href="#/about">How to read this</a></p>
+      <p class="lede">Each dot is a member, placed by every contested record vote of their career. Members who vote alike sit close together. The two axes are the two main ways Texas votes split, and what they stand for has changed since 1846, so what they mean in these years is explained below the map. <a href="#/about">How this works</a></p>
       <div class="mapwrap">
         <div class="card">
           <div class="plot" id="plot"></div>
-          <div class="legend"><span><i class="dot" style="background:var(--dem)"></i>Democrat</span><span><i class="dot" style="background:var(--rep)"></i>Republican</span>${S.members.some(m => m.p === "O") ? '<span><i class="dot" style="background:var(--oth)"></i>Other</span>' : ""}</div>
+          <div class="legend"><span><i class="dot" style="background:var(--dem)"></i>Democrat</span><span><i class="dot" style="background:var(--rep)"></i>Republican</span>${S.members.some(m => m.p === "O") ? '<span><i class="dot" style="background:var(--oth)"></i>Other or not recorded</span>' : ""}</div>
         </div>
         <div>
           <input type="search" id="find" placeholder="Find a member" aria-label="Find a member" list="names">
           <datalist id="names">${S.members.map(m => `<option value="${esc(m.n)}">`).join("")}</datalist>
           <div class="card panel" id="panel" style="margin-top:12px"><p class="muted small" style="margin:0">Select a dot or search for a member to see their scores.</p></div>
         </div>
+      </div>
+      <div class="eranote">
+        <h2>Reading the axes${ax.era.label ? `, ${esc(ax.era.label)}` : ""}</h2>
+        <p><b>Left to right: ${esc(ax.x.name)}.</b> ${esc(ax.x.desc)}</p>
+        <p><b>Up and down: ${esc(ax.y.name)}.</b> ${esc(ax.y.desc)}</p>
       </div>
       <h2>All members, ${esc(ax.x.neg.toLowerCase())} to ${esc(ax.x.pos.toLowerCase())}</h2>
       <div class="tablewrap tall"><table id="tbl"><thead><tr>
@@ -175,7 +200,7 @@
     const P = plot(document.getElementById("plot"), S.members, { onClick: m => select(m.id) });
     const rows = [...scaled].sort((a, b) => a.x - b.x);
     document.querySelector("#tbl tbody").innerHTML = rows.map((m, i) => `
-      <tr class="click" data-id="${m.id}"><td class="num">${i + 1}</td><td>${esc(m.n)}</td><td class="${partyClass(m.p)}">${m.p}</td>
+      <tr class="click" data-id="${m.id}"><td class="num">${i + 1}</td><td>${esc(m.n)}</td><td class="${partyClass(m.p)}">${m.p === "O" ? esc(m.pn || "–") : m.p}</td>
       <td class="num">${esc(m.d)}</td><td class="num">${num(m.x)}</td><td class="num">${num(m.y)}</td></tr>`).join("");
     document.querySelectorAll("#tbl tr.click").forEach(tr => tr.addEventListener("click", () => {
       select(+tr.dataset.id);
@@ -196,12 +221,12 @@
       const prank = sameParty.findIndex(x => x.id === id);
       document.getElementById("panel").innerHTML = `
         <h3>${esc(m.n)}</h3>
-        <div class="${partyClass(m.p)}">${PARTY[m.p] || "Other"}${m.d ? ` · District ${esc(m.d)}` : ""}</div>
+        <div class="${partyClass(m.p)}">${partyOf(m)}${m.d ? ` · District ${esc(m.d)}` : ""}</div>
         ${m.x == null ? `<p class="muted small" style="margin-top:10px">Cast fewer than 20 contested votes this session, so not placed on the map.</p>` : `
         <dl class="kv">
           <dt>${esc(ax.x.short)}</dt><dd>${num(m.x)} <span class="muted small">(${esc(ax.x.neg.toLowerCase())} −1 … +1 ${esc(ax.x.pos.toLowerCase())})</span></dd>
           <dt>${esc(ax.y.short)}</dt><dd>${num(m.y)}</dd>
-          <dt>Rank</dt><dd>${rank + 1} of ${rows.length} from the ${esc(ax.x.neg.toLowerCase())} end; ${prank + 1} of ${sameParty.length} ${PARTY[m.p] ? PARTY[m.p] + "s" : "in party"}</dd>
+          <dt>Rank</dt><dd>${rank + 1} of ${rows.length} from the ${esc(ax.x.neg.toLowerCase())} end${m.p === "O" ? "" : `; ${prank + 1} of ${sameParty.length} ${PARTY[m.p]}s`}</dd>
           <dt>Votes</dt><dd>${m.v.toLocaleString()} contested votes this session (the position reflects their whole career)</dd>
         </dl>`}
         <button id="clr" type="button">Clear</button>`;
@@ -243,8 +268,27 @@
     }
     return who(m);
   }
+  // the scanned journals' wording (before 1973): "Yeas and nays were demanded, and the motion to
+  // table was lost by the following vote: Terrell of Bexar then moved to table ..." -> the motion,
+  // with its mover where the journal names one ("Motion by Terrell of Bexar to table ...")
+  function oldStyle(t) {
+    const m = t.match(/^(.*?)[,;]?\s*(?:by|on) the following vote\W*(.*)$/i);
+    if (!m) return null;
+    let [, head, tail] = m;
+    head = head.replace(/^.*?\b(?:were demanded|was ordered|was called)\W+(?:and\s+)?/i, "").replace(/^(?:question\W+|then\s+)/i, "")
+      .replace(/^the\s+/i, "").replace(/\s+(?:was|were)\s+(?:lost|adopted|passed|tabled|refused|rejected|carried|sustained|overruled|not adopted|laid on the table)\b.*$/i, "")
+      .replace(/\s+(?:prevailed|carried|failed)\b.*$/i, "").trim();
+    const mover = (tail || "").match(/(?:^|\.\s+)((?:Senator\s+|Mr\.\s+)?[A-Z][\w'’.-]+(?:\s+of\s+[A-Z][\w'’.-]+)?)\s+(?:then\s+)?moved\s+(?:that\s+)?(?:to\s+)?(.{4,90}?)(?:[.:;]|$)/);
+    if (mover) return `Motion by ${mover[1]}: ${mover[2].replace(/^to\s+/i, "")}`;
+    const q = t.match(/\bSha[l1i]{2}\s+(.{3,110}?)\?/i);         // "Question—Shall the bill be passed?"
+    if (q) return `Shall ${q[1]}?`;
+    head = head.replace(/\s+pre\S{1,3}ailed\b.*$/i, "");
+    return head ? head.charAt(0).toUpperCase() + head.slice(1, 120) : null;
+  }
   function describe(S, rc) {
     let t = (rc.t || "").replace(/\s+/g, " ").trim();
+    const old = S.leg < 63 ? oldStyle(t) : null;
+    if (old) return old;
     let verified = false;
     if (/roll of those voting|verified vote|vote was verified/i.test(t)) { t = ""; verified = true; }
     if (rc.b && BILL_RE.test(t)) {              // "SB 40, as amended, was passed" -> "Passed, as amended"
@@ -324,7 +368,7 @@
     const scaled = rc.mid != null;
     const correct = scaled ? Math.round(100 * (1 - rc.err / (rc.y + rc.n))) : null;
     const tilt = scaled ? Math.abs(Math.atan2(INDEX.w[1] ** 2 * rc.spr[1], INDEX.w[0] ** 2 * rc.spr[0]) * 180 / Math.PI) : null;
-    const axisNote = tilt == null ? "" : tilt < 30 || tilt > 150 ? `split members along the main (${INDEX.axes.x.short.toLowerCase()}) divide` : tilt > 60 && tilt < 120 ? `split members along the second (${INDEX.axes.y.short.toLowerCase()}) divide` : "cut across both divides";
+    const axisNote = tilt == null ? "" : tilt < 30 || tilt > 150 ? `split members left to right (${AX.x.short.toLowerCase()})` : tilt > 60 && tilt < 120 ? `split members up and down (${AX.y.short.toLowerCase()})` : "cut across both divides";
     app.innerHTML = `
       ${controls(S, r, "vote")}
       <p class="small"><a href="#/${S.leg}/${S.ch}/votes">← All ${CHAMBER[S.ch]} votes, ${ord(S.leg)} Legislature</a></p>
@@ -334,7 +378,7 @@
       ${(cap || rc.m || rc.a || rc.t) ? `<div class="context">
         ${cap ? `<p><b>${esc(rc.b)}</b>: ${esc(cap)}</p>` : ""}
         ${rc.a ? `<p>${esc(rc.a)}</p>` : ""}${rc.m ? `<p>${esc(rc.m)}</p>` : ""}
-        <p class="muted">Journal: “${esc(rc.t)}.”${S.days[rc.f] ? ` <a href="${esc(S.days[rc.f])}" target="_blank" rel="noopener">Read it in the ${CHAMBER[S.ch]} Journal</a>` : ""}</p>
+        <p class="muted">Journal: “${esc(rc.t.replace(/[\s:;.,]+$/, ""))}.”${S.days[rc.f] ? ` <a href="${esc(S.days[rc.f] + (rc.pg ? "#page=" + rc.pg : ""))}" target="_blank" rel="noopener">Read it in the ${CHAMBER[S.ch]} Journal</a>` : ""}</p>
       </div>` : ""}
       <div class="mapwrap" style="margin-top:20px">
         <div class="card">
@@ -348,7 +392,7 @@
         <div class="card">
           <h3>By party</h3>
           <table><thead><tr><th>Party</th><th class="num">Yea</th><th class="num">Nay</th><th class="num">PNV</th><th class="num">Absent</th></tr></thead><tbody>
-          ${parties.map(p => `<tr><td class="${partyClass(p)}">${PARTY[p] || "Other"}</td>${["Y", "N", "P"].map(c => `<td class="num">${by(c).filter(m => m.p === p).length}</td>`).join("")}<td class="num">${[...by("A"), ...by("E")].filter(m => m.p === p).length}</td></tr>`).join("")}
+          ${parties.map(p => `<tr><td class="${partyClass(p)}">${PARTY[p]}</td>${["Y", "N", "P"].map(c => `<td class="num">${by(c).filter(m => m.p === p).length}</td>`).join("")}<td class="num">${[...by("A"), ...by("E")].filter(m => m.p === p).length}</td></tr>`).join("")}
           </tbody></table>
           <p class="small muted" style="margin-top:12px">${scaled
             ? `This vote ${axisNote}. The map predicts ${correct}% of the yea and nay votes correctly.`

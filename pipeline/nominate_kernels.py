@@ -22,14 +22,16 @@ def log_ndtr(x):
 
 
 @nb.njit(cache=True, inline="always")
-def _utils(Pm, Pp, M, D, w2, i, j, f, a, b):
+def _utils(Pm, Pp, M, D, w2, G, i, j, f, a, b):
+    """G[j, k] is 1 where roll call j uses dimension k, 0 where it does not (the hybrid model's
+    era axes). A masked dimension drops out of both utilities, so every gradient on it is zero."""
     K = Pm.shape[1]
     dy = 0.0
     dn = 0.0
     for k in range(K):
         xm = Pm[i, k] * (1.0 - f) + Pp[i, k] * f - M[j, k]
-        a[k] = xm + D[j, k]
-        b[k] = xm - D[j, k]
+        a[k] = G[j, k] * (xm + D[j, k])
+        b[k] = G[j, k] * (xm - D[j, k])
         dy += w2[k] * a[k] * a[k]
         dn += w2[k] * b[k] * b[k]
     return math.exp(-0.5 * dy), math.exp(-0.5 * dn)
@@ -40,7 +42,7 @@ def n_threads():
 
 
 @nb.njit(parallel=True, cache=True)
-def loglik_by(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, by, n_out, T):
+def loglik_by(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, G, by, n_out, T):
     """Log-likelihood summed per roll call (by=0), per member (by=1) or in total (by=2)."""
     N = rc.shape[0]
     K = Pm.shape[1]
@@ -50,7 +52,7 @@ def loglik_by(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, by, n_out, T):
         a = np.empty(K)
         b = np.empty(K)
         for o in range(t * chunk, min(N, (t + 1) * chunk)):
-            ey, en = _utils(Pm, Pp, M, D, w2, mem[o], rc[o], frac[o], a, b)
+            ey, en = _utils(Pm, Pp, M, D, w2, G, mem[o], rc[o], frac[o], a, b)
             lc = log_ndtr(s[o] * beta * (ey - en))
             if by == 0:
                 out[t, rc[o]] += lc
@@ -62,7 +64,7 @@ def loglik_by(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, by, n_out, T):
 
 
 @nb.njit(parallel=True, cache=True)
-def objective(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
+def objective(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, G, T):
     """Total log-likelihood and its gradient for positions (start, end), midpoints and spreads."""
     N = rc.shape[0]
     K = Pm.shape[1]
@@ -76,7 +78,7 @@ def objective(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
         b = np.empty(K)
         for o in range(t * chunk, min(N, (t + 1) * chunk)):
             i, j, f = mem[o], rc[o], frac[o]
-            ey, en = _utils(Pm, Pp, M, D, w2, i, j, f, a, b)
+            ey, en = _utils(Pm, Pp, M, D, w2, G, i, j, f, a, b)
             sz = s[o] * beta * (ey - en)
             lc = log_ndtr(sz)
             ll[t] += lc
@@ -93,7 +95,7 @@ def objective(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
 
 
 @nb.njit(parallel=True, cache=True)
-def block_rollcalls(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
+def block_rollcalls(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, G, T):
     """Per roll call: score g (n_rc, 2K) and Fisher information H (n_rc, 2K, 2K) for (midpoint, spread)."""
     N = rc.shape[0]
     K = Pm.shape[1]
@@ -106,7 +108,7 @@ def block_rollcalls(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
         a = np.empty(K); b = np.empty(K); J = np.empty(P)
         for o in range(t * chunk, min(N, (t + 1) * chunk)):
             j = rc[o]
-            ey, en = _utils(Pm, Pp, M, D, w2, mem[o], j, frac[o], a, b)
+            ey, en = _utils(Pm, Pp, M, D, w2, G, mem[o], j, frac[o], a, b)
             z = beta * (ey - en)
             sz = s[o] * z
             lpdf = -0.5 * z * z - LOG_SQRT_2PI
@@ -123,7 +125,7 @@ def block_rollcalls(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
 
 
 @nb.njit(parallel=True, cache=True)
-def block_members(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
+def block_members(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, G, T):
     """Per member: score and Fisher information for (start position, end position)."""
     N = rc.shape[0]
     K = Pm.shape[1]
@@ -136,7 +138,7 @@ def block_members(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
         a = np.empty(K); b = np.empty(K); J = np.empty(P)
         for o in range(t * chunk, min(N, (t + 1) * chunk)):
             i, f = mem[o], frac[o]
-            ey, en = _utils(Pm, Pp, M, D, w2, i, rc[o], f, a, b)
+            ey, en = _utils(Pm, Pp, M, D, w2, G, i, rc[o], f, a, b)
             z = beta * (ey - en)
             sz = s[o] * z
             lpdf = -0.5 * z * z - LOG_SQRT_2PI
@@ -154,7 +156,7 @@ def block_members(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
 
 
 @nb.njit(parallel=True, cache=True)
-def block_global(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
+def block_global(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, G, T):
     """Score and information for (beta, w2[1], ..., w2[K-1])."""
     N = rc.shape[0]
     K = Pm.shape[1]
@@ -164,7 +166,7 @@ def block_global(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
     for t in nb.prange(T):
         a = np.empty(K); b = np.empty(K); J = np.empty(K)
         for o in range(t * chunk, min(N, (t + 1) * chunk)):
-            ey, en = _utils(Pm, Pp, M, D, w2, mem[o], rc[o], frac[o], a, b)
+            ey, en = _utils(Pm, Pp, M, D, w2, G, mem[o], rc[o], frac[o], a, b)
             z = beta * (ey - en)
             sz = s[o] * z
             lpdf = -0.5 * z * z - LOG_SQRT_2PI
@@ -181,7 +183,7 @@ def block_global(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
 
 
 @nb.njit(parallel=True, cache=True)
-def predict(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
+def predict(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, G, T):
     """Per vote: z (the utility difference) and log-likelihood."""
     N = rc.shape[0]
     K = Pm.shape[1]
@@ -191,7 +193,7 @@ def predict(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, T):
     for t in nb.prange(T):
         a = np.empty(K); b = np.empty(K)
         for o in range(t * chunk, min(N, (t + 1) * chunk)):
-            ey, en = _utils(Pm, Pp, M, D, w2, mem[o], rc[o], frac[o], a, b)
+            ey, en = _utils(Pm, Pp, M, D, w2, G, mem[o], rc[o], frac[o], a, b)
             z[o] = beta * (ey - en)
             lc[o] = log_ndtr(s[o] * z[o])
     return z, lc

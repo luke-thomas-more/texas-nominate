@@ -4,16 +4,126 @@
   "short": "Left–right",
   "neg": "More liberal",
   "pos": "More conservative",
-  "desc": "The main divide in Texas votes. Today it's almost entirely Democrats against Republicans; in the 1990s, when many rural and South Texas Democrats voted conservatively, the parties overlapped much more."
+  "desc": "The main line along which Texas votes split. What it stands for depends on the era; see the guide for each era."
  },
  "y": {
-  "name": "establishment to anti-establishment",
-  "short": "Establishment",
-  "neg": "Anti-establishment",
-  "pos": "Establishment",
-  "desc": "The second divide separates members who vote with their chamber's leadership from those who buck it, within both parties. Among House Republicans the top is each era's Speaker's team: Talmadge Heflin and Fred Hill under Craddick, Four Price and Stan Lambert more recently. The bottom is the rebels: the anti-Craddick Republicans of 2007–09 (Tommy Merritt, Delwin Jones), then Jonathan Stickland, Brian Harrison and Andy Hopper. Among Democrats, mavericks like Terry Canales sit lowest. In the Senate the axis separates institutionalists such as Robert Nichols and Charles Schwertner from members such as Mayes Middleton and Sarah Eckhardt."
+  "name": "the second divide",
+  "short": "Second",
+  "neg": "Down",
+  "pos": "Up",
+  "desc": "The second line along which votes split, after the main one. Its meaning changes more from era to era than the main divide's."
  },
  "dims": {
-  "note": "The second dimension earns its place: it cuts the remaining errors noticeably. A third adds about two-thirds as much again, because Texas votes are less one-dimensional than Congress's. But it doesn't have a clear, stable meaning yet, so the maps show the first two. We'll revisit that as older legislatures are added."
- }
+  "note": "The second dimension earns its place: it cuts the remaining errors by about a fifth. A third adds much less, and it has no clear, stable meaning across eras, so the maps show the first two."
+ },
+ "eras": [
+  {
+   "from": 1,
+   "to": 13,
+   "label": "1846–1873: statehood, Civil War and Reconstruction",
+   "x": {
+    "desc": "Before the Civil War there was no lasting two-party divide in Austin, and the axis is hard to name: the fire-eater Louis T. Wigfall sits well to the left and the Unionist James W. Throckmorton near the center, but with so few members' parties on record, two careers can't say what the sides stood for. In the Reconstruction House of 1870–73, Republicans sit mostly to the left and Democrats to the right. Most members before Reconstruction have no party on record.",
+    "name": "the main divide",
+    "neg": "Left",
+    "pos": "Right"
+   },
+   "y": {
+    "name": "no strong pattern",
+    "neg": "Down",
+    "pos": "Up",
+    "desc": "Only a weak pattern: Houston and the border counties (Starr, Webb) sit somewhat low, and rural East and North Texas slightly high. Most votes split left to right, so read the map mainly that way."
+   }
+  },
+  {
+   "from": 14,
+   "to": 26,
+   "label": "1874–1900: after Reconstruction",
+   "x": {
+    "desc": "Democrats held most seats, and the main divide ran through them. On regulating corporations and trusts and on protecting labor unions, reformers sit to the left and their opponents to the right. The parties that challenged the Democrats land on different sides by decade: Republicans and Greenbackers of the 1870s and 1880s sit to the left, while the Populists of the 1890s and the Republicans who worked with them sit to the right. In this era the axis partly tracks who opposed the Democratic majority at the time, not one fixed ideology.",
+    "name": "reform to conservative",
+    "neg": "Reform",
+    "pos": "Conservative"
+   },
+   "y": {
+    "name": "countryside to cities and border",
+    "neg": "Cities, border, German counties",
+    "pos": "Rural Anglo counties",
+    "desc": "Members from the rural Anglo counties, especially in North Texas, sit at the top. At the bottom are the cities (Galveston, Houston, San Antonio, Beaumont), the border counties such as Webb, and the German counties (Fayette, DeWitt, Blanco). Most votes still split left to right, but about a third split up and down."
+   }
+  },
+  {
+   "from": 27,
+   "to": 41,
+   "label": "1901–1930: prohibition and the Progressive Era",
+   "x": {
+    "desc": "Progressives sit to the left, conservatives to the right. Prohibition, the era's defining fight, runs mostly up and down the map instead: on the 1911 and 1913 liquor votes the drys sit at the top and the wets at the bottom, with the drys a little to the left.",
+    "name": "progressive to conservative",
+    "neg": "More progressive",
+    "pos": "More conservative"
+   },
+   "y": {
+    "name": "dry countryside to wet cities",
+    "neg": "Wet: cities, border, German counties",
+    "pos": "Dry: rural Anglo counties",
+    "desc": "The top is the dry countryside: rural Anglo counties of East, North and West Texas. The bottom is the wet Texas of San Antonio, Houston, Galveston and Beaumont, the border, and the German and Czech counties of Central Texas. With nearly every member a Democrat, this regional and cultural split decided about as many votes as the left–right one."
+   }
+  },
+  {
+   "from": 42,
+   "to": 56,
+   "label": "1931–1960: New Deal liberals and conservative Democrats",
+   "x": {
+    "desc": "Liberal Democrats such as Maury Maverick Jr. and Henry B. González sit to the left, and conservative Democrats such as Dorsey Hardeman, Wardlow Lane and Coke Stevenson to the right."
+   },
+   "y": {
+    "name": "countryside to cities and border",
+    "neg": "Cities, border",
+    "pos": "Rural Anglo counties",
+    "desc": "As before 1930, rural Anglo counties of East and North Texas sit at the top, and the big cities (Houston, Dallas, Fort Worth, San Antonio) and the Rio Grande Valley at the bottom. In these one-party decades this was still the most common way votes split."
+   }
+  },
+  {
+   "from": 57,
+   "to": 67,
+   "label": "1961–1982: liberals, conservatives and the first Republicans",
+   "x": {
+    "desc": "Liberals such as Bob Eckhardt, Barbara Jordan, Oscar Mauzy and Sissy Farenthold sit to the left, conservative Democrats to the right. The first modern Republicans join the conservatives on the right."
+   },
+   "y": {
+    "name": "countryside to cities",
+    "neg": "Cities",
+    "pos": "Rural and small-city Texas",
+    "desc": "Rural and small-city members sit at the top, and the Dallas delegation at the bottom, with Fort Worth, El Paso, Laredo and Duval County also below the middle. Most contested votes now cut across both axes at once."
+   }
+  },
+  {
+   "from": 68,
+   "to": 73,
+   "label": "1983–1994: the Republicans' rise",
+   "x": {
+    "desc": "Liberal Democrats to the left, Republicans to the right, with conservative rural Democrats in between."
+   },
+   "y": {
+    "name": "Republican suburbs to Democratic Texas",
+    "neg": "Democrats",
+    "pos": "Suburban Republicans",
+    "desc": "As Republicans won the suburbs, this axis came to separate them (top: Collin, Denton and Midland counties, suburban Dallas) from Democrats, rural and urban alike (bottom). Party now shows up on both axes."
+   }
+  },
+  {
+   "from": 74,
+   "to": 89,
+   "label": "1995–2025: the two-party era",
+   "x": {
+    "desc": "Almost entirely Democrats against Republicans. In the 1990s, when many rural and South Texas Democrats voted conservatively, the parties overlapped much more."
+   },
+   "y": {
+    "name": "establishment to anti-establishment",
+    "short": "Establishment",
+    "neg": "Anti-establishment",
+    "pos": "Establishment",
+    "desc": "Within both parties, this separates members who vote with their chamber's leadership from those who buck it. Among House Republicans, the top is each era's Speaker's team: Talmadge Heflin and Fred Hill under Craddick, Stan Lambert more recently. The bottom is the rebels: Jonathan Stickland, Brian Harrison and Andy Hopper. Among Democrats, mavericks like Terry Canales sit lowest. In the Senate the axis separates institutionalists such as Robert Nichols and Charles Schwertner from members such as Mayes Middleton and Sarah Eckhardt."
+   }
+  }
+ ]
 }

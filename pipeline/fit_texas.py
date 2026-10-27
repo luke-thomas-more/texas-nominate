@@ -9,26 +9,44 @@ Fits 1, 2 and 3 dimensions (to see what each extra dimension buys) and keeps the
 Writes data/processed/fit/: summary.json, member_scores.csv, rollcall_params.csv.
 
 Usage: python pipeline/fit_texas.py [dims=2] [first_leg] [last_leg]
+
+HYBRID="1-8,27-41,42-56" fits the hybrid model instead (dims must be 2): dimension 1 is shared by
+all of history, and each listed range of legislatures gets a second axis of its own; every other
+legislature shares one second axis. Outputs keep the dim1/dim2 columns, with dim2 read on the
+axis named in the axis2 column.
+
+START_STITCH=<prefix> starts from the era-only fits <prefix><a>_<b>/ put in one frame
+(stitch_start.py) instead of one SVD over every legislature.
 """
-import collections, csv, gzip, json, os, sys, time
+import collections, csv, gzip, json, os, sys, time, zlib
 import numpy as np
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from nominate import DWNominate, svd_start
+from nominate import DWNominate, svd_start, to_ball
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 PROC = os.path.join(ROOT, "data", "processed")
 OUT = os.environ.get("FIT_DIR", os.path.join(PROC, "fit"))
 
 
+GOOD = {"ok", "near", "ok_digit", "ok_lists"}     # verified roll calls (see extract_history.py for the statuses)
+
+
 def load(first, last):
-    rcs = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(PROC, "rollcalls.csv")))
-           if r["status"] == "ok" and first <= int(r["leg"]) <= last}
-    obs = []
-    with gzip.open(os.path.join(PROC, "votes.csv.gz"), "rt") as f:
-        for rc_id, mid, v in csv.reader(f):
-            if v in ("Y", "N") and rc_id in rcs:
-                obs.append((rc_id, int(mid), v == "Y"))
+    """Verified roll calls and their yea/nay votes from both pipelines: the journals in the modern
+    record-vote format (rollcalls.csv) and the older scanned journals (rollcalls_hist.csv)."""
+    rcs, obs = {}, []
+    for rc_file, v_file in (("rollcalls.csv", "votes.csv.gz"), ("rollcalls_hist.csv", "votes_hist.csv.gz")):
+        if not os.path.exists(os.path.join(PROC, rc_file)):
+            continue
+        part = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(PROC, rc_file)))
+                if r["status"] in GOOD and first <= int(r["leg"]) <= last}
+        rcs.update(part)
+        with gzip.open(os.path.join(PROC, v_file), "rt") as f:
+            rd = csv.reader(f); next(rd)
+            for rc_id, mid, v in rd:
+                if v in ("Y", "N") and rc_id in part:
+                    obs.append((rc_id, int(mid), v == "Y"))
     return rcs, obs
 
 
@@ -59,23 +77,58 @@ def build(rcs, obs, min_frac=0.025, min_votes=20):
     return dict(rc=rc, mem=mem, yea=yea, frac=frac, rc_keys=rc_keys, mem_keys=mem_keys, first=first, last=last, leg=leg)
 
 
+def hold_out(d, frac):
+    """Set aside a share of votes for out-of-sample scoring. A vote is held out by a hash of its
+    (roll call, member), so every fit over the same votes holds out the same ones. Held-out votes
+    whose roll call or member has nothing left to fit are dropped."""
+    cut = int(frac * 2 ** 32)
+    h = np.array([zlib.crc32(f"{d['rc_keys'][r]}|{d['mem_keys'][i]}".encode()) < cut for r, i in zip(d["rc"], d["mem"])])
+    held = {k: d[k][h] for k in ("rc", "mem", "yea", "frac")}
+    for k in ("rc", "mem", "yea", "frac", "leg"):
+        d[k] = d[k][~h]
+    ok = np.isin(held["rc"], d["rc"]) & np.isin(held["mem"], d["mem"])
+    return {k: v[ok] for k, v in held.items()}
+
+
+def hybrid_axes(d, spec):
+    """Axis names (dimension 2 onward) and the roll call x dimension mask G for HYBRID=spec."""
+    eras = [tuple(int(x) for x in part.split("-")) for part in spec.split(",")]
+    rc_leg = np.zeros(len(d["rc_keys"]), int)
+    rc_leg[d["rc"]] = d["leg"]
+    axis = np.zeros(len(rc_leg), int)                  # 0 = the shared second axis
+    for g, (a, b) in enumerate(eras, 1):
+        axis[(rc_leg >= a) & (rc_leg <= b)] = g
+    G = np.zeros((len(rc_leg), 2 + len(eras)))
+    G[:, 0] = 1
+    G[np.arange(len(rc_leg)), 1 + axis] = 1
+    names = ["shared"] + [f"legs {a}-{b}" for a, b in eras]
+    return names, G, axis
+
+
 def warm_start(m, d, folder, K):
-    """Start from an earlier fit's positions, outcomes, beta and weights (constant model)."""
+    """Start from an earlier fit's positions, outcomes, beta and weights (constant model). The earlier
+    fit may have fewer or more dimensions: shared dimensions are copied, an extra one starts small."""
+    with open(os.path.join(folder, "member_scores.csv")) as f:
+        Kf = sum(1 for c in next(csv.reader(f)) if c.startswith("dim"))
+    k0 = min(K, Kf)
+    if K > Kf:                               # the SVD start's extra dimensions, shrunk
+        m.Pm[:, k0:] *= 0.1; m.M[:, k0:] *= 0.1
     pos = {}
     for r in csv.DictReader(open(os.path.join(folder, "member_scores.csv"))):
-        pos[int(r["member_id"])] = [float(r[f"dim{k + 1}"]) for k in range(K)]
+        pos[int(r["member_id"])] = [float(r[f"dim{k + 1}"]) for k in range(k0)]
     for i, mid in enumerate(d["mem_keys"]):
         if int(mid) in pos:
-            m.Pm[i] = m.Pp[i] = pos[int(mid)]
+            m.Pm[i, :k0] = pos[int(mid)]
+    m.Pm[:] = to_ball(m.Pm); m.Pp[:] = m.Pm
     rcp = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(folder, "rollcall_params.csv")))}
     for j, k in enumerate(d["rc_keys"]):
         if k in rcp:
-            m.M[j] = [float(rcp[k][f"mid{q + 1}"]) for q in range(K)]
-            m.D[j] = [float(rcp[k][f"spread{q + 1}"]) for q in range(K)]
+            m.M[j, :k0] = [float(rcp[k][f"mid{q + 1}"]) for q in range(k0)]
+            m.D[j, :k0] = [float(rcp[k][f"spread{q + 1}"]) for q in range(k0)]
     summ = json.load(open(os.path.join(folder, "summary.json")))
     m.beta = float(summ["beta"])
-    m.w2 = np.array([w * w for w in summ["w"]])
-    print(f"    warm start from {folder}: beta {m.beta:.2f}", flush=True)
+    m.w2[:k0] = [w * w for w in summ["w"][:k0]]
+    print(f"    warm start from {folder} ({Kf}-d into {K}-d): beta {m.beta:.2f}", flush=True)
 
 
 def party_lookup():
@@ -91,6 +144,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     rcs, obs = load(first_leg, last_leg)
     d = build(rcs, obs)
+    held = hold_out(d, float(os.environ["HOLDOUT"])) if os.environ.get("HOLDOUT") else None
     n_rc, n_mem = len(d["rc_keys"]), len(d["mem_keys"])
     chambers = collections.defaultdict(set)
     for k, m in zip(d["rc_keys"][d["rc"]], d["mem_keys"][d["mem"]]):
@@ -107,13 +161,36 @@ def main():
     summary = {"legislatures": [first_leg, last_leg], "roll_calls_ok": len(rcs), "roll_calls_scaled": n_rc,
                "members": n_mem, "members_both_chambers": both, "votes": int(len(d["rc"])), "by_dims": {}}
     X0 = svd_start(d["rc"], d["mem"], d["yea"], n_rc, n_mem, 3)
+    if os.environ.get("START_STITCH"):
+        # era-only fits put in one frame (stitch_start.py); members no era fit kept get the SVD start
+        from stitch_start import stitched_positions
+        Xs, found = stitched_positions(d["mem_keys"], os.environ["START_STITCH"])
+        scale = np.abs(Xs[found]).max(0)
+        X0[found, :2] = Xs[found] / scale
+        print(f"    stitched start for {found.sum():,} of {n_mem:,} members", flush=True)
+    hyb = os.environ.get("HYBRID")
+    if hyb:
+        assert dims == 2 and os.environ.get("FIT_ONLY"), "HYBRID fits 2 dimensions only (with FIT_ONLY=1)"
+        axis_names, G, rc_axis = hybrid_axes(d, hyb)
+        # each axis starts from the second singular vector, for the members who vote on it
+        uses = np.zeros((n_mem, G.shape[1]), bool)
+        uses[d["mem"], 1 + rc_axis[d["rc"]]] = True
+        X0h = np.zeros((n_mem, G.shape[1]))
+        X0h[:, 0] = X0[:, 0]
+        X0h[:, 1:] = np.where(uses[:, 1:], X0[:, 1:2], 0.0)
+        summary["axes2"] = axis_names
     models = {}
     for K in ([dims] if os.environ.get("FIT_ONLY") else sorted({1, 2, 3, dims})):
         t0 = time.time()
-        print(f"--- {K} dimension(s)", flush=True)
-        m = DWNominate(d["rc"], d["mem"], d["yea"], d["frac"], n_rc, n_mem, K=K, trend=os.environ.get("TREND", "1") == "1")
-        m.start(X0[:, :K])
-        if os.environ.get("FIT_START"):
+        print(f"--- {K} dimension(s)" + (f", hybrid second axes: {', '.join(axis_names)}" if hyb else ""), flush=True)
+        if hyb:
+            m = DWNominate(d["rc"], d["mem"], d["yea"], d["frac"], n_rc, n_mem, K=G.shape[1],
+                           trend=os.environ.get("TREND", "1") == "1", G=G, hybrid=True)
+            m.start(X0h)
+        else:
+            m = DWNominate(d["rc"], d["mem"], d["yea"], d["frac"], n_rc, n_mem, K=K, trend=os.environ.get("TREND", "1") == "1")
+            m.start(X0[:, :K])
+        if os.environ.get("FIT_START") and not hyb:
             warm_start(m, d, os.environ["FIT_START"], K)
         m.fix_beta = os.environ.get("FIX_BETA") == "1"
         m.fit(verbose=True, alternate_iters=int(os.environ.get("ALT_ITERS", 30)), rounds=int(os.environ.get("ROUNDS", 4)))
@@ -124,12 +201,24 @@ def main():
         print(f"    K={K}: correct {st['correct']:.4f}  APRE {st['apre']:.4f}  GMP {st['gmp']:.4f}  ({st['seconds']}s)", flush=True)
 
     m = models[dims]
-    # polarity: Republicans on the positive side of dimension 1
-    if m.Pm[rep, 0].mean() < m.Pm[~rep, 0].mean():
-        for arr in (m.Pm, m.Pp, m.M, m.D):
-            arr[:, 0] *= -1
+    # polarity: Republicans on the positive side of dimension 1. Without a trend Pp is Pm (the same
+    # array), so flip it only once or members end up unflipped against flipped roll calls.
+    # Same rule for dimension 2 (a reflection, so the fit is unchanged): it puts the modern House
+    # leadership's allies at the top, as in v1.
+    for k in range(min(dims, 2)):
+        if m.Pm[rep, k].mean() < m.Pm[~rep, k].mean():
+            for arr in {id(a): a for a in (m.Pm, m.Pp, m.M, m.D)}.values():
+                arr[:, k] *= -1
     summary["chosen_dims"] = dims
     summary["beta"], summary["w"] = m.beta, [float(x) for x in np.sqrt(m.w2)]
+    if hyb:
+        eras = [tuple(int(x) for x in part.split("-")) for part in hyb.split(",")]
+        leg_axis = lambda leg: next((g for g, (a, b) in enumerate(eras, 1) if a <= leg <= b), 0)
+        pick = lambda row, ax: [row[0], row[1 + ax]]          # (dim 1, the axis's own dim 2)
+    else:
+        leg_axis = lambda leg: None
+        pick = lambda row, ax: row
+    ax_name = lambda ax: axis_names[ax] if hyb else None
 
     # member scores per legislature and chamber actually served
     served = collections.defaultdict(set)
@@ -140,13 +229,16 @@ def main():
         nvotes[(i, int(rcs[k]["leg"]), rcs[k]["chamber"])] += 1
     with open(os.path.join(OUT, "member_scores.csv"), "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["member_id", "leg", "chamber", "party", "district", "scaled_votes"] + [f"dim{k + 1}" for k in range(dims)])
+        w.writerow(["member_id", "leg", "chamber", "party", "district", "scaled_votes"] + [f"dim{k + 1}" for k in range(dims)]
+                   + (["axis2"] if hyb else []))
         for i, mid in enumerate(d["mem_keys"]):
             for leg, ch in sorted(served[i]):
                 fr = 0.0 if d["last"][i] == d["first"][i] else (leg - d["first"][i]) / (d["last"][i] - d["first"][i])
                 x = m.position(np.array([i]), np.array([fr]))[0]
                 t = terms.get((int(mid), leg, ch), {})
-                w.writerow([int(mid), leg, ch, t.get("party", ""), t.get("district", ""), nvotes[(i, leg, ch)]] + [f"{v:.4f}" for v in x])
+                ax = leg_axis(leg)
+                w.writerow([int(mid), leg, ch, t.get("party", ""), t.get("district", ""), nvotes[(i, leg, ch)]]
+                           + [f"{v:.4f}" for v in pick(x, ax)] + ([ax_name(ax)] if hyb else []))
     # roll call parameters, plus how well each is classified
     from nominate_kernels import predict
     z, _ = predict(*m._state(), *m._data(), m.T)
@@ -156,10 +248,24 @@ def main():
     minority = np.minimum(yeas, tot - yeas)
     with open(os.path.join(OUT, "rollcall_params.csv"), "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["rc_id"] + [f"mid{k + 1}" for k in range(dims)] + [f"spread{k + 1}" for k in range(dims)] + ["errors", "minority", "pre"])
+        w.writerow(["rc_id"] + [f"mid{k + 1}" for k in range(dims)] + [f"spread{k + 1}" for k in range(dims)] + ["errors", "minority", "pre"]
+                   + (["axis2"] if hyb else []))
         for j, k in enumerate(d["rc_keys"]):
             pre = (minority[j] - errors[j]) / minority[j] if minority[j] else 0
-            w.writerow([k] + [f"{v:.4f}" for v in m.M[j]] + [f"{v:.4f}" for v in m.D[j]] + [int(errors[j]), int(minority[j]), f"{pre:.3f}"])
+            ax = int(rc_axis[j]) if hyb else None
+            w.writerow([k] + [f"{v:.4f}" for v in pick(m.M[j], ax)] + [f"{v:.4f}" for v in pick(m.D[j], ax)]
+                       + [int(errors[j]), int(minority[j]), f"{pre:.3f}"] + ([ax_name(ax)] if hyb else []))
+    if held is not None:
+        # held-out votes: the model's utility difference z and the roll call's majority side among fitted votes
+        hz, _ = predict(*m._state(), np.ascontiguousarray(held["rc"], np.int64), np.ascontiguousarray(held["mem"], np.int64),
+                        np.where(held["yea"], 1.0, -1.0), np.ascontiguousarray(held["frac"], float) if m.trend else np.zeros(len(held["rc"])),
+                        m.G, m.T)
+        with open(os.path.join(OUT, "holdout_votes.csv"), "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["rc_id", "member_id", "yea", "z", "majority_yea"])
+            for r, i, y, z in zip(held["rc"], held["mem"], held["yea"], hz):
+                w.writerow([d["rc_keys"][r], int(d["mem_keys"][i]), int(y), f"{z:.4f}", int(2 * yeas[r] >= tot[r])])
+        summary["holdout_votes"] = int(len(hz))
     json.dump(summary, open(os.path.join(OUT, "summary.json"), "w"), indent=1)
     print(json.dumps({k: v for k, v in summary.items() if k != "by_dims"}, indent=1))
 
