@@ -3,9 +3,9 @@
  "dims": 2,
  "w": [
   1.0,
-  0.8709462301232529
+  0.9702205471546401
  ],
- "beta": 10.455527458808817,
+ "beta": 12.149849727779976,
  "axes": {
   "x": {
    "name": "liberal to conservative",
@@ -92,16 +92,30 @@
    },
    {
     "from": 57,
-    "to": 67,
-    "label": "1961–1982: liberals, conservatives and the first Republicans",
+    "to": 62,
+    "label": "1961–1972: liberals and conservatives",
     "x": {
-     "desc": "Liberals such as Bob Eckhardt, Barbara Jordan, Oscar Mauzy and Sissy Farenthold sit to the left, conservative Democrats to the right. The first modern Republicans join the conservatives on the right."
+     "desc": "Liberals such as Bob Eckhardt, Barbara Jordan, Oscar Mauzy and Sissy Farenthold sit to the left, conservative Democrats to the right."
     },
     "y": {
      "name": "countryside to cities",
      "neg": "Cities",
      "pos": "Rural and small-city Texas",
-     "desc": "Rural and small-city members sit at the top, and the Dallas delegation at the bottom, with Fort Worth, El Paso, Laredo and Duval County also below the middle. Most contested votes now cut across both axes at once."
+     "desc": "Rural and small-city members sit at the top, and the Dallas delegation at the bottom, with Fort Worth, Laredo and Duval County also below the middle. In the House most contested votes split up and down, along this axis, more than left and right."
+    }
+   },
+   {
+    "from": 63,
+    "to": 67,
+    "label": "1973–1982: the first Republicans",
+    "x": {
+     "desc": "Liberals such as Mickey Leland, Gonzalo Barrientos, Wilhelmina Delco and Eddie Bernice Johnson sit to the left, conservative Democrats to the right, and the growing Republican caucus joins them on the right. In the House most contested votes now split left and right."
+    },
+    "y": {
+     "name": "Republicans and big cities to rural Democrats",
+     "neg": "Rural Democrats",
+     "pos": "Republicans, Houston and Dallas",
+     "desc": "In the House, the Republicans and the Houston and Dallas delegations, Democrats included, sit at the top, and rural Democrats at the bottom. It's the first sign of the 1980s split between suburban Republicans and the rest of Texas."
     }
    },
    {
@@ -536,6 +550,12 @@
    "leg": 67,
    "years": "1981–82",
    "chambers": {
+    "H": {
+     "members": 152,
+     "rollcalls": 736,
+     "scaled": 543,
+     "excluded": 283
+    },
     "S": {
      "members": 31,
      "rollcalls": 1186,
@@ -548,6 +568,12 @@
    "leg": 66,
    "years": "1979–80",
    "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 897,
+     "scaled": 758,
+     "excluded": 386
+    },
     "S": {
      "members": 31,
      "rollcalls": 1074,
@@ -560,6 +586,12 @@
    "leg": 65,
    "years": "1977–78",
    "chambers": {
+    "H": {
+     "members": 157,
+     "rollcalls": 790,
+     "scaled": 663,
+     "excluded": 485
+    },
     "S": {
      "members": 33,
      "rollcalls": 878,
@@ -572,6 +604,12 @@
    "leg": 64,
    "years": "1975–76",
    "chambers": {
+    "H": {
+     "members": 149,
+     "rollcalls": 892,
+     "scaled": 781,
+     "excluded": 264
+    },
     "S": {
      "members": 31,
      "rollcalls": 712,
@@ -584,6 +622,12 @@
    "leg": 63,
    "years": "1973–74",
    "chambers": {
+    "H": {
+     "members": 150,
+     "rollcalls": 596,
+     "scaled": 526,
+     "excluded": 494
+    },
     "S": {
      "members": 32,
      "rollcalls": 399,
@@ -1711,51 +1755,51 @@
  ],
  "fit": {
   "2": {
-   "correct": 0.8473402058282377,
-   "apre": 0.39950371926507733,
-   "gmp": 0.7281964233950812,
-   "loglik": -2196254.9457702064,
-   "n_votes": 6924220,
-   "beta": 10.455527458808817,
+   "correct": 0.8447656356742377,
+   "apre": 0.39620527460174243,
+   "gmp": 0.7245945689380315,
+   "loglik": -2371918.9052429367,
+   "n_votes": 7362938,
+   "beta": 12.149849727779976,
    "w": [
     1.0,
-    0.8709462301232529
+    0.9702205471546401
    ],
-   "seconds": 13797.4
+   "seconds": 7188.1
   },
   "1": {
-   "correct": 0.8134186955353816,
-   "apre": 0.26607146306242024,
-   "gmp": 0.6739315033807913,
-   "loglik": -2732482.782935582,
-   "n_votes": 6924220,
-   "beta": 9.152275223717423,
+   "correct": 0.8119978736748836,
+   "apre": 0.26875281300118964,
+   "gmp": 0.6727797649767585,
+   "loglik": -2918206.5739010964,
+   "n_votes": 7362938,
+   "beta": 11.599688625618274,
    "w": [
     1.0
    ],
-   "seconds": 3764.1
+   "seconds": 3942.6
   },
   "3": {
-   "correct": 0.85990624214713,
-   "apre": 0.4489329623347009,
-   "gmp": 0.7485140205670247,
-   "loglik": -2005706.5664688852,
-   "n_votes": 6924220,
-   "beta": 13.223793903793672,
+   "correct": 0.8576402517581976,
+   "apre": 0.44628197840882916,
+   "gmp": 0.7465141407431288,
+   "loglik": -2152486.5922502046,
+   "n_votes": 7362938,
+   "beta": 16.303904148556715,
    "w": [
     1.0,
-    1.0300155088400345,
-    0.8259466624853343
+    1.2469757334219735,
+    0.9320795419849192
    ],
-   "seconds": 5389.5
+   "seconds": 5640.7
   }
  },
  "totals": {
-  "rollcalls": 200065,
-  "scaled": 99781,
-  "members": 5319,
-  "both_chambers": 390,
-  "votes": 6924220,
-  "excluded": 18910
+  "rollcalls": 203976,
+  "scaled": 103052,
+  "members": 5423,
+  "both_chambers": 401,
+  "votes": 7362938,
+  "excluded": 20763
  }
 }

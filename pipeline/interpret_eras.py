@@ -12,7 +12,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 FIT = os.environ.get("FIT_DIR", os.path.join(PROC, "fit"))
 GOOD = {"ok", "near", "ok_digit", "ok_lists"}
 ERAS = [(1, 13, "1846-73"), (14, 26, "1874-1900"), (27, 41, "1901-30"), (42, 56, "1931-60"),
-        (57, 67, "1961-82"), (68, 73, "1983-94"), (74, 89, "1995-2025")]
+        (57, 62, "1961-72"), (63, 67, "1973-82"), (68, 73, "1983-94"), (74, 89, "1995-2025")]
 # (search string in the full name, what the guide says about them)
 PEOPLE = [("Throckmorton", "Unionist, 1850s"), ("Louis Trezevant Wigfall", "secessionist fire-eater, 1850s"),
           ("Maury Maverick", "New Deal liberal"), ("Henry Barbosa Gonzalez", "liberal"), ("Eckhardt", "liberal"),

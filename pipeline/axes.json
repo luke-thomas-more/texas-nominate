@@ -84,16 +84,30 @@
   },
   {
    "from": 57,
-   "to": 67,
-   "label": "1961–1982: liberals, conservatives and the first Republicans",
+   "to": 62,
+   "label": "1961–1972: liberals and conservatives",
    "x": {
-    "desc": "Liberals such as Bob Eckhardt, Barbara Jordan, Oscar Mauzy and Sissy Farenthold sit to the left, conservative Democrats to the right. The first modern Republicans join the conservatives on the right."
+    "desc": "Liberals such as Bob Eckhardt, Barbara Jordan, Oscar Mauzy and Sissy Farenthold sit to the left, conservative Democrats to the right."
    },
    "y": {
     "name": "countryside to cities",
     "neg": "Cities",
     "pos": "Rural and small-city Texas",
-    "desc": "Rural and small-city members sit at the top, and the Dallas delegation at the bottom, with Fort Worth, El Paso, Laredo and Duval County also below the middle. Most contested votes now cut across both axes at once."
+    "desc": "Rural and small-city members sit at the top, and the Dallas delegation at the bottom, with Fort Worth, Laredo and Duval County also below the middle. In the House most contested votes split up and down, along this axis, more than left and right."
+   }
+  },
+  {
+   "from": 63,
+   "to": 67,
+   "label": "1973–1982: the first Republicans",
+   "x": {
+    "desc": "Liberals such as Mickey Leland, Gonzalo Barrientos, Wilhelmina Delco and Eddie Bernice Johnson sit to the left, conservative Democrats to the right, and the growing Republican caucus joins them on the right. In the House most contested votes now split left and right."
+   },
+   "y": {
+    "name": "Republicans and big cities to rural Democrats",
+    "neg": "Rural Democrats",
+    "pos": "Republicans, Houston and Dallas",
+    "desc": "In the House, the Republicans and the Houston and Dallas delegations, Democrats included, sit at the top, and rural Democrats at the bottom. It's the first sign of the 1980s split between suburban Republicans and the rest of Texas."
    }
   },
   {

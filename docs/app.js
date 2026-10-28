@@ -157,7 +157,7 @@
     const meta = INDEX.legislatures.find(l => l.leg === S.leg);
     const other = S.ch === "H" ? "S" : "H";
     if (meta.chambers[other]) return "";
-    const why = other === "H" && S.leg >= 63 && S.leg <= 67 ? "The House Journal printed these years' votes as tally sheets, which we can't read reliably yet."
+    const why = other === "H" && S.leg >= 63 && S.leg <= 67 ? "The House Journal printed these years' votes as tally sheets, and too few of them could be verified."
       : other === "H" && (S.leg === 9 || S.leg === 10) ? "The House Journals for these years survive only as newspaper reconstructions with almost no roll calls."
       : "No verified roll calls for it.";
     return `<p class="muted small">No ${CHAMBER[other]} map for this legislature. ${why} <a href="#/about">More</a></p>`;
