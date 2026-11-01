@@ -34,7 +34,7 @@ OCR_NUM = r"[\dIlJ|Oo]{1,3}(?:\s[\dIlJ|Oo]{1,2})?"
 HOUSE_VOTE_OCR_RE = re.compile(r"\(\s*Rec?c?ord\s*(?:No\.?\s*)?(" + OCR_NUM + r")\s*\)\s*[:;.,]?\s*(" + OCR_NUM + r")?\s*(Y\s?[ec]\s?as?)\b\s*[,.;:]?\s*"
                                r"(" + OCR_NUM + r")?\s*(N\S{0,2}ys?)\b(?:\s*[,.;:~]?\s*(" + OCR_NUM + r")?\s*Present\W{0,2}\s*not\s+voting)?")
 HOUSE_LIST_OCR = [("M", r"Absent\W{0,2}\s*Excused\W{0,2}\s*Committee\s*Meeting"), ("E", r"Absent\W{0,2}\s*Excused"),
-                  ("P", r"Present\w?\W{0,2}\s*not\s*voting"), ("Y", r"Y\s?[ec]\s?as?"), ("N", r"Nays?"), ("A", r"Absent")]
+                  ("P", r"Present\w?\W{0,2}\s*not\s*voting"), ("Y", r"[YX]\s?[ec]\s?as?"), ("N", r"Nays?"), ("A", r"Absent")]   # "Xeas"
 HOUSE_LIST_OCR_RE = re.compile(r"^(?:" + "|".join(f"(?P<{c}>{p})" for c, p in HOUSE_LIST_OCR) + r")(?:\s*[—–~-]+\s*|\s+(?=[A-Z]))(.*)$")
 
 
@@ -48,6 +48,10 @@ def ocr_count(s, word=""):
 
 SENATE_VOTE_RE = re.compile(r"(?:by\s+the\s+following\s+(?:record\s+)?vote|vote\s+was\s+as\s+follows)\s*:?\s*"
                             r"Yeas\s+(\d+)\s*,\s*Nays\s+(\d+)(?:\s*,\s*Present\s*[-,]?\s*not\s+voting\s+(\d+))?", re.I)
+# the scanned years: "Yeas 28, Nays I.", "Yeas II, Nays 16.", "Yeas 2 I. Nays 6.", "Ycas 31, Nays 0.", "Yeas 29, NaysO."
+SENATE_VOTE_OCR_RE = re.compile(r"(?:by\s+the\s+following\s+(?:record\s+)?vote|vote\s+was\s+as\s+follows)\s*[:;.,]{0,3}\s*"
+                                r"Y\s?[ec]\s?as\s*(" + OCR_NUM + r")\s*[,.;:]\s*N\s?a\s?[yv]\s?s\s*(" + OCR_NUM + r")\b"
+                                r"(?:\s*[,.;:]\s*Present\W{0,3}\s*not\s+voting\s*(" + OCR_NUM + r")\b)?", re.I)
 SAME_AS_RE = re.compile(r"same as previous roll call", re.I)
 
 BILL_RE = re.compile(r"\b(C\.?\s?S\.?\s?)?(H|S)\.?\s?(B|J\.?\s?R|C\.?\s?R|R)\.?\s*(?:No\.\s*)?(\d+)\b")
@@ -58,7 +62,11 @@ HEADER_RE = re.compile(r"^(?:\w+day,?\s+)?\w+\s+\d{1,2},?\s+\d{4}\s+(?:HOUSE|SEN
                        r"|^\d*\s*\d+(?:st|nd|rd|th)\s+LEGISLATURE\s*[—–-]+\s*.*SESSION\s*\d*$"
                        r"|^(?:MONDAY|TUESDAY|WEDNESDAY|THURSDAY|FRIDAY|SATURDAY|SUNDAY),?\s+\w+\s+\d{1,2},?\s+\d{4}\s+\d+$"
                        r"|^\d+\s+SENATE JOURNAL\s*[—–-]+\s*.*SESSION$"
-                       r"|^\d*\s*\d+(?:st|nd|rd|th)\s+Legislature\s*[—–-]+\s*.*Session(?:\s+\d+(?:st|nd|rd|th)\s+Day)?\s*\d*$", re.I)
+                       r"|^\d*\s*\d+(?:st|nd|rd|th)\s+Legislature\s*[—–-]+\s*.*Session(?:\s+\d+(?:st|nd|rd|th)\s+Day)?\s*\d*$"
+                       # a page's header in pieces, where it falls inside a vote's list (2001 Senate: "Tuesday,
+                       # April 10, 2001" | "SENATE JOURNAL" between "Moncrief," and "Nelson, Ogden, ...")
+                       r"|^(?:\w+day,?\s+)?(?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2},?\s+\d{4}$"
+                       r"|^(?:HOUSE|SENATE)\s+JOURNAL$|^\d{1,4}$", re.I)
 
 
 def bill_ref(text):
@@ -109,7 +117,7 @@ def paragraphs_pdf(path):
     return [re.sub(r"\s+", " ", p) for p in paras]
 
 
-WHOLE_NAME = re.compile(r"(?:Mr\.\s+Speaker|Mr\.\s+President|[A-Z][\w'’\- ]*?(?:,\s*(?:[A-Z]\.\s?){1,3})?(?:\(C\))?)\.?")
+WHOLE_NAME = re.compile(r"(?:Mr\.\s+Speaker(?:\(C\))?|Mr\.\s+President|[A-Z][\w'’\- ]*?(?:,\s*(?:[A-Z]\.\s?){1,3})?(?:\(C\))?)\.?")
 
 
 def trim_last(elem):
@@ -126,7 +134,24 @@ def trim_last(elem):
     return elem
 
 
-def split_names(chamber, s):
+# running heads the scanned House journals' text layer leaves inside a list ("1828 72nd LEGJSLA TURE- REGULAR
+# SESSION", "!58 7Ist LEGISLATURE- THIRD CALLED SESSION", "March 6. 1985 HOUSE JOURNAL 529")
+HOUSE_SCAN_HEAD_RE = re.compile(r"[\dIl!]{1,4}\s+[\dIl]{1,2}\s?(?:st|nd|rd|th|ST|ND|RD|TH)\s+L\S{0,3}\s?G\s?\S{0,3}\s?S\s?L\s?A\s?T\s?U\s?R\s?E\W{0,3}\s*"
+                                r"(?:(?:REGULAR|FIRST|SECOND|THIRD|FOURTH|FIFTH|SIXTH)\s+)?(?:CALLED\s+)?SESSION"
+                                r"|(?:January|February|March|April|May|June|July|August|September|October|November|December)"
+                                r"\s*[\dIlR!]{1,2}(?:\s[\dIlR!])?\W{0,2}\s*[\dIl!]{3,4}\s+HOUSE\s+JOURNAL\s*[\dIl!]{1,4}")
+# where a sentence starts after an OCR'd list's last name, its period lost ("Wright, A record vote was requested")
+LIST_END_RE = re.compile(r"\s(?=A record vote\b|The (?:motion|bill|amendment|resolution|speaker|Speaker|house|House)\b|"
+                         r"Representatives?\s+[A-Z]|Reasons for V|\(Speaker in the chair\))")
+
+
+def ocr_initials(m):
+    """"Garcia. 0." -> "Garcia, O.", "Thompson. G. E." -> "Thompson, G. E.": a comma read as a period, initials as digits."""
+    letters = [{"0": "O", "1": "I", "l": "I"}.get(ch, ch) for ch in re.findall(r"[A-Z0Il1]", m.group(2))]
+    return m.group(1) + ", " + " ".join(f"{ch}." for ch in letters)
+
+
+def split_names(chamber, s, scanned=False):
     s = s.strip()
     if not s or s.lower() in ("none", "none."):
         return []
@@ -135,31 +160,99 @@ def split_names(chamber, s):
     s = re.sub(r"\(\s*C\s*\)", "(C)", s)
     if chamber == "H":
         parts = []
-        for p in re.split(r"[;:]", s):
-            p = re.sub(r"^(\s*[A-Z][\w'’ -]*[a-z])\.\s*([A-Z])\.?\s*$", r"\1, \2.", p)    # "Cuellar. R" = "Cuellar, R."
+        if scanned:
+            s = HOUSE_SCAN_HEAD_RE.sub(" ", s)
+            s = LIST_END_RE.split(s, 1)[0]
+        # "Evans. C.~ Evans, L.": a "~" before a full name is a misread ";" (inside a word it's a letter,
+        # "Stanis~valis"; before initials a comma, "Barton~ E.")
+        pieces = re.split(r"[;:]|~(?=\s+[A-Z][a-z]{2,})" if scanned else r"[;:]", s)
+        for k, p in enumerate(pieces):
+            if scanned:
+                p = re.sub(r"^(\s*[A-Z][\w'’ -]*[a-z])\s*[.,~]\s*((?:[A-Z0Il1]\.?\s?){1,3})$", ocr_initials, p.strip())
+            else:
+                p = re.sub(r"^(\s*[A-Z][\w'’ -]*[a-z])\.\s*([A-Z])\.?\s*$", r"\1, \2.", p)    # "Cuellar. R" = "Cuellar, R."
             t = trim_last(p)
+            rest = p[len(t):]
+            if scanned and t.strip() != p.strip() and len(re.findall(r"[A-Za-z]{2,}", rest)) < 3 \
+                    and not re.search(r"Speaker|President", rest):
+                parts.append(p.strip())        # OCR breaks names oddly ("Garcia. 0."): what follows isn't prose
+                continue
             parts.append(t.strip())
             if t.strip() != p.strip().rstrip(".").strip() and t.strip() != p.strip():
                 break                      # the list ended inside this piece ("Wilson. Floor Packet Page No. 3: ...")
     else:
-        parts = re.split(r",|(?<=[a-z]{2})\.\s+(?=[A-Z])", s)
+        parts = re.split(r",|\s+and\s+(?=[A-Z])|(?<=[a-z]{2})\.\s+(?=[A-Z])", s)     # 1973: "... Wallace and Wolff."
         if parts:
             parts[-1] = trim_last(parts[-1])
+        # the scanned years run the next heading or sentence into the list's paragraph ("Uribe.
+        # COMMITTEE SUBSTITUTE SENATE BILL 1175 ON SECOND READING"): the list ends before it
+        for k, p in enumerate(parts):
+            words = re.findall(r"[A-Za-z][A-Za-z'’.]*", p)
+            caps = [w for w in words if len(w) >= 3 and w.isupper()]
+            if len(words) > 5 or (len(caps) >= 2 and len(caps) >= len(words) - 1):
+                parts = parts[:k]
+                break
     return [p.strip().rstrip(".").strip() for p in parts if p.strip().rstrip(".").strip() and p.strip().lower() not in ("none", "none.")]
 
 
-def senate_lists(text):
-    """'Yeas: A, B. Nays: C.' -> {'Y': [...], 'N': [...]}; labels may share one paragraph."""
+# The scanned years' Senate list labels as their text layer reads them: "Yea~ Adams", "Yoe.s:",
+# "Y cas:", "Navs:", ";\bsent:", "A bscnt-excused:", "AbsenHxcused:", "Absent·excused:", "Present-Not Voting:";
+# now and then with no colon at all at the start of a paragraph ("Absent Glasgow, Harris")
+SENATE_OCR_MARK_RE = re.compile(r"(?:^|(?<=[.,]))\W{0,3}?([A-Za-z;\\][A-Za-z \-·~—–.;\\]{1,24}?)\s*[:;~]\s*(?=[A-Z\"'(.])")
+SENATE_BARE_MARK_RE = re.compile(r"^\W{0,3}(Yeas|Nays|Absent|Absent-excused|Present-not voting)\s+(?=[A-Z][a-z])")
+SENATE_OCR_WORDS = [("Y", "yeas"), ("Y", "yea"), ("N", "nays"), ("N", "nay"), ("A", "absent"),
+                    ("E", "absentexcused"), ("P", "presentnotvoting")]
+# the Senate's other running head, the day and page ("TUESDAY, APRIL 21, !987 663"), at a paragraph's start
+SENATE_DATE_HEAD_RE = re.compile(r"^(?:MON|TUES|WEDNES|THURS|FRI|SATUR|SUN)DAY\W+[A-Z]+\W+[\dIlO!]{1,2}\W+[\dIlO!]{4}\W+[\dIlO!]{1,4}\s+", re.I)
+# running heads the text layer leaves inside a paragraph ("Mcit:r, 476 SENATE JOURNAL Mengden",
+# "436 SENAlE JOURNAL- REGULAR SESSION", "TUESDAY, MAY 22. 1973 1409", "TIIURSDA Y, MARCH 25, 1993 589")
+MONTHS_UC = r"(?:JANUARY|FEBRUARY|MARCH|APRIL|MAY|JUNE|JULY|AUGUST|SEPTEMBER|OCTOBER|NOVEMBER|DECEMBER)"
+SCAN_HEAD_RE = re.compile(r"\b[\dIlO]{1,4}\s+S\s?E\s?N\s?A\s?[TIl1]\s?[EF]\s+J\s?[O0]\s?U\s?R\s?N\s?A\s?L\b(?:\W{0,4}(?:[A-Z]+\s+)?(?:CALLED\s+)?SESSION\b)?"
+                          r"|\b[A-Z][A-Z ]{4,10}[A-Z],?\s+" + MONTHS_UC + r"\s+[\dIlO]{1,2}\W{0,2}\s*[\dIlO]{4}(?:\s+[\dIlO]{1,4})?\b"
+                          r"|\bS\s?E\s?N\s?A\s?[TIl1]\s?[EF]\s+J\s?[O0]\s?U\s?R\s?N\s?A\s?L\W{0,4}(?:[A-Z]+\s+)?(?:CALLED\s+)?SESSION\s+[\dIlO]{1,4}\b")
+# a page's date line caught as a name: "April I", "August 11"
+DATE_PIECE_RE = re.compile(r"^(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+[\dIlO]{1,2}$")
+
+
+def senate_ocr_marks(text):
+    """Where the scanned years' garbled list labels sit in a paragraph: [(start, end, code)]."""
+    from rapidfuzz import fuzz
+    out = []
+    for m in SENATE_OCR_MARK_RE.finditer(text):
+        letters = re.sub(r"[^a-z]", "", m.group(1).lower())
+        if not 3 <= len(letters) <= 17:
+            continue
+        code, word = max(SENATE_OCR_WORDS, key=lambda cw: fuzz.ratio(letters, cw[1]))
+        if fuzz.ratio(letters, word) >= (80 if len(word) <= 4 else 75) \
+                or re.fullmatch(r"y[ceo][ao]s?", letters) and (code := "Y") or re.fullmatch(r"[nh]a[yv]s?", letters) and (code := "N"):
+            out.append((m.start(1), m.end(), code))
+    m = SENATE_BARE_MARK_RE.match(text)
+    if m and not any(a <= m.start(1) < b for a, b, _ in out):
+        w = m.group(1).lower()
+        out.append((m.start(1), m.end(), "Y" if w == "yeas" else "N" if w == "nays" else "E" if "excused" in w
+                    else "P" if "present" in w else "A"))
+    return sorted(out)
+
+
+def senate_lists(text, ocr=False):
+    """'Yeas: A, B. Nays: C.' -> {'Y': [...], 'N': [...]}; labels may share one paragraph. ocr: the
+    scanned years, whose labels come garbled."""
     found = {}
-    marks = list(SENATE_LIST_RE.finditer(text))
-    for i, m in enumerate(marks):
+    marks = []
+    for m in SENATE_LIST_RE.finditer(text):
         label = re.sub(r"\s*-\s*", "-", re.sub(r"\s+", " ", m.group(1)).lower())
         code = next((c for l, c in SENATE_LISTS if re.sub(r"\s*-\s*", "-", l.lower()) == label), None)
         if code is None:                     # odd spacing or case: go by the words
             code = ("P" if "present" in label else "E" if "excused" in label else "Y" if label.startswith("yea")
                     else "N" if label.startswith("nay") else "A")
-        end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
-        found.setdefault(code, []).extend(split_names("S", text[m.end():end]))
+        marks.append((m.start(), m.end(), code))
+    if ocr:
+        marks += [mk for mk in senate_ocr_marks(text) if not any(a <= mk[0] < b or mk[0] <= a < mk[1] for a, b, _ in marks)]
+        marks.sort()
+    for i, (start, end, code) in enumerate(marks):
+        stop = marks[i + 1][0] if i + 1 < len(marks) else len(text)
+        names = split_names("S", SCAN_HEAD_RE.sub(" ", text[end:stop]) if ocr else text[end:stop])
+        found.setdefault(code, []).extend(n for n in names if not (ocr and DATE_PIECE_RE.match(n)))
     return found
 
 
@@ -237,6 +330,14 @@ def parse_day(day, paras, captions):
                 j, last, text = i + 1, None, {}
                 while j < len(paras):
                     q = paras[j]
+                    if scanned and not text and re.fullmatch(r"\W*not\s+voting\W*", q):
+                        j += 1                     # "..., I Present," | "not voting.": the totals' line broke
+                        continue
+                    pm = None if text else re.fullmatch(r"\W*(\d+)\s+Present\s*,?\s*not\s+voting\W*", q, re.I)
+                    if pm:
+                        rv["printed"]["P"] = int(pm.group(1))   # "78 Yeas, 69 Nays," | "1 Present, not voting." (2001)
+                        j += 1
+                        continue
                     lm = HOUSE_LIST_RE.match(q)
                     om = None if lm or not scanned else HOUSE_LIST_OCR_RE.match(q)
                     if lm or om:
@@ -257,7 +358,7 @@ def parse_day(day, paras, captions):
                         j += 1
                         continue
                     break
-                rv["lists"] = {code: split_names("H", t) for code, t in text.items()}
+                rv["lists"] = {code: split_names("H", t, scanned) for code, t in text.items()}
                 votes.append(rv)
                 i = j
                 continue
@@ -275,23 +376,33 @@ def parse_day(day, paras, captions):
                           "lists": {}, "tally": True}
                     votes.append(rv)
         else:
-            m = SENATE_VOTE_RE.search(p)
-            if m:
+            # the scanned years, and the Library's scans of 1995-1997 ("Yeas 29, Nays O.")
+            m = SENATE_VOTE_RE.search(p) or (SENATE_VOTE_OCR_RE.search(p) if scanned or day.get("kind") == "pdf" else None)
+            printed = m and {"Y": ocr_count(m.group(1)), "N": ocr_count(m.group(2)), "P": ocr_count(m.group(3)) or 0}
+            if m and printed["Y"] is not None and printed["N"] is not None:
                 rv = {"chamber": "S", "leg": day["leg"], "session": day["session"], "date": day["date"],
                       "file": day["file"], "record": None,
-                      "printed": {"Y": int(m.group(1)), "N": int(m.group(2)), "P": int(m.group(3) or 0)},
+                      "printed": printed,
                       "text": p[:m.start()].strip(" ,:").strip()[:500], **ctx, "lists": {}}
                 tail = p[m.end():]
-                rv["lists"] = senate_lists(tail)
+                rv["lists"] = senate_lists(tail, ocr=scanned)
                 same = bool(SAME_AS_RE.search(tail))
                 j = i + 1
                 last = list(rv["lists"])[-1] if rv["lists"] and not tail.rstrip().endswith(".") else None
                 while j < len(paras):
                     q = paras[j]
-                    if SENATE_LIST_RE.match(q) or SAME_AS_RE.search(q[:60]):
+                    if scanned and len(q) < 60 and SCAN_HEAD_RE.fullmatch(q.strip(" .,'\"")):
+                        j += 1                     # a page's running head between the vote and its lists
+                        continue
+                    if scanned and last:
+                        # or glued to the names it interrupts ("Krier, Leedom," | "TUESDAY, APRIL 21, !987 663
+                        # McFarland, Montford, ...", 1987)
+                        q = SENATE_DATE_HEAD_RE.sub("", SCAN_HEAD_RE.sub(" ", q)).strip()
+                    if SENATE_LIST_RE.match(q) or SAME_AS_RE.search(q[:60]) or \
+                            (scanned and any(a <= 4 for a, _, _ in senate_ocr_marks(q[:40]))):
                         if SAME_AS_RE.search(q[:60]):
                             same = True
-                        found = senate_lists(q)
+                        found = senate_lists(q, ocr=scanned)
                         for code, names in found.items():
                             rv["lists"].setdefault(code, []).extend(names)
                         last = list(found)[-1] if found and not q.rstrip().endswith(".") else None
@@ -391,9 +502,9 @@ def main():
         held = [v for v in votes if v.pop("tally", False)]
         if held:
             # the day's highest record number counts its sheets, quorum calls (no totals) included
-            n_sheets = max(ocr_count(m.group(1)) or 0 for m in TALLY_RE.finditer(" ".join(paras)))
+            n_sheets, base = sheet_count(" ".join(paras), int(day.get("pages") or 0))
             sheets = tally_sheets.read_day(os.path.abspath(path), n_sheets,
-                                           {v["record"]: (v["printed"]["Y"], v["printed"]["N"]) for v in held})
+                                           {v["record"]: (v["printed"]["Y"], v["printed"]["N"]) for v in held}, base)
             tally += [(v, sheets.get(v["record"], [])) for v in held]
         for v in votes:
             if not any(v is h for h in held):
@@ -404,6 +515,29 @@ def main():
     n += write_tally(tally, rc_out)
     json.dump(all_captions, open(os.path.join(OUT, "captions.json"), "w"))
     print("record votes:", n)
+
+
+def sheet_count(text, first_page):
+    """(how many tally sheets a day has, the PDF page of its first sheet or None). Record numbers
+    restart each day and every record, quorum calls included, has a sheet, so the count is the highest
+    record number cited, leaving out OCR misreads far beyond the number of references ("Record No.
+    1036" for 36). 1973 cites each sheet's journal page ("Record No. 2 (page 3861)"): the sheets are
+    consecutive pages, so the first one's PDF page is the commonest cited page less the record's
+    number, less the day's first journal page."""
+    import statistics
+    refs = []
+    for m in TALLY_RE.finditer(text):
+        rec = ocr_count(m.group(1))
+        pg = re.match(r"\W{0,3}([\dIlOo]{3,5})\b", text[m.end():]) if re.search(r"page", m.group(0), re.I) else None
+        if rec:
+            refs.append((rec, ocr_count(pg.group(1)) if pg else None))
+    if not refs:
+        return 0, None
+    distinct = {r for r, _ in refs}
+    n = max(r for r in distinct if r <= 1.25 * len(distinct) + 3) if any(r <= 1.25 * len(distinct) + 3 for r in distinct) else 0
+    offs = [pg - first_page - rec + 1 for rec, pg in refs if pg and first_page and rec <= n]
+    base = statistics.mode(offs) if offs and sum(o == statistics.mode(offs) for o in offs) >= max(3, len(offs) // 2) else None
+    return n, base
 
 
 _terms = None

@@ -16,6 +16,7 @@ grid_day (the cell with clearly the most ink is the vote).
 read_day() returns {record number: {code: [names]}} for parse_journals; match_votes resolves the
 names to members like any other scanned list.
 """
+import collections
 import os
 import re
 import sys
@@ -364,35 +365,23 @@ def straight_page(path, i, dpi=200, t=None):
     return deskew(img, t), t
 
 
-def grid_geometry(img):
+def grid_geometry(img, faint=False):
     """The grid's rules: {"rows": y of the rule under the header and under each member row,
     "blocks": [(x name|Y, x Y|N, x N|P, x P|next), ...], "x0", "x1"}, or None if the page has no grid.
     The table's sides are its two long vertical rules; its row rules are the lines dark across most of
     the table, the member rows the longest run of them at an even pitch; a block's vote columns are
-    four vertical lines 12-26 px apart."""
+    four vertical lines 12-26 px apart. A page with no grid that way is tried again as a faded sheet
+    (faint: 1973, about half a day's sheets): its rules fainter, and some lost from the print."""
     dark = img < 140
     H, W = dark.shape
-    # rules: pixel rows dark across a good third of the page (a rule has small breaks in the print,
-    # so count its ink rather than its longest run)
-    ys = np.where(dark.sum(axis=1) > 0.3 * W)[0]
-    if not len(ys):
-        return None
-    groups = [g for g in np.split(ys, np.where(np.diff(ys) > 2)[0] + 1) if len(g)]
-    hy = [int(g.mean()) for g in groups]
-    gaps, best, k = np.diff(hy), (0, 0), 0
-    while k < len(gaps):
-        j = k
-        while j < len(gaps) and 14 <= gaps[j] <= 24:
-            j += 1
-        if j - k > best[1] - best[0]:
-            best = (k, j)
-        k = j + 1
-    rows = hy[best[0]:best[1] + 1]
-    if len(rows) < 21:
-        return None
-    # the table's bottom border is heavier, so its middle sits low: take its top edge
-    if best[1] < len(gaps) and gaps[best[1]] <= 1.4 * np.median(np.diff(rows)):
-        rows.append(int(groups[best[1] + 1].min()))
+    if faint:
+        found = max((f for f in (member_rules(dark, share, bridge=True) for share in (0.2, 0.15)) if f),
+                    key=lambda f: len(f[0]), default=None)
+    else:
+        found = member_rules(dark, 0.3, bridge=False)
+    if found is None:
+        return None if faint else grid_geometry(img, faint=True)
+    rows, groups, best = found
     # the table's sides: where most of the member rules are dark
     on = np.array([dark[g].any(axis=0) for g in groups[best[0]:best[1] + 1]]).mean(axis=0)
     xs = np.where(on > 0.6)[0]
@@ -400,11 +389,14 @@ def grid_geometry(img):
     # the four blocks are equal, each ending in its three vote cells; marks in the cells cast false
     # "lines", so each line is placed by that pattern and then moved onto a real line within reach
     cf = (img[rows[0]:rows[-1], :] < 140).mean(axis=0)
-    xs = np.where(cf > 0.3)[0]
+    xs = np.where(cf > (0.2 if faint else 0.3))[0]
     vx = np.array([int(g.mean()) for g in np.split(xs, np.where(np.diff(xs) > 2)[0] + 1) if len(g)])
     steps = [v for v in np.diff(vx) if 16 <= v <= 26]
     if len(vx) < 8 or len(steps) < 3:
-        return None
+        if not faint:
+            return grid_geometry(img, faint=True)
+        # the vote cells' lines too faint to find: the printed grid's own cell width (22 px at 200 dpi)
+        steps = steps if len(steps) >= 3 else [22]
     c, bw = float(np.median(steps)), (x1 - x0) / 4.0
 
     def snap(x, reach):
@@ -416,6 +408,50 @@ def grid_geometry(img):
         xe = snap(xe, 12)
         blocks.append(tuple(snap(xe - k * c, 4) for k in (3, 2, 1)) + (xe,))
     return {"rows": rows, "blocks": blocks, "x0": x0, "x1": x1}
+
+
+def member_rules(dark, share, bridge):
+    """The member rows' rules: (their y's, every rule's pixel rows, (first, last) of the run among them),
+    or None for fewer than 21. Rules are pixel rows dark across `share` of the page (a rule has small
+    breaks in the print, so count its ink rather than its longest run); the member rows are the longest
+    run of them at an even pitch. bridge: the run goes on across a gap of two or three pitches (rules
+    the print lost), which are put in at the pitch."""
+    H, W = dark.shape
+    ys = np.where(dark.sum(axis=1) > share * W)[0]
+    if not len(ys):
+        return None
+    # (a faded rule can print as two thin bands a few pixels apart: one rule)
+    groups = [g for g in np.split(ys, np.where(np.diff(ys) > (6 if bridge else 2))[0] + 1) if len(g)]
+    hy = [int(g.mean()) for g in groups]
+    gaps = np.diff(hy)
+    even = [g for g in gaps if 14 <= g <= 24]
+    pitch = float(np.median(even)) if even else 0.0
+
+    def steps(g):                  # rules this gap spans: 1, or 2-3 bridged, else 0 (the run ends)
+        if 14 <= g <= 24:
+            return 1
+        k = round(g / pitch) if bridge and pitch else 0
+        return k if 2 <= k <= 3 and abs(g - k * pitch) <= 3 else 0
+    best, k = (0, 0, 0), 0
+    while k < len(gaps):
+        j, n = k, 1
+        while j < len(gaps) and steps(gaps[j]):
+            n += steps(gaps[j])
+            j += 1
+        if n > best[2]:
+            best = (k, j, n)
+        k = j + 1
+    if best[2] < 21:
+        return None
+    rows = []
+    for i in range(best[0], best[1]):
+        n = steps(gaps[i])
+        rows += [int(round(hy[i] + q * gaps[i] / n)) for q in range(n)]
+    rows.append(hy[best[1]])
+    # the table's bottom border is heavier, so its middle sits low: take its top edge
+    if best[1] < len(gaps) and gaps[best[1]] <= 1.4 * np.median(np.diff(rows)):
+        rows.append(int(groups[best[1] + 1].min()))
+    return rows, groups, best[:2]
 
 
 def is_x(yy, xx):
@@ -699,13 +735,17 @@ def grid_names(path, pages):
     return sl.cached_ocr(path, ".grid6", pages, read, eligible=pages)
 
 
-def grid_day(path, n, totals=None):
+def grid_day(path, n, totals=None, base=None):
     """{record: rows} from a day's grid sheets (1973-1978). The sheets carry no machine-readable
-    record number (it's handwritten), so with one sheet per record they go in page order; otherwise
-    they're lined up in order against the journal's totals ({record: (yeas, nays)}): each record takes
-    the next sheet whose yea and nay marks agree with its totals, or none."""
+    record number (it's handwritten), but every record has one, in order on consecutive pages: the day's
+    last pages, or (1973) from the page the journal cites (base, the first sheet's PDF page). They're
+    aligned to the records in order by their marks against the journal's totals ({record: (yeas,
+    nays)}; align_sheets); without totals, one sheet per record in page order."""
     pages = sl.pdf_pages(path)
-    cand = range(max(0, len(pages) - n - 4), len(pages))
+    if base is not None and not (0 <= base and base + n <= len(pages) + 2):
+        base = None              # the file's first page number doesn't match the journal's ("_1883" for page 1407)
+    lo = max(0, len(pages) - n - 4) if base is None else max(0, base - 2)
+    cand = range(lo, len(pages) if base is None else min(len(pages), base + n + 3))
     sheets = []
     for i in cand:
         img, _ = straight_page(path, i)
@@ -716,20 +756,55 @@ def grid_day(path, n, totals=None):
         return {}
     ocr = grid_names(path, [i for i, _ in sheets])
     parsed = [(i, sh) for i, img in sheets for sh in [parse_grid(path, i, ocr[i][2], img)] if sh]
+    if totals:
+        return {rec: parsed[j][1]["rows"] for rec, j in align_sheets(n, totals, [sh["counts"] for i, sh in parsed]).items()}
     if len(parsed) == n:
         return {k + 1: sh["rows"] for k, (i, sh) in enumerate(parsed)}
-    out, j = {}, 0
-    for rec in sorted(totals or {}):
+    return {}
+
+
+def align_sheets(n, totals, counts, gap=2, printed=None):
+    """Records 1..n (totals: {record: (yeas, nays)}, quorum calls have none) aligned in order to the day's
+    sheets in page order (counts: [{"Y": .., "N": ..}]): one sheet per record, but a page can be missing,
+    unreadable or extra, so each record takes the sheet that keeps the alignment's marks closest to the
+    totals overall (a sequence alignment; skipping a record or a sheet costs `gap`). printed: the record
+    number read on each sheet, if any (1979-1982), which counts for a pairing too. {record: sheet index}."""
+    def score(rec, j):
+        c = counts[j]
+        bonus = 5 if printed and printed[j] == rec else 0
+        if rec not in totals:
+            return 1 + bonus                 # a quorum call: any sheet, in its place
         y, nn = totals[rec]
-        for jj in range(j, len(parsed)):
-            c = parsed[jj][1]["counts"]
-            if c.get("Y", 0) == y and c.get("N", 0) == nn:
-                out[rec], j = parsed[jj][1]["rows"], jj + 1
-                break
+        return 10 - min(10, abs((y or 0) - c.get("Y", 0)) + abs((nn or 0) - c.get("N", 0))) + bonus
+    m = len(counts)
+    best = [[0.0] * (m + 1) for _ in range(n + 1)]
+    move = [[None] * (m + 1) for _ in range(n + 1)]
+    for i in range(n + 1):
+        for j in range(m + 1):
+            if i == j == 0:
+                continue
+            opts = []
+            if i and j:
+                opts.append((best[i - 1][j - 1] + score(i, j - 1), "pair"))
+            if i:
+                opts.append((best[i - 1][j] - gap, "skip_rec"))
+            if j:
+                opts.append((best[i][j - 1] - gap, "skip_sheet"))
+            best[i][j], move[i][j] = max(opts)
+    out, i, j = {}, n, m
+    while i or j:
+        mv = move[i][j]
+        if mv == "pair":
+            out[i] = j - 1
+            i, j = i - 1, j - 1
+        elif mv == "skip_rec":
+            i -= 1
+        else:
+            j -= 1
     return out
 
 
-def read_day(path, n, totals=None):
+def read_day(path, n, totals=None, base=None):
     """{record number: [((column, row), name, code)]} from a day's printout sheets; n = the day's
     highest record number. With a sheet for every record, they go in page order; otherwise a sheet's
     record is the number printed on it, or where OCR lost that, counted from the nearest sheet that
@@ -738,12 +813,18 @@ def read_day(path, n, totals=None):
     pages = sheet_pages(path, n)
     layer = sl.pdf_pages(path)
     if not pages:
-        return grid_day(path, n, totals)
+        return grid_day(path, n, totals, base)
     if not any(re.search(r"AYE\s*VOTE|NAY\s*VOTE|IN\s*CHAIR", " ".join(w[4] for w in layer[i][2]), re.I)
                             for i in pages):
-        return grid_day(path, n, totals)
+        return grid_day(path, n, totals, base)
     ocr = ocr_pages(path, pages)
     sheets = {i: sh for i in pages for sh in [parse_printout(path, i, ocr[i][2])] if sh}
+    if totals:
+        # in order against the journal's totals, the numbers printed on the sheets helping (align_sheets)
+        order = sorted(sheets)
+        counts = [collections.Counter(code for _, _, code in sheets[i]["rows"]) for i in order]
+        pairs = align_sheets(n, totals, counts, printed=[sheets[i]["record"] for i in order])
+        return {rec: sheets[order[j]]["rows"] for rec, j in pairs.items()}
     if len(sheets) == n:        # every sheet read: one per record, in order (OCR misreads the numbers: "9003")
         known = {i: k + 1 for k, i in enumerate(sorted(sheets))}
     else:

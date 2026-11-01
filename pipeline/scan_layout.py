@@ -30,16 +30,25 @@ OCR_CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "data
 VOTE_MARK = re.compile(r"\by[eo][ao][s5]\b|\bn[ao]y[s5]\b|messrs|following\s+vote|yeas\s+and\s+nays", re.I)
 
 
-YEA_HEADING = re.compile(r"\b(?:Y[a-z]{1,2}[s8z5]|Yea[abe]|Ayes)\s*[-—–=~:.,]", re.I)     # "Yeas—25", "YEAS.", "Ycas-", "Yeaa-"
+YEA_HEADING = re.compile(r"\b(?:Y[a-z]{1,2}[s8z5&]|Yea[abe]|Ayes)\s*[-—–=~:.,]", re.I)    # "Yeas—25", "YEAS.", "Ycas-", "Yeaa-", "Yea&-"
+# a yea heading with its total, the word garbled past that ("Yeu--11", "Y-eas-27"; 1947 Senate)
+YEA_TOTAL = re.compile(r"(?<![A-Za-z])[Yy][^\s\d]{1,4}\s?[-—–=~]+\s?\d{1,3}\b")
+# running text: a nay heading and the names' title, when the yea heading is garbled ("Y EAs-Messs. ... NAYS-Messrs.")
+NAY_MESSRS = re.compile(r"\bN\S{1,4}\s?[-—–=~_:.]{1,3}\s?(?:M\S{0,3}rs|Senators?)\b")
+NAY_TOTAL = re.compile(r"(?<![A-Za-z])N[a-zA-Z]{2,3}\s?[-—–=~]+\s?\d{1,3}\b")     # "Nays-10", "NAYS—4"
+FOLLOWING_VOTE = re.compile(r"\bfol\S{0,6}\s?\S{0,9}?\s?vote\b", re.I)     # "following vote", "fol- lov,ring vote"
 
 
 def vote_marks(path):
-    """Pages whose text layer mentions a vote: {page: how many yea headings it shows}."""
+    """Pages whose text layer mentions a vote: {page: how many roll calls its headings show}."""
     marks = {}
     for i, (_, _, ws) in enumerate(pdf_pages(path)):
         text = " ".join(w[4] for w in ws)
-        if VOTE_MARK.search(text):
-            marks[i] = len(YEA_HEADING.findall(text))
+        if VOTE_MARK.search(text) or YEA_TOTAL.search(text) or FOLLOWING_VOTE.search(text):   # (garbled: "follo wing vote")
+            # (or its nay totals, or how many times it says "by the following vote": a yea heading the text layer
+            # garbles past matching, "·reas--20", hides a roll call on a page whose others it reads, 1971 Senate)
+            marks[i] = max(len(YEA_HEADING.findall(text)), len(YEA_TOTAL.findall(text)), len(NAY_MESSRS.findall(text)),
+                           len(NAY_TOTAL.findall(text)), len(FOLLOWING_VOTE.findall(text)))
     return marks
 
 
@@ -70,7 +79,8 @@ def cached_ocr(path, suffix, pages, read_page, eligible=None):
     and returns every page, those outside `pages` empty, so a result doesn't depend on what an
     earlier run happened to read."""
     os.makedirs(OCR_CACHE, exist_ok=True)
-    key = re.sub(r"[^\w.-]", "_", os.path.relpath(os.path.abspath(path), "/")) + suffix
+    # keyed by the file's real path, so a copy of the code that reaches the data through a symlink shares it
+    key = re.sub(r"[^\w.-]", "_", os.path.relpath(os.path.realpath(path), "/")) + suffix
     cache = os.path.join(OCR_CACHE, key + ".json.gz")
     if os.path.exists(cache):
         with gzip.open(cache, "rt") as f:
@@ -104,7 +114,46 @@ def tesseract_pages(path, dpi=300, psm=None, pages=None):
         tsv = subprocess.run([TESSERACT, os.path.join(tmp, "p.pgm"), "-", "--psm", psm, "-l", "eng", "tsv"],
                              capture_output=True, text=True, env=env).stdout
         return tsv_words(tsv, 72.0 / dpi)
-    return cached_ocr(path, "" if psm == "4" else f".psm{psm}", pages, read)
+    out = cached_ocr(path, "" if psm == "4" else f".psm{psm}", pages, read)
+    # a vote page Tesseract's layout analysis found (nearly) empty, though the scan's text layer has plenty on
+    # it: a photographed page on tinted paper inside a white frame (1849) reads as a picture until its
+    # background is evened out
+    empty = [i for i, (w, h, ws) in enumerate(out) if (pages is None or i in pages) and len(ws) < 20]
+    if empty and psm == "3":
+        layer, votes = pdf_pages(path), vote_pages(path)
+        redo = [i for i in empty if i in votes and len(layer[i][2]) >= 100]
+        if redo:
+            flat = flattened_pages(path, redo, dpi)
+            out = [flat[i] if i in redo and len(flat[i][2]) > len(ws) else (w, h, ws) for i, (w, h, ws) in enumerate(out)]
+    return out
+
+
+def flattened_pages(path, pages, dpi=300):
+    """Tesseract (psm 3) on pages rendered black and white against their own background: each pixel divided
+    by the paper's tone around it (the brightest tenth of each 64 px block), then thresholded. Cached."""
+    import numpy as np
+    env = dict(os.environ, OMP_THREAD_LIMIT="1")
+
+    def read(i, W, H, tmp):
+        subprocess.run(["pdftoppm", "-r", str(dpi), "-gray", "-f", str(i + 1), "-l", str(i + 1), "-singlefile",
+                        path, os.path.join(tmp, "p")], check=True)
+        raw = open(os.path.join(tmp, "p.pgm"), "rb").read()
+        m = re.match(rb"P5\s+(\d+)\s+(\d+)\s+(\d+)\s", raw)
+        w, h = int(m.group(1)), int(m.group(2))
+        a = np.frombuffer(raw[m.end():m.end() + w * h], dtype=np.uint8).reshape(h, w).astype(float)
+        B = 64
+        hb, wb = max(1, h // B), max(1, w // B)
+        blocks = a[:hb * B, :wb * B].reshape(hb, B, wb, B).transpose(0, 2, 1, 3).reshape(hb, wb, -1)
+        bg = np.kron(np.percentile(blocks, 90, axis=2), np.ones((B, B)))
+        bg = np.pad(bg, ((0, h - bg.shape[0]), (0, w - bg.shape[1])), mode="edge")
+        flat = np.where(a / np.maximum(bg, 1) * 255 < 180, 0, 255).astype(np.uint8)
+        fn = os.path.join(tmp, "f.pgm")
+        with open(fn, "wb") as f:
+            f.write(b"P5 %d %d 255\n" % (w, h) + flat.tobytes())
+        tsv = subprocess.run([TESSERACT, fn, "-", "--psm", "3", "-l", "eng", "tsv"],
+                             capture_output=True, text=True, env=env).stdout
+        return tsv_words(tsv, 72.0 / dpi)
+    return cached_ocr(path, ".flat3", pages, read, eligible=pages)
 
 
 def tsv_words(tsv, scale, dx=0.0, dy=0.0, block_offset=0):
@@ -263,7 +312,20 @@ def single_column(page):
     if len(prose) < 4:
         return None
     crossing = sum(1 for ln in prose if any(w[0] < g < w[2] for w in ln["words"]))
-    return crossing > 0.5 * len(prose)
+    if crossing >= 0.5 * len(prose):        # (a few of the "prose" lines may be rows of a vote list)
+        return True
+    # two columns' lines meet the gutter at their margins, the same x line after line; a few lines of
+    # one column whose word spaces happen to fall where a vote list's columns part are ragged there
+    # (1971: four-column lists on single-column pages)
+    gapped = [ln["words"] for ln in prose if not any(w[0] < g < w[2] for w in ln["words"])
+              and any(w[2] <= g for w in ln["words"]) and any(w[0] >= g for w in ln["words"])]
+    if 3 <= len(gapped) < 10:
+        ends = [max(w[2] for w in ws if w[2] <= g) for ws in gapped]
+        starts = [min(w[0] for w in ws if w[0] >= g) for ws in gapped]
+        lined_up = lambda xs: sum(1 for x in xs if abs(x - statistics.median(xs)) <= 1.0) / len(xs)
+        if max(lined_up(ends), lined_up(starts)) < 0.55 and statistics.median(b - a for a, b in zip(ends, starts)) <= 1.5 * h:
+            return True                     # (a word space apart, not a gutter's width)
+    return False
 
 
 def page_lines(page, single=False):
@@ -278,11 +340,16 @@ def page_lines(page, single=False):
     top = " ".join(w[4] for w in lines[0]["words"]).strip()
     head = len(lines) > 1 and lines[0]["c"] < 0.1 * H and lines[1]["c"] - lines[0]["c"] > 2.5 * h and \
         bool(re.match(r"^\W*(?:" + MONTHS + r")\w*\.", top, re.I) or re.search(r"\b\d{1,4}\W*$", top))
-    out = []
+    out, body = [], False
     for k, ln in enumerate(lines):
         ws = ln["words"]
-        if (k == 0 and head) or is_running_head(" ".join(w[4] for w in ws), ln["c"], H):
+        text = " ".join(w[4] for w in ws)
+        # the running head (and a dateline or page number Tesseract gives a line of its own) sits above the
+        # page's first line of text; further down, a line naming the House with a number in it is text (a
+        # vote list's row beside "of the House that House bill No. 69", 1927)
+        if not body and ((k == 0 and head) or is_running_head(text, ln["c"], H)):
             continue
+        body = body or bool(re.search(r"[A-Za-z0-9]{2}", text))
         if g is None:
             out.append({"col": "F", "y": ln["c"], "cells": split_cells(ws, h)})
             continue

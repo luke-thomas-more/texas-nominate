@@ -6,7 +6,10 @@
                     character per member (Y yea, N nay, P present not voting, E excused, A absent,
                     - not listed)
   about.json        the About page, with the numbers filled in
-  downloads/        CSVs for anyone who wants the data
+  data.json         the Data page (pipeline/data.html): the downloads, their columns, how to cite
+  downloads/        CSVs for anyone who wants the data, with a README (the Data page as Markdown-free text)
+trends.json, congress.json and blocs.json come from pipeline/trends.py, congress_bridge.py and blocs.py (run
+them first); their numbers also go out as CSVs here.
 """
 import collections, csv, gzip, json, os, shutil, sys
 from datetime import date
@@ -16,7 +19,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 FIT = os.environ.get("FIT_DIR", os.path.join(PROC, "fit"))
 DOCS = os.environ.get("DOCS_DIR", os.path.join(ROOT, "docs", "data"))
 SESSION_NAMES = {"R": "Regular session", "A": "Adjourned session", "P": "Provisional session"}
-GOOD = {"ok", "near", "ok_digit", "ok_lists"}       # verified roll calls (see extract_history.py)
+GOOD = {"ok", "near", "ok_digit", "ok_lists", "ok_rest"}       # verified roll calls (see extract_history.py)
 # the Library's party labels, spelled out where it abbreviates
 PARTY_NAMES = {"PO": "Populist", "GB": "Greenback", "ID": "Independent Democrat", "RA": "Radical Republican",
                "U": "Union", "GG": "Greenback", "American Party of the United States": "American Party"}
@@ -72,12 +75,39 @@ def repair_dates(rows, span):
 
 
 def party_code(p):
-    return "R" if p.startswith("Republican") or p == "RA" else "D" if p.startswith("Democrat") else "O"
+    return "R" if p.startswith("Republican") or p in ("RA", "Radical Republican") else "D" if p.startswith("Democrat") else "O"
 
 
 def party_name(p):
     """The party as written out, for members outside the two major parties ("" if not known)."""
     return "" if p in ("", "Unknown", "O") else PARTY_NAMES.get(p, p)
+
+
+def html_to_md(h):
+    """The Data page as Markdown, for the downloads folder's README: just the few tags pipeline/data.html uses."""
+    import re
+    from html import unescape
+    h = re.sub(r'<div class="stat">.*?</div>\s*</div>', "", h, flags=re.S)        # the tiles repeat the first paragraph
+    h = re.sub(r'href="data/downloads/', 'href="', h)
+    h = re.sub(r'href="#/', 'href="https://luke-thomas-more.github.io/texas-nominate/#/', h)
+
+    def table(m):
+        rows = re.findall(r"<tr>(.*?)</tr>", m.group(0), re.S)
+        cells = [[re.sub(r"\s+", " ", c).strip() for c in re.findall(r"<t[hd][^>]*>(.*?)</t[hd]>", r, re.S)] for r in rows]
+        out = ["| " + " | ".join(cells[0]) + " |", "|" + "---|" * len(cells[0])] + ["| " + " | ".join(c) + " |" for c in cells[1:]]
+        return "\n" + "\n".join(out) + "\n"
+    h = re.sub(r'<div class="tablewrap"><table>.*?</table></div>', table, h, flags=re.S)
+    for tag, md in (("h1", "# "), ("h2", "## "), ("h3", "### ")):
+        h = re.sub(rf"<{tag}>(.*?)</{tag}>", lambda m: f"\n{md}{m.group(1)}\n", h, flags=re.S)
+    h = re.sub(r"<li>(.*?)</li>", lambda m: "- " + re.sub(r"\s+", " ", m.group(1)).strip(), h, flags=re.S)
+    h = re.sub(r"</?ul>", "", h)
+    h = re.sub(r"<p[^>]*>(.*?)</p>", lambda m: "\n" + re.sub(r"\s+", " ", m.group(1)).strip() + "\n", h, flags=re.S)
+    h = re.sub(r'<a href="([^"]+)"[^>]*>(.*?)</a>', r"[\2](\1)", h)
+    h = re.sub(r"</?code>", "`", h)
+    h = re.sub(r"</?b>", "**", h)
+    h = re.sub(r"</?i>", "*", h)
+    h = re.sub(r"<[^>]+>", "", h)
+    return re.sub(r"\n{3,}", "\n\n", unescape(h).replace("\u00a0", " ")).strip() + "\n"
 
 
 def main():
@@ -94,19 +124,24 @@ def main():
     terms = {(int(t["member_id"]), int(t["leg"]), t["chamber"]): t for t in csv.DictReader(open(os.path.join(PROC, "terms.csv")))}
     scores = {(int(r["member_id"]), int(r["leg"]), r["chamber"]): r for r in csv.DictReader(open(os.path.join(FIT, "member_scores.csv")))}
     params = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(FIT, "rollcall_params.csv")))}
-    day_url = {d["file"]: d["url"] for d in json.load(open(os.path.join(ROOT, "data", "raw", "journals", "index.json")))}
+    days_index = json.load(open(os.path.join(ROOT, "data", "raw", "journals", "index.json")))
+    day_url = {d["file"]: d["url"] for d in days_index}
+    day_kind = {d["file"]: d.get("kind", "pdf") for d in days_index}
 
     # roll calls from both pipelines: the record-vote format (1973 on) and the older scanned journals
     rcs = collections.defaultdict(list)
     excluded = collections.Counter()
+    tally = collections.Counter()            # tally-sheet roll calls verified (True) or not
     votes = collections.defaultdict(dict)
     for rc_file, v_file in (("rollcalls.csv", "votes.csv.gz"), ("rollcalls_hist.csv", "votes_hist.csv.gz")):
         if not os.path.exists(os.path.join(PROC, rc_file)):
             continue
         for r in csv.DictReader(open(os.path.join(PROC, rc_file))):
+            if "-HT" in r["rc_id"]:              # the House's 1973-1982 tally sheets
+                tally[r["status"] in GOOD] += 1
             if r["status"] in GOOD:
                 rcs[(int(r["leg"]), r["chamber"])].append(r)
-            else:
+            elif r["status"] != "attendance":         # (a call of the roll for attendance isn't a vote at all)
                 excluded[(int(r["leg"]), r["chamber"])] += 1
         with gzip.open(os.path.join(PROC, v_file), "rt") as f:
             rd = csv.reader(f); next(rd)
@@ -218,6 +253,7 @@ def main():
         "SM_N": str(vt["matched_legislators"]) if vt else "–", "SM_R": f"{vt['corr_overall']:.2f}" if vt else "–",
         "SM_RD": f"{vt['corr_within_D']:.2f}" if vt else "–", "SM_RR": f"{vt['corr_within_R']:.2f}" if vt else "–",
         "BUILT": index["built"],
+        "TALLY_SHARE": f"{round(10 * tally[True] / (tally[True] + tally[False]))} in 10" if tally else "–",
     }
     for k, v in fill.items():
         tmpl = tmpl.replace("{{" + k + "}}", v)
@@ -232,23 +268,102 @@ def main():
     dl = os.path.join(DOCS, "downloads")
     os.makedirs(dl, exist_ok=True)
     shutil.copy(os.path.join(FIT, "member_scores.csv"), os.path.join(dl, "member_scores.csv"))
+    voters = {m for vs in votes.values() for m in vs}
     with open(os.path.join(dl, "members.csv"), "w", newline="") as f:
-        w = csv.writer(f); w.writerow(["member_id", "name", "full_name"])
-        for m in sorted(people): w.writerow([m, people[m]["name"], people[m]["full_name"]])
+        w = csv.writer(f); w.writerow(["member_id", "name", "full_name", "lrl_url"])
+        for m in sorted(people):
+            w.writerow([m, people[m]["name"], people[m]["full_name"], f"https://lrl.texas.gov/legeLeaders/members/memberDisplay.cfm?memberID={m}"])
+    with open(os.path.join(dl, "terms.csv"), "w", newline="") as f:
+        cols = ["member_id", "chamber", "leg", "district", "start", "end", "party", "city", "county", "counties", "note"]
+        w = csv.writer(f); w.writerow(cols)
+        for key in sorted(terms):
+            w.writerow([terms[key].get(c, "") for c in cols])
+    status = collections.Counter()
     with gzip.open(os.path.join(dl, "rollcalls.csv.gz"), "wt", newline="") as f:
-        cols = ["rc_id", "chamber", "leg", "session", "date", "record", "bill", "caption", "text", "motion", "amendment", "n_y", "n_n", "printed_p"]
-        w = csv.writer(f); w.writerow(cols + ["mid1", "mid2", "spread1", "spread2"])
+        cols = ["rc_id", "chamber", "leg", "session", "date", "record", "bill", "caption", "text", "motion", "amendment", "n_y", "n_n", "printed_p", "status", "implied"]
+        w = csv.writer(f); w.writerow(cols + ["source", "journal_url", "journal_page", "mid1", "mid2", "spread1", "spread2"])
         for key in sorted(rcs):
             for r in rcs[key]:
                 p = params.get(r["rc_id"], {})
-                w.writerow([r[c] for c in cols] + [p.get("mid1", ""), p.get("mid2", ""), p.get("spread1", ""), p.get("spread2", "")])
+                status[r["status"]] += 1
+                source = "tally" if "-HT" in r["rc_id"] else "journal" if day_kind.get(r["file"]) == "html" else "scan"
+                page = int(r["page"]) + 1 if r.get("page") not in (None, "") else ""
+                w.writerow([r.get(c, "") for c in cols] + [source, day_url.get(r["file"], ""), page,
+                                                          p.get("mid1", ""), p.get("mid2", ""), p.get("spread1", ""), p.get("spread2", "")])
+    n_votes = 0
     with gzip.open(os.path.join(dl, "votes.csv.gz"), "wt", newline="") as f:
         w = csv.writer(f); w.writerow(["rc_id", "member_id", "vote"])
         ok = {r["rc_id"] for v in rcs.values() for r in v}
         for rc_id, vs in votes.items():
             if rc_id in ok:
                 for m, code in vs.items():
-                    w.writerow([rc_id, m, code])
+                    w.writerow([rc_id, m, code]); n_votes += 1
+    # the analyses' numbers, as CSVs
+    extra = {}
+    for name in ("trends", "congress", "blocs"):
+        path = os.path.join(DOCS, f"{name}.json")
+        extra[name] = json.load(open(path)) if os.path.exists(path) else None
+    if extra["trends"]:
+        with open(os.path.join(dl, "trends.csv"), "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["leg", "chamber", "year", "democrats", "republicans", "others", "mean_dim1_D", "mean_dim1_R", "gap_sd", "overlap",
+                        "contested_votes", "party_line_share", "party_loyalty_D", "party_loyalty_R"])
+            for r in extra["trends"]["texas"]:
+                w.writerow([r["leg"], r["ch"], r["year"], r["n"].get("D", 0), r["n"].get("R", 0), r["n"].get("O", 0),
+                            r["mean"].get("D", [""])[0], r["mean"].get("R", [""])[0], r.get("gap", ""), r.get("overlap", ""),
+                            r["contested"], r.get("unity_votes", ""), r.get("unity_D", ""), r.get("unity_R", "")])
+    if extra["congress"]:
+        with open(os.path.join(dl, "congress_bridge.csv"), "w", newline="") as f:
+            w = csv.writer(f)
+            w.writerow(["member_id", "name", "tx_first_year", "tx_last_year", "tx_dim1", "tx_dim2", "voteview_name", "congress_first_year",
+                        "congress_last_year", "party_in_congress", "voteview_dim1", "voteview_dim2"])
+            for q in extra["congress"]["pairs"]:
+                w.writerow([q["id"], q["n"], *q["tx_years"], *q["tx"], q["vv_name"], *q["vv_years"], q["party"], *q["vv"]])
+    if extra["blocs"]:
+        with open(os.path.join(dl, "blocs.csv"), "w", newline="") as f:
+            w = csv.writer(f); w.writerow(["leg", "chamber", "member_id", "bloc", "blocs_in_chamber", "bloc_size", "bloc_cohesion"])
+            for key, b in sorted(extra["blocs"]["sessions"].items(), key=lambda kv: (int(kv[0][:-1]), kv[0][-1])):
+                for i, bl in enumerate(b["blocs"]):
+                    for m in bl["members"]:
+                        w.writerow([key[:-1], key[-1], m, "ABC"[i], b["k"], len(bl["members"]), bl["cohesion"]])
+
+    # the Data page
+    # the dataset's author, license and DOI (pipeline/dataset.json); until they're set the page says so, and no
+    # CITATION.cff is written
+    meta = json.load(open(os.path.join(ROOT, "pipeline", "dataset.json")))
+    meta["author"] = meta.get("author") or "TX-NOMINATE"
+    meta["license_html"] = meta.get("license_html") or "Not yet set."
+    labels = {"rollcalls.csv.gz": "every verified roll call: date, bill, the journal's wording, totals, how it was verified, its journal page",
+              "votes.csv.gz": "every member's vote on every one of them", "members.csv": "the legislators, with their Library ids",
+              "terms.csv": "who served when: chamber, legislature, district, party, home county",
+              "member_scores.csv": "each member's place on the map, by legislature", "trends.csv": "party gaps and party-line votes by legislature",
+              "congress_bridge.csv": "members who also served in Congress, with their Voteview scores",
+              "blocs.csv": "each member's voting bloc, by legislature and chamber"}
+    size = lambda n: f"{os.path.getsize(os.path.join(dl, n)) / 1e6:.1f}&nbsp;MB" if os.path.getsize(os.path.join(dl, n)) >= 1e5 else f"{os.path.getsize(os.path.join(dl, n)) / 1e3:.0f}&nbsp;KB"
+    files = "\n".join(f'    <tr><td><a href="data/downloads/{n}">{n}</a></td><td>{labels[n]}</td><td class="num">{size(n)}</td></tr>'
+                      for n in labels if os.path.exists(os.path.join(dl, n)))
+    y0, y1 = int(fill["YEAR0"]), int(fill["YEAR1"])
+    cite = (f'{meta["author"]} ({index["built"][:4]}). <i>TX-NOMINATE: Texas Legislature roll-call votes and ideal points, {y0}–{y1}</i> '
+            f'(data version {meta["version"]}). https://luke-thomas-more.github.io/texas-nominate/' + (f' doi:{meta["doi"]}' if meta.get("doi") else ""))
+    dfill = {"ROLLCALLS": fill["ROLLCALLS"], "VOTES": f"{n_votes:,}", "MEMBERS_ALL": f"{len(voters):,}", "YEARS": str(y1 - y0 + 1),
+             "YEAR0": str(y0), "YEAR1": str(y1), "FILES": files, "VERSION": meta["version"], "BUILT": index["built"], "EXCLUDED": fill["EXCLUDED"],
+             "N_OK": f"{status['ok']:,}", "N_NEAR": f"{status['near']:,}", "N_DIGIT": f"{status['ok_digit']:,}", "N_LISTS": f"{status['ok_lists']:,}",
+             "N_REST": f"{status['ok_rest']:,}", "PAIRS": str(len(extra["congress"]["pairs"])) if extra["congress"] else "–",
+             "CITATION": cite, "DOI_NOTE": f'DOI: <a href="https://doi.org/{meta["doi"]}">{meta["doi"]}</a>.' if meta.get("doi") else "",
+             "LICENSE": meta["license_html"]}
+    dt = open(os.path.join(ROOT, "pipeline", "data.html")).read()
+    for k, v in dfill.items():
+        dt = dt.replace("{{" + k + "}}", v)
+    json.dump({"html": dt}, open(os.path.join(DOCS, "data.json"), "w"), ensure_ascii=False)
+    open(os.path.join(dl, "README.md"), "w").write(html_to_md(dt))
+    if meta.get("license_spdx") and meta["author"] != "TX-NOMINATE":
+        cff = [f'cff-version: 1.2.0', f'message: "If you use these data, please cite them as below."', f'type: dataset',
+               f'title: "TX-NOMINATE: Texas Legislature roll-call votes and ideal points, {y0}-{y1}"',
+               f'authors:', f'  - name: "{meta["author"]}"', f'version: "{meta["version"]}"', f'date-released: {index["built"]}',
+               f'license: {meta["license_spdx"]}', f'url: "https://luke-thomas-more.github.io/texas-nominate/"',
+               f'repository-code: "https://github.com/luke-thomas-more/texas-nominate"'] + ([f'doi: {meta["doi"]}'] if meta.get("doi") else [])
+        if DOCS == os.path.join(ROOT, "docs", "data"):           # (not for a preview build)
+            open(os.path.join(ROOT, "CITATION.cff"), "w").write("\n".join(cff) + "\n")
     print("site data written")
 
 

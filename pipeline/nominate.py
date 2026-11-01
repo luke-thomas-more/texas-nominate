@@ -143,6 +143,68 @@ class DWNominate:
         out = nk.loglik_by(*self._state(**kw), *self._data(), by, n_out, self.T)
         return out if by != 2 else float(out[0])
 
+    @staticmethod
+    def _directions(K):
+        """Directions to try for a cutting line: one in 1-D, every 5 degrees in 2-D, about 120 spread over
+        the half-sphere above that (the other half is the same lines facing the other way)."""
+        if K == 1:
+            return np.ones((1, 1))
+        if K == 2:
+            a = np.arange(36) * np.pi / 36
+            return np.stack([np.cos(a), np.sin(a)], 1)
+        n = 240                                         # Fibonacci points on the sphere, then one per antipodal pair
+        i = np.arange(n) + 0.5
+        z, phi = 1 - 2 * i / n, np.pi * (1 + 5 ** 0.5) * i
+        P = np.stack([np.sqrt(1 - z * z) * np.cos(phi), np.sqrt(1 - z * z) * np.sin(phi), z], 1)
+        P = P[(P[:, 2] > 0) | ((P[:, 2] == 0) & (P[:, 1] >= 0))]
+        U = np.zeros((len(P), K))
+        U[:, :3] = P
+        return U
+
+    def cutline_start(self, spreads=(0.02, 0.05, 0.1, 0.2, 0.35, 0.5, 0.8)):
+        """Each roll call's outcomes from the cutting line that best splits its yeas from its nays at the members'
+        current positions, as NOMINATE starts a roll call: never worse than calling every vote for the majority,
+        and yea and nay the right way round. (The yea and nay voters' average positions, start()'s rule, can
+        have them the wrong way round, a start the Newton steps carry off to where the likelihood is flat.) The
+        outcomes sit on the line's normal, as far apart as fits the roll call's votes best among `spreads`: too far
+        apart, the votes on the wrong side cost so much that the steps run off to where every vote is a coin toss."""
+        X = np.ascontiguousarray(self.position(self.mem, self.frac))
+        order = np.argsort(self.rc, kind="stable")
+        starts = np.searchsorted(self.rc[order], np.arange(self.n_rc + 1))
+        M, U = nk.cutline_starts(X, order, starts, self.s, self._directions(self.K), 1.0)
+        # the weighted distance's dividing line between the outcomes is perpendicular to w2 * D, not D: the
+        # outcomes go along the line's normal divided by the weights, so the dividing line is the cutting line
+        U = U / self.w2
+        U /= np.maximum(np.linalg.norm(U, axis=1, keepdims=True), 1e-12)
+        M = self._ball(M * self.G, 0.99)
+        best, D = None, None
+        for sp in spreads:
+            ll = self.loglik(by=0, M=M, D=sp * U * self.G)
+            better = np.ones(self.n_rc, bool) if best is None else ll > best
+            best = ll if best is None else np.where(better, ll, best)
+            D = sp * U * self.G if D is None else np.where(better[:, None], sp * U * self.G, D)
+        return M, D
+
+    def repair(self, max_spread=5.0, steps=10):
+        """Roll calls whose outcomes ran off to where the likelihood is flat (spread beyond max_spread, or more votes
+        misclassified than the minority cast) and can't come back: restarted at their best cutting line and refit,
+        kept only where that fits their votes better. Returns how many were repaired."""
+        z, _ = nk.predict(*self._state(), *self._data(), self.T)
+        yeas = np.bincount(self.rc, weights=(self.s > 0).astype(float), minlength=self.n_rc)
+        tot = np.bincount(self.rc, minlength=self.n_rc)
+        errors = np.bincount(self.rc, weights=((z > 0) != (self.s > 0)).astype(float), minlength=self.n_rc)
+        bad = (np.linalg.norm(self.D, axis=1) > max_spread) | (errors > np.minimum(yeas, tot - yeas))
+        if not bad.any():
+            return 0
+        M0, D0, before = self.M.copy(), self.D.copy(), self.loglik(by=0)
+        Mc, Dc = self.cutline_start()
+        self.M, self.D = np.where(bad[:, None], Mc, self.M), np.where(bad[:, None], Dc, self.D)
+        for _ in range(steps):
+            self.step_rollcalls()
+        worse = self.loglik(by=0) < before
+        self.M, self.D = np.where(worse[:, None], M0, self.M), np.where(worse[:, None], D0, self.D)
+        return int((bad & ~worse).sum())
+
     # ---- NOMINATE-style alternating blocks
     @staticmethod
     def _solve(g, H, damp=1e-3):
@@ -184,10 +246,17 @@ class DWNominate:
 
     def step_global(self):
         """beta and the squared weights of dimensions 2..K (w_1 = 1)."""
+        fix_beta, fix_w = getattr(self, "fix_beta", False), getattr(self, "fix_w", False)
+        if fix_beta and (fix_w or self.K == 1):
+            return self.loglik()
         g, H = nk.block_global(*self._state(), *self._data(), self.T)
         step = np.linalg.solve(H + 1e-3 * np.diag(np.diag(H)) + 1e-9 * np.eye(len(g)), g)
-        if getattr(self, "fix_beta", False):
+        if fix_beta:
             step[0] = 0.0                      # beta held at its current value
+        if fix_w:
+            # the weights too. Near w_2 = 1 the map is close to rotation-free, and once w_2 passes 1 the main
+            # divide gains by turning toward dimension 2, which raises w_2 further: a refit then spins the map
+            step[1:] = 0.0
         old = self.loglik()
         for a in (1.0, 0.5, 0.25, 0.125, 0.0625):
             beta = float(np.clip(self.beta + a * step[0], 0.5, 60.0))
@@ -333,11 +402,17 @@ class DWNominate:
         """Stops when the likelihood stops improving or no legislator moves more than move_tol
         (on the -1..1 scale) between rounds."""
         self.alternate(alternate_iters, verbose)
+        fixed = self.repair()
+        if verbose and fixed:
+            print(f"    repaired {fixed:,} roll calls run off to flat ground", flush=True)
         self.normalize()
         prev = self.loglik()
         prev_pos = np.hstack([self.Pm, self.Pp])
         for r in range(rounds):
             self.polish(polish_iter, verbose)
+            fixed = self.repair()
+            if verbose and fixed:
+                print(f"    repaired {fixed:,} roll calls run off to flat ground", flush=True)
             for _ in range(3):
                 self.step_global()
             self.normalize()

@@ -1,0 +1,74 @@
+<h1>The data</h1>
+<p>Every verified record vote of the Texas House and Senate from {{YEAR0}} to {{YEAR1}}: who voted yea, who voted nay, and who didn't vote, for {{ROLLCALLS}} roll calls and {{VOTES}} individual votes, with each legislator's scores from the map. As far as we know, no public machine-readable record of the Legislature's roll calls reaches back before 2009 (LegiScan's files begin then); the votes before 1995 were read for this project from the Legislative Reference Library's scans of the House and Senate Journals, and the later ones from the Legislature's own journal pages.</p>
+
+<div class="stat">
+  <div><b>{{ROLLCALLS}}</b><span>verified roll calls</span></div>
+  <div><b>{{VOTES}}</b><span>individual votes</span></div>
+  <div><b>{{MEMBERS_ALL}}</b><span>legislators</span></div>
+  <div><b>{{YEARS}}</b><span>years, {{YEAR0}}–{{YEAR1}}</span></div>
+</div>
+
+<h2>Download</h2>
+<div class="tablewrap"><table>
+  <thead><tr><th>File</th><th>What's in it</th><th class="num">Size</th></tr></thead>
+  <tbody>
+{{FILES}}
+  </tbody>
+</table></div>
+<p class="small muted">Data version {{VERSION}}, built {{BUILT}}. The files are plain CSV (UTF-8, comma-separated, one header row); the larger two are gzipped. The same files, with this page as a README, are in the <a href="https://github.com/luke-thomas-more/texas-nominate">GitHub repository</a> under <code>docs/data/downloads/</code>.</p>
+
+<h2>How the votes were checked</h2>
+<p>A roll call is in the data only if every name in its lists was matched to a member of that legislature and the counts agree with the totals the journal prints. {{EXCLUDED}} roll calls the scans held but that couldn't be verified are left out, not guessed. Each roll call's <code>status</code> says how it passed:</p>
+<div class="tablewrap"><table>
+  <thead><tr><th>status</th><th>Meaning</th><th class="num">Roll calls</th></tr></thead>
+  <tbody>
+    <tr><td><code>ok</code></td><td>The yea and nay counts equal the printed totals exactly.</td><td class="num">{{N_OK}}</td></tr>
+    <tr><td><code>near</code></td><td>Each count is within one of its printed total. The journal's own count is sometimes off by one, and a name too garbled to read may be the missing vote (it is then left out).</td><td class="num">{{N_NEAR}}</td></tr>
+    <tr><td><code>ok_digit</code></td><td>A printed total was misread by the OCR by one digit, or carries a stray digit that gives more votes than the chamber has seats; accepted only when every name matched and the lists account for the whole chamber.</td><td class="num">{{N_DIGIT}}</td></tr>
+    <tr><td><code>ok_lists</code></td><td>The journal misprinted a total (a few off, with every member of the chamber listed exactly once): the lists are trusted.</td><td class="num">{{N_LISTS}}</td></tr>
+    <tr><td><code>ok_rest</code></td><td>One list came up a few names short and exactly that many members serving that day appear in no list: they are its missing names (the column <code>implied</code> gives the list).</td><td class="num">{{N_REST}}</td></tr>
+  </tbody>
+</table></div>
+<p>Where the Senate printed only the nays and absentees, the yeas are everyone else serving that day, and those roll calls have <code>implied</code> = Y. From 1973 to 1982 the House printed tally sheets, a grid of marks instead of names; those roll calls have ids containing <code>-HT</code>, and a sheet is used only if its marks add up to the journal's totals or fall one short. A vote the scans credit to a member who wasn't in the chamber that day (by the Library's service dates, and appearing in few of that day's roll calls, so a garbled name read as someone who had left or not yet arrived) is taken out; the roll call is then checked again. The Library's files of consecutive days often share a page, one day ending and the next beginning on it: a roll call there is kept once, dated by which side of the new day's heading it falls on. A call of the roll for attendance isn't a vote and is left out. Every roll call links to its page in the journal (<code>journal_url</code>, <code>journal_page</code>), so any vote can be checked against the original.</p>
+
+<h2>Columns</h2>
+<h3>rollcalls.csv.gz</h3>
+<div class="tablewrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
+  <tr><td><code>rc_id</code></td><td>The roll call's id: legislature, session and chamber, then its number in the journal's order (<code>57R-Hx0899</code>: 57th Legislature, regular session, House; <code>x</code> marks a vote read from the scans, <code>T</code> a tally sheet).</td></tr>
+  <tr><td><code>chamber</code></td><td><code>H</code> House, <code>S</code> Senate.</td></tr>
+  <tr><td><code>leg</code></td><td>The legislature (1 = 1846–47, 89 = 2025–26).</td></tr>
+  <tr><td><code>session</code></td><td><code>R</code> regular, <code>1</code>, <code>2</code>, … called sessions, <code>A</code> adjourned, <code>P</code> provisional.</td></tr>
+  <tr><td><code>date</code></td><td>The day of the vote (YYYY-MM-DD).</td></tr>
+  <tr><td><code>record</code></td><td>The journal's record vote number (1973 on; blank before).</td></tr>
+  <tr><td><code>bill</code>, <code>caption</code></td><td>The bill or resolution the vote was on, and its caption, where the journal names one.</td></tr>
+  <tr><td><code>text</code>, <code>motion</code>, <code>amendment</code></td><td>The journal's words around the vote: the sentence that announces it, the motion, the amendment. Before 1995 these come from OCR and keep its misreadings.</td></tr>
+  <tr><td><code>n_y</code>, <code>n_n</code></td><td>Yeas and nays in the data (they agree with the printed totals as <code>status</code> describes).</td></tr>
+  <tr><td><code>printed_p</code></td><td>Members the journal lists as present, not voting.</td></tr>
+  <tr><td><code>status</code>, <code>implied</code></td><td>How the roll call was verified (above); the list completed from the roll, if any.</td></tr>
+  <tr><td><code>source</code></td><td>Where the vote was read: <code>journal</code> (the Legislature's journal text, 1995 on), <code>scan</code> (the scanned journals), <code>tally</code> (the 1973–82 House tally sheets).</td></tr>
+  <tr><td><code>journal_url</code>, <code>journal_page</code></td><td>The journal for that day (a PDF scan from the Legislative Reference Library, or the Legislature's journal page), and the page of the PDF the roll call starts on.</td></tr>
+  <tr><td><code>mid1</code>, <code>mid2</code>, <code>spread1</code>, <code>spread2</code></td><td>For contested votes (at least 2.5% on the losing side), the vote's position on the map: the midpoint between its yea and nay outcomes, and half the distance between them, on each axis. Blank for near-unanimous votes, which aren't scaled.</td></tr>
+</tbody></table></div>
+<h3>votes.csv.gz</h3>
+<p><code>rc_id</code>, <code>member_id</code>, <code>vote</code>: one row per member per roll call. <code>vote</code> is <code>Y</code> yea, <code>N</code> nay, <code>P</code> present and not voting, <code>E</code> absent with leave (excused), <code>A</code> absent. Members a journal doesn't list at all on a vote have no row.</p>
+<h3>members.csv, terms.csv</h3>
+<p><code>members.csv</code>: <code>member_id</code> (the Legislative Reference Library's own id), <code>name</code>, <code>full_name</code>, and <code>lrl_url</code>, the member's page in its <a href="https://lrl.texas.gov/legeLeaders/members/lrlhome.cfm">Texas Legislators: Past &amp; Present</a>. <code>terms.csv</code>: one row per member, chamber and legislature: <code>district</code>, <code>start</code> and <code>end</code> of service, <code>party</code> (as the Library records it; often blank before Reconstruction), <code>city</code>, <code>county</code>, <code>counties</code> (all the counties the district covered), <code>note</code> (offices such as Speaker or President pro tempore).</p>
+<h3>member_scores.csv</h3>
+<p>One row per member, chamber and legislature in which they cast at least 20 contested votes: <code>member_id</code>, <code>leg</code>, <code>chamber</code>, <code>party</code>, <code>district</code>, <code>scaled_votes</code> (contested votes that legislature), and <code>dim1</code>, <code>dim2</code>, the member's place on the map's two axes (one position per career, so the same in every legislature they served). What the axes mean differs by era; see <a href="#/about">How this works</a>.</p>
+<h3>trends.csv, congress_bridge.csv, blocs.csv</h3>
+<p>The numbers behind the <a href="#/trends">Trends</a> page and the voting blocs on each map: party gaps and party-line votes by legislature and chamber; the {{PAIRS}} members who also served in Congress, with their Voteview DW-NOMINATE scores; and each member's voting bloc by legislature and chamber.</p>
+
+<h2>How to cite</h2>
+<p class="cite">{{CITATION}}</p>
+<p class="small muted">{{DOI_NOTE}} The repository's <code>CITATION.cff</code> gives the same in machine-readable form. Please cite the Legislative Reference Library's scanned House and Senate Journals as the original source of the votes.</p>
+
+<h2>License</h2>
+<p>{{LICENSE}}</p>
+
+<h2>Gaps and cautions</h2>
+<ul>
+  <li><b>Unverified roll calls are left out,</b> so older legislatures have fewer votes than the journals hold: where the scans are hard to read, many roll calls fail their checks. The share verified is on each legislature's map page.</li>
+  <li><b>The House Journals for 1861–62 and 1864</b> survive only as newspaper reconstructions with almost no roll calls, and the 1973–82 House is covered only where its tally sheets could be read.</li>
+  <li><b>Party</b> is as the Legislative Reference Library records it; for most members before Reconstruction it is not recorded.</li>
+  <li><b>OCR text</b> in <code>text</code>, <code>motion</code> and <code>amendment</code> before 1995 is as read from the scans, misreadings included; the names in the lists were matched to members, the surrounding text wasn't corrected.</li>
+</ul>

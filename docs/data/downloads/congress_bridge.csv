@@ -1,0 +1,122 @@
+member_id,name,tx_first_year,tx_last_year,tx_dim1,tx_dim2,voteview_name,congress_first_year,congress_last_year,party_in_congress,voteview_dim1,voteview_dim2
+5441,Volney Erskine Howard,1846,1847,-0.114,-0.731,"HOWARD, Volney Erskine",1849,1853,D,-0.455,0.306
+5147,Guy Morrison Bryan,1847,1891,0.176,-0.67,"BRYAN, Guy Morrison",1857,1859,D,-0.396,0.033
+5385,Matthias Ward,1849,1851,0.273,0.332,"WARD, Matthias",1857,1861,D,-0.649,-0.106
+5503,John Henninger Reagan,1847,1849,0.778,0.294,"REAGAN, John Henninger",1857,1893,D,-0.5,0.041
+5007,Louis Trezevant Wigfall,1850,1859,-0.519,-0.671,"WIGFALL, Louis Trezevant",1859,1863,D,-0.687,-0.608
+5342,Andrew Jackson Hamilton,1851,1853,0.006,-0.547,"HAMILTON, Andrew Jackson",1859,1861,O,-0.226,0.751
+5144,George Washington Whitmore,1853,1861,0.999,-0.04,"WHITMORE, George Washington",1869,1871,R,0.321,-0.009
+5149,James Winwright Flanagan,1851,1857,0.755,-0.069,"FLANAGAN, James Winright",1869,1875,R,0.308,0.29
+5048,John Hancock,1861,1861,-0.001,-0.987,"HANCOCK, John",1871,1885,D,-0.254,-0.15
+4513,William Pinkney McLean,1861,1873,0.457,-0.377,"McLEAN, William Pinkney",1873,1875,D,-0.639,0.311
+5119,Roger Quarles Mills,1859,1861,0.303,0.098,"MILLS, Roger Quarles",1873,1899,D,-0.471,-0.0
+4677,James Webb Throckmorton,1851,1866,0.637,-0.725,"THROCKMORTON, James Webb",1875,1887,D,-0.345,-0.157
+4732,David Browning Culberson,1859,1875,0.069,-0.192,"CULBERSON, David Browning",1875,1897,D,-0.428,0.073
+5579,Charles Stewart,1879,1883,-0.131,-0.646,"STEWART, Charles",1883,1893,D,-0.469,-0.154
+4390,William Henry Crain,1876,1877,-0.768,0.64,"CRAIN, William Henry",1885,1897,D,-0.35,-0.412
+4742,Joseph D. Sayers,1873,1874,-0.778,0.156,"SAYERS, Joseph Draper",1885,1899,D,-0.502,0.205
+4033,Constantine Buckley Kilgore,1885,1885,0.36,0.933,"KILGORE, Constantine Buckley",1887,1895,D,-0.697,0.353
+4399,Joseph 'Jo' Abbott,1870,1873,0.967,0.255,"ABBOTT, Joseph (Jo)",1887,1897,D,-0.591,0.071
+5030,William Harrison Martin,1853,1859,0.373,0.606,"MARTIN, William Harrison",1887,1891,D,-0.649,0.212
+2857,John Benjamin Long,1913,1915,0.187,0.765,"LONG, John Benjamin",1891,1893,D,-0.478,0.43
+3742,Walter Gresham,1887,1893,0.118,-0.679,"GRESHAM, Walter",1893,1895,D,-0.421,-0.521
+4013,Charles Keith Bell,1885,1889,0.115,0.265,"BELL, Charles Keith",1893,1897,D,-0.604,0.234
+4027,"Samuel Bronson Cooper, Sr.",1881,1885,0.294,0.956,"COOPER, Samuel Bronson",1893,1909,D,-0.333,0.222
+4131,George Cassety Pendleton,1883,1889,0.06,0.832,"PENDLETON, George Cassety",1893,1897,D,-0.399,-0.091
+4251,Joseph Chappell Hutcheson,1881,1883,0.048,-0.586,"HUTCHESON, Joseph Chappell",1893,1897,D,-0.553,0.393
+3487,Miles G. Crowley,1891,1895,-0.996,0.094,"CROWLEY, Miles",1895,1897,D,-0.24,-0.594
+3605,Charles Henderson Yoakum,1893,1894,0.106,0.994,"YOAKUM, Charles Henderson",1895,1897,D,-0.636,0.741
+4035,Rudolph Kleberg,1883,1886,-0.321,-0.938,"KLEBERG, Rudolph",1895,1903,D,-0.497,0.054
+3599,John Walter Cranford,1889,1895,0.353,0.102,"CRANFORD, John Walter",1897,1899,D,-0.453,-0.06
+3679,James Luther Slayden,1893,1895,-0.022,-0.809,"SLAYDEN, James Luther",1897,1919,D,-0.398,0.018
+3715,John Hall Stephens,1889,1893,-0.576,0.62,"STEPHENS, John Hall",1897,1917,D,-0.466,0.356
+3473,Dudley Goodall Wooten,1899,1901,-0.459,0.139,"WOOTEN, Dudley Goodall",1901,1903,D,-0.52,0.31
+3360,John Nance Garner,1899,1903,-0.775,0.325,"GARNER, John Nance",1903,1933,D,-0.471,0.341
+3477,James Andrew Beall,1892,1899,0.393,-0.585,"BEALL, James Andrew (Jack)",1903,1915,D,-0.511,0.382
+3847,Scott Field,1887,1891,0.43,0.239,"FIELD, Scott",1903,1907,D,-0.289,0.957
+3929,Alexander White Gregg,1887,1889,0.653,-0.743,"GREGG, Alexander White",1903,1919,D,-0.424,0.09
+3555,John Matthew Moore,1897,1899,0.273,-0.471,"MOORE, John Matthew",1905,1913,D,-0.461,-0.027
+3620,Moses Lycurgus Broocks,1893,1895,0.152,-0.931,"BROOCKS, Moses Lycurgus",1905,1907,D,-0.416,0.764
+2799,Horace Worth Vaughan,1911,1913,-0.194,0.63,"VAUGHAN, Horace Worth",1913,1915,D,-0.452,0.634
+2821,James Paul Buchanan,1909,1913,0.183,-0.499,"BUCHANAN, James Paul",1913,1939,D,-0.481,0.048
+3037,Sam Rayburn,1907,1913,-0.486,-0.033,"RAYBURN, Samuel Taliaferro",1913,1963,D,-0.395,0.515
+3548,Atkins Jefferson McLemore,1893,1897,0.234,-0.75,"McLEMORE, Atkins Jefferson",1915,1919,D,-0.391,-0.194
+3250,Thomas Terry Connally,1901,1905,-0.518,0.357,"CONNALLY, Thomas Terry (Tom)",1917,1953,D,-0.195,0.581
+2631,Carlos Bee,1915,1919,-0.028,-0.395,"BEE, Carlos",1919,1921,D,-0.298,-0.19
+2639,Claude Benton Hudspeth,1903,1919,0.224,-0.712,"HUDSPETH, Claude Benton",1919,1931,D,-0.223,0.523
+3099,Clay Stone Briggs,1907,1909,0.31,0.015,"BRIGGS, Clay Stone",1919,1935,D,-0.255,0.544
+2440,Guinn Terrell Williams,1921,1922,-0.429,0.138,"WILLIAMS, Guinn",1921,1933,D,-0.44,0.454
+3295,Morgan Gurley Sanders,1903,1907,0.663,0.014,"SANDERS, Morgan Gurley",1921,1939,D,-0.237,0.972
+2909,Earle Bradford Mayfield,1907,1912,-0.625,0.459,"MAYFIELD, Earle Bradford",1923,1929,D,-0.336,0.247
+2496,Wright Patman,1921,1925,0.396,0.237,"PATMAN, John William Wright",1929,1977,D,-0.396,0.855
+3351,Oliver Harlan Cross,1899,1901,0.524,0.154,"CROSS, Oliver Harlan",1929,1937,D,-0.275,0.856
+2576,Robert Ewing Thomason,1917,1921,-0.158,0.014,"THOMASON, Robert Ewing",1931,1949,D,-0.212,0.498
+2069,George Butler Terrell,1899,1933,0.651,0.383,"TERRELL, George Butler",1933,1935,D,0.191,0.981
+2079,Milton Horace West,1931,1933,0.11,-0.298,"WEST, Milton Horace",1933,1949,D,0.037,0.999
+2118,William Doddridge McFarlane,1923,1931,0.413,0.748,"McFARLANE, William Doddridge",1933,1939,D,-0.089,0.519
+1354,Charles Lacy South,1947,1949,0.502,0.186,"SOUTH, Charles Lacy",1935,1943,D,-0.117,0.816
+1962,Nat Patton,1913,1934,0.136,-0.328,"PATTON, Nat",1935,1945,D,-0.17,0.632
+1716,William Robert Poage,1925,1937,0.05,0.961,"POAGE, William Robert",1937,1979,D,-0.082,0.997
+701,Lindley Garrison Beckworth,1937,1973,-0.089,0.5,"BECKWORTH, Lindley Garrison, Sr.",1939,1967,D,-0.238,0.759
+1758,Eugene Worley,1935,1940,0.405,0.067,"WORLEY, Francis Eugene",1941,1951,D,-0.19,0.91
+1831,Ovie Clark Fisher,1935,1937,0.057,0.037,"FISHER, Ovie Clark",1943,1975,D,0.038,0.987
+1547,John Emmett Lyle,1941,1944,-0.3,-0.697,"LYLE, John Emmett, Jr.",1945,1955,D,-0.198,0.94
+1719,Kenneth Mills Regan,1933,1937,-0.191,-0.408,"REGAN, Kenneth Mills",1947,1955,D,0.058,0.998
+1749,Homer Thornberry,1937,1941,0.536,0.239,"THORNBERRY, William Homer",1949,1965,D,-0.305,0.769
+1277,Jack Bascom Brooks,1947,1951,-0.661,0.051,"BROOKS, Jack Bascom",1953,1995,D,-0.407,0.725
+1601,Price Daniel,1939,1945,-0.33,0.139,"DANIEL, Marion Price",1953,1959,D,0.024,0.762
+1192,John Junior Bell,1937,1954,0.087,-0.101,"BELL, John Junior",1955,1957,D,-0.048,0.999
+1194,James T. Rutherford,1949,1954,-0.651,-0.225,"RUTHERFORD, J. T.",1955,1963,D,-0.152,0.932
+1222,Joe Madison Kilgore,1947,1955,-0.125,-0.383,"KILGORE, Joe Madison",1955,1965,D,-0.059,0.767
+1389,Jim Wright,1947,1949,-0.515,0.318,"WRIGHT, James Claude, Jr.",1955,1991,D,-0.383,0.672
+1462,Robert Randolph Casey,1949,1951,-0.629,-0.434,"CASEY, Robert Randolph",1959,1977,D,-0.098,0.783
+1031,Henry Barbosa Gonzalez,1957,1961,-0.149,-0.067,"GONZÁLEZ, Henry B.",1961,1999,D,-0.538,0.558
+1034,Ray Roberts,1955,1962,0.665,0.483,"ROBERTS, Herbert Ray",1961,1981,D,-0.131,0.991
+1100,Joe Richard Pool,1953,1959,0.307,-0.289,"POOL, Joe Richard",1963,1969,D,0.027,1.0
+890,Eligio de la Garza,1953,1965,-0.275,-0.429,"de la GARZA, Eligio, II (Kika)",1965,1997,D,-0.255,0.757
+1137,Richard Crawford White,1955,1959,-0.491,-0.41,"WHITE, Richard Crawford",1965,1983,D,-0.137,0.601
+601,Bob Price,1978,1981,0.422,0.443,"PRICE, Robert Dale",1967,1975,R,0.304,0.523
+856,Abraham Kazen,1947,1967,-0.185,-0.219,"KAZEN, Abraham, Jr.",1967,1985,D,-0.219,0.747
+893,Robert Christian Eckhardt,1959,1967,-0.866,0.06,"ECKHARDT, Robert Christian",1967,1981,D,-0.547,-0.06
+759,W.R. 'Bill' Archer,1967,1971,0.688,0.539,"ARCHER, William Reynolds, Jr.",1971,2001,R,0.496,0.2
+708,Barbara Jordan,1967,1973,-0.806,-0.22,"JORDAN, Barbara Charline",1973,1979,D,-0.522,0.253
+713,Charles Wilson,1961,1973,-0.452,-0.053,"WILSON, Charles",1973,1997,D,-0.196,0.474
+696,Jack Hightower,1953,1975,-0.1,-0.366,"HIGHTOWER, Jack English",1975,1985,D,-0.115,0.711
+602,R.A. 'Bob' Gammage,1971,1976,-0.716,0.071,"GAMMAGE, Robert Alton",1977,1979,D,0.006,0.437
+646,James 'Jim' Mattox,1973,1977,-0.591,0.423,"MATTOX, James Albon",1977,1983,D,-0.19,-0.041
+551,Kent Hance,1975,1979,0.223,0.396,"HANCE, Kent Ronald",1979,1985,D,-0.042,0.747
+681,"Joe Wyatt, Jr.",1971,1979,0.05,-0.28,"WYATT, Joseph Peyton, Jr.",1979,1981,D,-0.116,0.993
+683,Mickey Leland,1973,1979,-0.812,0.244,"LELAND, George Thomas (Mickey)",1979,1991,D,-0.596,-0.228
+555,William N. 'Bill' Patman,1961,1981,0.041,0.778,"PATMAN, William Neff",1981,1985,D,-0.03,0.923
+707,Ralph Hall,1963,1973,-0.358,-0.616,"HALL, Ralph Moody",1981,2005,D,0.096,0.995
+499,John Bryant,1974,2027,-0.874,-0.192,"BRYANT, John Wiley",1983,1997,D,-0.358,0.135
+504,Ronald D. Coleman,1973,1983,-0.58,0.004,"COLEMAN, Ronald D'Emory",1983,1997,D,-0.402,0.548
+448,Tom DeLay,1979,1985,0.704,0.281,"DeLAY, Thomas Dale",1985,2007,R,0.593,0.059
+1878,Lamar Smith,1981,1982,0.159,0.332,"SMITH, Lamar Seeligson",1987,2019,R,0.425,0.061
+325,Craig A. Washington,1973,1990,-0.578,0.816,"WASHINGTON, Craig Anthony",1989,1995,D,-0.766,-0.439
+345,Bill Sarpalius,1981,1989,0.259,0.378,"SARPALIUS, William",1989,1995,D,-0.078,0.997
+320,Chet Edwards,1983,1991,-0.185,0.369,"EDWARDS, Thomas Chester (Chet)",1991,2011,D,-0.226,0.5
+357,Sam Johnson,1985,1991,0.545,0.364,"JOHNSON, Sam",1991,2019,R,0.61,0.277
+77,Gene Green,1973,1993,-0.263,0.548,"GREEN, Raymond Eugene (Gene)",1993,2019,D,-0.324,0.453
+79,Eddie Bernice Johnson,1973,1993,-0.664,0.207,"JOHNSON, Eddie Bernice",1993,2023,D,-0.485,0.198
+87,Frank Tejeda,1977,1993,-0.506,0.161,"TEJEDA, Frank",1993,1999,D,-0.277,0.961
+488,Lloyd Doggett,1973,1985,-0.775,0.241,"DOGGETT, Lloyd Alton, II",1995,2027,D,-0.403,-0.333
+57,Jim Turner,1981,1997,0.187,-0.477,"TURNER, Jim",1997,2005,D,-0.185,0.606
+102,Kevin Brady,1991,1997,0.027,0.482,"BRADY, Kevin Patrick",1997,2023,R,0.52,0.239
+284,Ciro Rodriguez,1987,1997,-0.686,0.088,"RODRIGUEZ, Ciro D.",1997,2011,D,-0.349,0.238
+113,John Culberson,1987,2001,0.302,0.723,"CULBERSON, John",2001,2019,R,0.503,0.366
+111,Henry Cuellar,1987,2001,-0.257,0.098,"CUELLAR, Henry",2005,2027,D,-0.225,0.66
+204,Kenny Marchant,1987,2005,0.512,0.367,"MARCHANT, Kenny",2005,2021,R,0.6,0.154
+130,Pete Gallego,1991,2013,-0.366,-0.203,"GALLEGO, Pete P.",2013,2015,D,-0.216,0.378
+5572,Joaquin Castro,2003,2013,-0.785,-0.025,"CASTRO, Joaquin",2013,2027,D,-0.403,-0.146
+5607,Marc Veasey,2005,2013,-0.683,-0.102,"VEASEY, Marc",2013,2027,D,-0.409,0.375
+5655,Randy Weber,2009,2013,0.859,0.293,"WEBER, Randy",2013,2027,R,0.721,0.039
+5675,Van Taylor,2010,2019,0.857,0.34,"TAYLOR, Nicholas",2019,2023,R,0.581,-0.223
+5682,Lance Gooden,2011,2019,0.457,0.235,"GOODEN, Lance",2019,2027,R,0.716,-0.036
+5760,Sylvia Garcia,2013,2018,-0.822,-0.57,"GARCIA, Sylvia",2019,2027,D,-0.764,0.307
+5751,Pat Fallon,2013,2021,0.755,0.043,"FALLON, Pat",2021,2027,R,0.712,0.126
+5871,Jake Ellzey,2021,2021,0.594,0.245,"ELLZEY, Jake",2021,2027,R,0.51,0.699
+5862,Jasmine Crockett,2021,2023,-0.977,-0.212,"CROCKETT, Jasmine",2023,2027,D,-0.495,-0.212
+247,Sylvester Turner,1989,2016,-0.752,0.317,"TURNER, Sylvester",2025,2027,D,-0.746,0.666
+5749,Craig Goldman,2013,2025,0.71,0.266,"GOLDMAN, Craig A.",2025,2027,R,0.778,0.529
+5844,Julie Johnson,2019,2025,-0.788,0.172,"JOHNSON, Julie",2025,2027,D,-0.353,0.232

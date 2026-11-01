@@ -11,7 +11,9 @@ yeas are then everyone serving that day who isn't listed elsewhere, and the resu
 printed count. "Same as previous roll call" copies the previous roll call's lists.
 
 A roll call is "ok" only if every name resolved and the yea and nay counts equal the printed
-totals. Writes data/processed/rollcalls.csv, votes.csv.gz and match_report.txt.
+totals; in the scanned years (before 1995) "near" when each count is within one of its total (a tally
+sheet: one vote short), and "ok_rest" when a list's missing names are the members a complete roll
+leaves out. Writes data/processed/rollcalls.csv, votes.csv.gz and match_report.txt.
 """
 import collections, csv, gzip, json, os, re, sys, unicodedata
 
@@ -206,12 +208,26 @@ def main():
 
             def scan_match(rv):
                 sm.set_speaker([m for m, a, b in chairs if a <= rv["date"] <= b] if chamber == "H" else chair_on(chairs, rv["date"]))
+                sm.set_date(rv["date"])
                 # names in aliases.csv (a member printed under another name) bypass the fuzzy matcher
                 bare = lambda n: re.sub(r"\(C\)$", "", n).strip()
                 votes, unmatched = sm.match({code: [n for n in lst if bare(n) not in alias] for code, lst in rv["lists"].items()})
                 votes.update({alias[bare(n)]: code for code, lst in rv["lists"].items() for n in lst if bare(n) in alias})
                 return votes, unmatched
             sm.learn_activity([scan_match(rv)[0] for rv in rvs if "members" not in rv]); sm.cache = {}
+        # members named in a day's roll calls were serving that day, whatever the roster's dates say
+        # (1985: Lindon Williams votes on March 27, the roster ends his term on the 26th)
+        named_on = collections.defaultdict(set)
+        full = 0                      # how many members a complete roll places in this session
+        if scanned:
+            sizes = []
+            for rv in rvs:
+                if "members" not in rv:
+                    got = scan_match(rv)[0]
+                    named_on[rv["date"]] |= set(got)
+                    sizes.append(len(got))
+            sizes.sort()
+            full = sizes[int(0.9 * (len(sizes) - 1))] if sizes else 0
         for n_in_session, rv in enumerate(rvs, 1):
             date = rv["date"]
             votes, problems = {}, []
@@ -223,7 +239,8 @@ def main():
             elif scanned:
                 got, unmatched = scan_match(rv)
                 votes.update(got)
-                problems = [f"unmatched: {u}" for u in unmatched]
+                # OCR specks and stray fragments (". •·", "'­") aren't names anyone left out
+                problems = [f"unmatched: {u}" for u in unmatched if len(re.findall(r"[A-Za-z]", u)) >= 3]
             for code, lst in ({} if scanned else rv["lists"]).items():
                 for n in lst:
                     sn, ini, county, chair = parsed[n]
@@ -253,18 +270,50 @@ def main():
                     if rv["printed"][code] > 0 and listed[code] == 0 and (listed[other] == rv["printed"][other]):
                         rest = [t["member_id"] for t in roster if serving(t, date) and t["member_id"] not in votes]
                         rest = sorted(set(rest))
+                        if len(rest) != rv["printed"][code] and named_on[date]:
+                            rest = sorted({t["member_id"] for t in roster if serving(t, date) or t["member_id"] in named_on[date]}
+                                          - set(votes))
                         if len(rest) == rv["printed"][code]:
                             for mid in rest:
                                 votes[mid] = code
                             rv["implied"] = code
+            # the scanned years' complete rolls (yeas, nays, present, absent and excused all printed): a list a
+            # few names short, the other exact, and exactly that many members serving that day in no list
+            # (garbled past matching, or dropped): they're its missing names (extract_history.fill_rest)
+            if scanned and "members" not in rv and not rv.get("implied"):
+                on = {t["member_id"] for t in roster if serving(t, date)} | named_on[date]
+                listed = collections.Counter(votes.values())
+                in_list = lambda u, code: any(u in n for n in rv["lists"].get(code, []))
+                for code, other in (("Y", "N"), ("N", "Y")):
+                    short = (rv["printed"][code] or 0) - listed[code]
+                    if not (1 <= short <= 6 and listed[other] == (rv["printed"][other] or 0) and full >= len(on) - 2):
+                        continue
+                    if any(in_list(p.split(": ", 1)[-1], other) for p in problems):
+                        continue
+                    unplaced = sorted(on - set(votes) - {t["member_id"] for t in speaker})
+                    if len(unplaced) == short:
+                        votes.update({m: code for m in unplaced})
+                        rv["implied"], rv["rest"] = code, True
+                        problems = [p for p in problems if not in_list(p.split(": ", 1)[-1], code)]
+                        break
             ny = sum(1 for v in votes.values() if v == "Y")
             nn = sum(1 for v in votes.values() if v == "N")
+            dy, dn = ny - rv["printed"]["Y"], nn - rv["printed"]["N"]
             if problems:
                 status = "unresolved_names"
-            elif ny != rv["printed"]["Y"] or nn != rv["printed"]["N"]:
+            elif dy or dn:
                 status = "count_mismatch"
+                # the scanned years, as for the older journals (extract_history): every name resolved and
+                # each total within one of the printed one, so at worst a vote is missing; on a tally
+                # sheet, where a misread mark rather than the journal's count is the likely cause, only
+                # one mark missed (a vote read as no vote), never an extra or a switched one
+                if scanned and ny + nn >= 4:
+                    if "members" in rv:
+                        status = "near" if abs(dy) + abs(dn) == 1 and dy + dn == -1 else status
+                    elif abs(dy) <= 1 and abs(dn) <= 1:
+                        status = "near"
             else:
-                status = "ok"
+                status = "ok_rest" if rv.get("rest") else "ok"
             status_count[(chamber, status)] += 1
             if status != "ok":
                 report.append(f"{leg}{sess} {chamber} {date} rec={rv.get('record')} seq={rv.get('seq')} printed={rv['printed']} got Y={ny} N={nn} {status} {'; '.join(problems[:4])}")

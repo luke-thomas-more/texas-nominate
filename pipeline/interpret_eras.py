@@ -10,7 +10,7 @@ import numpy as np
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 PROC = os.path.join(ROOT, "data", "processed")
 FIT = os.environ.get("FIT_DIR", os.path.join(PROC, "fit"))
-GOOD = {"ok", "near", "ok_digit", "ok_lists"}
+GOOD = {"ok", "near", "ok_digit", "ok_lists", "ok_rest"}
 ERAS = [(1, 13, "1846-73"), (14, 26, "1874-1900"), (27, 41, "1901-30"), (42, 56, "1931-60"),
         (57, 62, "1961-72"), (63, 67, "1973-82"), (68, 73, "1983-94"), (74, 89, "1995-2025")]
 # (search string in the full name, what the guide says about them)
@@ -24,11 +24,11 @@ PEOPLE = [("Throckmorton", "Unionist, 1850s"), ("Louis Trezevant Wigfall", "sece
           ("Robert Lee Nichols", "Senate institutionalist"), ("Charles Schwertner", "Senate institutionalist"),
           ("Mayes Middleton", "Senate insurgent"), ("Sarah Eckhardt", "Senate")]
 # roll calls the guide cites: (rc_id, what a yea meant)
-CITED = [("24R-Sx0860", "yea = protect labor unions"), ("24R-Sx0874", "yea = add 'to better define and punish trusts'"),
-         ("32R-Hx0206", "yea = Terrell of Bexar's (wet) motion to table referral to Liquor Traffic"),
-         ("32R-Sx0700", "yea = wet substitute: 'in favor of local self government' for 'against state wide prohibition'"),
-         ("33R-Sx0651", "yea = dry leader Lattimore's motion to table a wet substitute"),
-         ("33R-Sx0655", "yea = dry leader Lattimore's motion to table a wet amendment")]
+CITED = [("24R-Sx0879", "yea = protect labor unions"), ("24R-Sx0893", "yea = add 'to better define and punish trusts'"),
+         ("32R-Hx0216", "yea = Terrell of Bexar's (wet) motion to table referral to Liquor Traffic"),
+         ("32R-Sx0712", "yea = wet substitute: 'in favor of local self government' for 'against state wide prohibition'"),
+         ("33R-Sx0668", "yea = dry leader Lattimore's motion to table a wet substitute"),
+         ("33R-Sx0672", "yea = dry leader Lattimore's motion to table a wet amendment")]
 
 
 def era_of(leg):
@@ -36,7 +36,7 @@ def era_of(leg):
 
 
 def pcode(p):
-    return "R" if p.startswith("Republican") or p == "RA" else "D" if p.startswith("Democrat") else "O"
+    return "R" if p.startswith("Republican") or p in ("RA", "Radical Republican") else "D" if p.startswith("Democrat") else "O"
 
 
 def main():

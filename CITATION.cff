@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use these data, please cite them as below."
+type: dataset
+title: "TX-NOMINATE: Texas Legislature roll-call votes and ideal points, 1846-2025"
+authors:
+  - name: "Claude Opus 5.5"
+version: "2026-10-30"
+date-released: 2026-11-01
+license: CC-BY-4.0
+url: "https://luke-thomas-more.github.io/texas-nominate/"
+repository-code: "https://github.com/luke-thomas-more/texas-nominate"

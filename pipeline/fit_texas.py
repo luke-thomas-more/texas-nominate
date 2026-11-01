@@ -29,7 +29,7 @@ PROC = os.path.join(ROOT, "data", "processed")
 OUT = os.environ.get("FIT_DIR", os.path.join(PROC, "fit"))
 
 
-GOOD = {"ok", "near", "ok_digit", "ok_lists"}     # verified roll calls (see extract_history.py for the statuses)
+GOOD = {"ok", "near", "ok_digit", "ok_lists", "ok_rest"}     # verified roll calls (see extract_history.py for the statuses)
 
 
 def load(first, last):
@@ -120,15 +120,25 @@ def warm_start(m, d, folder, K):
         if int(mid) in pos:
             m.Pm[i, :k0] = pos[int(mid)]
     m.Pm[:] = to_ball(m.Pm); m.Pp[:] = m.Pm
-    rcp = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(folder, "rollcall_params.csv")))}
-    for j, k in enumerate(d["rc_keys"]):
-        if k in rcp:
-            m.M[j, :k0] = [float(rcp[k][f"mid{q + 1}"]) for q in range(k0)]
-            m.D[j, :k0] = [float(rcp[k][f"spread{q + 1}"]) for q in range(k0)]
     summ = json.load(open(os.path.join(folder, "summary.json")))
     m.beta = float(summ["beta"])
     m.w2[:k0] = [w * w for w in summ["w"][:k0]]
-    print(f"    warm start from {folder} ({Kf}-d into {K}-d): beta {m.beta:.2f}", flush=True)
+    # roll calls: the earlier fit's outcomes, or the best cutting line through the roll call's voters (NOMINATE's
+    # own start for a roll call), whichever fits its votes better. A re-extraction that finds more roll calls
+    # renumbers the ones after them, so an id may now be another vote, and outcomes copied from it can be yea and
+    # nay the wrong way round, a start the alternating steps don't recover from (v4, 2026-10-30: APRE before 1973
+    # halved)
+    M0, D0 = m.cutline_start()
+    M1, D1 = M0.copy(), D0.copy()
+    rcp = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(folder, "rollcall_params.csv")))}
+    for j, k in enumerate(d["rc_keys"]):
+        if k in rcp:
+            M1[j, :k0] = [float(rcp[k][f"mid{q + 1}"]) for q in range(k0)]
+            D1[j, :k0] = [float(rcp[k][f"spread{q + 1}"]) for q in range(k0)]
+    keep = m.loglik(by=0, M=M1, D=D1) > m.loglik(by=0, M=M0, D=D0)
+    m.M, m.D = np.where(keep[:, None], M1, M0), np.where(keep[:, None], D1, D0)
+    print(f"    warm start from {folder} ({Kf}-d into {K}-d): beta {m.beta:.2f}; {int(keep.sum()):,} of {m.n_rc:,} roll calls "
+          f"start from its outcomes, the rest from their best cutting line", flush=True)
 
 
 def party_lookup():
@@ -193,6 +203,7 @@ def main():
         if os.environ.get("FIT_START") and not hyb:
             warm_start(m, d, os.environ["FIT_START"], K)
         m.fix_beta = os.environ.get("FIX_BETA") == "1"
+        m.fix_w = os.environ.get("FIX_W") == "1"
         m.fit(verbose=True, alternate_iters=int(os.environ.get("ALT_ITERS", 30)), rounds=int(os.environ.get("ROUNDS", 4)))
         st = m.fit_stats()
         st["seconds"] = round(time.time() - t0, 1)

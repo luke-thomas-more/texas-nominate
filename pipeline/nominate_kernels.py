@@ -197,3 +197,64 @@ def predict(Pm, Pp, M, D, beta, w2, rc, mem, s, frac, G, T):
             z[o] = beta * (ey - en)
             lc[o] = log_ndtr(s[o] * z[o])
     return z, lc
+
+
+@nb.njit(parallel=True, cache=True)
+def cutline_starts(X, order, starts, s, U, spread):
+    """Each roll call's best cutting line (NOMINATE's own start for a roll call): over the directions U, the
+    threshold along each that misclassifies the fewest of its voters, yeas on either side. X: each vote's member
+    position; order: the votes sorted by roll call, starts: where each roll call's begin (n_rc + 1); s: +1 yea,
+    -1 nay. Returns the midpoints (on the line, nearest the voters' centre) and the outcomes' offsets, `spread`
+    along the line's normal, the nay outcome on the nays' side (as in _utils: yea at M - D, nay at M + D)."""
+    n_rc = len(starts) - 1
+    K = X.shape[1]
+    M = np.zeros((n_rc, K))
+    D = np.zeros((n_rc, K))
+    for j in nb.prange(n_rc):
+        a, b = starts[j], starts[j + 1]
+        n = b - a
+        if n == 0:
+            continue
+        p = np.empty(n)
+        yeas = 0
+        for q in range(n):
+            if s[order[a + q]] > 0:
+                yeas += 1
+        best, bu, bt, bpol = n + 1, 0, 0.0, 1.0
+        for u in range(U.shape[0]):
+            for q in range(n):
+                v = order[a + q]
+                acc = 0.0
+                for k in range(K):
+                    acc += X[v, k] * U[u, k]
+                p[q] = acc
+            o = np.argsort(p)
+            # left of the threshold: the first r voters along u. Yeas left, nays right: errors are the yeas
+            # right and the nays left (the other way round: n minus that)
+            yea_right, nay_left = yeas, 0
+            for r in range(n + 1):
+                if r > 0:
+                    if s[order[a + o[r - 1]]] > 0:
+                        yea_right -= 1
+                    else:
+                        nay_left += 1
+                e = yea_right + nay_left
+                if min(e, n - e) < best:
+                    if r == 0:
+                        t = p[o[0]] - 0.05
+                    elif r == n:
+                        t = p[o[n - 1]] + 0.05
+                    else:
+                        t = 0.5 * (p[o[r - 1]] + p[o[r]])
+                    best, bu, bt, bpol = min(e, n - e), u, t, (1.0 if e <= n - e else -1.0)
+        c = np.zeros(K)
+        for q in range(n):
+            for k in range(K):
+                c[k] += X[order[a + q], k] / n
+        cu = 0.0
+        for k in range(K):
+            cu += c[k] * U[bu, k]
+        for k in range(K):
+            M[j, k] = c[k] + (bt - cu) * U[bu, k]
+            D[j, k] = bpol * spread * U[bu, k]
+    return M, D
