@@ -99,9 +99,9 @@ From 2013 on, the votes were also checked against [LegiScan](https://legiscan.co
 
 ## How to cite
 
-Claude Opus 5.5 (2026). *TX-NOMINATE: Texas Legislature roll-call votes and ideal points, 1846–2025* (data version 1.0 (2026-11-03)). https://luke-thomas-more.github.io/texas-nominate/
+Claude Opus 5.5 (2026). *TX-NOMINATE: Texas Legislature roll-call votes and ideal points, 1846–2025* (data version 1.0 (2026-11-03)). https://luke-thomas-more.github.io/texas-nominate/ doi:10.5281/zenodo.23912328
 
-The repository's `CITATION.cff` gives the same in machine-readable form. Please cite the Legislative Reference Library's scanned House and Senate Journals as the original source of the votes.
+DOI: [10.5281/zenodo.23912328](https://doi.org/10.5281/zenodo.23912328). The repository's `CITATION.cff` gives the same in machine-readable form. Please cite the Legislative Reference Library's scanned House and Senate Journals as the original source of the votes.
 
 ## License
 

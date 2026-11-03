@@ -117,4 +117,4 @@ welcome as GitHub issues.
 
 - Code: MIT License ([LICENSE](LICENSE)).
 - Data (`docs/data/`, including the downloads): [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/).
-  Cite as on the site's Data page, or from `CITATION.cff`.
+  Cite as on the site's Data page, or from `CITATION.cff`. DOI (all versions): [10.5281/zenodo.23912328](https://doi.org/10.5281/zenodo.23912328).
