@@ -1,0 +1,4 @@
+# Senate 1973-03-06, page 9: "Yeas 25, Nays 5", Absent-excused Clower. From the text layer.
+Y: Adams; Aikin; Andujar; Blanchard; Braecklein; Brooks; Creighton; Gammage; Harris; Herring; Hightower; Jones; Kothmann; Longoria; McKinnon; McKnight; Meier; Moore; Ogg; Patman; Santiesteban; Sherman; Snelson; Traeger; Wolff
+N: Harrington; Mauzy; Mengden; Schwartz; Wallace
+E: Clower

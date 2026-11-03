@@ -425,6 +425,20 @@ def consensus(rv, others, votes_of):
         (code, n), *rest = codes.most_common()
         if not rest or rest[0][1] < n:
             out[m] = code
+    # a name the readings disagree on: one reading places member A in a list where another places B instead
+    # (1860 Senate: the layer read a garbled "Whaley" as Wallace, Tesseract read Whaley). The union would keep
+    # both, one vote too many that a journal's own miscount can make look exact, so a member only some
+    # readings place, in a list where a member only the other readings place sits too, is left out
+    readings = [votes_of(x) for x in [rv] + others]
+    partial = collections.defaultdict(list)
+    for m, code in out.items():
+        has = frozenset(i for i, v in enumerate(readings) if m in v)
+        if len(has) < len(readings):
+            partial[code].append((m, has))
+    for code, ms in partial.items():
+        for m, has in ms:
+            if any(not (has & h2) for m2, h2 in ms if m2 != m):
+                out.pop(m, None)
     return out
 
 
@@ -477,6 +491,9 @@ def main():
         # how many members a complete roll (yeas through absentees) places in this session
         sizes = sorted(len(r[2]) for r in found)
         full = sizes[int(0.9 * (len(sizes) - 1))] if sizes else 0
+        # how many members a roll call usually lists as not voting (present, absent, excused) this session
+        idle = sorted(sum(c not in "YN" for c in r[2].values()) for r in found)
+        usual_idle = idle[len(idle) // 2] if idle else 0
         roster = terms.get((ch, leg), [])
         seats = len({t["member_id"] for t in roster})       # at most: replacements make it more than seats
 
@@ -511,7 +528,10 @@ def main():
             y_ok, n_ok = check_parts(rv, votes)[2:]
             misprint = (not ok and not near and not digit and not unresolved and py is not None
                         and ((pn > 0 or nn > 0) and n_ok or pn > 0 and y_ok and abs(nn - pn) <= 3)
-                        and full >= 20 and len(votes) >= full - 1)
+                        and full >= 20 and len(votes) >= full - 1
+                        # and not a heading missed inside the yea list, which moves the rest of the yeas into
+                        # a not-voting list (1963 House: 39 yeas and 109 "excused" for a printed 147-1)
+                        and sum(c not in "YN" for c in votes.values()) <= usual_idle + (15 if ch == "H" else 5))
             st = "ok" if ok else "near" if near else "ok_digit" if digit else "ok_lists" if misprint \
                 else "tally_only" if named == 0 else "count_mismatch"
             implied = ""

@@ -1,0 +1,9 @@
+# House 1973-03-27, tally grid RECORD NO. 11 (passage to engrossment of HB 569, as amended), page 36 of 03271973_45_1649.pdf.
+# Summary YEA 079, NAY 055, PNV 005, ABSENT 014. Hand ticks: Adams (N), Barnhart and Clayton (Y), Clark (a Y tick beside a machine
+# N dot: read as Y), and one in the Speaker's row (read as P: 5 PNV, as printed). The marks give 79 Y and 54 N against the printed 79 and 55: Clark's row (tick in Y, machine dot in N) is the doubtful one; read as the hand correction, Y. X: Atwell, Calhoun, Evans, Howard, Miller, Parker C.,
+# Slack, Williamson; blank: Donaldson, Hernandez, Korioth, Newton.
+Y: Agnich; Allen, John; Allred; Bailey; Bales; Barnhart; Bird; Blythe; Boone; Bynum; Cates; Cavness; Clark; Clayton; Cobb; Cooke; Doran; Doyle; Dramberger; Finnell; Finney; Foreman; Fox; Garcia; Gaston; Geiger; Hale; Hanna; Hawn; Head; Heatly; Hendricks; Hilliard; Hoestenbach; Hubenak; Hutchison; Jones, G.; Laney; Lary; Lewis; Lombardino; McAlister; McDonald, F.; Madla; Maloney; Martin; Massey; Menefee; Munson; Murray; Nabers; Nowlin; Nugent; Peveto; Poff; Presnal; Preston; Reynolds; Rosson; Russell; Sage; Salem; Sanchez; Schieffer; Scoggins; Semos; Short; Simmons; Spurlock; Sullivant; Tarbox; Vale; Vick; Von Dohlen; Watson; Whitmire; Wieting; Williams; Wilson
+N: Adams; Baker; Bigham; Blake; Bowers; Caldwell; Canales; Cole; Coleman; Coody; Craddick; Davis; Denson; Denton; Edwards; Grant; Green, F.; Green, R.; Hall, A.; Hall, W.; Harris; Henderson; Hollowell; Hudson; Johnson; Jones, L.; Kaster; Kubiak; Lee; Leland; McDonald, T.; Mattox; Montoya; Nichols; Olson; Parker, W.; Pentony; Powers; Ragsdale; Reyes; Rodriguez; Sherman; Sutton; Thompson; Truan; Tupper; Uher; Vecchio; Washington; Waters; Weddington; Whitehead; Willis; Wyatt
+P: Mr. Speaker; Allen, Joe; Bock; Poerner; Temple
+E: Atwell; Calhoun; Evans; Howard; Miller; Parker, C.; Slack; Williamson
+A: Donaldson; Hernandez; Korioth; Newton

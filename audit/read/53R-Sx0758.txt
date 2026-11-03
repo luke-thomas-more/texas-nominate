@@ -1,0 +1,6 @@
+# Senate 1953-05-05, page 7 (right column): the previous question ordered on Senator McDonald's amendment to CSHB 4, "Yeas—13",
+# "Nays—13"; "Ramsey, President" heads the yeas ("The President announced he voted 'yea'"): Lieutenant Governor Ben Ramsey
+# breaking the tie, not a senator, so left out here.
+Y: Ashley; Bracewell; Fuller; Hardeman; Kazen; Lane; Lock; Moffett; Parkhouse; Rogers of Travis; Russell; Sadler; Shireman
+N: Aikin; Bell; Corbin; Kelley; Latimer; McDonald; Moore; Phillips; Rogers of Childress; Rutherford; Secrest; Wagonseller; Willis
+E: Colson; Hazlewood; Martin; Strauss; Weinert

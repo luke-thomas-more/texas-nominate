@@ -41,6 +41,9 @@ def ocr_pages(path, pages, psm="6", dpi=300):
     return sl.cached_ocr(path, f".tally{psm}", pages, read, eligible=pages)
 
 
+PAGES = {}      # {path: {record: 0-based PDF page of its sheet}}, filled by read_day / grid_day
+
+
 def sheet_pages(path, n):
     """The day's tally sheets: one per record vote, record numbers starting at 1 each day, printed as
     the day's appendix on its last pages (n = the day's highest record number). 1973-1978 grids:
@@ -757,8 +760,11 @@ def grid_day(path, n, totals=None, base=None):
     ocr = grid_names(path, [i for i, _ in sheets])
     parsed = [(i, sh) for i, img in sheets for sh in [parse_grid(path, i, ocr[i][2], img)] if sh]
     if totals:
-        return {rec: parsed[j][1]["rows"] for rec, j in align_sheets(n, totals, [sh["counts"] for i, sh in parsed]).items()}
+        pairs = align_sheets(n, totals, [sh["counts"] for i, sh in parsed])
+        PAGES[path] = {rec: parsed[j][0] for rec, j in pairs.items()}
+        return {rec: parsed[j][1]["rows"] for rec, j in pairs.items()}
     if len(parsed) == n:
+        PAGES[path] = {k + 1: i for k, (i, sh) in enumerate(parsed)}
         return {k + 1: sh["rows"] for k, (i, sh) in enumerate(parsed)}
     return {}
 
@@ -824,6 +830,7 @@ def read_day(path, n, totals=None, base=None):
         order = sorted(sheets)
         counts = [collections.Counter(code for _, _, code in sheets[i]["rows"]) for i in order]
         pairs = align_sheets(n, totals, counts, printed=[sheets[i]["record"] for i in order])
+        PAGES[path] = {rec: order[j] for rec, j in pairs.items()}
         return {rec: sheets[order[j]]["rows"] for rec, j in pairs.items()}
     if len(sheets) == n:        # every sheet read: one per record, in order (OCR misreads the numbers: "9003")
         known = {i: k + 1 for k, i in enumerate(sorted(sheets))}
@@ -839,6 +846,7 @@ def read_day(path, n, totals=None, base=None):
             rec = guess.pop() if len(guess) == 1 else None
         if rec and 1 <= rec <= n and rec not in out:
             out[rec] = sh["rows"]
+            PAGES.setdefault(path, {})[rec] = i
     return out
 
 
@@ -850,18 +858,32 @@ GAP_FILL = 20       # fill_gaps: cost of leaving a position between placed membe
 FILL_SCORE = 25     # ... and the name score a member needs there unless the gap's members fit it exactly
 ORDER_BASE = 30     # order_align: a pairing scoring under this costs more than skipping
 ORDER_MIN = 15      # ... and the least a pairing held in place by the alphabetical order may score
+CLEAR_NAME = 80     # resolve(per_sheet): a printout row's name read this well places it on its own
 
 
-def resolve(sheets, roster, chair=(), ordered=False):
+def resolve(sheets, roster, chair=(), ordered=False, per_sheet=False):
     """Members' votes on a session's sheets: {key: [((column, row), name, code)]} -> {key: {member_id: code}}.
-    ordered: the sheets list the members alphabetically (the 1973-78 grid forms; the 1979-82
-    printouts don't)."""
+    ordered: the sheets list the members alphabetically (the 1973-78 grid forms). per_sheet: line each
+    sheet's own rows up against the members in alphabetical order (the 1979-82 printouts, which print a
+    name on every row; see place_rows)."""
     placed = place_rows(sheets, roster, chair, ordered)
-    return {key: {placed[key][pos][0]: code for pos, _, code in rows if code and pos in placed[key]}
+    if per_sheet:
+        # a row whose own name reads clearly goes where the sheet's alphabetical order puts it; the others
+        # (names OCR garbled or lost) keep the place the session's sheets settled, if that member is free
+        own = place_rows(sheets, roster, chair, ordered, per_sheet=True)
+        for key in sheets:
+            merged = {pos: pm for pos, pm in own.get(key, {}).items() if pm[1] >= CLEAR_NAME}
+            used = {m for m, _ in merged.values()}
+            for pos, pm in placed.get(key, {}).items():
+                if pos not in merged and pm[0] not in used:
+                    merged[pos] = pm
+                    used.add(pm[0])
+            placed[key] = merged
+    return {key: {placed[key][pos][0]: code for pos, _, code in rows if code and pos in placed.get(key, {})}
             for key, rows in sheets.items()}
 
 
-def place_rows(sheets, roster, chair=(), ordered=False):
+def place_rows(sheets, roster, chair=(), ordered=False, per_sheet=False):
     """The member at each row position of a session's sheets: {key: {(column, row): (member_id, score)}}.
     Every sheet prints the same members in the same order, so a row position is read on all the
     sheets with its layout (rows per column) and goes to the member its names match best on average,
@@ -869,7 +891,13 @@ def place_rows(sheets, roster, chair=(), ordered=False):
     "SS s«SEACD") is read right on others. A sheet whose rules came out differently (one missed or
     doubled, so its rows per column differ) has too few companions for that: each of its columns is
     aligned instead, in order, to the members of that column in the commonest layout, by its own names.
-    chair: the Speaker(s) of the session."""
+    chair: the Speaker(s) of the session.
+    per_sheet: the printouts list the members alphabetically, column after column, but not always the same
+    rows: a member who joins mid-session adds one, one who leaves may leave an empty row, so a position
+    means different members on different sheets and settling positions over a session shifts whole runs
+    of votes (1981: 8 of 133 votes on one sheet) while keeping the totals. Each sheet's rows are instead
+    lined up in reading order against the members (of that day: the roster given) in alphabetical
+    order, by the sheet's own names (DP, either side may skip)."""
     import collections
     from scipy.optimize import linear_sum_assignment
     from match_scans import SessionMatcher, parse_raw
@@ -1009,6 +1037,44 @@ def place_rows(sheets, roster, chair=(), ordered=False):
         if os.environ.get("GRID_DEBUG"):
             print("order_align: placed", len(out), "assignment", len(assigned), "agree", agree, file=sys.stderr)
         return out if agree >= 0.8 * len(assigned) else assigned
+
+    def by_sheet(rows):
+        """One printout's rows -> members, in alphabetical order; "MR. SPEAKER" is the chair."""
+        out = {}
+        chairs = [m for m in chair if m in sm.idx]
+        rows = sorted(rows, key=lambda r: r[0])
+        lined = []
+        for pos, name, code in rows:
+            if name and re.search(r"SPEA?K", name, re.I) and chairs:
+                out[pos] = (chairs[0], 100.0)
+            elif name or code:
+                lined.append((pos, name, code))
+        mem = sorted((m for m in sm.members if m not in chairs), key=alpha)
+        idx = [sm.idx[m] for m in mem]
+        # a name OCR lost keeps its place between rows that were read if it has a mark; an empty row (a
+        # seat left vacant) is better skipped
+        G = np.array([score(name)[idx] - ORDER_BASE if name else np.full(len(mem), 5.0 if code else -5.0)
+                      for _, name, code in lined]) if lined else np.zeros((0, len(mem)))
+        n, k = G.shape
+        D = np.zeros((n + 1, k + 1))
+        for a in range(1, n + 1):
+            for b in range(1, k + 1):
+                D[a, b] = max(D[a - 1, b - 1] + G[a - 1, b - 1], D[a - 1, b], D[a, b - 1])
+        a, b = n, k
+        while a and b:
+            if D[a, b] == D[a - 1, b - 1] + G[a - 1, b - 1]:
+                pos, name, _ = lined[a - 1]
+                if not name or G[a - 1, b - 1] + ORDER_BASE >= ORDER_MIN:
+                    out[pos] = (mem[b - 1], G[a - 1, b - 1] + ORDER_BASE)
+                a, b = a - 1, b - 1
+            elif D[a, b] == D[a - 1, b]:
+                a -= 1
+            else:
+                b -= 1
+        return out
+
+    if per_sheet:
+        return {key: by_sheet(rows) for key, rows in sheets.items()}
 
     groups = collections.defaultdict(list)
     for key, rows in sheets.items():

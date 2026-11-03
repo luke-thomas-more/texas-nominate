@@ -1,0 +1,6 @@
+# Senate 1939-04-19, page 12 (journal p. 1177): Aikin's amendment to SB 427 adopted. Printed "Yeas—20" over 21 names; with the
+# other lists, 31 = the whole Senate, so the journal's total is the misprint.
+Y: Aikin; Beck; Brownlee; Collie; Cotten; Graves; Hardin; Kelley; Lanning; Lemens; Martin; Moffett; Redditt; Roberts; Small; Stone of Galveston; Stone of Washington; Sulak; Van Zandt; Weinert; Winfield
+N: Burns; Head; Metcalfe; Nelson
+A: Hill; Moore; Pace; Shivers; Spears
+E: Isbell

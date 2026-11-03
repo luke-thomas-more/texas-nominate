@@ -221,6 +221,23 @@ def main():
             for arr in {id(a): a for a in (m.Pm, m.Pp, m.M, m.D)}.values():
                 arr[:, k] *= -1
     summary["chosen_dims"] = dims
+    # standard errors of each member's position: the inverse of the Fisher information of their votes, with the
+    # roll calls, beta and the weights held at their estimates (so they leave out the roll calls' own
+    # uncertainty: a lower bound, the usual reading of DW-NOMINATE's conditional standard errors)
+    import nominate_kernels as nk
+    _, H = nk.block_members(*m._state(), *m._data(), m.T)
+    K = m.K
+    H = H[:, :K, :K] + H[:, :K, K:] + H[:, K:, :K] + H[:, K:, K:]     # constant model: start and end are one place
+    n_scaled = np.bincount(d["mem"], minlength=n_mem)
+    with open(os.path.join(OUT, "member_se.csv"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["member_id", "scaled_votes_all"] + [f"se{k + 1}" for k in range(K)])
+        for i, mid in enumerate(d["mem_keys"]):
+            try:
+                se = np.sqrt(np.diag(np.linalg.inv(H[i])))
+            except np.linalg.LinAlgError:
+                se = np.full(K, np.nan)
+            w.writerow([int(mid), int(n_scaled[i])] + [f"{v:.4f}" for v in se])
     summary["beta"], summary["w"] = m.beta, [float(x) for x in np.sqrt(m.w2)]
     if hyb:
         eras = [tuple(int(x) for x in part.split("-")) for part in hyb.split(",")]

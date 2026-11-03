@@ -1,0 +1,5 @@
+# Senate 1981-05-30, page 158 (journal p. 2081): Vale's motion to suspend the rules for HB 2264, "Yeas 30, Nays 0", no yea list
+# printed (the data's yeas are everyone else serving).
+Y: implied
+N:
+E: Jones

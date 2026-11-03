@@ -1,0 +1,5 @@
+# Senate 1881-03-29, page 4 (right column): rules suspended to put a bill on third reading, "YEAS—22.", "NAYS—none.",
+# "NOT VOTING—2." (the next vote, on passage, is 21-0).
+Y: Buchanan of Grimes; Buchanan of Wood; Burges; Burton; Davenport; Gooch; Henderson; Hightower; Lair; Lightfoot; Martin of Cooke; Martin of Navarro; Moore; Patton; Powers; Rainey; Shannon; Stewart; Stubbs; Swain; Terrell; Wynne
+N:
+A: Houston; Ross

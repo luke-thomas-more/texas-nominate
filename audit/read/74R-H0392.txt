@@ -1,0 +1,7 @@
+# House 1995-05-11, PDF pages 24-25 (journal pp. 2376-2377): a bill passed (Record 392), 136-0-1. Born-digital PDF: the lists are
+# copied from its text layer, checked against the page image.
+Y: Alexander; Allen; Alonzo; Averitt; Bailey; Berlanga; Black; Bosse; Brady; Brimer; Carona; Carter; Chisum; Coleman; Combs; Conley; Cook; Corte; Counts; Crabb; Craddick; Cuellar, H.; Cuellar, R.; Culberson; Davila; Davis; De La Garza; Delisi; Denny; Dukes; Duncan; Dutton; Edwards; Ehrhardt; Eiland; Elkins; Farrar; Finnell; Gallego; Giddings; Glaze; Goodman; Goolsby; Gray; Greenberg; Grusendorf; Gutierrez; Haggerty; Hamric; Hartnett; Hawley; Heflin; Hightower; Hilbert; Hilderbran; Hill; Hirschi; Hochberg; Holzheauser; Horn; Howard; Hudson; Hunter, B.; Hunter, T.; Jackson; Janek; Johnson; Jones, D.; Jones, J.; Junell; Kamel; King; Krusee; Kubiak; Kuempel; Lewis, G.; Lewis, R.; Longoria; Luna; Madden; Marchant; Maxey; McCall; McCoulskey; McDonald; Moreno; Mowery; Munoz; Naishtat; Nixon; Oakley; Oliveira; Park; Patterson; Pickett; Pitts; Place; Price; Puente; Ramsay; Rangel; Raymond; Reyna; Rhodes; Rodriguez; Romo; Rusling; Saunders; Seidlits; Serna; Shields; Siebert; Smithee; Solis; Solomons; Staples; Stiles; Swinford; Talton; Telford; Thompson; Tillery; Torres; Turner, B.; Turner, S.; Uher; Van de Putte; Walker; West; Willis; Wilson; Wohlgemuth; Wolens; Woolley; Yarbrough; Zbranek
+N:
+P: Mr. Speaker(C)
+E: Clemons; Driver; Moffat; Dear; Hernandez; Sadler; Williamson
+A: Alvarado; Danburg; Harris; Ogden; Rabuck; Yost

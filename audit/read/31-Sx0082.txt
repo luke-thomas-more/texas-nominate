@@ -1,0 +1,4 @@
+# Senate 1850-09-04 (3rd Legislature, 1st called session): the vote on passing a bill over the veto, "Yeas: ...Wallace—14.",
+# "Nays: ...Van Derlip—5." (the first of two votes).
+Y: Brashear; Burleson; Cooke; Campbell; Gage; Grimes; Hart; Latimer; McRae; Moffett; Parker; Taylor; Ward; Wallace
+N: Davis; Kinney; Robertson; Truit; Van Derlip

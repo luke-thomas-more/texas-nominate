@@ -1,0 +1,4 @@
+# Senate 1850-02-07, page 8: the first of two votes at the foot of the page, "Yeas—... Van Derlip and Walker—14.", "Nays—Messrs.
+# Burleson, Hart, Robertson, Ward and Wallace—5." (the second vote, on passage, is 9-11).
+Y: Cooke; Davis; Gage; Grimes; Kinney; Moffett; Parker; Pease; Phillips; Portis; Taylor; Truit; Van Derlip; Walker
+N: Burleson; Hart; Robertson; Ward; Wallace

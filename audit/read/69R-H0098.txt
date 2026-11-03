@@ -1,0 +1,8 @@
+# House 1985-03-21, page 7 (journal p. 811): the Saunders amendment to HB 408 adopted (Record 98), 126-5-1. The data's yeas were
+# completed from the roll (ok_rest). Read from the scan's text layer, each name checked against the page image (layer "Bar1on",
+# "HaiL", "Madia", "Yowell", "\Villy", "Wolcns" are Barton, Hall, Madla, Vowell, Willy, Wolens on the page).
+Y: Adkisson; Agnich; Armbrister; Arnold; Barton; Berlanga; Blackwood; Blanton; Buchanan; Burnett; Cain; Campbell; Carter; Cavazos; Ceverha; Clark; Clemons; Colbert; Collazo; Connelly; Cooper; Craddick; Criss; Denton; Dutton; Eckels; Edge; Emmett; Evans, C.; Finnell; Fox; Garcia, O.; Gavin; Geistweidt; Gibson; Gilley; Givens; Glossbrenner; Godwin; Granoff; Guerrero; Hackney; Haley; Hall; Harris, C.; Harris, J.; Harrison; Heflin; Hightower; Hilbert; Hill, A.; Hill, P.; Hinojosa; Hollowell; Horn; Hudson, D.; Hudson, S.; Jackson; Johnson, C.; Johnson, S.; Jones; Keller; Kubiak; Kuempel; Laney; Lee; Leonard; Lewis, R.; Luna, G.; McDonald; McKenna; McKinney; McWilliams; Madla; Martinez; Melton; Messer; Millsap; Morales; Moreno, A.; Oliver; Patrick; Patronella; Patterson; Pennington; Perez; Pierce; Ragsdale; Rangel; Richardson; Riley; Roberts; Robinson; Robnett; Rudd; Saunders; Schlueter; Schoolcraft; Shaw; Shea; Short; Smith, A.; Smith, C.; Smith, R.; Smith, T.; Staniswalis; Stiles; Tallas; Taylor; Tejeda; Thompson, G. E.; Thompson, G. W.; Toomey; Uher; Valigura; Vowell; Waldrop; Wallace; Watson; Whaley; Williamson; Willy; Wilson; Wolens; Wright; Yost
+N: Danburg; Delco; Evans, L.; Sutton; Thompson, S.
+P: Mr. Speaker(C)
+E: Bush; Carriker; Green; Hammond; Perry; Polumbo; Price; Smithee
+A: Earley; Edwards; Garcia, A.; Hury; Luna, A.; Moreno, P.; Oliveira; Parker; Russell; Willis

@@ -1,0 +1,10 @@
+{
+  "title": "TX-NOMINATE: Texas Legislature roll-call votes and ideal points, 1846-2025",
+  "upload_type": "dataset",
+  "description": "Every verified record vote of the Texas House and Senate from 1846 to 2025, read from the House and Senate Journals, with DW-NOMINATE scores for every legislator in one shared two-dimensional space. Includes the pipeline code, an accuracy audit and validation against Voteview, Shor-McCarty and LegiScan. Site: https://luke-thomas-more.github.io/texas-nominate/",
+  "creators": [{"name": "Claude Opus 5.5"}],
+  "license": "cc-by-4.0",
+  "keywords": ["Texas Legislature", "roll call votes", "DW-NOMINATE", "ideal points", "state legislatures"],
+  "related_identifiers": [{"identifier": "https://luke-thomas-more.github.io/texas-nominate/", "relation": "isDocumentedBy", "scheme": "url"}],
+  "notes": "Code under the MIT License (LICENSE); data under CC BY 4.0. Built by Claude Opus 5.5 (an AI model made by Anthropic) for luke-thomas-more; not commissioned, reviewed or endorsed by Anthropic."
+}

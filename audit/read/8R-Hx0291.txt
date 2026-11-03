@@ -1,0 +1,4 @@
+# House 1860-02-03: the motion laid on the table, "YEAS—...Whitmore—41." (comma-less list), "NAYS—...Wrede—26." (a second "NAYS—...—7."
+# follows for the next vote).
+Y: Anderson; Armstrong; Bogart; Branch; Buckley; Caddell; Camp; Craig; Crawford; Crooks; Clark; Cumby; Dale; Daniels; Davis of B; Davis of H; Ellett; Epperson; Francis; Foscue; Harrison of C; Harrison of Van Zandt; Kinney; Lewis of R; Lynch; Manly; McClarty; Mills; Mundine; Munson; Perry; Redgate; Redwine; Ross; Shelton; Smith; Stewart; Townes; Warfield; Whitfield; Whitmore
+N: Barclay; Barnard; Benevides; Billingsley; Bryan; Dickson; Duncan; Flewellen; Franklin; Hall; Haynes; Henry; Houghton; Mabry; Martin; Maverick; McCutchan; Middleton; Norton; Owens; Parker; Speights; Waelder; Walworth; Waterhouse; Wrede

@@ -1,0 +1,9 @@
+# House 1973-03-07, tally grid RECORD NO. 13 (motion to table the Doyle amendment to committee amendment 1, HB 1), page 85 of
+# 03071973_34_1011.pdf. Printed summary YEA 107, NAY 037, PRESENT-Not Voting 001, ABSENT 005. Machine dots plus hand ticks: Doyle
+# (N) and Nugent (Y); C (in the chair) for the Speaker; X (absent-excused) for Leland, Scoggins, Spurlock; blank rows Hernandez and
+# Parker, W. Read that way the marks give exactly the summary: 107 Y, 37 N, 1 P, 3 X + 2 blank = 5 absent.
+Y: Adams; Allen, Joe; Allen, John; Bales; Barnhart; Bigham; Bird; Blake; Bock; Boone; Bynum; Caldwell; Cates; Clark; Cobb; Cole; Coleman; Coody; Cooke; Craddick; Davis; Denson; Doran; Dramberger; Edwards; Evans; Finnell; Finney; Fox; Garcia; Gaston; Grant; Green, R.; Hale; Hall, A.; Hall, W.; Hanna; Hawn; Hendricks; Hoestenbach; Hollowell; Howard; Hubenak; Hudson; Hutchison; Johnson; Jones, G.; Jones, L.; Kaster; Korioth; Kubiak; Laney; Lary; Lewis; McAlister; McDonald, F.; McDonald, T.; Madla; Maloney; Martin; Massey; Mattox; Menefee; Miller; Montoya; Murray; Nabers; Newton; Nichols; Nowlin; Nugent; Olson; Pentony; Peveto; Poerner; Powers; Presnal; Preston; Ragsdale; Reyes; Reynolds; Rosson; Russell; Sage; Salem; Sanchez; Schieffer; Semos; Sherman; Slack; Sullivant; Sutton; Temple; Thompson; Truan; Tupper; Vale; Vecchio; Von Dohlen; Washington; Watson; Whitehead; Whitmire; Wieting; Williams; Willis; Wyatt
+N: Agnich; Allred; Atwell; Bailey; Baker; Blythe; Bowers; Calhoun; Canales; Cavness; Clayton; Denton; Donaldson; Doyle; Foreman; Geiger; Green, F.; Harris; Head; Heatly; Henderson; Hilliard; Lee; Lombardino; Munson; Parker, C.; Poff; Rodriguez; Short; Simmons; Tarbox; Uher; Vick; Waters; Weddington; Williamson; Wilson
+P: Mr. Speaker
+E: Leland; Scoggins; Spurlock
+A: Hernandez; Parker, W.

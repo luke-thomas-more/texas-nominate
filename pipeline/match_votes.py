@@ -331,7 +331,8 @@ def main():
                             "text": rv.get("text") or "", "motion": rv.get("motion") or "",
                             "amendment": rv.get("amendment") or "", "printed_y": rv["printed"]["Y"],
                             "printed_n": rv["printed"]["N"], "printed_p": rv["printed"]["P"], "n_y": ny, "n_n": nn,
-                            "implied": rv.get("implied", ""), "status": status, "file": rv["file"]})
+                            "implied": rv.get("implied", ""), "status": status, "file": rv["file"],
+                            "page": rv["page"] if rv.get("page") is not None else ""})       # tally sheets: the sheet's PDF page
             for mid, code in votes.items():
                 vote_rows.append((rc_id, mid, code))
 

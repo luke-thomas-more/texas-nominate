@@ -1,0 +1,4 @@
+# Senate 1991-04-03, page 12: Parker's motion to take up an SB, "Yeas 23, Nays 8" (the first of two votes; the next is 22-9). The
+# data's nays were completed from the roll (ok_rest). Drafted from the text layer, checked on the image.
+Y: Armbrister; Barrientos; Bivins; Carriker; Dickson; Ellis; Glasgow; Green; Haley; Johnson; Krier; Lucio; Moncrief; Montford; Parker; Ratliff; Rosson; Sibley; Sims; Tejeda; Truan; Whitmire; Zaffirini
+N: Brooks; Brown; Harris of Tarrant; Harris of Dallas; Henderson; Leedom; Lyon; Turner

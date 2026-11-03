@@ -1,0 +1,5 @@
+# Senate 1997-04-24, pages 9-10 (journal pp. 1291-1292): Zaffirini's motion to suspend the rules for CSSB 118, "Yeas 30, Nays 0",
+# "Absent-excused: Luna." at the top of page 10. No yea list printed.
+Y: implied
+N:
+E: Luna

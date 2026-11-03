@@ -1,0 +1,7 @@
+# House 1979-05-08, printout REC. NO. 0019, page 41 of 05081979_65_2653.pdf. Allred's N is overwritten by hand (read N); Massey C (in the
+# chair). Blank rows: Bock, Clark J.A., Gibson J.T., Grubbs, Slack, Webber.
+Y: Agnich; Atkinson; Blanton; Bode; Brown; Caraway; Cartwright; Ceverha; Close; Coleman; Craddick; Davis; DeLay; Donaldson; Edwards, J.; Emmett; Ezzell; Fox; Gaston; Geistweidt; Haley; Hall, W.; Hanna; Hartung; Heatly; Henderson; Hendricks; Hill, A.; Jackson; Jones; Keller; Lalor; Leonard; McFarland; McLeod; Maloney; Mankins; Martin; Mayes; Messer; Nabers; Nowlin; Patterson; Peveto; Pierce; Presnal; Robnett; Rudd; Sharp; Simpson; Smothers; Sullivant; Sutton; Temple; Uher; Untermeyer; Valles; Ware; Whaley; Whitehead; Whitmire; Wieting
+N: Allee; Allred; Barrientos; Benedict; Berlanga; Bird; Blythe; Bryant; Bush; Cain; Cary; Chavez; Clark, B.; Clark, J. L.; Cofer; Collazo; Coody; Criss; Delco; Denton; Edwards, A.; Elizondo; Evans; Finnell; Garcia, A.; Gibson, J. V.; Gilley; Glossbrenner; Gonzales; Grant; Hall, L.; Harrison; Head; Hernandez; Hill, D.; Hill, G.; Hollowell; Hudson; Keese; Lauhoff; Lee; Lewis; Lyon; McBee; Madla; Moreno; Polk; Polumbo; Ragsdale; Rains; Rangel; Reyes; Salinas; Smith; Tejeda; Thompson, G.; Uribe; Wallace; Washington; Waters; Watson; Willis; Wilson, J.; Wright
+P: Mr. Speaker; Crawford; Florence; Green, F.; Laney; Looney; Schlueter; Semos; Von Dohlen; Massey
+E: Browder; Garcia, M.; Hall, T.; Kubiak; Price; Thompson, S.; Wilson, R.
+A: Bock; Clark, J. A.; Gibson, J. T.; Grubbs; Slack; Webber

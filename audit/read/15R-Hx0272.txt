@@ -1,0 +1,4 @@
+# House 1876-07-20, pages 12-13 (journal pp. 624-625): the second of two votes suspending the rules on SB 67 (Mr. McComb's motion),
+# "YEAS—...Young—71.", "NAYS—Schrier—1." at the top of page 13. (The data's printed nay total reads 0, but it has the nay.)
+Y: Allison; Adams; Adkisson; Andrews; Baker; Blackman; Burrows; Campbell; Chambers; Chesley; Cochran; Coleman; Cone; Conley; Darnell; Denman; Dennis; Douglass; Downs; Gaston; Garrison; Griffith; Harris; Hart; Haynes; Holland; Holly; Horton; Hunter; Hutchins; Isaacs; Kinnison; Kessler; Kopperl; Lathrop; McComb; McCorkle; McCuistian; McGinnis; McKinnion; McLane; Mannion; Marshall; Martin; Mead; Middlebrook; Moses; Newland; Northington; Parker; Pattie; Peers; Pickett; Price; Quin; Roberts of Bee; Roberts of Harrison; Rogers; Stewart; Smith of Denton; Smith of Walker; Snead; Swisher; Stone; Thompson; Towles; Von Biberstein; Warren; Watts; Wilson; Young
+N: Schrier

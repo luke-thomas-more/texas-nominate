@@ -1,0 +1,6 @@
+# Senate 1963-05-16, pages 24-25 (journal pp. 1236-1237): Blanchard's motion to suspend the rules for HB 597, 22-5. The data's yeas
+# were completed from the roll (ok_rest).
+Y: Aikin; Blanchard; Calhoun; Cole; Colson; Creighton; Crump; Dies; Hardeman; Hazlewood; Kazen; Kennard; Krueger; Moffett; Parkhouse; Ratliff; Reagan; Richter; Rogers; Schwartz; Watson; Word
+N: Bates; Herring; Owen; Patman; Strong
+A: Harrington; Moore; Spears
+E: Hall

@@ -1,0 +1,5 @@
+# Senate 1983-05-30, page 204: "Yeas 27, Nays 3", Absent Sharp. The data's yeas were completed from the roll (ok_rest). From the text
+# layer (fixed: Sims), checked on the image.
+Y: Brooks; Brown; Caperton; Doggett; Edwards; Farabee; Glasgow; Harris; Henderson; Jones; Kothmann; Leedom; Lyon; McFarland; Montford; Parker; Parmer; Santiesteban; Sarpalius; Sims; Traeger; Truan; Uribe; Vale; Washington; Whitmire; Williams
+N: Blake; Howard; Mauzy
+A: Sharp

@@ -110,6 +110,128 @@ def html_to_md(h):
     return re.sub(r"\n{3,}", "\n\n", unescape(h).replace("\u00a0", " ")).strip() + "\n"
 
 
+_pages, _pages_path = None, os.path.join(ROOT, "data", "interim", "journal_pages.json")
+
+
+def find_page(r, source):
+    """The PDF page of a roll call the modern parser read from a scan (it reads a day's text whole): a tally
+    sheet's page from the day's sheet count, else the page where its record number or totals appear
+    (audit.find_page). Cached in data/interim/journal_pages.json; "" when not found."""
+    global _pages
+    if _pages is None:
+        _pages = json.load(open(_pages_path)) if os.path.exists(_pages_path) else {}
+    if r["rc_id"] not in _pages:
+        sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        import audit
+        path = os.path.join(ROOT, "data", "raw", "journals", r["file"])
+        try:
+            if source == "tally":
+                p = tally_page(r, path)
+            else:
+                p = audit.find_page({**r, "status": r.get("status", "ok")}, path)
+        except Exception:
+            p = None
+        _pages[r["rc_id"]] = p or ""
+        if len(_pages) % 500 == 0:
+            json.dump(_pages, open(_pages_path, "w"))
+    return _pages[r["rc_id"]]
+
+
+def legiscan_html():
+    """A sentence on the check against LegiScan (validate_legiscan.py), if it has been run."""
+    path = os.path.join(PROC, "validation_legiscan.json")
+    if not os.path.exists(path):
+        return ""
+    v = json.load(open(path))["totals"]
+    return (f"<p>From 2013 on, the votes were also checked against <a href=\"https://legiscan.com\">LegiScan</a>'s independent "
+            f"reading of the same journals (CC BY 4.0): of {v['votes_compared']:,} individual votes on {v['matched_rollcalls']:,} "
+            f"roll calls found in both, {100 * v['votes_agree'] / v['votes_compared']:.2f}% agree.</p>\n")
+
+
+def audit_html():
+    """The Data page's account of the accuracy audit, from audit/report.json (pipeline/audit.py report)."""
+    path = os.path.join(ROOT, "audit", "report.json")
+    if not os.path.exists(path):
+        return "<p>The accuracy audit isn't done yet.</p>"
+    a = json.load(open(path))
+    al = a["all"]
+    pct = lambda x: f"{100 * x:.2f}%"
+    ci = lambda x: f"{100 * x[0]:.2f}–{100 * x[1]:.2f}%"
+    rows = "\n".join(f'    <tr><td>{era}</td><td class="num">{x["rollcalls"]}</td><td class="num">{x["names_read"]:,}</td>'
+                     f'<td class="num">{x["wrong"]}</td><td class="num">{x["lost"]}</td></tr>' for era, x in a["by_era"].items())
+    ck = a.get("by_check", {})
+    ok, other = ck.get("ok", {}), ck.get("other", {})
+    return (f"<p>To measure the data's accuracy, a random sample of {a['done']} roll calls of data version {a['data_version']} (the release "
+            f"before this one; the fixes it led to are listed in the repository's <code>audit/findings.md</code>), drawn from every era, both chambers and "
+            f"each way of verifying a roll call (the looser checks oversampled), was read name by name off the journal pages and "
+            f"compared with the data: {al['names_read']:,} names. Two kinds of error count. A <b>wrong</b> vote is credited to the wrong "
+            f"member, isn't on the page, or has yea and nay swapped; a <b>lost</b> vote is on the page but missing from the data or "
+            f"recorded as not voting. Wrong votes mislead the scores; a lost one only leaves the member out of that roll call.</p>\n"
+            f"<p>Weighting each part of the sample by its share of the data, an estimated {pct(al['wrong_vote_rate'])} of yeas and nays "
+            f"are wrong (95% interval {ci(al['wrong_vote_ci'])}) and {pct(al['lost_vote_rate'])} are lost ({ci(al['lost_vote_ci'])}). "
+            + (f"Roll calls whose counts match the printed totals exactly were almost always exactly right ({ok.get('wrong', 0)} wrong "
+               f"and {ok.get('lost', 0)} lost votes in {ok.get('rollcalls', 0)} of them); the errors gather in the roll calls that "
+               f"passed a looser check ({other.get('wrong', 0)} wrong and {other.get('lost', 0)} lost in {other.get('rollcalls', 0)}). "
+               if ok and other else "")
+            + "The pages read and every name are in <code>audit.csv</code>; the readings themselves are in the repository's "
+            "<code>audit/</code> folder.</p>\n" + legiscan_html() +
+            '<div class="tablewrap"><table>\n  <thead><tr><th>Era</th><th class="num">Roll calls read</th><th class="num">Names</th>'
+            '<th class="num">Wrong</th><th class="num">Lost</th></tr></thead>\n  <tbody>\n' + rows + "\n  </tbody>\n</table></div>")
+
+
+_sheets = {}
+
+
+def tally_page(r, path):
+    """A tally sheet's PDF page: the day's sheets are its last pages, one per record number (tally_sheets);
+    when the pages that look like sheets number as many as the day's records, the k-th of them."""
+    import tally_sheets
+    from parse_journals import paragraphs_pdf, sheet_count
+    if path not in _sheets:
+        n, _ = sheet_count(" ".join(paragraphs_pdf(path)), 0)
+        try:
+            pages = tally_sheets.sheet_pages(path, n) if n else []
+        except Exception:
+            pages = []
+        _sheets[path] = (n, pages, int(__import__("audit").page_count(path)))
+    n, pages, n_pages = _sheets[path]
+    k = int(float(r["record"]))
+    if not (n and 1 <= k <= n):
+        return None
+    guess = pages[k - 1] + 1 if len(pages) == n else n_pages - n + k
+    # the day's count of sheets can be one off: of the guess and its neighbours, the page that prints this
+    # record's number (the printouts' "REC.NO. 0026") or its totals (the grids' typed summary, "051 077")
+    def says(q):
+        import subprocess, re
+        t = subprocess.run(["pdftotext", "-f", str(q), "-l", str(q), path, "-"], capture_output=True, text=True).stdout
+        hits = 0
+        if re.search(rf"\b0*{k:d}\b", t) and re.search(rf"\b{k:04d}\b", t):
+            hits += 2
+        # the grids' number after "RECORD NO.", written by hand and read by the scan's OCR ("11", "I 2-")
+        m = re.search(r"R\W?E\W?C\W?O?\W?R?\W?D\W*N\W?O\W*(.{0,60})", t, re.I | re.S)
+        if m:
+            run = []
+            for tok in m.group(1).split():
+                if re.fullmatch(r"[0-9IlO|]{1,3}\W?", tok):
+                    run.append(re.sub(r"\W", "", tok).translate(str.maketrans("IlO|", "1101")))
+                elif run:
+                    break
+            if run and "".join(run) == str(k):
+                hits += 2
+        for key in ("printed_y", "printed_n"):
+            v = r.get(key)
+            if v not in (None, "") and re.search(rf"\b{int(float(v)):03d}\b", t):
+                hits += 1
+        # the grids' typed caption names the bill ("HOUSE CONCURRED IN SENATE AMENDMENTS TO HB 2182")
+        bill = re.match(r"([A-Z]+)\s*(\d+)", r.get("bill") or "")
+        if bill and re.search(rf"\b{bill.group(1)}\s*{bill.group(2)}\b", t):
+            hits += 2
+        return hits
+    cands = [q for q in range(guess - 3, guess + 4) if 1 <= q <= n_pages]
+    best = max(cands, key=lambda q: (says(q), -abs(q - guess)))
+    return best
+
+
 def main():
     os.makedirs(os.path.join(DOCS, "s"), exist_ok=True)
     axes = json.load(open(os.path.join(ROOT, "pipeline", "axes.json")))
@@ -196,8 +318,12 @@ def main():
                     "b": r["bill"], "c": cap_idx.get(r["caption"]), "t": r["text"][:300], "m": r["motion"][:300],
                     "a": r["amendment"][:240], "y": int(r["n_y"]), "n": int(r["n_n"]), "p": int(r["printed_p"]),
                     "f": day_idx[url], "v": "".join(v)}
-            if r.get("page"):
+            if r.get("page") not in (None, ""):
                 item["pg"] = int(r["page"]) + 1          # page within the day's PDF, for a #page= link
+            elif day_kind.get(r["file"]) == "pdf":
+                pg = find_page(r, "tally" if "-HT" in r["rc_id"] else "scan")
+                if pg:
+                    item["pg"] = int(pg)
             p = params.get(r["rc_id"])
             if p:
                 item["mid"] = [round(float(p["mid1"]), 4), round(float(p["mid2"]), 4)]
@@ -267,7 +393,27 @@ def main():
     # downloads
     dl = os.path.join(DOCS, "downloads")
     os.makedirs(dl, exist_ok=True)
-    shutil.copy(os.path.join(FIT, "member_scores.csv"), os.path.join(dl, "member_scores.csv"))
+    # each member's place, with the standard errors of the fit (member_se.csv, written by fit_texas) where it has them
+    se_path = os.path.join(FIT, "member_se.csv")
+    se = {r["member_id"]: r for r in csv.DictReader(open(se_path))} if os.path.exists(se_path) else {}
+    with open(os.path.join(FIT, "member_scores.csv")) as fin, open(os.path.join(dl, "member_scores.csv"), "w", newline="") as fout:
+        rd = csv.DictReader(fin)
+        se_cols = [c for c in next(iter(se.values()), {}) if c.startswith("se")]
+        w = csv.DictWriter(fout, rd.fieldnames + se_cols)
+        w.writeheader()
+        for r in rd:
+            w.writerow({**r, **{c: se.get(r["member_id"], {}).get(c, "") for c in se_cols}})
+    if os.path.exists(os.path.join(ROOT, "audit", "audit.csv")):
+        shutil.copy(os.path.join(ROOT, "audit", "audit.csv"), os.path.join(dl, "audit.csv"))
+    # how much of each legislature's record the data holds: roll calls verified and kept, and those the scans held
+    # that failed the checks and were left out
+    with open(os.path.join(dl, "coverage.csv"), "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["leg", "chamber", "first_year", "last_year", "rollcalls_kept", "rollcalls_left_out", "share_kept"])
+        for leg, ch in sorted(set(rcs) | set(excluded)):
+            a, b = span.get(leg, ("", ""))
+            kept, out = len(rcs.get((leg, ch), [])), excluded.get((leg, ch), 0)
+            w.writerow([leg, ch, a[:4], b[:4], kept, out, f"{kept / (kept + out):.3f}" if kept + out else ""])
     voters = {m for vs in votes.values() for m in vs}
     with open(os.path.join(dl, "members.csv"), "w", newline="") as f:
         w = csv.writer(f); w.writerow(["member_id", "name", "full_name", "lrl_url"])
@@ -287,9 +433,12 @@ def main():
                 p = params.get(r["rc_id"], {})
                 status[r["status"]] += 1
                 source = "tally" if "-HT" in r["rc_id"] else "journal" if day_kind.get(r["file"]) == "html" else "scan"
-                page = int(r["page"]) + 1 if r.get("page") not in (None, "") else ""
+                page = int(r["page"]) + 1 if r.get("page") not in (None, "") else \
+                    find_page(r, source) if day_kind.get(r["file"]) == "pdf" else ""
                 w.writerow([r.get(c, "") for c in cols] + [source, day_url.get(r["file"], ""), page,
                                                           p.get("mid1", ""), p.get("mid2", ""), p.get("spread1", ""), p.get("spread2", "")])
+    if _pages is not None:
+        json.dump(_pages, open(_pages_path, "w"))
     n_votes = 0
     with gzip.open(os.path.join(dl, "votes.csv.gz"), "wt", newline="") as f:
         w = csv.writer(f); w.writerow(["rc_id", "member_id", "vote"])
@@ -338,7 +487,9 @@ def main():
               "terms.csv": "who served when: chamber, legislature, district, party, home county",
               "member_scores.csv": "each member's place on the map, by legislature", "trends.csv": "party gaps and party-line votes by legislature",
               "congress_bridge.csv": "members who also served in Congress, with their Voteview scores",
-              "blocs.csv": "each member's voting bloc, by legislature and chamber"}
+              "blocs.csv": "each member's voting bloc, by legislature and chamber",
+              "coverage.csv": "by legislature and chamber: roll calls kept, and those the scans held that failed the checks",
+              "audit.csv": "the accuracy audit: every name read off the journal pages for a random sample of roll calls, and what the data has"}
     size = lambda n: f"{os.path.getsize(os.path.join(dl, n)) / 1e6:.1f}&nbsp;MB" if os.path.getsize(os.path.join(dl, n)) >= 1e5 else f"{os.path.getsize(os.path.join(dl, n)) / 1e3:.0f}&nbsp;KB"
     files = "\n".join(f'    <tr><td><a href="data/downloads/{n}">{n}</a></td><td>{labels[n]}</td><td class="num">{size(n)}</td></tr>'
                       for n in labels if os.path.exists(os.path.join(dl, n)))
@@ -350,7 +501,7 @@ def main():
              "N_OK": f"{status['ok']:,}", "N_NEAR": f"{status['near']:,}", "N_DIGIT": f"{status['ok_digit']:,}", "N_LISTS": f"{status['ok_lists']:,}",
              "N_REST": f"{status['ok_rest']:,}", "PAIRS": str(len(extra["congress"]["pairs"])) if extra["congress"] else "–",
              "CITATION": cite, "DOI_NOTE": f'DOI: <a href="https://doi.org/{meta["doi"]}">{meta["doi"]}</a>.' if meta.get("doi") else "",
-             "LICENSE": meta["license_html"]}
+             "LICENSE": meta["license_html"], "AUDIT": audit_html()}
     dt = open(os.path.join(ROOT, "pipeline", "data.html")).read()
     for k, v in dfill.items():
         dt = dt.replace("{{" + k + "}}", v)

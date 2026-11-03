@@ -1,0 +1,5 @@
+# Senate 1997-05-01, page 26: "Yeas 23, Nays 7", Absent Duncan (the first of two votes; the next is 23-8). From the text layer (fixed:
+# Madla), checked on the image.
+Y: Armbrister; Barrientos; Bivins; Cain; Carona; Ellis; Gallegos; Galloway; Haywood; Lindsay; Lucio; Luna; Madla; Moncrief; Nixon; Patterson; Ratliff; Shapleigh; Sibley; Truan; West; Whitmire; Zaffirini
+N: Brown; Fraser; Harris; Nelson; Ogden; Shapiro; Wentworth
+A: Duncan

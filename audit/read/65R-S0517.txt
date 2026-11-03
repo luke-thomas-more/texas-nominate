@@ -1,0 +1,5 @@
+# Senate 1977-04-06, page 6: Aikin's motion to place HB 694 on third reading, "Yeas 28, Nays 2", Absent-excused Clower. Drafted from the
+# text layer, checked on the page image. The data's yeas were completed from the roll (ok_rest).
+Y: Adams; Aikin; Andujar; Braecklein; Brooks; Creighton; Doggett; Farabee; Hance; Harris; Jones of Harris; Jones of Taylor; Kothmann; Lombardino; Longoria; McKnight; Meier; Mengden; Ogg; Parker; Patman; Santiesteban; Schwartz; Sherman; Snelson; Traeger; Truan; Williams
+N: Mauzy; Moore
+E: Clower

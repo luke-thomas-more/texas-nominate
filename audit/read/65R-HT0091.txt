@@ -1,0 +1,9 @@
+# House 1977-02-22, tally grid RECORD NO. 3 (motion to table the motion to reconsider the vote passing HB 125 to third reading), page
+# 21 of 02221977_23_599.pdf. Summary YEA 051, NAY 077, PNV 005, ABSENT 017. Hand ticks: Evans and Hartung in the Y box, Bush in the N
+# box, Hollowell in the P box. The marks give 50 Y, 77 N, 5 P (with the Speaker, C), 10 X + 8 blank = 18 absent: one yea fewer and
+# one absentee more than the printed summary.
+Y: Allee; Baker; Barrientos; Benedict; Bigham; Bird; Blanton; Bryant; Cain; Caraway; Clark, B.; Clark, J.; Coleman; Delco; Evans; Garcia, A.; Gaston; Gilley; Grant; Green, R.; Hall, A.; Hall, W.; Hartung; Henderson; Hernandez; Hudson; Johnson; Jones; Lalor; Leland; McLeod; Madla; Miller; Polumbo; Price; Ragsdale; Reyes; Ribak; Smothers; Stubbeman; Tejeda; Temple; Untermeyer; Waters; Watson; Whitmire; Willis; Wilson, R.; Wright; Wyatt
+N: Allred; Atkinson; Berlanga; Blake; Blythe; Bock; Briscoe; Browder; Bush; Cartwright; Cates; Ceverha; Chavez; Close; Collazo; Coody; Craddick; Davis; Donaldson; Edwards; Ezzell; Finnell; Fox; Glossbrenner; Gonzales; Green, F.; Hale; Head; Heatly; Hill, D.; Hill, G.; Hoestenbach; Hubenak; Jackson; Kaster; Keese; Kubiak; Laney; Lauhoff; Lewis; Looney; McBee; McDonald; McFarland; Maloney; Mankins; Martin, E.; Martin, T.; Massey; Mayes; Moreno; Nabers; Nowlin; Nugent; Olson; Parker; Patterson; Powers; Presnal; Rains; Rangel; Robbins; Rudd; Salinas; Schlueter; Semos; Simpson; Slack; Sullivant; Sutton; Torres; Uher; Vaughan; Von Dohlen; Whitehead; Wieting; Wilson, J.
+P: Mr. Speaker; Hanna; Hendricks; Orr; Hollowell
+E: Agnich; Allen; Brown; Denton; Florence; Garcia, M.; Smith; Thompson; Valles; Washington
+A: Adams; English; Millsap; Peveto; Schieffer; Vale; Wallace; Weddington

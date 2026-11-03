@@ -1,0 +1,5 @@
+# Senate 1999-03-15, journal text (3-15.htm): the motion on SB 440 prevailed, "Yeas 29, Nays 1"; only the nay and the absentee
+# are named (the data's yeas are everyone else serving).
+Y: implied
+N: Wentworth
+E: Bivins

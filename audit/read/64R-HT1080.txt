@@ -1,0 +1,9 @@
+# House 1975-05-31, tally grid RECORD NO. 34 (House concurred in Senate amendments to HB 2182), page 159 of 05311975_86_4567.pdf
+# (the page finder first gave 157, record 32). Summary YEA 135, NAY 002, PNV 003, ABSENT 010. Hand checks for Parker C. and Semos
+# (Y); X (absent-excused) for Bryant, Hale, Hilliard, Nabers, Olson, Sherman; blank Donaldson, Lary, Munson, Tanner; P dots for
+# Johnson and Miller; the Speaker C (counted among the PNV). Read that way the marks give the summary exactly.
+Y: Adams; Agnich; Allen; Allred; Atkinson; Bailey; Baker; Barrientos; Bigham; Bird; Blake; Blythe; Bock; Boone; Brown; Bynum; Caldwell; Canales; Caraway; Cartlidge; Cartwright; Cates; Chavez; Clark, B.; Clark, J.; Close; Coleman; Coody; Craddick; Davis; Delco; Denson; Denton; Dramberger; Earle; Edwards; Evans; Ezzell; Finney; Florence; Fox; Garcia, A.; Garcia, M.; Gaston; Geiger; Gilley; Grant; Green, F.; Hall, A.; Hall, W.; Hanna; Harris; Hartung; Head; Heatly; Henderson; Hendricks; Hernandez; Hoestenbach; Hollowell; Hubenak; Hudson; Hutchison; Jones, G.; Jones, L.; Kaster; Korioth; Kubiak; Laney; Lauhoff; Leland; Lewis; McAlister; McBee; McDonald, F.; McDonald, T.; Madla; Maloney; Mankins; Martin; Massey; Mattox; Mayes; Montoya; Moreno; Newton; Nichols; Nowlin; Nugent; O'Kelley; Parker, C.; Parker, W.; Pentony; Peveto; Polumbo; Powers; Presnal; Preston; Ragsdale; Rains; Reyes; Reynolds; Ribak; Rucker; Salem; Schieffer; Semos; Short; Simpson; Slack; Slay; Smith; Spurlock; Stubbeman; Sullivant; Sutton; Tarbox; Temple; Thompson; Torres; Truan; Uher; Vale; Vaughan; Vick; Von Dohlen; Waters; Watson; Weddington; Whitehead; Whitmire; Wieting; Willis; Wilson; Wyatt
+N: Green, R.; Washington
+P: Mr. Speaker; Johnson; Miller
+E: Bryant; Hale; Hilliard; Nabers; Olson; Sherman
+A: Donaldson; Lary; Munson; Tanner

@@ -1,0 +1,8 @@
+# House 1979-05-15, tally sheet REC. NO. 0026 (HJR 3, passage to third reading), page 91 of 05151979_71_3231.pdf. The sheet's own
+# totals: AYE 90, NAY 33, PNV 15, ABS 11; my reading gives 90 A, 33 N, 14 P plus the Speaker (C, in chair), 9 E and 2 blank.
+# "CAPTWRIGHT" on the sheet is Cartwright. The Speaker (C, in chair) is counted present, not voting; blanks (Waters, Webber) are absent.
+Y: Agnich; Atkinson; Bird; Blythe; Brown; Bush; Cain; Caraway; Cartwright; Ceverha; Close; Coleman; Collazo; Craddick; Davis; DeLay; Delco; Denton; Edwards, A.; Edwards, J.; Elizondo; Emmett; Evans; Ezzell; Finnell; Florence; Fox; Garcia, A.; Gaston; Geistweidt; Gibson, J. V.; Gilley; Green, F.; Green, R.; Haley; Hall, L.; Hall, W.; Hanna; Harrison; Hartung; Head; Henderson; Hendricks; Hill, A.; Hill, D.; Hill, G.; Hollowell; Jackson; Keller; Lalor; Laney; Lauhoff; Leonard; Lewis; Lyon; McBee; McFarland; McLeod; Maloney; Mankins; Martin; Massey; Mayes; Messer; Nabers; Nowlin; Patterson; Peveto; Pierce; Polumbo; Presnal; Robnett; Salinas; Schlueter; Semos; Sharp; Simpson; Slack; Smith; Smothers; Sutton; Temple; Uher; Untermeyer; Ware; Whaley; Whitehead; Whitmire; Willis; Wilson, J.
+N: Allee; Allred; Benedict; Berlanga; Bock; Bode; Cary; Chavez; Clark, J. L.; Cofer; Crawford; Criss; Gibson, J. T.; Grant; Grubbs; Heatly; Hernandez; Keese; Lee; Looney; Moreno; Polk; Price; Reyes; Rudd; Thompson, G.; Thompson, S.; Uribe; Valles; Washington; Watson; Wieting; Wilson, R.
+P: Mr. Speaker; Barrientos; Bryant; Donaldson; Garcia, M.; Glossbrenner; Gonzales; Hudson; Jones; Madla; Ragsdale; Rangel; Sullivant; Tejeda; Wallace
+E: Blanton; Browder; Clark, B.; Coody; Hall, T.; Kubiak; Rains; Von Dohlen; Wright
+A: Waters; Webber

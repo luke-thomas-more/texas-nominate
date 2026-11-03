@@ -1,0 +1,6 @@
+# Senate 1985-03-12, page 6 (journal p. 369): SB 444 passed to engrossment, "Yeas 19, Nays 10". The data's nays were completed
+# from the roll (ok_rest).
+Y: Barrientos; Blake; Brooks; Caperton; Edwards; Farabee; Glasgow; Howard; Kothmann; Lyon; Mauzy; Parker; Parmer; Sarpalius; Sharp; Truan; Uribe; Washington; Williams
+N: Brown; Harris; Henderson; Jones; Krier; Leedom; McFarland; Montford; Sims; Traeger
+A: Whitmire
+E: Santiesteban

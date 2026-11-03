@@ -1,0 +1,5 @@
+# Senate 1977-04-05, page 23 (journal p. 785): Lombardino's motion to take up CSSB 70, "Yeas 25, Nays 5", Absent Moore. The data labels
+# this roll call with the motion and bill of the vote before it (Snelson, SB 821); the lists are this vote's.
+Y: Aikin; Andujar; Braecklein; Brooks; Doggett; Farabee; Hance; Harris; Jones of Harris; Jones of Taylor; Kothmann; Lombardino; Longoria; McKnight; Meier; Mengden; Ogg; Parker; Patman; Santiesteban; Schwartz; Snelson; Traeger; Truan; Williams
+N: Adams; Clower; Creighton; Mauzy; Sherman
+A: Moore

@@ -1,0 +1,5 @@
+# Senate 1961-01-24, page 4 (right column, journal p. 81): suspension of the rules for an SB, "Yeas—29" over 30 names (with Lane
+# excused, the whole Senate): the journal's miscount.
+Y: Aikin; Baker; Calhoun; Colson; Creighton; Crump; Dies; Fuller; Gonzalez; Hardeman; Hazlewood; Herring; Hudson; Kazen; Krueger; Martin; Moffett; Moore; Owen; Parkhouse; Patman; Ratliff; Reagan; Roberts; Rogers; Schwartz; Secrest; Smith; Weinert; Willis
+N:
+E: Lane

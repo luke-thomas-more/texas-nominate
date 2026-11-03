@@ -1,0 +1,6 @@
+# Senate 1951-03-26, page 5 (journal pp. 404-405): a bill passed, "Yeas—27" (20 at the foot of the left column, 7 at the top of the
+# right); Absent Hazlewood; Excused Carney, Nokes, Russell.
+Y: Aikin; Ashley; Bell; Bracewell; Bullock; Carter; Colson; Corbin; Fuller; Hardeman; Hudson; Kelley of Hidalgo; Kelly of Tarrant; Lane; Lock; Martin; McDonald; Moffett; Moore; Parkhouse; Phillips; Shofner; Strauss; Tynan; Vick; Wagonseller; Weinert
+N:
+A: Hazlewood
+E: Carney; Nokes; Russell

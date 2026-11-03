@@ -37,6 +37,8 @@ pipeline/validate_*.py        check the estimator against Voteview and Shor-McCa
 pipeline/trends.py            party gaps and party-line voting by legislature, beside Congress (Voteview)
 pipeline/congress_bridge.py   members who also served in Congress: their scores beside Voteview's
 pipeline/blocs.py             voting blocs, found from who votes with whom, by legislature and chamber
+pipeline/stability.py         does the map's orientation hold? refits from turned starts, compared era by era
+pipeline/audit.py             the accuracy audit: a stratified random sample of roll calls read off the page images
 pipeline/build_site.py        write docs/data/ for the site, with the downloads and their codebook
 docs/                         the site (GitHub Pages)
 ```
@@ -81,6 +83,19 @@ data is in `docs/data/` (see `docs/data/downloads/`).
   the weights from the fit it starts from and holds them fixed (`FIX_BETA=1 FIX_W=1`).
 - `pipeline/validate_voteview.py` checks the estimator against Voteview's published U.S. House
   scores.
+
+## Accuracy and stability
+
+- **Audit** (`pipeline/audit.py`, readings in `audit/`): 194 roll calls drawn at random across eras, chambers and
+  verification statuses were read name by name off the page images (13,588 names). Weighted to the data, about 0.04%
+  of yeas and nays were wrong and 0.08% lost; nearly all errors sat in roll calls that passed the looser checks. The
+  causes found, and the v1.0 fixes, are in `audit/findings.md`.
+- **LegiScan** (`pipeline/validate_legiscan.py`, 2013 on; LegiScan's 2009–12 files hold no Texas votes to match): 99.75% of 3.09 million individual votes agree.
+- **Stability** (`pipeline/stability.py`): refits started with the pre-1961 eras turned 25 degrees either way came
+  back to within about 5 degrees of each other relative to the modern eras, so the angle between eras is set by the
+  votes; the map's overall orientation can float a few degrees (the second dimension's weight is near 1).
+- **Standard errors** for each member (`se1`, `se2` in `member_scores.csv`) come from the information in their own
+  votes, holding the roll calls fixed: a lower bound.
 
 ## Sources
 

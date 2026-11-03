@@ -1,0 +1,4 @@
+# Senate 1860-02-11, page 23: "YEAS—... Thockmorton and Townes—17." (17 names), "NAYS.—Messrs. Duggan, Grimes, Guinn, Hart, Rains,
+# Sims, Walker and Whaley—9." (8 names under a printed 9).
+Y: Blanch; Britton; Dickinson; Erath; Gentry; Harman; Hyde; Lott; Parsons; Paschal; Pitts; Potter; Scarborough; Schleicher; Shepard; Thockmorton; Townes
+N: Duggan; Grimes; Guinn; Hart; Rains; Sims; Walker; Whaley

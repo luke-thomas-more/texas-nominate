@@ -1,0 +1,4 @@
+# Senate 1873-05-27, page 2: a motion to refer to a committee of three lost, 14-14 ("Mr. President" voting to break the tie
+# is Pickett, the President pro tempore presiding (no Lieutenant Governor in 1873), who votes as a senator).
+Y: Mr. President; Avinger; Ball; Dillard; Dohoney; Evans; Finlay; Franks; Henry; King; Latimer; Shelley; Swift; Word
+N: Baker; Cole; Ford; Fountain; Gaines; Hall; Pyle; Rawson; Randle; Ruby; Saylor; Sayers; Tendick; Tracy

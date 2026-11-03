@@ -7,7 +7,7 @@ names in each category. Names stay raw here; pipeline/match_votes.py resolves th
 
 Writes data/interim/rollcalls_raw.jsonl and data/interim/statements_raw.jsonl.
 """
-import html, json, os, re, subprocess, sys
+import collections, html, json, os, re, subprocess, sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import tally_sheets
@@ -505,6 +505,9 @@ def main():
             n_sheets, base = sheet_count(" ".join(paras), int(day.get("pages") or 0))
             sheets = tally_sheets.read_day(os.path.abspath(path), n_sheets,
                                            {v["record"]: (v["printed"]["Y"], v["printed"]["N"]) for v in held}, base)
+            for v in held:
+                if v["record"] in tally_sheets.PAGES.get(os.path.abspath(path), {}):
+                    v["page"] = tally_sheets.PAGES[os.path.abspath(path)][v["record"]]     # 0-based, as the scans' roll calls
             tally += [(v, sheets.get(v["record"], [])) for v in held]
         for v in votes:
             if not any(v is h for h in held):
@@ -554,9 +557,19 @@ def write_tally(tally, out):
     if _terms is None:
         _terms = load_roster()[1]
     first = tally[0][0]
+    from match_votes import serving
     chair = [m for m, a, b in speakers() if any(a <= v["date"] <= b for v, _ in tally)]
-    members = tally_sheets.resolve({k: rows for k, (v, rows) in enumerate(tally) if rows},
-                                   _terms.get(("H", first["leg"]), []), chair, ordered=first["leg"] <= 65)
+    roster = _terms.get(("H", first["leg"]), [])
+    # the sheets print whoever is serving that day, so a member who joins or leaves mid-session shifts the rows
+    # after their place: resolve each stretch of the session with one membership on its own, from those members
+    spans = collections.defaultdict(list)
+    for k, (v, rows) in enumerate(tally):
+        if rows:
+            spans[frozenset(t["member_id"] for t in roster if serving(t, v["date"]))].append(k)
+    members = {}
+    for on, keys in spans.items():
+        members.update(tally_sheets.resolve({k: tally[k][1] for k in keys}, [t for t in roster if t["member_id"] in on],
+                                            chair, ordered=first["leg"] <= 65))
     for k, (v, rows) in enumerate(tally):
         v["lists"] = {}
         for pos, name, code in rows:

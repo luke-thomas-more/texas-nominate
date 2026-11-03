@@ -1,0 +1,4 @@
+# House 1873-04-17, page 2: a bill passed on third reading, 73-3. "Messrs. Speaker" (the Speaker voted); "Green Hester" printed
+# without a comma (two names).
+Y: Mr. Speaker; Adriance; Allison; Anderson; Armstrong; Berends; Bledsoe; Booty; Bordeaux; Broaddus; Brown of Upshur; Brown of Dallas; Carroll; Chambers; Cook; Cunningham; Davenport; Denton; Doyle; Eastland; Gallaway; Gaston; Ghent; Gillette; Gilpin; Green; Hester; Hoffman; Hollingsworth; Ireland; Joseph; Kemble; Killough; Kleberg; Lane; Leyendecker; Mabry; Manning; McDonald; Mills; Moore; Morris; Nelson; Noeggerath; Payne; Powers; Prendergast; Rainey; Rimes; Roberts; Rosborough; Russell; Sabin; Salter; Sayers; Schmidt; Scott; Short; Smith of Colorado; Smith of Houston; Storey; Stockbridge; Thurmond; Tilson; Trolinger; Van Zandt; Veale; Venters; Walker; Watts; Westfall; Williams; Winkler
+N: Shaw; Shelton; Wilder

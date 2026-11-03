@@ -1,0 +1,7 @@
+# Senate 1931-02-10, pages 12-13 (journal pp. 209-210): "Yeas—8." at the foot of page 12's right column, "Nays—17." and "Absent." at the
+# top of page 13.
+Y: Beck; Neal; Oneal; Poage; Rawlings; Woodruff; Woodul; Woodward
+N: Berkeley; Cousins; DeBerry; Gainer; Greer; Hardin; Holbrook; Hopkins; Hornsby; Martin; Moore; Parr; Patton; Purl; Thomason; [Westbrook]; Williamson
+A: Cunningham; Loy; Parrish; Pollard; Russek; Small
+# "Westbrook" is a misprint in the journal: no Westbrook sat in the 42nd Senate (Ed Westbrook's term ended Jan 13, 1931, by the
+# Library's roster); the lists name 31 with Westbrook in place of Stevenson, who answers the quorum call just after.

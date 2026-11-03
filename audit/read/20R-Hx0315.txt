@@ -1,0 +1,5 @@
+# House 1887-03-25, page 5: the previous question ordered, "YEAS—65", "NAYS—25" over 26 names (the journal's miscount). Counties
+# are abbreviated as printed ("Bell of C", "Moore of T", "Smith of B.").
+Y: Alexander; Baird; Bassett; Bell of C; Biard; Bransford; Browning; Buchanan; Camp; Chapman; Clark of Red R; Clegg; Cone; Curry; Dolen; Ellison; Faubion; Fuller; Gill; Goeth; Graves; Gresham; Groce; Hargis; Heath; Hudgins; Humphreys of L; Humphreys of W; Kirlicks; Johnson; Larkin; Light; Matejowsky; McGaughey; McGehee; Melson; Mills; Milner; Moore of T; Newton of C; Newton of T; Nicholson; Parks; Patterson; Payne; Plumly; Richardson; Robinson; Sadler; Sharp; Shield; Showalter; Smith of Travis; Staples; Stringer; Strong; Tolbert; Tompkins; Truit; Utiger; Vorhees; Waskom; Whatley; Wood; Woolsey
+N: Baylor; Christenberry; Davis of Falls; Garner; Garwood; Harrison; Huling; Hunt; Jackson; Jarrott; Jones; Latimer; McClanahan; Moore of W; Northington; Page; Parker; Prendergast; Rugel; Shelburne; Skinner; Smith of B; Steele; Tate; Wilson; Wright
+A: Battle; Davis of Shelby; McCaleb; McGuire; Pope

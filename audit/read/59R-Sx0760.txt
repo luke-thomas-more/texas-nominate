@@ -1,0 +1,4 @@
+# Senate 1965-04-29, pages 12-13: a bill passed, "Yeas—31" (Aikin and Bates at the foot of page 12, 29 more at the top of page 13).
+# The data's yeas were completed from the roll (ok_rest).
+Y: Aikin; Bates; Blanchard; Calhoun; Cole; Colson; Creighton; Crump; Dies; Hall; Hardeman; Harrington; Hazlewood; Herring; Hightower; Kazen; Kennard; Krueger; Moore; Parkhouse; Patman; Ratliff; Reagan; Richter; Rogers; Schwartz; Snelson; Spears; Strong; Watson; Word
+N:

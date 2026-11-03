@@ -1,0 +1,9 @@
+# House 1981-05-20, printout REC. NO. 0002 (motion to table the motion to reconsider the vote on the conference report on HB 246), page 119
+# of 05201981_67_3055.pdf. Summary AYE 43, NAY 97, PNV 01, ABS 09. My reading: 43 A, 97 N; the Speaker C; Elizondo E; blank rows
+# Crawford, Garcia A., Garcia M., Hernandez, Lee D., Nowlin, Tejeda, Von Dohlen. Kubiak's N, Riley's and Wallace's A are overprinted
+# by hand (read as printed).
+Y: Agnich; Allee; Barton; Blythe; Bock; Bush; Cain; Ceverha; Clark, J.; Coody; Craddick; DeLay; Denton; Evans; Florence; Geistweidt; Gibson, B.; Gibson, J.; Gilley; Green; Hall, L.; Hollowell; Jackson; Laney; Leonard; Lewis; McFarland; Maloney; Martin; Nabers; Pennington; Polumbo; Riley; Robnett; Schlueter; Smith, C.; Thompson, G.; Uher; Wallace; Ware; Watson; Whitmire; Willis
+N: Adkisson; Atkinson; Barrientos; Benedict; Berlanga; Blanton; Bomer; Brookshire; Browder; Bryant; Buchanan; Burnett; Cary; Clark, B.; Cockerham; Cofer; Colbert; Coleman; Collazo; Criss; Danburg; Davis; Delco; Edwards; Eikenburg; Emmett; Finnell; Fox; Gaston; Gavin; Glossbrenner; Gonzales; Grubbs; Hackney; Haley; Hall, W.; Hanna; Hartung; Heatly; Henderson; Hill, A.; Hill, G.; Hinojosa; Horn; Hudson; Jones; Keese; Keller; Khoury; Kubiak; Lee, E. F.; London; Luna; Lyon; McBee; McLeod; McWilliams; Madla; Messer; Moreno; Oliveira; Patrick; Patterson; Peveto; Pierce; Polk; Presnal; Price; Ragsdale; Rains; Rangel; Reynolds; Rudd; Salinas; Saunders; Schoolcraft; Semos; Sharp; Shaw; Simpson; Smith, A.; Smith, T.; Staniswalis; Sutton; Thompson, S.; Tow; Turner; Valles; Vowell; Waldrop; Washington; Webber; Whaley; Wieting; Wilson; Wolens; Wright
+P: Mr. Speaker
+E: Elizondo
+A: Crawford; Garcia, A.; Garcia, M.; Hernandez; Lee, D.; Nowlin; Tejeda; Von Dohlen

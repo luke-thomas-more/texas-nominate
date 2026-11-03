@@ -1,0 +1,9 @@
+# House 1973-02-07, tally grid RECORD NO. 28 (motion to table the Poff amendment to HB 10), page 70 of 02071973_18_403.pdf. Printed
+# summary YEA 111, NAY 032, PRESENT-Not Voting 001, ABSENT 006. Hand ticks in Y for Allred, Jones G. and Jones L.; Maloney's and
+# Munson's N marks are faint, hollow dots; X for Canales, Dramberger, Heatly, Spurlock, Tupper; Korioth blank. Read that way the
+# marks give exactly the summary: 111 Y, 32 N, 1 P (the Speaker, C), 5 X + 1 blank = 6 absent.
+Y: Adams; Agnich; Allen, Joe; Allen, John; Allred; Bailey; Baker; Bales; Barnhart; Bigham; Bird; Blake; Blythe; Bock; Bowers; Bynum; Caldwell; Cavness; Clark; Cole; Coleman; Coody; Cooke; Craddick; Davis; Denson; Denton; Donaldson; Doyle; Edwards; Evans; Finnell; Finney; Foreman; Garcia; Geiger; Grant; Green, R.; Hale; Hall, A.; Hall, W.; Hanna; Harris; Hawn; Head; Henderson; Hendricks; Hernandez; Hilliard; Hoestenbach; Hubenak; Hudson; Hutchison; Johnson; Jones, G.; Jones, L.; Kaster; Kubiak; Laney; Leland; Lombardino; McAlister; McDonald, T.; Madla; Martin; Mattox; Menefee; Miller; Montoya; Nichols; Nowlin; Nugent; Parker, C.; Parker, W.; Pentony; Peveto; Poerner; Powers; Presnal; Preston; Ragsdale; Reyes; Reynolds; Rodriguez; Rosson; Russell; Sage; Salem; Sanchez; Schieffer; Semos; Sherman; Sullivant; Sutton; Temple; Thompson; Truan; Vale; Vecchio; Von Dohlen; Washington; Waters; Watson; Weddington; Whitehead; Whitmire; Wieting; Williams; Willis; Wilson; Wyatt
+N: Atwell; Boone; Calhoun; Cates; Clayton; Cobb; Doran; Fox; Gaston; Green, F.; Hollowell; Howard; Lary; Lee; Lewis; McDonald, F.; Maloney; Massey; Munson; Murray; Nabers; Newton; Olson; Poff; Scoggins; Short; Simmons; Slack; Tarbox; Uher; Vick; Williamson
+P: Mr. Speaker
+E: Canales; Dramberger; Heatly; Spurlock; Tupper
+A: Korioth

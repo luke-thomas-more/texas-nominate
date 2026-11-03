@@ -1,0 +1,5 @@
+# Senate 1981-08-11 (1st called session), page 24 (journal p. 354): a 30-0 vote on HB 113 or HB 142 (four identical votes on the
+# page: "Yeas 30, Nays 0. Absent-excused: Glasgow."). No yea list printed.
+Y: implied
+N:
+E: Glasgow

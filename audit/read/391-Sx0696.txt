@@ -1,0 +1,5 @@
+# Senate 1926-10-01 (1st called session), page 22 (right column): "Yeas—29.", Absent—Excused Real, Woodward (one of several identical
+# 29-0 lists in a row).
+Y: Bailey; Berkeley; Bledsoe; Bowers; Davis; Fairchild; Floyd; Hardin of Erath; Hardin of Kaufman; Holbrook; Lewis; Miller; Moore; Murphy; Parnell; Parr; Pollard; Price; Reid; Russek; Smith; Strong; Stuart; Triplett; Ward; Westbrook; Wirtz; Witt; Wood
+N:
+E: Real; Woodward

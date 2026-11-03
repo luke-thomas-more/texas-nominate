@@ -1,0 +1,6 @@
+# Senate 1920-10-01 (4th called session), pages 23-24 (journal pp. 138-139): a bill passed, "Yeas—20." over 19 names, "Nays—2.",
+# Absent 7, Absent—Excused 2: 30 senators listed, one fewer than the Senate.
+Y: Alderdice; Buchanan of Bell; Buchanan of Scurry; Carlock; Cousins; Dayton; Dean; Dudley; Floyd; Gibson; Hertzberg; Hopkins; McNealus; Page; Rector; Suiter; Westbrook; Witt; Woods
+N: Caldwell; Williford
+A: Bailey; Bledsoe; Clark; Dorough; Faust; Parr; Smith
+E: Davidson; Hall

@@ -1,0 +1,7 @@
+# Senate 1975-02-06, page 8 (journal p. 200): "Yeas 21, Nays 7, 1 Present-Not Voting" (the motion before SB 41's third reading).
+# The data's yeas were completed from the roll (ok_rest); the page names all 21.
+Y: Aikin; Andujar; Braecklein; Brooks; Clower; Creighton; Doggett; Farabee; Gammage; Hance; Harris; Jones; Kothmann; Lombardino; McKinnon; McKnight; Schwartz; Sherman; Snelson; Traeger; Williams
+N: Harrington; Longoria; Mauzy; Meier; Mengden; Moore; Patman
+P: Adams
+A: Ogg
+E: Santiesteban

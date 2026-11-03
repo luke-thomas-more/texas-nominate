@@ -1,0 +1,4 @@
+# Senate 1985-05-10, page 25 (journal p. 1004): Parmer's motion to place CSSB 860 on third reading lost, "Yeas 21, Nays 10" (the
+# second of two 21-10 votes on the page). The data's nays were completed from the roll (ok_rest; the layer reads "Lycin, Siins").
+Y: Barrientos; Blake; Brooks; Caperton; Edwards; Farabee; Glasgow; Howard; Krier; Leedom; McFarland; Mauzy; Montford; Parker; Parmer; Santiesteban; Sarpalius; Sharp; Traeger; Truan; Uribe
+N: Brown; Harris; Henderson; Jones; Kothmann; Lyon; Sims; Washington; Whitmire; Williams

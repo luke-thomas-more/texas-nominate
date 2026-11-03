@@ -1,0 +1,7 @@
+# House 1995-04-26, PDF pages 27-28 (journal pp. 1451-1452): HB 2473 passed (Record 229), 123-14-3. Born-digital PDF: the
+# lists are copied from its text layer (pdftotext), checked against the page image.
+Y: Alexander; Allen; Alonzo; Averitt; Berlanga; Black; Bosse; Brady; Brimer; Carona; Carter; Chisum; Clemons; Combs; Cook; Corte; Crabb; Craddick; Cuellar, H.; Cuellar, R.; Culberson; Davila; Davis; De La Garza; Dear; Denny; Driver; Duncan; Dutton; Edwards; Ehrhardt; Eiland; Elkins; Farrar; Finnell; Giddings; Glaze; Goodman; Goolsby; Gray; Grusendorf; Haggerty; Hamric; Harris; Hartnett; Hawley; Heflin; Hernandez; Hightower; Hilbert; Hilderbran; Hill; Hochberg; Holzheauser; Horn; Howard; Hunter, B.; Hunter, T.; Jackson; Janek; Johnson; Jones, D.; Kamel; King; Krusee; Kubiak; Kuempel; Lewis, G.; Lewis, R.; Longoria; Madden; Marchant; McCall; McCoulskey; Moffat; Mowery; Munoz; Nixon; Oakley; Oliveira; Park; Patterson; Pickett; Pitts; Place; Puente; Rabuck; Ramsay; Rangel; Raymond; Reyna; Rhodes; Rodriguez; Romo; Rusling; Sadler; Saunders; Seidlits; Serna; Shields; Siebert; Smithee; Solis; Solomons; Staples; Stiles; Swinford; Talton; Telford; Tillery; Torres; Turner, B.; Turner, S.; Uher; Van de Putte; Walker; West; Wohlgemuth; Wolens; Woolley; Yarbrough; Yost; Zbranek
+N: Alvarado; Bailey; Conley; Hirschi; Hudson; Jones, J.; Luna; Maxey; McDonald; Moreno; Naishtat; Price; Thompson; Wilson
+P: Mr. Speaker(C); Dukes; Greenberg
+E: Coleman; Delisi; Gallego; Junell; Ogden
+A: Counts; Danburg; Gutierrez; Williamson; Willis

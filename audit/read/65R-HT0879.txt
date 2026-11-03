@@ -1,0 +1,9 @@
+# House 1977-05-20, tally grid RECORD NO. 11 (adoption of SJR 44, as amended), page 114 of 05201977_64_3623.pdf. Printed summary:
+# YEA 126, NAY 009, PRESENT-Not Voting 001, ABSENT 014. Machine dots, plus hand-drawn ticks: in the Y box for Allred, Evans,
+# Hill, D. and Olson (yeas added by hand) and in the P box for the Speaker. The legend: no mark = absent, X = absent-excused.
+# Read that way the marks give exactly the summary: 126 Y, 9 N, 1 P, 11 X + 3 blank = 14 absent.
+Y: Allee; Allen; Allred; Atkinson; Baker; Barrientos; Benedict; Berlanga; Bigham; Bird; Blake; Blanton; Blythe; Bock; Briscoe; Browder; Brown; Bush; Cain; Caraway; Cartwright; Ceverha; Chavez; Clark, B.; Clark, J.; Close; Coleman; Collazo; Coody; Davis; Delco; Denton; Donaldson; Edwards; Evans; Ezzell; Finnell; Florence; Garcia, A.; Garcia, M.; Gaston; Gilley; Glossbrenner; Gonzales; Grant; Green, F.; Green, R.; Hale; Hall, W.; Hanna; Hartung; Head; Heatly; Henderson; Hendricks; Hill, D.; Hill, G.; Hoestenbach; Hubenak; Hudson; Jackson; Johnson; Jones; Kaster; Keese; Kubiak; Lalor; Laney; Lauhoff; Leland; Lewis; Looney; McBee; McDonald; McFarland; McLeod; Madla; Maloney; Mankins; Martin, E.; Martin, T.; Massey; Mayes; Miller; Nowlin; Olson; Orr; Parker; Patterson; Peveto; Polumbo; Powers; Presnal; Price; Ragsdale; Rains; Rangel; Reyes; Ribak; Robbins; Rudd; Salinas; Schlueter; Simpson; Smothers; Stubbeman; Sullivant; Sutton; Tejeda; Temple; Thompson; Torres; Uher; Vale; Valles; Von Dohlen; Wallace; Waters; Watson; Whitehead; Whitmire; Wieting; Willis; Wilson, J.; Wilson, R.; Wyatt
+N: Adams; Agnich; Craddick; Fox; Hollowell; Millsap; Nugent; Untermeyer; Wright
+P: Mr. Speaker
+E: Bryant; Cates; English; Hernandez; Moreno; Nabers; Schieffer; Semos; Smith; Vaughan; Weddington
+A: Hall, A.; Slack; Washington

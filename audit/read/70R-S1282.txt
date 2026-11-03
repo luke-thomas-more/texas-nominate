@@ -1,0 +1,5 @@
+# Senate 1987-05-26, page 53: "Yeas 12, Nays 14", Absent 4, Excused Truan. From the text layer (fixed: Caperton), checked on the image.
+Y: Anderson; Armbrister; Barrientos; Brooks; Brown; Green; Harris; Henderson; Jones; Lyon; Tejeda; Whitmire
+N: Blake; Caperton; Edwards; Farabee; Glasgow; Johnson; Krier; Leedom; McFarland; Montford; Santiesteban; Sarpalius; Washington; Zaffirini
+A: Parker; Parmer; Sims; Uribe
+E: Truan

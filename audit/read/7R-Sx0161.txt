@@ -1,0 +1,4 @@
+# Senate 1858-01-28, pages 37-38 (journal pp. 476-477): a bill passed. The yea list names 25 senators under "—24" (the journal's
+# miscount); the nays are at the top of page 38.
+Y: Britton; Caldwell; Erath; Fall; Graham; Grimes; Guinn; Hyde; Lott; McCulloch; Martin; Maverick; Paschal; Pedigo; Potter; Quinan; Scarborough; Shepard; Stockdale; Tankersly; Taylor of Cass; Throckmorton; Truitt; Wigfall; Wren
+N: Burroughs; Herbert; Russell; Taylor of Houston; Walker

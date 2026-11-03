@@ -1,0 +1,6 @@
+# Senate 1985-02-28, pages 8-9 (journal pp. 288-289): SB 329 passed, "Yeas 27, Nays 0. (Same as previous roll call)": the lists
+# are those of the vote just before (suspending the rules for SB 329): no yea list, Absent Sarpalius, Absent-excused three.
+Y: implied
+N:
+A: Sarpalius
+E: Glasgow; Santiesteban; Washington
