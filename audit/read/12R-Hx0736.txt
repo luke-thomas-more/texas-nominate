@@ -1,0 +1,3 @@
+# House 1871-05-25: a bill passed, "Yeas—Mr. Speaker, ...Youngkin—47.", "Nays—...Zoeller—16."
+Y: Mr. Speaker; C. L. Abbott; H. R. Allen; R. Allen; Austin; Burley; Camp; Cotton; Davis; Dorris; Gardiner; George; Gaston; Hamilton; Jenkins; Johnson; Kyle; Lacy; Lane; Leonard; Lorance; Lyons; McLean; Miller; Mitchell; Morris; Mullens; Patten; Pierson; Plumley; Posey; Robb; Robertson; Ross; Schutze; Self; Shelburne; Shoemaker; Simmons; Slaughter; Spencer; Stirman; Tegener; J. C. Weaver; York; Young; Youngkin
+N: Butler; Dupree; Harn; Kendall; Manning; Medlock; Morrison; Henry Moore; Prissick; Schlickum; Schlotman; Sheriff; Stockbridge; B. F. Williams; R. Williams; Zoeller

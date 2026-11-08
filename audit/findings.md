@@ -3,10 +3,26 @@
 Yea and nay errors are counted by `pipeline/audit.py report`. This file keeps the patterns behind them, and anything
 else the readings turn up, for the v1.0 data pass.
 
+## v1.1 (2026-11-08)
+
+- **Readings renamed to v1.0 ids.** The scans number roll calls in page order, so the rebuild for v1.0 shifted ids, and
+  ten readings made on Nov 1–2 (against the Oct 30 data) named roll calls that v1.0 calls by the id before:
+  12A-Hx0463 → 12A-Hx0462, 12A-Hx0523 → 12A-Hx0522, 13R-Sx0399 → 13R-Sx0398, 13R-Sx0438 → 13R-Sx0437,
+  22R-Hx0146 → 22R-Hx0145, 2R-Hx0098 → 2R-Hx0097, 49R-Hx0960 → 49R-Hx0959, 53R-Hx1362 → 53R-Hx1360,
+  59R-Hx0825 → 59R-Hx0823, 62R-Hx1872 → 62R-Hx1871 (each matched on its date, page and printed totals; sample.csv
+  follows). The v1.0 report scored them against the Oct 30 data, where they were right. From v1.1 on,
+  `pipeline/stable_ids.py` keeps released ids fixed, so this can't recur.
+- **Report on the v1.1 data:** 240 of 244 roll calls read (16,486 names); wrong 0.02% of yeas and nays, lost 0.07%
+  (v1.0: 0.04% and 0.08%). 53R-Sx0758 (the 1953 Senate tie, its yeas read as "present") no longer passes the checks
+  and is left out.
+- **County binding didn't reach its cases.** The matcher now treats a printed county as binding, but 16R-Hx0258
+  ("Smith of Harris") and 20R-Hx0107 ("Newton of C.") still credit the other member; 8R-Hx0292, 121-Hx0301 and
+  15R-Hx0482 (misread names) are unchanged too. Not traced yet: left for the next data pass.
+
 ## Patterns
 
-- **near** roll calls carry the errors so far: an extra yea (12A-Hx0523: R. L. Moore of Red River, beside the
-  printed Moore of Harrison), a misread name taken for another member (13R-Sx0438: "Word" read as Ford) with
+- **near** roll calls carry the errors so far: an extra yea (12A-Hx0522: R. L. Moore of Red River, beside the
+  printed Moore of Harrison), a misread name taken for another member (13R-Sx0437: "Word" read as Ford) with
   another name lost (Saylor), a name lost to a blot (19R-Hx0372: "Camp of‖Limestone"). Each passed because its
   count came within one of the printed total.
 - **ok_lists** let a short list through (351-Hx0156, 1917 House: Swope and White, yeas, lost by the OCR). The
@@ -66,11 +82,15 @@ else the readings turn up, for the v1.0 data pass.
   the nay Stirman credited to Evans, who isn't on the page. And 20R-Hx0107 (1887 House, ok): "Newton of C." (Cherokee)
   credited to Newton of Tarrant; the county abbreviation "C." wasn't used to choose between the two Newtons. And
   16R-Hx0258 (1879 House, ok): "Smith of Harris" credited to Smith of Titus. Same-surname members are where the
-  substitutions fall: the matcher should treat a printed county as binding, not a hint.
+  substitutions fall: the matcher should treat a printed county as binding, not a hint. Also 15R-Hx0482 (1876 House,
+  ok): "McKinnion" (McKinnon, hyphenated across a line) credited to Manion.
 
 - **An "ok" roll call can lose a vote where the journal miscounts**: 401-Hx0108 (1927 House) prints "Yeas—84." over 85 names;
   the reading lost Hagaman (OCR), which made the count match the misprint exactly. A lost vote the counts can't flag.
   Again in 23R-Hx0019 (1893 House): "NAYS—50." over 51 names, King of Ellis lost.
+
+- **A near roll call can mix up a "Lee"/"Teel" pair** (32R-Hx0252, 1911 House, near): the page's yea Lee is recorded as
+  excused, and the excused Teel as a yea (OCR read one as the other); Watson's yea is lost.
 
 ## Labels (bill, motion)
 

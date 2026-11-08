@@ -39,8 +39,14 @@ def load(first, last):
     for rc_file, v_file in (("rollcalls.csv", "votes.csv.gz"), ("rollcalls_hist.csv", "votes_hist.csv.gz")):
         if not os.path.exists(os.path.join(PROC, rc_file)):
             continue
+        # sensitivity refits: SENS_STATUSES=ok keeps only roll calls matching their printed totals exactly;
+        # SENS_NO_IMPLIED=1 drops those with a list completed from the roll (the Senate's unprinted yeas, ok_rest);
+        # SENS_NO_TALLY=1 drops the 1973-82 House tally sheets
+        good = set(os.environ["SENS_STATUSES"].split(",")) if os.environ.get("SENS_STATUSES") else GOOD
         part = {r["rc_id"]: r for r in csv.DictReader(open(os.path.join(PROC, rc_file)))
-                if r["status"] in GOOD and first <= int(r["leg"]) <= last}
+                if r["status"] in good and first <= int(r["leg"]) <= last
+                and not (os.environ.get("SENS_NO_IMPLIED") == "1" and r.get("implied"))
+                and not (os.environ.get("SENS_NO_TALLY") == "1" and "-HT" in r["rc_id"])}
         rcs.update(part)
         with gzip.open(os.path.join(PROC, v_file), "rt") as f:
             rd = csv.reader(f); next(rd)

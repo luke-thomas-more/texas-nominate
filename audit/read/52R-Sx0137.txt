@@ -1,0 +1,6 @@
+# Senate 1951-02-22, page 10 (left column, journal p. 226): "Yeas—28", no nays, Absent Kelley of Hidalgo; Absent—Excused Bullock, McDonald
+# (top of the right column).
+Y: Aikin; Ashley; Bell; Bracewell; Carney; Carter; Colson; Corbin; Fuller; Hardeman; Hazlewood; Hudson; Kelly of Tarrant; Lane; Lock; Martin; Moffett; Moore; Nokes; Parkhouse; Phillips; Russell; Shofner; Strauss; Tynan; Vick; Wagonseller; Weinert
+N:
+A: Kelley of Hidalgo
+E: Bullock; McDonald

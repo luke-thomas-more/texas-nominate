@@ -11,7 +11,7 @@
 trends.json, congress.json and blocs.json come from pipeline/trends.py, congress_bridge.py and blocs.py (run
 them first); their numbers also go out as CSVs here.
 """
-import collections, csv, gzip, json, os, shutil, sys
+import collections, csv, gzip, json, os, re, shutil, statistics, subprocess, sys
 from datetime import date
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
@@ -45,6 +45,74 @@ def eras_html(axes):
         out.append(f'<h3>{escape(e["label"])}</h3>\n<p><b>Left to right: {escape(x["name"])}.</b> {escape(x["desc"])}</p>\n'
                    f'<p><b>Up and down: {escape(y["name"])}.</b> {escape(y["desc"])}</p>')
     return "\n".join(out)
+
+
+MONTHS = {m: i for i, m in enumerate(["january", "february", "march", "april", "may", "june", "july", "august", "september",
+                                       "october", "november", "december"], 1)}
+HEAD_DATE = re.compile(r"(?:(?:MON|TUES|WEDNES|THURS|FRI|SATUR|SUN)DAY[,.]?\s+)?\b(" + "|".join(MONTHS) + r")\s+([0-9Il]{1,2})[,.]\s*([0-9Il]{4})", re.I)
+_heads, _heads_path = None, os.path.join(ROOT, "data", "interim", "page_dates.json")
+
+
+def page_dates(rows, day_kind):
+    """A journal day's PDF can run over several calendar days (the Senate recessing, not adjourning: the 68th's 2nd
+    called session's 11th day is June 20-22, 1984), yet every roll call in it takes the file's date. Where the page a
+    roll call is on prints a later date in its running head (within 30 days of the file's), it takes that date.
+    Only files whose next file in the session starts two or more days later are read; cached in
+    data/interim/page_dates.json."""
+    global _heads
+    import datetime as dt
+    if _heads is None:
+        _heads = json.load(open(_heads_path)) if os.path.exists(_heads_path) else {}
+    by_file = collections.defaultdict(list)
+    for r in rows:
+        if day_kind.get(r["file"]) == "pdf":
+            by_file[r["file"]].append(r)
+    files = sorted(by_file, key=lambda f: by_file[f][0]["date"])
+    n = 0
+    for i, f in enumerate(files):
+        d0 = by_file[f][0]["date"]
+        nxt = by_file[files[i + 1]][0]["date"] if i + 1 < len(files) else None
+        try:
+            if nxt and (dt.date.fromisoformat(nxt) - dt.date.fromisoformat(d0)).days < 2:
+                continue
+        except ValueError:
+            continue
+        if f not in _heads:
+            path = os.path.join(ROOT, "data", "raw", "journals", f)
+            pages = subprocess.run(["pdftotext", "-l", "400", path, "-"], capture_output=True, text=True).stdout.split("\f")
+            got = []
+            for t in pages:
+                m = HEAD_DATE.search(t[:300]) or HEAD_DATE.search(t[-300:])
+                if m:
+                    num = lambda x: int(x.translate(str.maketrans("Il", "11")))
+                    try:
+                        got.append(dt.date(num(m.group(3)), MONTHS[m.group(1).lower()], num(m.group(2))).isoformat())
+                    except ValueError:
+                        got.append(None)
+                else:
+                    got.append(None)
+            _heads[f] = got
+        heads = _heads[f]
+        # a page without a head (or with a misread one) takes the last good date before it
+        cur, filled = d0, []
+        for h in heads:
+            try:
+                ok = h and 0 <= (dt.date.fromisoformat(h) - dt.date.fromisoformat(d0)).days <= 30 and h >= cur
+            except ValueError:
+                ok = False
+            cur = h if ok else cur
+            filled.append(cur)
+        for r in by_file[f]:
+            if r.get("page") not in (None, ""):
+                pg = int(r["page"])
+            else:
+                fp = find_page(r, "tally" if "-HT" in r["rc_id"] else "scan")
+                pg = int(fp) - 1 if fp else None
+            if pg is not None and 0 <= pg < len(filled) and filled[pg] != r["date"]:
+                r["date"] = filled[pg]
+                n += 1
+    json.dump(_heads, open(_heads_path, "w"))
+    return n
 
 
 def repair_dates(rows, span):
@@ -161,8 +229,10 @@ def audit_html():
                      f'<td class="num">{x["wrong"]}</td><td class="num">{x["lost"]}</td></tr>' for era, x in a["by_era"].items())
     ck = a.get("by_check", {})
     ok, other = ck.get("ok", {}), ck.get("other", {})
-    return (f"<p>To measure the data's accuracy, a random sample of {a['done']} roll calls of data version {a['data_version']} (the release "
-            f"before this one; the fixes it led to are listed in the repository's <code>audit/findings.md</code>), drawn from every era, both chambers and "
+    current = json.load(open(os.path.join(ROOT, "pipeline", "dataset.json")))["version"].split()[0] == a["data_version"]
+    which = "this release" if current else "the release before this one"
+    return (f"<p>To measure the data's accuracy, a random sample of {a['done']} roll calls of data version {a['data_version']} ({which}; "
+            f"the fixes it led to are listed in the repository's <code>audit/findings.md</code>), drawn from every era, both chambers and "
             f"each way of verifying a roll call (the looser checks oversampled), was read name by name off the journal pages and "
             f"compared with the data: {al['names_read']:,} names. Two kinds of error count. A <b>wrong</b> vote is credited to the wrong "
             f"member, isn't on the page, or has yea and nay swapped; a <b>lost</b> vote is on the page but missing from the data or "
@@ -232,6 +302,37 @@ def tally_page(r, path):
     return best
 
 
+def wnominate_fill(wn):
+    """The About page's W-NOMINATE numbers (validate_wnominate.py), split at 1961 (the 57th Legislature), where the
+    agreement on the first axis changes."""
+    keys = ("WN_N", "WN_R1_NEW", "WN_R2_NEW", "WN_N_OLD", "WN_R1_OLD", "WN_R2_OLD", "WN_MEMBERS_OLD")
+    if not wn:
+        return dict.fromkeys(keys, "–")
+    new = [v for k, v in wn["by_legislature"].items() if int(k[:-1]) >= 57]
+    old = [v for k, v in wn["by_legislature"].items() if int(k[:-1]) < 57]
+    med = lambda vs, c: f"{statistics.median(v[c] for v in vs):.2f}"
+    return dict(zip(keys, (str(len(new)), med(new, "r_dim1"), med(new, "r_dim2"), str(len(old)), med(old, "r_dim1"),
+                           med(old, "r_dim2"), f"{statistics.median(v['members'] for v in old):.0f}")))
+
+
+def sensitivity(fit_name):
+    """The sensitivity refits against the map (data/processed/sensitivity_<v>.txt, from stability.py compare):
+    {refit: [(era, turn in degrees, the lower of the two axes' r)]}."""
+    path = os.path.join(PROC, f"sensitivity_{fit_name.replace('fit_', '')}.txt")
+    if not os.path.exists(path):
+        return {}
+    out, cur = {}, None
+    for line in open(path):
+        m = re.match(r"\S+ -> fit_sens_(\w+):", line)
+        if m:
+            cur = out.setdefault(m.group(1), [])
+            continue
+        m = re.match(r"\s+(\S+)\s+n=\s*\d+\s+turn\s+([-+][\d.]+) deg\s+r dim1 ([\d.]+)\s+r dim2 ([\d.]+)", line)
+        if m and cur is not None:
+            cur.append((m.group(1), float(m.group(2)), min(float(m.group(3)), float(m.group(4)))))
+    return out
+
+
 def main():
     os.makedirs(os.path.join(DOCS, "s"), exist_ok=True)
     axes = json.load(open(os.path.join(ROOT, "pipeline", "axes.json")))
@@ -277,6 +378,8 @@ def main():
             a, b = span.get(int(t["leg"]), (t["start"], t["end"]))
             span[int(t["leg"])] = (min(a, t["start"]), max(b, t["end"]))
     fixed = sum(repair_dates(rcs[k], span[k[0]]) for k in rcs if k[0] in span)
+    redated = sum(page_dates(rcs[k], day_kind) for k in rcs)
+    print(f"dated by their page's running head: {redated} roll calls")
     print(f"dates repaired: {fixed}")
 
     session_caps = json.load(open(os.path.join(ROOT, "data", "interim", "captions.json")))
@@ -357,6 +460,8 @@ def main():
     # about page with numbers filled in
     vv = json.load(open(os.path.join(PROC, "validation_voteview.json"))) if os.path.exists(os.path.join(PROC, "validation_voteview.json")) else None
     vt = json.load(open(os.path.join(PROC, "validation_texas.json"))) if os.path.exists(os.path.join(PROC, "validation_texas.json")) else None
+    wn = json.load(open(os.path.join(PROC, "validation_wnominate.json"))) if os.path.exists(os.path.join(PROC, "validation_wnominate.json")) else None
+    sens = sensitivity(os.path.basename(FIT))
     tmpl = open(os.path.join(ROOT, "pipeline", "about.html")).read()
     by = index["fit"]
     fill = {
@@ -380,6 +485,12 @@ def main():
         "SM_RD": f"{vt['corr_within_D']:.2f}" if vt else "–", "SM_RR": f"{vt['corr_within_R']:.2f}" if vt else "–",
         "BUILT": index["built"],
         "TALLY_SHARE": f"{round(10 * tally[True] / (tally[True] + tally[False]))} in 10" if tally else "–",
+        **wnominate_fill(wn),
+        "SENS_R": f"{min(r for s in ('ok_only', 'no_implied') for _, _, r in sens.get(s, [])):.2f}" if sens else "–",
+        "SENS_T": f"{max(abs(t) for s in ('ok_only', 'no_implied') for _, t, _ in sens.get(s, [])):.0f}" if sens else "–",
+        "SENS_TALLY_R": f"{min(r for e, _, r in sens.get('no_tally', []) if e >= '1973'):.2f}" if sens else "–",
+        "SENS_TALLY_T": f"{max(abs(t) for e, t, _ in sens.get('no_tally', []) if e >= '1973'):.0f}" if sens else "–",
+        "SENS_TALLY_T0": f"{max(abs(t) for e, t, _ in sens.get('no_tally', []) if e < '1973'):.0f}" if sens else "–",
     }
     for k, v in fill.items():
         tmpl = tmpl.replace("{{" + k + "}}", v)

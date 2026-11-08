@@ -111,21 +111,25 @@ def find_page(r, path):
     """The PDF page (1-based) holding a modern-format roll call: where its record number or its totals appear,
     the page whose text before them best matches the words the data keeps from around the vote."""
     pages = pdf_texts(path)
+    # the data's counts, or within one of them where the roll call passed as near, as OCR may print them
+    # ("Nays II" for 11, "Nays I" for 1)
+    ocr = {"1": "[1Il|IJ]", "0": "[0OoD]", "5": "[5S]", "8": "[8B]", "6": "[6b]", "2": "[2Z]"}
+    digits = lambda n: r"\s?".join(ocr.get(ch, ch) for ch in str(n))
+    alt = lambda n: "(?:" + "|".join(digits(int(n) + d) for d in ((0,) if r["status"] == "ok" else (0, -1, 1)) if int(n) + d >= 0) + ")"
+    pats = []
     if r["record"]:
-        pat = re.compile(rf"Re?cord\s*(?:No\W{{0,2}}\s*)?{int(float(r['record']))}\b", re.I)
-    else:
-        # the data's counts, or within one of them where the roll call passed as near, as OCR may print them
-        # ("Nays II" for 11, "Nays I" for 1)
-        ocr = {"1": "[1Il|]", "0": "[0Oo]", "5": "[5S]", "8": "[8B]"}
-        digits = lambda n: "".join(ocr.get(ch, ch) for ch in str(n))
-        alt = lambda n: "(?:" + "|".join(digits(int(n) + d) for d in ((0,) if r["status"] == "ok" else (0, -1, 1)) if int(n) + d >= 0) + ")"
-        pat = re.compile(rf"Yeas\W{{0,2}}{alt(r['n_y'])}\W{{1,3}}Nays\W{{0,2}}{alt(r['n_n'])}\b", re.I)
+        pats.append(re.compile(rf"Re?c\s?o\s?r\s?d\s*(?:No\W{{0,2}}\s*)?{digits(int(float(r['record'])))}\b", re.I))
+    pats.append(re.compile(rf"Yeas\W{{0,3}}\s*{alt(r['n_y'])}\s*\W{{1,3}}\s*Nays\W{{0,3}}\s*{alt(r['n_n'])}\b", re.I))
+    pats.append(re.compile(rf"\b{alt(r['n_y'])}\s*Yeas\W{{1,3}}\s*{alt(r['n_n'])}\s*Nays", re.I))
     context = set(words(" ".join(r[k] for k in ("text", "motion", "amendment") if r.get(k))))
     # the bill named nearest before the vote counts most: the motions around votes are boilerplate
     bill = re.match(r"([A-Z]+)\s*(\d+)", r.get("bill") or "")
     bill_re = re.compile(r"\b" + r"\.?\s?".join(bill.group(1)) + rf"\.?\s*(?:No\.?\s*)?{bill.group(2)}\b") if bill else None
     best = None
-    for i, t in enumerate(pages):
+    for pat in pats:
+      if best:
+        break
+      for i, t in enumerate(pages):
         for m in pat.finditer(t):
             before = ((pages[i - 1] if i else "") + t[:m.start()])[-1500:]
             named = [b for b in bill_re.finditer(before)] if bill_re else []
@@ -487,6 +491,9 @@ def report(boot=2000):
     smp = list(csv.DictReader(open(os.path.join(AUDIT, "sample.csv"))))
     done = [s for s in smp if os.path.exists(os.path.join(AUDIT, "read", f"{s['rc_id']}.txt"))]
     d = Data([s["rc_id"] for s in done])
+    # a sampled roll call a later rebuild no longer verifies isn't in the published data, so it has no votes to check
+    dropped = [s["rc_id"] for s in done if s["rc_id"] not in d.rcs]
+    done = [s for s in done if s["rc_id"] in d.rcs]
     per, out_rows = [], []
     for s in done:
         rows, lists, implied = d.compare(s["rc_id"])
@@ -521,7 +528,7 @@ def report(boot=2000):
                 "lost_vote_rate": e[2], "lost_vote_ci": ci(2),
                 "rollcalls_with_error": e[3], "rollcalls_with_error_ci": ci(3)}
 
-    res = {"data_version": data_version(), "sample": len(smp), "done": len(done), "all": rates(per),
+    res = {"data_version": data_version(), "sample": len(smp), "done": len(done), "not_in_data": dropped, "all": rates(per),
            "by_era": {era: rates([x for x in per if x[0]["era"] == era]) for _, _, era in ERAS if any(x[0]["era"] == era for x in per)},
            "by_source": {src: rates([x for x in per if x[0]["source"] == src]) for src in ("scan", "tally", "journal")
                          if any(x[0]["source"] == src for x in per)},
@@ -533,6 +540,8 @@ def report(boot=2000):
         w.writerows(out_rows)
     a = res["all"]
     pct = lambda x, k: f"{100 * x[k]:.2f}% [{100 * x[k.replace('_rate', '_ci')][0]:.2f}, {100 * x[k.replace('_rate', '_ci')][1]:.2f}]"
+    if dropped:
+        print(f"{len(dropped)} read roll calls no longer in the data, left out: {' '.join(dropped)}")
     print(f"{len(done)} of {len(smp)} roll calls read: {a['names_read']:,} names; {a['wrong']} votes wrong (another member "
           f"{a['wrong_member']}, not on the page {a['extra']}, yea/nay swapped {a['yea_nay_swapped']}), {a['lost']} lost "
           f"(missing {a['missing']}, recorded as not voting {a['not_voting_in_data']})")

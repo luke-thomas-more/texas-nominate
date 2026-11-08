@@ -1,0 +1,4 @@
+# House 1876-08-12, pages crossing to journal p. 871: rules suspended for a bill's final passage, "YEAS—...Young—63.", "NAYS—Baker,
+# Griffith, Wilson—3." ("Smith of / Walker" across the page break).
+Y: Allison; Adkisson; Andrews; Boyd; Burrows; Campbell; Chambers; Chesley; Cochran; Cone; Conley; Douglass; Downs; Garrison; Graham; Harris; Hart; Haynes; Holland; Holly; Horton; Hunter; Hutchins; Ikard; Jones of Gonzales; Jones of McLennan; Kinnison; Key; Kopperl; Lang; Lathrop; McComb; McCorkle; McCuistian; McKinnion; Marshall; Martin; Mead; Middlebrook; Moses; Newland; Parker; Pattie; Peers; Pickett; Quin; Rainey; Roberts of Harrison; Schrier; Shaw; Stewart; Schmidt of Harris; Smith of Denton; Smith of Walker; Snead; Swisher; Stone; Thompson; Towles; Warren; Watson; Wurzbach; Young
+N: Baker; Griffith; Wilson

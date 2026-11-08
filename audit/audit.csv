@@ -72,85 +72,84 @@ rc_id,list,printed,member_id,verdict
 121-Hx0112,N,Young,4497,ok
 121-Hx0112,Y,R. Allen,4407,"ok, name shared"
 121-Hx0112,N,R. Allen,4404,ok
-12A-Hx0523,Y,Abbott of Austin,4398,ok
-12A-Hx0523,Y,Richard Allen,4407,ok
-12A-Hx0523,Y,Burley,4414,ok
-12A-Hx0523,Y,Camp,4417,ok
-12A-Hx0523,Y,Cotton,4421,ok
-12A-Hx0523,Y,Cox,4423,ok
-12A-Hx0523,Y,Davis,4426,ok
-12A-Hx0523,Y,Dorris,4427,ok
-12A-Hx0523,Y,Dupree,4428,ok
-12A-Hx0523,Y,Franks,4433,ok
-12A-Hx0523,Y,Gardiner,4435,ok
-12A-Hx0523,Y,George,4437,ok
-12A-Hx0523,Y,Grothaus,4438,ok
-12A-Hx0523,Y,Hamilton,4440,ok
-12A-Hx0523,Y,Harn,4441,ok
-12A-Hx0523,Y,Haswell,4442,ok
-12A-Hx0523,Y,Johnson,4447,ok
-12A-Hx0523,Y,Kendall,4448,ok
-12A-Hx0523,Y,Locke,4504,ok
-12A-Hx0523,Y,McKee of Guadalupe,4511,ok
-12A-Hx0523,Y,Medlock,4515,ok
-12A-Hx0523,Y,Mitchell,4517,ok
-12A-Hx0523,Y,Morris,4451,ok
-12A-Hx0523,Y,Morrison,4452,ok
-12A-Hx0523,Y,Moore of Harrison,4449,ok
-12A-Hx0523,Y,Plumley,3991,ok
-12A-Hx0523,Y,Robinson,4469,ok
-12A-Hx0523,Y,Schlickum,4471,ok
-12A-Hx0523,Y,Schlotman,4472,ok
-12A-Hx0523,Y,Schutze,4473,ok
-12A-Hx0523,Y,Sheriff,4476,ok
-12A-Hx0523,Y,Shoemaker,4478,ok
-12A-Hx0523,Y,Slaughter,4480,ok
-12A-Hx0523,Y,Spencer,4483,ok
-12A-Hx0523,Y,Stockbridge,4485,ok
-12A-Hx0523,Y,Tegener,4486,ok
-12A-Hx0523,Y,Tinsley,4487,ok
-12A-Hx0523,Y,Williams of Colorado,4193,ok
-12A-Hx0523,Y,Williams of Walker,4495,ok
-12A-Hx0523,Y,Young,4497,ok
-12A-Hx0523,Y,Youngkin,4498,ok
-12A-Hx0523,Y,Zoeller,4500,ok
-12A-Hx0523,N,H. R. Allen,4404,ok
-12A-Hx0523,N,Austin,4409,ok
-12A-Hx0523,N,Booty,4412,ok
-12A-Hx0523,N,Bonner,4411,ok
-12A-Hx0523,N,Chambers,4418,ok
-12A-Hx0523,N,Cole,4419,ok
-12A-Hx0523,N,Elam,4429,ok
-12A-Hx0523,N,Ellis,4431,ok
-12A-Hx0523,N,Evans,4395,ok
-12A-Hx0523,N,Gant,4434,ok
-12A-Hx0523,N,Gaston,4436,ok
-12A-Hx0523,N,Hawkins,4443,ok
-12A-Hx0523,N,Jenkins,4446,ok
-12A-Hx0523,N,Jones,4329,ok
-12A-Hx0523,N,Kyle,3203,ok
-12A-Hx0523,N,Lacy,4506,ok
-12A-Hx0523,N,Lane,4507,ok
-12A-Hx0523,N,Leonard,4508,ok
-12A-Hx0523,N,Lorance,4509,ok
-12A-Hx0523,N,Lyons,4510,ok
-12A-Hx0523,N,McLean,4513,ok
-12A-Hx0523,N,Pierson,4455,ok
-12A-Hx0523,N,Polly,4459,ok
-12A-Hx0523,N,Posey,4461,ok
-12A-Hx0523,N,Putnam,4464,ok
-12A-Hx0523,N,Rainey,4466,ok
-12A-Hx0523,N,Robb,4467,ok
-12A-Hx0523,N,Robertson,4468,ok
-12A-Hx0523,N,Ross,4470,ok
-12A-Hx0523,N,Self,4474,ok
-12A-Hx0523,N,Shelburne,4475,ok
-12A-Hx0523,N,Simmons,4479,ok
-12A-Hx0523,N,Stirman,4484,ok
-12A-Hx0523,N,Van Noy,4489,ok
-12A-Hx0523,N,Weaver,4492,ok
-12A-Hx0523,N,York,4496,ok
-12A-Hx0523,Y,,4450,not on page
+12A-Hx0522,Y,Abbott of Austin,4398,ok
+12A-Hx0522,Y,Richard Allen,4407,ok
+12A-Hx0522,Y,Burley,4414,ok
+12A-Hx0522,Y,Camp,4417,ok
+12A-Hx0522,Y,Cotton,4421,ok
+12A-Hx0522,Y,Cox,4423,ok
+12A-Hx0522,Y,Davis,4426,ok
+12A-Hx0522,Y,Dorris,4427,ok
+12A-Hx0522,Y,Dupree,4428,ok
+12A-Hx0522,Y,Franks,4433,ok
+12A-Hx0522,Y,Gardiner,4435,ok
+12A-Hx0522,Y,George,4437,ok
+12A-Hx0522,Y,Grothaus,4438,ok
+12A-Hx0522,Y,Hamilton,4440,ok
+12A-Hx0522,Y,Harn,4441,ok
+12A-Hx0522,Y,Haswell,4442,ok
+12A-Hx0522,Y,Johnson,4447,ok
+12A-Hx0522,Y,Kendall,4448,ok
+12A-Hx0522,Y,Locke,4504,ok
+12A-Hx0522,Y,McKee of Guadalupe,4511,ok
+12A-Hx0522,Y,Medlock,4515,ok
+12A-Hx0522,Y,Mitchell,4517,ok
+12A-Hx0522,Y,Morris,4451,ok
+12A-Hx0522,Y,Morrison,4452,ok
+12A-Hx0522,Y,Moore of Harrison,4449,ok
+12A-Hx0522,Y,Plumley,3991,ok
+12A-Hx0522,Y,Robinson,4469,ok
+12A-Hx0522,Y,Schlickum,4471,ok
+12A-Hx0522,Y,Schlotman,4472,ok
+12A-Hx0522,Y,Schutze,4473,ok
+12A-Hx0522,Y,Sheriff,4476,ok
+12A-Hx0522,Y,Shoemaker,4478,ok
+12A-Hx0522,Y,Slaughter,4480,ok
+12A-Hx0522,Y,Spencer,4483,ok
+12A-Hx0522,Y,Stockbridge,4485,ok
+12A-Hx0522,Y,Tegener,4486,ok
+12A-Hx0522,Y,Tinsley,4487,ok
+12A-Hx0522,Y,Williams of Colorado,4193,ok
+12A-Hx0522,Y,Williams of Walker,4495,ok
+12A-Hx0522,Y,Young,4497,ok
+12A-Hx0522,Y,Youngkin,4498,ok
+12A-Hx0522,Y,Zoeller,4500,ok
+12A-Hx0522,N,H. R. Allen,4404,ok
+12A-Hx0522,N,Austin,4409,ok
+12A-Hx0522,N,Booty,4412,ok
+12A-Hx0522,N,Bonner,4411,ok
+12A-Hx0522,N,Chambers,4418,ok
+12A-Hx0522,N,Cole,4419,ok
+12A-Hx0522,N,Elam,4429,ok
+12A-Hx0522,N,Ellis,4431,ok
+12A-Hx0522,N,Evans,4395,ok
+12A-Hx0522,N,Gant,4434,ok
+12A-Hx0522,N,Gaston,4436,ok
+12A-Hx0522,N,Hawkins,4443,ok
+12A-Hx0522,N,Jenkins,4446,ok
+12A-Hx0522,N,Jones,4329,ok
+12A-Hx0522,N,Kyle,3203,ok
+12A-Hx0522,N,Lacy,4506,ok
+12A-Hx0522,N,Lane,4507,ok
+12A-Hx0522,N,Leonard,4508,ok
+12A-Hx0522,N,Lorance,4509,ok
+12A-Hx0522,N,Lyons,4510,ok
+12A-Hx0522,N,McLean,4513,ok
+12A-Hx0522,N,Pierson,4455,ok
+12A-Hx0522,N,Polly,4459,ok
+12A-Hx0522,N,Posey,4461,ok
+12A-Hx0522,N,Putnam,4464,ok
+12A-Hx0522,N,Rainey,4466,ok
+12A-Hx0522,N,Robb,4467,ok
+12A-Hx0522,N,Robertson,4468,ok
+12A-Hx0522,N,Ross,4470,ok
+12A-Hx0522,N,Self,4474,ok
+12A-Hx0522,N,Shelburne,4475,ok
+12A-Hx0522,N,Simmons,4479,ok
+12A-Hx0522,N,Stirman,4484,ok
+12A-Hx0522,N,Van Noy,4489,ok
+12A-Hx0522,N,Weaver,4492,ok
+12A-Hx0522,N,York,4496,ok
 6R-Sx0015,Y,Allen,5146,ok
 6R-Sx0015,Y,Bryan,5147,ok
 6R-Sx0015,Y,Caldwell,5025,ok
@@ -179,32 +178,32 @@ rc_id,list,printed,member_id,verdict
 6R-Sx0015,Y,White,4679,ok
 6R-Sx0015,Y,Wren,5044,ok
 6R-Sx0015,N,Burroughs,5024,ok
-13R-Sx0438,Y,Avinger,4733,ok
-13R-Sx0438,Y,Baker,4341,ok
-13R-Sx0438,Y,Ball,4734,ok
-13R-Sx0438,Y,Broughton,4344,ok
-13R-Sx0438,Y,Cole,4349,ok
-13R-Sx0438,Y,Dillard,3871,ok
-13R-Sx0438,Y,Dohoney,4350,ok
-13R-Sx0438,Y,Evans,4354,ok
-13R-Sx0438,Y,Finlay,3633,ok
-13R-Sx0438,Y,Fountain,4358,ok
-13R-Sx0438,Y,Gaines,4360,ok
-13R-Sx0438,Y,Hall,4369,ok
-13R-Sx0438,Y,Henry,4739,ok
-13R-Sx0438,Y,King,4740,ok
-13R-Sx0438,Y,Pyle,4380,ok
-13R-Sx0438,Y,Rawson,4381,ok
-13R-Sx0438,Y,Randle,4741,ok
-13R-Sx0438,Y,Ruby,4382,ok
-13R-Sx0438,Y,Saylor,4383,not in data
-13R-Sx0438,Y,Sayers,4742,ok
-13R-Sx0438,Y,Shelley,4559,ok
-13R-Sx0438,Y,Swift,4385,ok
-13R-Sx0438,Y,Tendick,4386,ok
-13R-Sx0438,Y,Tracy,4743,ok
-13R-Sx0438,Y,Word,4744,not in data
-13R-Sx0438,Y,,4356,not on page
+13R-Sx0437,Y,Avinger,4733,ok
+13R-Sx0437,Y,Baker,4341,ok
+13R-Sx0437,Y,Ball,4734,ok
+13R-Sx0437,Y,Broughton,4344,ok
+13R-Sx0437,Y,Cole,4349,ok
+13R-Sx0437,Y,Dillard,3871,ok
+13R-Sx0437,Y,Dohoney,4350,ok
+13R-Sx0437,Y,Evans,4354,ok
+13R-Sx0437,Y,Finlay,3633,ok
+13R-Sx0437,Y,Fountain,4358,ok
+13R-Sx0437,Y,Gaines,4360,ok
+13R-Sx0437,Y,Hall,4369,ok
+13R-Sx0437,Y,Henry,4739,ok
+13R-Sx0437,Y,King,4740,ok
+13R-Sx0437,Y,Pyle,4380,ok
+13R-Sx0437,Y,Rawson,4381,ok
+13R-Sx0437,Y,Randle,4741,ok
+13R-Sx0437,Y,Ruby,4382,ok
+13R-Sx0437,Y,Saylor,4383,not in data
+13R-Sx0437,Y,Sayers,4742,ok
+13R-Sx0437,Y,Shelley,4559,ok
+13R-Sx0437,Y,Swift,4385,ok
+13R-Sx0437,Y,Tendick,4386,ok
+13R-Sx0437,Y,Tracy,4743,ok
+13R-Sx0437,Y,Word,4744,not in data
+13R-Sx0437,Y,,4356,not on page
 19R-Hx0077,Y,Alexander,3937,ok
 19R-Hx0077,Y,Armistead,3502,ok
 19R-Hx0077,Y,Austin,4059,ok
@@ -3519,37 +3518,6 @@ rc_id,list,printed,member_id,verdict
 431-Sx0370,N,Oneal,1714,ok
 431-Sx0370,P,DeBerry,1638,ok
 431-Sx0370,E,Patton,1962,ok
-53R-Sx0758,Y,Ashley,961,ok
-53R-Sx0758,Y,Bracewell,962,data has P
-53R-Sx0758,Y,Fuller,965,data has P
-53R-Sx0758,Y,Hardeman,823,data has P
-53R-Sx0758,Y,Kazen,856,data has P
-53R-Sx0758,Y,Lane,967,data has P
-53R-Sx0758,Y,Lock,969,ok
-53R-Sx0758,Y,Moffett,858,data has P
-53R-Sx0758,Y,Parkhouse,860,data has P
-53R-Sx0758,Y,Rogers of Travis,973,data has P
-53R-Sx0758,Y,Russell,1193,data has P
-53R-Sx0758,Y,Sadler,1195,data has P
-53R-Sx0758,Y,Shireman,975,data has P
-53R-Sx0758,N,Aikin,350,ok
-53R-Sx0758,N,Bell,1192,ok
-53R-Sx0758,N,Corbin,963,ok
-53R-Sx0758,N,Kelley,966,ok
-53R-Sx0758,N,Latimer,968,ok
-53R-Sx0758,N,McDonald,971,ok
-53R-Sx0758,N,Moore,554,ok
-53R-Sx0758,N,Phillips,972,ok
-53R-Sx0758,N,Rogers of Childress,863,ok
-53R-Sx0758,N,Rutherford,1194,ok
-53R-Sx0758,N,Secrest,974,ok
-53R-Sx0758,N,Wagonseller,977,ok
-53R-Sx0758,N,Willis,308,ok
-53R-Sx0758,E,Colson,820,ok
-53R-Sx0758,E,Hazlewood,825,ok
-53R-Sx0758,E,Martin,970,ok
-53R-Sx0758,E,Strauss,976,ok
-53R-Sx0758,E,Weinert,978,ok
 573-Hx0067,Y,Adams of Lubbock,866,ok
 573-Hx0067,Y,Adams of Titus,956,ok
 573-Hx0067,Y,Alaniz,867,ok
@@ -3693,155 +3661,155 @@ rc_id,list,printed,member_id,verdict
 573-Hx0067,A,Pipkin,840,ok
 573-Hx0067,A,Spilman,1122,ok
 573-Hx0067,A,Stewart of Wichita,782,ok
-62R-Hx1872,Y,Agnich,349,ok
-62R-Hx1872,Y,Angly,717,ok
-62R-Hx1872,Y,Atwood,718,ok
-62R-Hx1872,Y,"Bass, T.",721,ok
-62R-Hx1872,Y,Blanton,723,ok
-62R-Hx1872,Y,Blythe,535,ok
-62R-Hx1872,Y,Bowers,612,ok
-62R-Hx1872,Y,Braecklein,548,ok
-62R-Hx1872,Y,Braun,725,ok
-62R-Hx1872,Y,Burgess,726,ok
-62R-Hx1872,Y,Bynum,613,ok
-62R-Hx1872,Y,Caldwell,614,ok
-62R-Hx1872,Y,Carrillo,727,ok
-62R-Hx1872,Y,Cavness,682,ok
-62R-Hx1872,Y,Clark,567,ok
-62R-Hx1872,Y,Coats,808,ok
-62R-Hx1872,Y,Cobb,617,ok
-62R-Hx1872,Y,Cole,618,ok
-62R-Hx1872,Y,Craddick,109,ok
-62R-Hx1872,Y,Cruz,730,ok
-62R-Hx1872,Y,Daniel,620,ok
-62R-Hx1872,Y,"Davis, D.",731,ok
-62R-Hx1872,Y,"Davis, H.",732,ok
-62R-Hx1872,Y,Doran,623,ok
-62R-Hx1872,Y,Doyle,624,ok
-62R-Hx1872,Y,Dramberger,625,ok
-62R-Hx1872,Y,Earthman,734,ok
-62R-Hx1872,Y,Finck,735,ok
-62R-Hx1872,Y,Finney,628,ok
-62R-Hx1872,Y,Floyd,736,ok
-62R-Hx1872,Y,Foreman,629,ok
-62R-Hx1872,Y,Gammage,602,ok
-62R-Hx1872,Y,Garcia,737,ok
-62R-Hx1872,Y,Golman,738,ok
-62R-Hx1872,Y,Hale,595,ok
-62R-Hx1872,Y,Harding,741,ok
-62R-Hx1872,Y,Hawn,632,ok
-62R-Hx1872,Y,Hilliard,633,ok
-62R-Hx1872,Y,"Holmes, T.",744,ok
-62R-Hx1872,Y,Howard,425,ok
-62R-Hx1872,Y,Hubenak,635,ok
-62R-Hx1872,Y,Hull,746,ok
-62R-Hx1872,Y,Johnson,748,ok
-62R-Hx1872,Y,"Jones, E.",749,ok
-62R-Hx1872,Y,"Jones, G.",339,ok
-62R-Hx1872,Y,Jungmichel,750,ok
-62R-Hx1872,Y,Kaster,637,ok
-62R-Hx1872,Y,Kilpatrick,751,ok
-62R-Hx1872,Y,Kost,752,ok
-62R-Hx1872,Y,Lee,753,ok
-62R-Hx1872,Y,Lemmon,754,ok
-62R-Hx1872,Y,Lewis,363,ok
-62R-Hx1872,Y,Ligarde,756,ok
-62R-Hx1872,Y,Lombardino,552,ok
-62R-Hx1872,Y,Longoria,553,ok
-62R-Hx1872,Y,McAlister,642,ok
-62R-Hx1872,Y,McKissack,758,ok
-62R-Hx1872,Y,Mengden,540,ok
-62R-Hx1872,Y,Moncrief,36,ok
-62R-Hx1872,Y,"Moore, A.",762,ok
-62R-Hx1872,Y,"Moore, G.",763,ok
-62R-Hx1872,Y,Nelms,768,ok
-62R-Hx1872,Y,Newton,651,ok
-62R-Hx1872,Y,Nichols,652,ok
-62R-Hx1872,Y,Niland,770,ok
-62R-Hx1872,Y,Ogg,541,ok
-62R-Hx1872,Y,Orr,684,ok
-62R-Hx1872,Y,"Parker, W.",655,ok
-62R-Hx1872,Y,Pickens,772,ok
-62R-Hx1872,Y,Poerner,657,ok
-62R-Hx1872,Y,Presnal,481,ok
-62R-Hx1872,Y,Price,773,ok
-62R-Hx1872,Y,Reed,774,ok
-62R-Hx1872,Y,Rodriguez,662,ok
-62R-Hx1872,Y,Rosson,663,ok
-62R-Hx1872,Y,Salem,666,ok
-62R-Hx1872,Y,Salter,775,ok
-62R-Hx1872,Y,Sanchez,667,ok
-62R-Hx1872,Y,Schulle,776,ok
-62R-Hx1872,Y,Semos,527,ok
-62R-Hx1872,Y,Shannon,777,ok
-62R-Hx1872,Y,Silber,778,ok
-62R-Hx1872,Y,Simmons,671,ok
-62R-Hx1872,Y,Slack,586,ok
-62R-Hx1872,Y,Slider,779,ok
-62R-Hx1872,Y,Solomon,781,ok
-62R-Hx1872,Y,Spurlock,672,ok
-62R-Hx1872,Y,Stewart,782,ok
-62R-Hx1872,Y,Stroud,783,ok
-62R-Hx1872,Y,Swanson,784,ok
-62R-Hx1872,Y,Tarbox,674,ok
-62R-Hx1872,Y,Traeger,430,ok
-62R-Hx1872,Y,Truan,42,ok
-62R-Hx1872,Y,Tupper,675,ok
-62R-Hx1872,Y,Uher,248,ok
-62R-Hx1872,Y,Von Dohlen,529,ok
-62R-Hx1872,Y,Wayne,786,ok
-62R-Hx1872,Y,Williams,431,ok
-62R-Hx1872,Y,Wolff,698,ok
-62R-Hx1872,Y,Wyatt,681,ok
-62R-Hx1872,N,Adams,547,ok
-62R-Hx1872,N,Allred,559,ok
-62R-Hx1872,N,Baker,719,ok
-62R-Hx1872,N,"Bass, B.",720,ok
-62R-Hx1872,N,Beckham,722,ok
-62R-Hx1872,N,Bigham,592,ok
-62R-Hx1872,N,Calhoun,615,ok
-62R-Hx1872,N,Cates,594,ok
-62R-Hx1872,N,Christian,728,ok
-62R-Hx1872,N,Clayton,501,ok
-62R-Hx1872,N,Farenthold,790,ok
-62R-Hx1872,N,Finnell,129,ok
-62R-Hx1872,N,Grant,573,ok
-62R-Hx1872,N,Graves,739,ok
-62R-Hx1872,N,"Hanna, Joe",469,ok
-62R-Hx1872,N,"Hannah, John",740,ok
-62R-Hx1872,N,Hawkins,742,ok
-62R-Hx1872,N,Haynes,743,ok
-62R-Hx1872,N,Head,575,ok
-62R-Hx1872,N,Heatly,513,ok
-62R-Hx1872,N,Hendricks,576,ok
-62R-Hx1872,N,"Jones, D.",186,ok
-62R-Hx1872,N,Kubiak,301,ok
-62R-Hx1872,N,Lovell,757,ok
-62R-Hx1872,N,Murray,650,ok
-62R-Hx1872,N,Nabers,521,ok
-62R-Hx1872,N,"Nugent, J.",653,ok
-62R-Hx1872,N,Poff,658,ok
-62R-Hx1872,N,Smith,780,ok
-62R-Hx1872,N,Vale,489,ok
-62R-Hx1872,N,Ward,785,ok
-62R-Hx1872,N,Wieting,532,ok
-62R-Hx1872,N,Williamson,680,ok
-62R-Hx1872,A,Atwell,606,ok
-62R-Hx1872,A,Boyle,724,ok
-62R-Hx1872,A,Denton,622,ok
-62R-Hx1872,A,Harris,631,ok
-62R-Hx1872,A,Ingram,747,ok
-62R-Hx1872,A,Moreno,214,ok
-62R-Hx1872,A,"Neugent, D.",769,ok
-62R-Hx1872,A,"Parker, C.",68,ok
-62R-Hx1872,A,Patterson,771,ok
-62R-Hx1872,A,Santiesteban,323,ok
-62R-Hx1872,A,Short,543,ok
-62R-Hx1872,E,"Holmes, Z.",745,ok
-62R-Hx1872,E,Sherman,670,ok
-62R-Hx1872,Y,"Moore, T.",765,ok
-62R-Hx1872,N,"Allen, Joe",590,"ok, name shared"
-62R-Hx1872,N,"Allen, John",605,ok
+62R-Hx1871,Y,Agnich,349,ok
+62R-Hx1871,Y,Angly,717,ok
+62R-Hx1871,Y,Atwood,718,ok
+62R-Hx1871,Y,"Bass, T.",721,ok
+62R-Hx1871,Y,Blanton,723,ok
+62R-Hx1871,Y,Blythe,535,ok
+62R-Hx1871,Y,Bowers,612,ok
+62R-Hx1871,Y,Braecklein,548,ok
+62R-Hx1871,Y,Braun,725,ok
+62R-Hx1871,Y,Burgess,726,ok
+62R-Hx1871,Y,Bynum,613,ok
+62R-Hx1871,Y,Caldwell,614,ok
+62R-Hx1871,Y,Carrillo,727,ok
+62R-Hx1871,Y,Cavness,682,ok
+62R-Hx1871,Y,Clark,567,ok
+62R-Hx1871,Y,Coats,808,ok
+62R-Hx1871,Y,Cobb,617,ok
+62R-Hx1871,Y,Cole,618,ok
+62R-Hx1871,Y,Craddick,109,ok
+62R-Hx1871,Y,Cruz,730,ok
+62R-Hx1871,Y,Daniel,620,ok
+62R-Hx1871,Y,"Davis, D.",731,ok
+62R-Hx1871,Y,"Davis, H.",732,ok
+62R-Hx1871,Y,Doran,623,ok
+62R-Hx1871,Y,Doyle,624,ok
+62R-Hx1871,Y,Dramberger,625,ok
+62R-Hx1871,Y,Earthman,734,ok
+62R-Hx1871,Y,Finck,735,ok
+62R-Hx1871,Y,Finney,628,ok
+62R-Hx1871,Y,Floyd,736,ok
+62R-Hx1871,Y,Foreman,629,ok
+62R-Hx1871,Y,Gammage,602,ok
+62R-Hx1871,Y,Garcia,737,ok
+62R-Hx1871,Y,Golman,738,ok
+62R-Hx1871,Y,Hale,595,ok
+62R-Hx1871,Y,Harding,741,ok
+62R-Hx1871,Y,Hawn,632,ok
+62R-Hx1871,Y,Hilliard,633,ok
+62R-Hx1871,Y,"Holmes, T.",744,ok
+62R-Hx1871,Y,Howard,425,ok
+62R-Hx1871,Y,Hubenak,635,ok
+62R-Hx1871,Y,Hull,746,ok
+62R-Hx1871,Y,Johnson,748,ok
+62R-Hx1871,Y,"Jones, E.",749,ok
+62R-Hx1871,Y,"Jones, G.",339,ok
+62R-Hx1871,Y,Jungmichel,750,ok
+62R-Hx1871,Y,Kaster,637,ok
+62R-Hx1871,Y,Kilpatrick,751,ok
+62R-Hx1871,Y,Kost,752,ok
+62R-Hx1871,Y,Lee,753,ok
+62R-Hx1871,Y,Lemmon,754,ok
+62R-Hx1871,Y,Lewis,363,ok
+62R-Hx1871,Y,Ligarde,756,ok
+62R-Hx1871,Y,Lombardino,552,ok
+62R-Hx1871,Y,Longoria,553,ok
+62R-Hx1871,Y,McAlister,642,ok
+62R-Hx1871,Y,McKissack,758,ok
+62R-Hx1871,Y,Mengden,540,ok
+62R-Hx1871,Y,Moncrief,36,ok
+62R-Hx1871,Y,"Moore, A.",762,ok
+62R-Hx1871,Y,"Moore, G.",763,ok
+62R-Hx1871,Y,Nelms,768,ok
+62R-Hx1871,Y,Newton,651,ok
+62R-Hx1871,Y,Nichols,652,ok
+62R-Hx1871,Y,Niland,770,ok
+62R-Hx1871,Y,Ogg,541,ok
+62R-Hx1871,Y,Orr,684,ok
+62R-Hx1871,Y,"Parker, W.",655,ok
+62R-Hx1871,Y,Pickens,772,ok
+62R-Hx1871,Y,Poerner,657,ok
+62R-Hx1871,Y,Presnal,481,ok
+62R-Hx1871,Y,Price,773,ok
+62R-Hx1871,Y,Reed,774,ok
+62R-Hx1871,Y,Rodriguez,662,ok
+62R-Hx1871,Y,Rosson,663,ok
+62R-Hx1871,Y,Salem,666,ok
+62R-Hx1871,Y,Salter,775,ok
+62R-Hx1871,Y,Sanchez,667,ok
+62R-Hx1871,Y,Schulle,776,ok
+62R-Hx1871,Y,Semos,527,ok
+62R-Hx1871,Y,Shannon,777,ok
+62R-Hx1871,Y,Silber,778,ok
+62R-Hx1871,Y,Simmons,671,ok
+62R-Hx1871,Y,Slack,586,ok
+62R-Hx1871,Y,Slider,779,ok
+62R-Hx1871,Y,Solomon,781,ok
+62R-Hx1871,Y,Spurlock,672,ok
+62R-Hx1871,Y,Stewart,782,ok
+62R-Hx1871,Y,Stroud,783,ok
+62R-Hx1871,Y,Swanson,784,ok
+62R-Hx1871,Y,Tarbox,674,ok
+62R-Hx1871,Y,Traeger,430,ok
+62R-Hx1871,Y,Truan,42,ok
+62R-Hx1871,Y,Tupper,675,ok
+62R-Hx1871,Y,Uher,248,ok
+62R-Hx1871,Y,Von Dohlen,529,ok
+62R-Hx1871,Y,Wayne,786,ok
+62R-Hx1871,Y,Williams,431,ok
+62R-Hx1871,Y,Wolff,698,ok
+62R-Hx1871,Y,Wyatt,681,ok
+62R-Hx1871,N,Adams,547,ok
+62R-Hx1871,N,Allred,559,ok
+62R-Hx1871,N,Baker,719,ok
+62R-Hx1871,N,"Bass, B.",720,ok
+62R-Hx1871,N,Beckham,722,ok
+62R-Hx1871,N,Bigham,592,ok
+62R-Hx1871,N,Calhoun,615,ok
+62R-Hx1871,N,Cates,594,ok
+62R-Hx1871,N,Christian,728,ok
+62R-Hx1871,N,Clayton,501,ok
+62R-Hx1871,N,Farenthold,790,ok
+62R-Hx1871,N,Finnell,129,ok
+62R-Hx1871,N,Grant,573,ok
+62R-Hx1871,N,Graves,739,ok
+62R-Hx1871,N,"Hanna, Joe",469,ok
+62R-Hx1871,N,"Hannah, John",740,ok
+62R-Hx1871,N,Hawkins,742,ok
+62R-Hx1871,N,Haynes,743,ok
+62R-Hx1871,N,Head,575,ok
+62R-Hx1871,N,Heatly,513,ok
+62R-Hx1871,N,Hendricks,576,ok
+62R-Hx1871,N,"Jones, D.",186,ok
+62R-Hx1871,N,Kubiak,301,ok
+62R-Hx1871,N,Lovell,757,ok
+62R-Hx1871,N,Murray,650,ok
+62R-Hx1871,N,Nabers,521,ok
+62R-Hx1871,N,"Nugent, J.",653,ok
+62R-Hx1871,N,Poff,658,ok
+62R-Hx1871,N,Smith,780,ok
+62R-Hx1871,N,Vale,489,ok
+62R-Hx1871,N,Ward,785,ok
+62R-Hx1871,N,Wieting,532,ok
+62R-Hx1871,N,Williamson,680,ok
+62R-Hx1871,A,Atwell,606,ok
+62R-Hx1871,A,Boyle,724,ok
+62R-Hx1871,A,Denton,622,ok
+62R-Hx1871,A,Harris,631,ok
+62R-Hx1871,A,Ingram,747,ok
+62R-Hx1871,A,Moreno,214,ok
+62R-Hx1871,A,"Neugent, D.",769,ok
+62R-Hx1871,A,"Parker, C.",68,ok
+62R-Hx1871,A,Patterson,771,ok
+62R-Hx1871,A,Santiesteban,323,ok
+62R-Hx1871,A,Short,543,ok
+62R-Hx1871,E,"Holmes, Z.",745,ok
+62R-Hx1871,E,Sherman,670,ok
+62R-Hx1871,Y,"Moore, T.",765,ok
+62R-Hx1871,N,"Allen, Joe",590,"ok, name shared"
+62R-Hx1871,N,"Allen, John",605,ok
 59R-Sx1609,Y,Aikin,350,ok
 59R-Sx1609,Y,Bates,700,ok
 59R-Sx1609,Y,Blanchard,695,ok
@@ -4966,54 +4934,54 @@ rc_id,list,printed,member_id,verdict
 12R-Hx0596,N,Youngkin,4498,ok
 12R-Hx0596,Y,R. Allen,4407,"ok, name shared"
 12R-Hx0596,N,J. F. McKee,4511,"ok, name shared"
-2R-Hx0098,Y,Bourland,5236,ok
-2R-Hx0098,Y,Crutcher,5491,ok
-2R-Hx0098,Y,Davis of R,5493,ok
-2R-Hx0098,Y,Dooley,5243,ok
-2R-Hx0098,Y,DeCordova,5495,ok
-2R-Hx0098,Y,Epperson,5040,ok
-2R-Hx0098,Y,Fields,5246,ok
-2R-Hx0098,Y,Goode,5497,ok
-2R-Hx0098,Y,Lewis,5403,ok
-2R-Hx0098,Y,Lott,4993,ok
-2R-Hx0098,Y,Mosely,5502,ok
-2R-Hx0098,Y,McCown,5185,ok
-2R-Hx0098,Y,McNeill,5469,ok
-2R-Hx0098,Y,Robertson,5380,ok
-2R-Hx0098,Y,Shaw,5204,ok
-2R-Hx0098,Y,Sterne,5294,ok
-2R-Hx0098,Y,Stoddard,5507,ok
-2R-Hx0098,Y,Stuart of Galveston,5508,ok
-2R-Hx0098,Y,Truit,5043,ok
-2R-Hx0098,Y,Winkler,4836,ok
-2R-Hx0098,Y,Willie,5486,ok
-2R-Hx0098,N,Mr. Speaker,5076,ok
-2R-Hx0098,N,Bogart,5015,ok
-2R-Hx0098,N,Burroughs,5024,ok
-2R-Hx0098,N,Bryan,5147,ok
-2R-Hx0098,N,Carothers,5490,ok
-2R-Hx0098,N,Cunningham,5492,ok
-2R-Hx0098,N,Eddy,5289,ok
-2R-Hx0098,N,Edwards,5224,ok
-2R-Hx0098,N,Gilliam,5439,ok
-2R-Hx0098,N,Hardeman,5498,ok
-2R-Hx0098,N,Lyons,5501,ok
-2R-Hx0098,N,Miller of H,4994,ok
-2R-Hx0098,N,Neal,4995,ok
-2R-Hx0098,N,Pease,5377,ok
-2R-Hx0098,N,Potter,4950,ok
-2R-Hx0098,N,Rains,4999,ok
-2R-Hx0098,N,Rayner,5476,ok
-2R-Hx0098,N,Reagan,5503,ok
-2R-Hx0098,N,Runnels,5359,ok
-2R-Hx0098,N,Saddler,5479,ok
-2R-Hx0098,N,Shannon,5506,ok
-2R-Hx0098,N,Stout,5271,ok
-2R-Hx0098,N,Stewart of Gonzales,5140,ok
-2R-Hx0098,N,Taylor,5381,ok
-2R-Hx0098,N,Webb,5509,ok
-2R-Hx0098,N,Walling,4975,ok
-2R-Hx0098,N,Wheeler,5510,ok
+2R-Hx0097,Y,Bourland,5236,ok
+2R-Hx0097,Y,Crutcher,5491,ok
+2R-Hx0097,Y,Davis of R,5493,ok
+2R-Hx0097,Y,Dooley,5243,ok
+2R-Hx0097,Y,DeCordova,5495,ok
+2R-Hx0097,Y,Epperson,5040,ok
+2R-Hx0097,Y,Fields,5246,ok
+2R-Hx0097,Y,Goode,5497,ok
+2R-Hx0097,Y,Lewis,5403,ok
+2R-Hx0097,Y,Lott,4993,ok
+2R-Hx0097,Y,Mosely,5502,ok
+2R-Hx0097,Y,McCown,5185,ok
+2R-Hx0097,Y,McNeill,5469,ok
+2R-Hx0097,Y,Robertson,5380,ok
+2R-Hx0097,Y,Shaw,5204,ok
+2R-Hx0097,Y,Sterne,5294,ok
+2R-Hx0097,Y,Stoddard,5507,ok
+2R-Hx0097,Y,Stuart of Galveston,5508,ok
+2R-Hx0097,Y,Truit,5043,ok
+2R-Hx0097,Y,Winkler,4836,ok
+2R-Hx0097,Y,Willie,5486,ok
+2R-Hx0097,N,Mr. Speaker,5076,ok
+2R-Hx0097,N,Bogart,5015,ok
+2R-Hx0097,N,Burroughs,5024,ok
+2R-Hx0097,N,Bryan,5147,ok
+2R-Hx0097,N,Carothers,5490,ok
+2R-Hx0097,N,Cunningham,5492,ok
+2R-Hx0097,N,Eddy,5289,ok
+2R-Hx0097,N,Edwards,5224,ok
+2R-Hx0097,N,Gilliam,5439,ok
+2R-Hx0097,N,Hardeman,5498,ok
+2R-Hx0097,N,Lyons,5501,ok
+2R-Hx0097,N,Miller of H,4994,ok
+2R-Hx0097,N,Neal,4995,ok
+2R-Hx0097,N,Pease,5377,ok
+2R-Hx0097,N,Potter,4950,ok
+2R-Hx0097,N,Rains,4999,ok
+2R-Hx0097,N,Rayner,5476,ok
+2R-Hx0097,N,Reagan,5503,ok
+2R-Hx0097,N,Runnels,5359,ok
+2R-Hx0097,N,Saddler,5479,ok
+2R-Hx0097,N,Shannon,5506,ok
+2R-Hx0097,N,Stout,5271,ok
+2R-Hx0097,N,Stewart of Gonzales,5140,ok
+2R-Hx0097,N,Taylor,5381,ok
+2R-Hx0097,N,Webb,5509,ok
+2R-Hx0097,N,Walling,4975,ok
+2R-Hx0097,N,Wheeler,5510,ok
 8R-Sx0337,Y,Blanch,4895,ok
 8R-Sx0337,Y,Britton,4982,ok
 8R-Sx0337,Y,Dickinson,4984,ok
@@ -5039,7 +5007,6 @@ rc_id,list,printed,member_id,verdict
 8R-Sx0337,N,Sims,5002,ok
 8R-Sx0337,N,Walker,5004,ok
 8R-Sx0337,N,Whaley,5006,ok
-8R-Sx0337,N,,5005,not on page
 3R-Sx0142,Y,Cooke,5371,ok
 3R-Sx0142,Y,Davis,5588,ok
 3R-Sx0142,Y,Gage,5225,ok
@@ -6090,154 +6057,154 @@ rc_id,list,printed,member_id,verdict
 62R-Hx0428,Y,"Allen, Joe",590,"ok, name shared"
 62R-Hx0428,Y,"Allen, John",605,ok
 62R-Hx0428,A,"Moore, T.",765,ok
-59R-Hx0825,Y,Alaniz,867,ok
-59R-Hx0825,Y,Allen,605,ok
-59R-Hx0825,Y,Arledge,868,ok
-59R-Hx0825,Y,Atwood,718,ok
-59R-Hx0825,Y,Bass of Bowie,788,ok
-59R-Hx0825,Y,Bass of Harris,721,ok
-59R-Hx0825,Y,Beckham,722,ok
-59R-Hx0825,Y,Bernal,702,ok
-59R-Hx0825,Y,Berry,871,ok
-59R-Hx0825,Y,Birkner,789,ok
-59R-Hx0825,Y,Blaine,791,ok
-59R-Hx0825,Y,Blankenship,1179,ok
-59R-Hx0825,Y,Bonilla,1180,ok
-59R-Hx0825,Y,Brooks,74,ok
-59R-Hx0825,Y,Brown,874,ok
-59R-Hx0825,Y,Burgess,726,ok
-59R-Hx0825,Y,Cahoon,792,ok
-59R-Hx0825,Y,Cain,794,ok
-59R-Hx0825,Y,Caldwell,614,ok
-59R-Hx0825,Y,Canales,876,ok
-59R-Hx0825,Y,Cavness,682,ok
-59R-Hx0825,Y,Cherry,881,ok
-59R-Hx0825,Y,Clayton,501,ok
-59R-Hx0825,Y,Cole,618,ok
-59R-Hx0825,Y,Connally,705,ok
-59R-Hx0825,Y,Cowden,886,ok
-59R-Hx0825,Y,Cowles,887,ok
-59R-Hx0825,Y,Crain,888,ok
-59R-Hx0825,Y,Dickson,75,ok
-59R-Hx0825,Y,Duggan,800,ok
-59R-Hx0825,Y,Dungan,892,ok
-59R-Hx0825,Y,Eckhardt,893,ok
-59R-Hx0825,Y,Edwards,894,ok
-59R-Hx0825,Y,Field,801,ok
-59R-Hx0825,Y,Finney,628,ok
-59R-Hx0825,Y,Fletcher,897,ok
-59R-Hx0825,Y,Floyd,802,ok
-59R-Hx0825,Y,Fondren,803,ok
-59R-Hx0825,Y,Foreman,629,ok
-59R-Hx0825,Y,Garrison,898,ok
-59R-Hx0825,Y,Gates,1012,ok
-59R-Hx0825,Y,George,805,ok
-59R-Hx0825,Y,Green,901,ok
-59R-Hx0825,Y,Guffey,902,ok
-59R-Hx0825,Y,Haines of Brazos,809,ok
-59R-Hx0825,Y,Hale,595,ok
-59R-Hx0825,Y,Hallmark,903,ok
-59R-Hx0825,Y,Harding,741,ok
-59R-Hx0825,Y,Haring,904,ok
-59R-Hx0825,Y,Harris,631,ok
-59R-Hx0825,Y,Harrison,1014,ok
-59R-Hx0825,Y,Hawkins,742,ok
-59R-Hx0825,Y,Haynes of Orange,743,ok
-59R-Hx0825,Y,Heatly,513,ok
-59R-Hx0825,Y,Hefton,905,ok
-59R-Hx0825,Y,Hendryx,812,ok
-59R-Hx0825,Y,Hightower,1015,ok
-59R-Hx0825,Y,Hinson,813,ok
-59R-Hx0825,Y,Hollowell,353,ok
-59R-Hx0825,Y,Holmes,744,ok
-59R-Hx0825,Y,Howard,815,ok
-59R-Hx0825,Y,Isaacks,908,ok
-59R-Hx0825,Y,Ivy,1016,ok
-59R-Hx0825,Y,Jamison,818,ok
-59R-Hx0825,Y,Johnson of Bell,824,ok
-59R-Hx0825,Y,Johnson of Bexar,748,ok
-59R-Hx0825,Y,Johnson of Harris,826,ok
-59R-Hx0825,Y,Jones of Lubbock,186,ok
-59R-Hx0825,Y,Jones of Taylor,339,ok
-59R-Hx0825,Y,Jungmichel,750,ok
-59R-Hx0825,Y,Kilpatrick,751,ok
-59R-Hx0825,Y,Klager,912,ok
-59R-Hx0825,Y,Knapp,827,ok
-59R-Hx0825,Y,Kothmann,426,ok
-59R-Hx0825,Y,Lack,914,ok
-59R-Hx0825,Y,Lee,1022,ok
-59R-Hx0825,Y,Lewis,1086,ok
-59R-Hx0825,Y,Ligarde,756,ok
-59R-Hx0825,Y,Longoria,553,ok
-59R-Hx0825,Y,McClinton,919,ok
-59R-Hx0825,Y,McDonald of Hidalgo,643,ok
-59R-Hx0825,Y,McDonald of Rusk,920,ok
-59R-Hx0825,Y,McIlhany,922,ok
-59R-Hx0825,Y,McKissack,758,ok
-59R-Hx0825,Y,McLaughlin,830,ok
-59R-Hx0825,Y,Mann,917,ok
-59R-Hx0825,Y,Markgraf,918,ok
-59R-Hx0825,Y,Miller of Harris,924,ok
-59R-Hx0825,Y,Mobley,1182,ok
-59R-Hx0825,Y,Montoya,648,ok
-59R-Hx0825,Y,Moyer,832,ok
-59R-Hx0825,Y,Muniz,833,ok
-59R-Hx0825,Y,Neugent of Galveston,769,ok
-59R-Hx0825,Y,Parker,68,ok
-59R-Hx0825,Y,Parsley,927,ok
-59R-Hx0825,Y,Peeler,837,ok
-59R-Hx0825,Y,Pendleton,838,ok
-59R-Hx0825,Y,Pickens,772,ok
-59R-Hx0825,Y,Pipkin,840,ok
-59R-Hx0825,Y,Price,773,ok
-59R-Hx0825,Y,Quilliam,841,ok
-59R-Hx0825,Y,Rapp,842,ok
-59R-Hx0825,Y,Richards,930,ok
-59R-Hx0825,Y,Richardson,845,ok
-59R-Hx0825,Y,Roberts,932,ok
-59R-Hx0825,Y,Rosson,663,ok
-59R-Hx0825,Y,Satterwhite,933,ok
-59R-Hx0825,Y,Schiller,846,ok
-59R-Hx0825,Y,Scoggins,669,ok
-59R-Hx0825,Y,"Shannon, Joe",848,ok
-59R-Hx0825,Y,"Shannon, Tommy",777,ok
-59R-Hx0825,Y,Sherman,670,ok
-59R-Hx0825,Y,Simpson,849,ok
-59R-Hx0825,Y,Slack,586,ok
-59R-Hx0825,Y,Slider,779,ok
-59R-Hx0825,Y,Solomon,781,ok
-59R-Hx0825,Y,Stewart,782,ok
-59R-Hx0825,Y,Thompson,941,ok
-59R-Hx0825,Y,Thurmond,942,ok
-59R-Hx0825,Y,Townsend,943,ok
-59R-Hx0825,Y,Traeger,430,ok
-59R-Hx0825,Y,Vale,489,ok
-59R-Hx0825,Y,Wade,950,not in data
-59R-Hx0825,Y,Ward,785,ok
-59R-Hx0825,Y,Wayne,786,ok
-59R-Hx0825,Y,Whatley,854,ok
-59R-Hx0825,Y,Wheeler,947,ok
-59R-Hx0825,Y,Wieting,532,ok
-59R-Hx0825,Y,Williamson,680,ok
-59R-Hx0825,Y,Woods,949,ok
-59R-Hx0825,Y,Wright,855,ok
-59R-Hx0825,A,Armstrong,760,ok
-59R-Hx0825,A,Atwell,606,ok
-59R-Hx0825,A,Cory,796,ok
-59R-Hx0825,A,Crews,797,ok
-59R-Hx0825,A,Doke,891,ok
-59R-Hx0825,A,Gibbens,899,ok
-59R-Hx0825,A,Grover,706,ok
-59R-Hx0825,A,Miller of Newton,831,ok
-59R-Hx0825,A,Murray,650,not in data
-59R-Hx0825,A,Mutscher,767,ok
-59R-Hx0825,A,Newman,836,ok
-59R-Hx0825,A,Nugent of Kerr,653,ok
-59R-Hx0825,A,Smith,780,ok
-59R-Hx0825,A,Stroud,783,ok
-59R-Hx0825,A,Whitfield,948,ok
-59R-Hx0825,A,Wilson,713,ok
-59R-Hx0825,E,Weldon,853,data has A
+59R-Hx0823,Y,Alaniz,867,ok
+59R-Hx0823,Y,Allen,605,ok
+59R-Hx0823,Y,Arledge,868,ok
+59R-Hx0823,Y,Atwood,718,ok
+59R-Hx0823,Y,Bass of Bowie,788,ok
+59R-Hx0823,Y,Bass of Harris,721,ok
+59R-Hx0823,Y,Beckham,722,ok
+59R-Hx0823,Y,Bernal,702,ok
+59R-Hx0823,Y,Berry,871,ok
+59R-Hx0823,Y,Birkner,789,ok
+59R-Hx0823,Y,Blaine,791,ok
+59R-Hx0823,Y,Blankenship,1179,ok
+59R-Hx0823,Y,Bonilla,1180,ok
+59R-Hx0823,Y,Brooks,74,ok
+59R-Hx0823,Y,Brown,874,ok
+59R-Hx0823,Y,Burgess,726,ok
+59R-Hx0823,Y,Cahoon,792,ok
+59R-Hx0823,Y,Cain,794,ok
+59R-Hx0823,Y,Caldwell,614,ok
+59R-Hx0823,Y,Canales,876,ok
+59R-Hx0823,Y,Cavness,682,ok
+59R-Hx0823,Y,Cherry,881,ok
+59R-Hx0823,Y,Clayton,501,ok
+59R-Hx0823,Y,Cole,618,ok
+59R-Hx0823,Y,Connally,705,ok
+59R-Hx0823,Y,Cowden,886,ok
+59R-Hx0823,Y,Cowles,887,ok
+59R-Hx0823,Y,Crain,888,ok
+59R-Hx0823,Y,Dickson,75,ok
+59R-Hx0823,Y,Duggan,800,ok
+59R-Hx0823,Y,Dungan,892,ok
+59R-Hx0823,Y,Eckhardt,893,ok
+59R-Hx0823,Y,Edwards,894,ok
+59R-Hx0823,Y,Field,801,ok
+59R-Hx0823,Y,Finney,628,ok
+59R-Hx0823,Y,Fletcher,897,ok
+59R-Hx0823,Y,Floyd,802,ok
+59R-Hx0823,Y,Fondren,803,ok
+59R-Hx0823,Y,Foreman,629,ok
+59R-Hx0823,Y,Garrison,898,ok
+59R-Hx0823,Y,Gates,1012,ok
+59R-Hx0823,Y,George,805,ok
+59R-Hx0823,Y,Green,901,ok
+59R-Hx0823,Y,Guffey,902,ok
+59R-Hx0823,Y,Haines of Brazos,809,ok
+59R-Hx0823,Y,Hale,595,ok
+59R-Hx0823,Y,Hallmark,903,ok
+59R-Hx0823,Y,Harding,741,ok
+59R-Hx0823,Y,Haring,904,ok
+59R-Hx0823,Y,Harris,631,ok
+59R-Hx0823,Y,Harrison,1014,ok
+59R-Hx0823,Y,Hawkins,742,ok
+59R-Hx0823,Y,Haynes of Orange,743,ok
+59R-Hx0823,Y,Heatly,513,ok
+59R-Hx0823,Y,Hefton,905,ok
+59R-Hx0823,Y,Hendryx,812,ok
+59R-Hx0823,Y,Hightower,1015,ok
+59R-Hx0823,Y,Hinson,813,ok
+59R-Hx0823,Y,Hollowell,353,ok
+59R-Hx0823,Y,Holmes,744,ok
+59R-Hx0823,Y,Howard,815,ok
+59R-Hx0823,Y,Isaacks,908,ok
+59R-Hx0823,Y,Ivy,1016,ok
+59R-Hx0823,Y,Jamison,818,ok
+59R-Hx0823,Y,Johnson of Bell,824,ok
+59R-Hx0823,Y,Johnson of Bexar,748,ok
+59R-Hx0823,Y,Johnson of Harris,826,ok
+59R-Hx0823,Y,Jones of Lubbock,186,ok
+59R-Hx0823,Y,Jones of Taylor,339,ok
+59R-Hx0823,Y,Jungmichel,750,ok
+59R-Hx0823,Y,Kilpatrick,751,ok
+59R-Hx0823,Y,Klager,912,ok
+59R-Hx0823,Y,Knapp,827,ok
+59R-Hx0823,Y,Kothmann,426,ok
+59R-Hx0823,Y,Lack,914,ok
+59R-Hx0823,Y,Lee,1022,ok
+59R-Hx0823,Y,Lewis,1086,ok
+59R-Hx0823,Y,Ligarde,756,ok
+59R-Hx0823,Y,Longoria,553,ok
+59R-Hx0823,Y,McClinton,919,ok
+59R-Hx0823,Y,McDonald of Hidalgo,643,ok
+59R-Hx0823,Y,McDonald of Rusk,920,ok
+59R-Hx0823,Y,McIlhany,922,ok
+59R-Hx0823,Y,McKissack,758,ok
+59R-Hx0823,Y,McLaughlin,830,ok
+59R-Hx0823,Y,Mann,917,ok
+59R-Hx0823,Y,Markgraf,918,ok
+59R-Hx0823,Y,Miller of Harris,924,ok
+59R-Hx0823,Y,Mobley,1182,ok
+59R-Hx0823,Y,Montoya,648,ok
+59R-Hx0823,Y,Moyer,832,ok
+59R-Hx0823,Y,Muniz,833,ok
+59R-Hx0823,Y,Neugent of Galveston,769,ok
+59R-Hx0823,Y,Parker,68,ok
+59R-Hx0823,Y,Parsley,927,ok
+59R-Hx0823,Y,Peeler,837,ok
+59R-Hx0823,Y,Pendleton,838,ok
+59R-Hx0823,Y,Pickens,772,ok
+59R-Hx0823,Y,Pipkin,840,ok
+59R-Hx0823,Y,Price,773,ok
+59R-Hx0823,Y,Quilliam,841,ok
+59R-Hx0823,Y,Rapp,842,ok
+59R-Hx0823,Y,Richards,930,ok
+59R-Hx0823,Y,Richardson,845,ok
+59R-Hx0823,Y,Roberts,932,ok
+59R-Hx0823,Y,Rosson,663,ok
+59R-Hx0823,Y,Satterwhite,933,ok
+59R-Hx0823,Y,Schiller,846,ok
+59R-Hx0823,Y,Scoggins,669,ok
+59R-Hx0823,Y,"Shannon, Joe",848,ok
+59R-Hx0823,Y,"Shannon, Tommy",777,ok
+59R-Hx0823,Y,Sherman,670,ok
+59R-Hx0823,Y,Simpson,849,ok
+59R-Hx0823,Y,Slack,586,ok
+59R-Hx0823,Y,Slider,779,ok
+59R-Hx0823,Y,Solomon,781,ok
+59R-Hx0823,Y,Stewart,782,ok
+59R-Hx0823,Y,Thompson,941,ok
+59R-Hx0823,Y,Thurmond,942,ok
+59R-Hx0823,Y,Townsend,943,ok
+59R-Hx0823,Y,Traeger,430,ok
+59R-Hx0823,Y,Vale,489,ok
+59R-Hx0823,Y,Wade,950,not in data
+59R-Hx0823,Y,Ward,785,ok
+59R-Hx0823,Y,Wayne,786,ok
+59R-Hx0823,Y,Whatley,854,ok
+59R-Hx0823,Y,Wheeler,947,ok
+59R-Hx0823,Y,Wieting,532,ok
+59R-Hx0823,Y,Williamson,680,ok
+59R-Hx0823,Y,Woods,949,ok
+59R-Hx0823,Y,Wright,855,ok
+59R-Hx0823,A,Armstrong,760,ok
+59R-Hx0823,A,Atwell,606,ok
+59R-Hx0823,A,Cory,796,ok
+59R-Hx0823,A,Crews,797,ok
+59R-Hx0823,A,Doke,891,ok
+59R-Hx0823,A,Gibbens,899,ok
+59R-Hx0823,A,Grover,706,ok
+59R-Hx0823,A,Miller of Newton,831,ok
+59R-Hx0823,A,Murray,650,not in data
+59R-Hx0823,A,Mutscher,767,ok
+59R-Hx0823,A,Newman,836,ok
+59R-Hx0823,A,Nugent of Kerr,653,ok
+59R-Hx0823,A,Smith,780,ok
+59R-Hx0823,A,Stroud,783,ok
+59R-Hx0823,A,Whitfield,948,ok
+59R-Hx0823,A,Wilson,713,ok
+59R-Hx0823,E,Weldon,853,data has A
 57R-Sx0843,Y,Aikin,350,ok
 57R-Sx0843,Y,Baker,984,ok
 57R-Sx0843,Y,Calhoun,817,ok
@@ -6378,11 +6345,11 @@ rc_id,list,printed,member_id,verdict
 67R-HT0025,Y,Semos,527,ok
 67R-HT0025,Y,Sharp,429,ok
 67R-HT0025,Y,Staniswalis,416,ok
-67R-HT0025,Y,Sutton,417,data has N
-67R-HT0025,Y,"Thompson, G.",464,not in data
+67R-HT0025,Y,Sutton,417,ok
+67R-HT0025,Y,"Thompson, G.",464,ok
 67R-HT0025,Y,Tow,484,ok
 67R-HT0025,Y,Turner,57,ok
-67R-HT0025,Y,Uher,248,data has N
+67R-HT0025,Y,Uher,248,ok
 67R-HT0025,Y,Von Dohlen,529,ok
 67R-HT0025,Y,Waldrop,420,ok
 67R-HT0025,Y,Ware,530,ok
@@ -6426,9 +6393,9 @@ rc_id,list,printed,member_id,verdict
 67R-HT0025,N,Rangel,227,ok
 67R-HT0025,N,Salinas,482,ok
 67R-HT0025,N,Shaw,411,ok
-67R-HT0025,N,"Smith, C.",463,not in data
-67R-HT0025,N,Tejeda,87,data has Y
-67R-HT0025,N,Uribe,324,not in data
+67R-HT0025,N,"Smith, C.",463,ok
+67R-HT0025,N,Tejeda,87,ok
+67R-HT0025,N,Uribe,324,ok
 67R-HT0025,N,Wallace,407,ok
 67R-HT0025,N,Watson,422,ok
 67R-HT0025,N,Whitmire,38,ok
@@ -6444,12 +6411,11 @@ rc_id,list,printed,member_id,verdict
 67R-HT0025,A,Cary,444,not in data
 67R-HT0025,A,Edwards,124,not in data
 67R-HT0025,A,Simpson,483,not in data
-67R-HT0025,A,"Smith, T.",399,data has Y
-67R-HT0025,A,"Thompson, S.",243,data has Y
+67R-HT0025,A,"Smith, T.",399,not in data
+67R-HT0025,A,"Thompson, S.",243,not in data
 67R-HT0025,A,Valles,485,not in data
 67R-HT0025,A,Vowell,316,not in data
 67R-HT0025,N,"Lee, E. F.",476,ok
-67R-HT0025,N,,310,not on page
 65R-HT0091,Y,Allee,490,ok
 65R-HT0091,Y,Baker,591,ok
 65R-HT0091,Y,Barrientos,23,ok
@@ -7458,34 +7424,34 @@ rc_id,list,printed,member_id,verdict
 12R-Hx0122,Y,J. F. McKee,4511,"ok, name shared"
 12R-Hx0122,N,R. Allen,4407,ok
 12R-Hx0122,N,McKee,4512,ok
-13R-Sx0399,Y,Avinger,4733,ok
-13R-Sx0399,Y,Ball,4734,ok
-13R-Sx0399,Y,Dillard,3871,ok
-13R-Sx0399,Y,Dohoney,4350,ok
-13R-Sx0399,Y,Evans,4354,ok
-13R-Sx0399,Y,Finlay,3633,ok
-13R-Sx0399,Y,Franks,4433,ok
-13R-Sx0399,Y,Henry,4739,ok
-13R-Sx0399,Y,King,4740,ok
-13R-Sx0399,Y,Latimer,4372,ok
-13R-Sx0399,Y,Shelley,4559,ok
-13R-Sx0399,Y,Swift,4385,ok
-13R-Sx0399,Y,Word,4744,ok
-13R-Sx0399,N,Baker,4341,ok
-13R-Sx0399,N,Cole,4349,ok
-13R-Sx0399,N,Ford,4356,ok
-13R-Sx0399,N,Fountain,4358,ok
-13R-Sx0399,N,Gaines,4360,ok
-13R-Sx0399,N,Hall,4369,ok
-13R-Sx0399,N,Pyle,4380,ok
-13R-Sx0399,N,Rawson,4381,ok
-13R-Sx0399,N,Randle,4741,ok
-13R-Sx0399,N,Ruby,4382,ok
-13R-Sx0399,N,Saylor,4383,ok
-13R-Sx0399,N,Sayers,4742,ok
-13R-Sx0399,N,Tendick,4386,ok
-13R-Sx0399,N,Tracy,4743,ok
-13R-Sx0399,Y,Mr. President,4377,"ok, name shared"
+13R-Sx0398,Y,Avinger,4733,ok
+13R-Sx0398,Y,Ball,4734,ok
+13R-Sx0398,Y,Dillard,3871,ok
+13R-Sx0398,Y,Dohoney,4350,ok
+13R-Sx0398,Y,Evans,4354,ok
+13R-Sx0398,Y,Finlay,3633,ok
+13R-Sx0398,Y,Franks,4433,ok
+13R-Sx0398,Y,Henry,4739,ok
+13R-Sx0398,Y,King,4740,ok
+13R-Sx0398,Y,Latimer,4372,ok
+13R-Sx0398,Y,Shelley,4559,ok
+13R-Sx0398,Y,Swift,4385,ok
+13R-Sx0398,Y,Word,4744,ok
+13R-Sx0398,N,Baker,4341,ok
+13R-Sx0398,N,Cole,4349,ok
+13R-Sx0398,N,Ford,4356,ok
+13R-Sx0398,N,Fountain,4358,ok
+13R-Sx0398,N,Gaines,4360,ok
+13R-Sx0398,N,Hall,4369,ok
+13R-Sx0398,N,Pyle,4380,ok
+13R-Sx0398,N,Rawson,4381,ok
+13R-Sx0398,N,Randle,4741,ok
+13R-Sx0398,N,Ruby,4382,ok
+13R-Sx0398,N,Saylor,4383,ok
+13R-Sx0398,N,Sayers,4742,ok
+13R-Sx0398,N,Tendick,4386,ok
+13R-Sx0398,N,Tracy,4743,ok
+13R-Sx0398,Y,Mr. President,4377,"ok, name shared"
 11R-Sx0109,Y,Braswell,4535,ok
 11R-Sx0109,Y,Boyd,4534,ok
 11R-Sx0109,Y,Brown,4536,ok
@@ -8004,155 +7970,155 @@ rc_id,list,printed,member_id,verdict
 29R-Sx0387,A,Stafford,3161,ok
 29R-Sx0387,A,Stokes,2925,ok
 29R-Sx0387,A,Willacy,2802,ok
-53R-Hx1362,Y,Allen,979,ok
-53R-Hx1362,Y,Allison,980,ok
-53R-Hx1362,Y,Andis,982,ok
-53R-Hx1362,Y,Armor,983,ok
-53R-Hx1362,Y,Atwell,606,ok
-53R-Hx1362,Y,Baker,984,ok
-53R-Hx1362,Y,Banks,986,ok
-53R-Hx1362,Y,Bates of Harris,987,ok
-53R-Hx1362,Y,Bates of Hidalgo,700,ok
-53R-Hx1362,Y,Bell,989,ok
-53R-Hx1362,Y,Bergman,993,ok
-53R-Hx1362,Y,Berry,995,ok
-53R-Hx1362,Y,Bishop,997,ok
-53R-Hx1362,Y,Miss Blair,1197,ok
-53R-Hx1362,Y,Bradshaw,998,ok
-53R-Hx1362,Y,Briscoe,1000,ok
-53R-Hx1362,Y,Bristow,1001,ok
-53R-Hx1362,Y,Bryan,1003,ok
-53R-Hx1362,Y,Buchanan,1200,ok
-53R-Hx1362,Y,Burkett of Eastland,1201,ok
-53R-Hx1362,Y,Carmichall,1005,ok
-53R-Hx1362,Y,Carter,1203,ok
-53R-Hx1362,Y,Caufield,1204,ok
-53R-Hx1362,Y,Chambers,1008,ok
-53R-Hx1362,Y,Chapman,880,ok
-53R-Hx1362,Y,Cheatham,1009,ok
-53R-Hx1362,Y,Clements,1010,ok
-53R-Hx1362,Y,Cobb of Gaines,1013,ok
-53R-Hx1362,Y,Cobb of Potter,1205,ok
-53R-Hx1362,Y,Crim,1021,ok
-53R-Hx1362,Y,Crosthwait,1023,ok
-53R-Hx1362,Y,Crouch,1207,ok
-53R-Hx1362,Y,Daniel,1208,ok
-53R-Hx1362,Y,de la Garza,890,ok
-53R-Hx1362,Y,Dewey,1024,ok
-53R-Hx1362,Y,Downer,1210,ok
-53R-Hx1362,Y,Miss Duff,1025,ok
-53R-Hx1362,Y,Ehlert,1211,ok
-53R-Hx1362,Y,Elliott,1027,ok
-53R-Hx1362,Y,Fenoglio,1029,ok
-53R-Hx1362,Y,Garrett of Nueces,1213,ok
-53R-Hx1362,Y,Garrett of Willacy,1153,ok
-53R-Hx1362,Y,Gillham,1154,ok
-53R-Hx1362,Y,Glass,1050,ok
-53R-Hx1362,Y,Gray,1214,ok
-53R-Hx1362,Y,Mrs. Gurley,1215,ok
-53R-Hx1362,Y,Hale,595,ok
-53R-Hx1362,Y,Hancock,1217,ok
-53R-Hx1362,Y,Hazlett,1155,ok
-53R-Hx1362,Y,Heideke,1157,ok
-53R-Hx1362,Y,Henderson,1218,ok
-53R-Hx1362,Y,Hightower,696,ok
-53R-Hx1362,Y,Hill,1219,ok
-53R-Hx1362,Y,Hinson,813,ok
-53R-Hx1362,Y,Hogue,1158,ok
-53R-Hx1362,Y,Houston,906,ok
-53R-Hx1362,Y,Huffman,1060,ok
-53R-Hx1362,Y,Hughes,1062,ok
-53R-Hx1362,Y,Isaacks,1221,ok
-53R-Hx1362,Y,Jackson,1160,ok
-53R-Hx1362,Y,Johnson,1161,ok
-53R-Hx1362,Y,Jones,1066,ok
-53R-Hx1362,Y,Joseph,1067,ok
-53R-Hx1362,Y,Kennard,709,ok
-53R-Hx1362,Y,Kilgore,1222,ok
-53R-Hx1362,Y,King,1162,ok
-53R-Hx1362,Y,Latimer,1071,ok
-53R-Hx1362,Y,Lee,1166,ok
-53R-Hx1362,Y,Lehman,1167,ok
-53R-Hx1362,Y,Lieck,1168,ok
-53R-Hx1362,Y,Lindsey,1226,ok
-53R-Hx1362,Y,McDaniel,1173,ok
-53R-Hx1362,Y,McIlhany,922,ok
-53R-Hx1362,Y,McNeil,1174,ok
-53R-Hx1362,Y,Maverick,1169,ok
-53R-Hx1362,Y,Meridith,1227,ok
-53R-Hx1362,Y,Miller,1228,ok
-53R-Hx1362,Y,Moore,1091,ok
-53R-Hx1362,Y,Murphy,1176,ok
-53R-Hx1362,Y,Murray,650,ok
-53R-Hx1362,Y,Niemann,1177,ok
-53R-Hx1362,Y,Osborn of Falls,1230,ok
-53R-Hx1362,Y,Owen,859,ok
-53R-Hx1362,Y,Parish,1097,ok
-53R-Hx1362,Y,Patten,1178,ok
-53R-Hx1362,Y,Paxton,1231,ok
-53R-Hx1362,Y,Pearson,1232,ok
-53R-Hx1362,Y,Perry,1233,ok
-53R-Hx1362,Y,Pipkin,840,ok
-53R-Hx1362,Y,Pool,1100,ok
-53R-Hx1362,Y,Pyle,1181,ok
-53R-Hx1362,Y,Ratliff,711,ok
-53R-Hx1362,Y,Reeves,1183,ok
-53R-Hx1362,Y,Sanders,1109,ok
-53R-Hx1362,Y,Saul,1110,ok
-53R-Hx1362,Y,Sayers,1185,ok
-53R-Hx1362,Y,Seay,1234,ok
-53R-Hx1362,Y,Sellers,1235,ok
-53R-Hx1362,Y,Sentell,2813,ok
-53R-Hx1362,Y,Smith of Hays,1121,ok
-53R-Hx1362,Y,Smith of Jefferson,780,ok
-53R-Hx1362,Y,Spring,1187,ok
-53R-Hx1362,Y,Stone,1189,ok
-53R-Hx1362,Y,Stroman,1126,ok
-53R-Hx1362,Y,Svadlenak,1240,ok
-53R-Hx1362,Y,Talasek,1129,ok
-53R-Hx1362,Y,Vale,1241,ok
-53R-Hx1362,Y,Walling,1134,ok
-53R-Hx1362,Y,Ward,1190,ok
-53R-Hx1362,Y,Weaver,1243,ok
-53R-Hx1362,Y,Wohlford,1142,ok
-53R-Hx1362,Y,Wood,1037,ok
-53R-Hx1362,Y,Wright,1244,ok
-53R-Hx1362,Y,Yancy,1191,ok
-53R-Hx1362,Y,Yezak,1144,ok
-53R-Hx1362,Y,Zivley,1245,ok
-53R-Hx1362,A,Abington,1196,ok
-53R-Hx1362,A,Berlin,994,ok
-53R-Hx1362,A,Brooks,1198,ok
-53R-Hx1362,A,Brown,1199,ok
-53R-Hx1362,A,Burkett of Kerr,1004,ok
-53R-Hx1362,A,Carpenter,1006,ok
-53R-Hx1362,A,Cowen,1018,ok
-53R-Hx1362,A,Crain,1206,ok
-53R-Hx1362,A,Dougherty,1209,ok
-53R-Hx1362,A,Fisk,1212,ok
-53R-Hx1362,A,Ford,1152,ok
-53R-Hx1362,A,Glusing,1051,ok
-53R-Hx1362,A,Hall,1216,ok
-53R-Hx1362,A,Hutchins,1063,ok
-53R-Hx1362,A,Kimbrough,1223,ok
-53R-Hx1362,A,Kirklin,1164,ok
-53R-Hx1362,A,Kugle,1224,ok
-53R-Hx1362,A,Morris,1229,ok
-53R-Hx1362,A,Osborn of Bailey,1096,ok
-53R-Hx1362,A,Ross,1184,ok
-53R-Hx1362,A,Sandahl,1108,ok
-53R-Hx1362,A,Slack,586,ok
-53R-Hx1362,A,Smith of Tarrant,1186,ok
-53R-Hx1362,A,Spacek,1238,ok
-53R-Hx1362,A,Stark,1239,ok
-53R-Hx1362,A,Stewart,782,ok
-53R-Hx1362,A,Stilwell,1188,ok
-53R-Hx1362,A,Strickland,1125,ok
-53R-Hx1362,A,Warden,1242,ok
-53R-Hx1362,E,Carr,1007,ok
-53R-Hx1362,E,Hull,1220,ok
-53R-Hx1362,E,Seeligson,1114,ok
-53R-Hx1362,E,Sheridan,1119,ok
+53R-Hx1360,Y,Allen,979,ok
+53R-Hx1360,Y,Allison,980,ok
+53R-Hx1360,Y,Andis,982,ok
+53R-Hx1360,Y,Armor,983,ok
+53R-Hx1360,Y,Atwell,606,ok
+53R-Hx1360,Y,Baker,984,ok
+53R-Hx1360,Y,Banks,986,ok
+53R-Hx1360,Y,Bates of Harris,987,ok
+53R-Hx1360,Y,Bates of Hidalgo,700,ok
+53R-Hx1360,Y,Bell,989,ok
+53R-Hx1360,Y,Bergman,993,ok
+53R-Hx1360,Y,Berry,995,ok
+53R-Hx1360,Y,Bishop,997,ok
+53R-Hx1360,Y,Miss Blair,1197,ok
+53R-Hx1360,Y,Bradshaw,998,ok
+53R-Hx1360,Y,Briscoe,1000,ok
+53R-Hx1360,Y,Bristow,1001,ok
+53R-Hx1360,Y,Bryan,1003,ok
+53R-Hx1360,Y,Buchanan,1200,ok
+53R-Hx1360,Y,Burkett of Eastland,1201,ok
+53R-Hx1360,Y,Carmichall,1005,ok
+53R-Hx1360,Y,Carter,1203,ok
+53R-Hx1360,Y,Caufield,1204,ok
+53R-Hx1360,Y,Chambers,1008,ok
+53R-Hx1360,Y,Chapman,880,ok
+53R-Hx1360,Y,Cheatham,1009,ok
+53R-Hx1360,Y,Clements,1010,ok
+53R-Hx1360,Y,Cobb of Gaines,1013,ok
+53R-Hx1360,Y,Cobb of Potter,1205,ok
+53R-Hx1360,Y,Crim,1021,ok
+53R-Hx1360,Y,Crosthwait,1023,ok
+53R-Hx1360,Y,Crouch,1207,ok
+53R-Hx1360,Y,Daniel,1208,ok
+53R-Hx1360,Y,de la Garza,890,ok
+53R-Hx1360,Y,Dewey,1024,ok
+53R-Hx1360,Y,Downer,1210,ok
+53R-Hx1360,Y,Miss Duff,1025,ok
+53R-Hx1360,Y,Ehlert,1211,ok
+53R-Hx1360,Y,Elliott,1027,ok
+53R-Hx1360,Y,Fenoglio,1029,ok
+53R-Hx1360,Y,Garrett of Nueces,1213,ok
+53R-Hx1360,Y,Garrett of Willacy,1153,ok
+53R-Hx1360,Y,Gillham,1154,ok
+53R-Hx1360,Y,Glass,1050,ok
+53R-Hx1360,Y,Gray,1214,ok
+53R-Hx1360,Y,Mrs. Gurley,1215,ok
+53R-Hx1360,Y,Hale,595,ok
+53R-Hx1360,Y,Hancock,1217,ok
+53R-Hx1360,Y,Hazlett,1155,ok
+53R-Hx1360,Y,Heideke,1157,ok
+53R-Hx1360,Y,Henderson,1218,ok
+53R-Hx1360,Y,Hightower,696,ok
+53R-Hx1360,Y,Hill,1219,ok
+53R-Hx1360,Y,Hinson,813,ok
+53R-Hx1360,Y,Hogue,1158,ok
+53R-Hx1360,Y,Houston,906,ok
+53R-Hx1360,Y,Huffman,1060,ok
+53R-Hx1360,Y,Hughes,1062,ok
+53R-Hx1360,Y,Isaacks,1221,ok
+53R-Hx1360,Y,Jackson,1160,ok
+53R-Hx1360,Y,Johnson,1161,ok
+53R-Hx1360,Y,Jones,1066,ok
+53R-Hx1360,Y,Joseph,1067,ok
+53R-Hx1360,Y,Kennard,709,ok
+53R-Hx1360,Y,Kilgore,1222,ok
+53R-Hx1360,Y,King,1162,ok
+53R-Hx1360,Y,Latimer,1071,ok
+53R-Hx1360,Y,Lee,1166,ok
+53R-Hx1360,Y,Lehman,1167,ok
+53R-Hx1360,Y,Lieck,1168,ok
+53R-Hx1360,Y,Lindsey,1226,ok
+53R-Hx1360,Y,McDaniel,1173,ok
+53R-Hx1360,Y,McIlhany,922,ok
+53R-Hx1360,Y,McNeil,1174,ok
+53R-Hx1360,Y,Maverick,1169,ok
+53R-Hx1360,Y,Meridith,1227,ok
+53R-Hx1360,Y,Miller,1228,ok
+53R-Hx1360,Y,Moore,1091,ok
+53R-Hx1360,Y,Murphy,1176,ok
+53R-Hx1360,Y,Murray,650,ok
+53R-Hx1360,Y,Niemann,1177,ok
+53R-Hx1360,Y,Osborn of Falls,1230,ok
+53R-Hx1360,Y,Owen,859,ok
+53R-Hx1360,Y,Parish,1097,ok
+53R-Hx1360,Y,Patten,1178,ok
+53R-Hx1360,Y,Paxton,1231,ok
+53R-Hx1360,Y,Pearson,1232,ok
+53R-Hx1360,Y,Perry,1233,ok
+53R-Hx1360,Y,Pipkin,840,ok
+53R-Hx1360,Y,Pool,1100,ok
+53R-Hx1360,Y,Pyle,1181,ok
+53R-Hx1360,Y,Ratliff,711,ok
+53R-Hx1360,Y,Reeves,1183,ok
+53R-Hx1360,Y,Sanders,1109,ok
+53R-Hx1360,Y,Saul,1110,ok
+53R-Hx1360,Y,Sayers,1185,ok
+53R-Hx1360,Y,Seay,1234,ok
+53R-Hx1360,Y,Sellers,1235,ok
+53R-Hx1360,Y,Sentell,2813,ok
+53R-Hx1360,Y,Smith of Hays,1121,ok
+53R-Hx1360,Y,Smith of Jefferson,780,ok
+53R-Hx1360,Y,Spring,1187,ok
+53R-Hx1360,Y,Stone,1189,ok
+53R-Hx1360,Y,Stroman,1126,ok
+53R-Hx1360,Y,Svadlenak,1240,ok
+53R-Hx1360,Y,Talasek,1129,ok
+53R-Hx1360,Y,Vale,1241,ok
+53R-Hx1360,Y,Walling,1134,ok
+53R-Hx1360,Y,Ward,1190,ok
+53R-Hx1360,Y,Weaver,1243,ok
+53R-Hx1360,Y,Wohlford,1142,ok
+53R-Hx1360,Y,Wood,1037,ok
+53R-Hx1360,Y,Wright,1244,ok
+53R-Hx1360,Y,Yancy,1191,ok
+53R-Hx1360,Y,Yezak,1144,ok
+53R-Hx1360,Y,Zivley,1245,ok
+53R-Hx1360,A,Abington,1196,ok
+53R-Hx1360,A,Berlin,994,ok
+53R-Hx1360,A,Brooks,1198,ok
+53R-Hx1360,A,Brown,1199,ok
+53R-Hx1360,A,Burkett of Kerr,1004,ok
+53R-Hx1360,A,Carpenter,1006,ok
+53R-Hx1360,A,Cowen,1018,ok
+53R-Hx1360,A,Crain,1206,ok
+53R-Hx1360,A,Dougherty,1209,ok
+53R-Hx1360,A,Fisk,1212,ok
+53R-Hx1360,A,Ford,1152,ok
+53R-Hx1360,A,Glusing,1051,ok
+53R-Hx1360,A,Hall,1216,ok
+53R-Hx1360,A,Hutchins,1063,ok
+53R-Hx1360,A,Kimbrough,1223,ok
+53R-Hx1360,A,Kirklin,1164,ok
+53R-Hx1360,A,Kugle,1224,ok
+53R-Hx1360,A,Morris,1229,ok
+53R-Hx1360,A,Osborn of Bailey,1096,ok
+53R-Hx1360,A,Ross,1184,ok
+53R-Hx1360,A,Sandahl,1108,ok
+53R-Hx1360,A,Slack,586,ok
+53R-Hx1360,A,Smith of Tarrant,1186,ok
+53R-Hx1360,A,Spacek,1238,ok
+53R-Hx1360,A,Stark,1239,ok
+53R-Hx1360,A,Stewart,782,ok
+53R-Hx1360,A,Stilwell,1188,ok
+53R-Hx1360,A,Strickland,1125,ok
+53R-Hx1360,A,Warden,1242,ok
+53R-Hx1360,E,Carr,1007,ok
+53R-Hx1360,E,Hull,1220,ok
+53R-Hx1360,E,Seeligson,1114,ok
+53R-Hx1360,E,Sheridan,1119,ok
 53R-Hx0069,Y,Abington,1196,ok
 53R-Hx0069,Y,Allen,979,ok
 53R-Hx0069,Y,Allison,980,ok
@@ -11775,7 +11741,7 @@ rc_id,list,printed,member_id,verdict
 67R-HT0605,N,Shaw,411,ok
 67R-HT0605,N,Simpson,483,ok
 67R-HT0605,N,"Smith, A.",310,ok
-67R-HT0605,N,"Smith, T.",399,not in data
+67R-HT0605,N,"Smith, T.",399,ok
 67R-HT0605,N,Staniswalis,416,ok
 67R-HT0605,N,Sutton,417,ok
 67R-HT0605,N,"Thompson, S.",243,ok
@@ -11802,7 +11768,6 @@ rc_id,list,printed,member_id,verdict
 67R-HT0605,A,Tejeda,87,not in data
 67R-HT0605,A,Von Dohlen,529,data has E
 67R-HT0605,N,"Lee, E. F.",476,ok
-67R-HT0605,N,,1878,not on page
 64R-S0025,Y,Adams,547,ok
 64R-S0025,Y,Aikin,350,ok
 64R-S0025,Y,Andujar,537,ok
@@ -12219,100 +12184,100 @@ rc_id,list,printed,member_id,verdict
 31-Sx0082,N,Robertson,5380,ok
 31-Sx0082,N,Truit,5382,ok
 31-Sx0082,N,Van Derlip,5383,ok
-22R-Hx0146,Y,Agnew,3486,ok
-22R-Hx0146,Y,Baker of Tom Green,3722,ok
-22R-Hx0146,Y,Brown,3725,ok
-22R-Hx0146,Y,Browning of Lampasas,3598,ok
-22R-Hx0146,Y,Cain,3728,ok
-22R-Hx0146,Y,Clegg,3729,ok
-22R-Hx0146,Y,Crayton,3732,ok
-22R-Hx0146,Y,Davis,3522,ok
-22R-Hx0146,Y,Derden,3353,ok
-22R-Hx0146,Y,Dills,3628,ok
-22R-Hx0146,Y,Doggett,3735,ok
-22R-Hx0146,Y,Fulton,3740,ok
-22R-Hx0146,Y,Gough,3322,ok
-22R-Hx0146,Y,Goodman,2004,ok
-22R-Hx0146,Y,Hodges,3261,ok
-22R-Hx0146,Y,Jones,3267,ok
-22R-Hx0146,Y,Keith,3744,ok
-22R-Hx0146,Y,Kirk,3654,ok
-22R-Hx0146,Y,Lloyd,3316,ok
-22R-Hx0146,Y,Malone,3756,ok
-22R-Hx0146,Y,McCunningham,3753,ok
-22R-Hx0146,Y,McElwee,3655,ok
-22R-Hx0146,Y,McGregor,3754,ok
-22R-Hx0146,Y,Moody,3662,ok
-22R-Hx0146,Y,Murchison,3559,ok
-22R-Hx0146,Y,Murrell,2604,ok
-22R-Hx0146,Y,Nimitz,3759,ok
-22R-Hx0146,Y,Peebles,3761,ok
-22R-Hx0146,Y,Perry,3762,ok
-22R-Hx0146,Y,Peter,3676,ok
-22R-Hx0146,Y,Phillips,3675,ok
-22R-Hx0146,Y,Reynolds,3766,ok
-22R-Hx0146,Y,Rogan of Brown,3769,ok
-22R-Hx0146,Y,Rogan of Caldwell,3668,ok
-22R-Hx0146,Y,Rogers,3484,ok
-22R-Hx0146,Y,Rowland,3770,ok
-22R-Hx0146,Y,Sellers,3771,ok
-22R-Hx0146,Y,Shaw,3774,ok
-22R-Hx0146,Y,Shaper,3773,ok
-22R-Hx0146,Y,Strange,3586,ok
-22R-Hx0146,Y,Swan,3775,ok
-22R-Hx0146,Y,Templeton,3684,ok
-22R-Hx0146,Y,Tilson,2625,ok
-22R-Hx0146,Y,Tolbert,3287,ok
-22R-Hx0146,Y,Urbahn,3686,ok
-22R-Hx0146,Y,Vestal,3776,ok
-22R-Hx0146,Y,Waters,3777,ok
-22R-Hx0146,Y,Wilson of Hill,3780,ok
-22R-Hx0146,N,Baker of De Witt,3610,ok
-22R-Hx0146,N,Batts,3723,ok
-22R-Hx0146,N,Brietz,3724,ok
-22R-Hx0146,N,Browning of Donley,3726,ok
-22R-Hx0146,N,Cochran,3606,ok
-22R-Hx0146,N,Connellee,3730,ok
-22R-Hx0146,N,Crowley,3487,ok
-22R-Hx0146,N,Curry,2953,ok
-22R-Hx0146,N,Dix,3734,ok
-22R-Hx0146,N,Duncan,3736,ok
-22R-Hx0146,N,Erskine,3631,ok
-22R-Hx0146,N,Felder,3737,ok
-22R-Hx0146,N,Francis,3738,ok
-22R-Hx0146,N,Freeman,3739,ok
-22R-Hx0146,N,Gerald,3741,ok
-22R-Hx0146,N,Gossett,3638,ok
-22R-Hx0146,N,Graves,3640,ok
-22R-Hx0146,N,Gresham,3742,ok
-22R-Hx0146,N,Hamblen,3743,ok
-22R-Hx0146,N,Hood of Parker,3646,ok
-22R-Hx0146,N,Jester,3602,ok
-22R-Hx0146,N,Kirkpatrick,3748,ok
-22R-Hx0146,N,King of Bowie,3746,ok
-22R-Hx0146,N,King of Bell,3747,ok
-22R-Hx0146,N,Kleiber,3749,ok
-22R-Hx0146,N,Lewis,3750,ok
-22R-Hx0146,N,Lindsey,3751,ok
-22R-Hx0146,N,Lowry,3752,ok
-22R-Hx0146,N,Martin of Wise,3757,ok
-22R-Hx0146,N,Martin of Somervell,3758,ok
-22R-Hx0146,N,McKinney,3004,ok
-22R-Hx0146,N,McKinnon,3755,ok
-22R-Hx0146,N,O'Brien,2788,ok
-22R-Hx0146,N,Oliver,2796,ok
-22R-Hx0146,N,Patton,3760,ok
-22R-Hx0146,N,Peyton,3763,ok
-22R-Hx0146,N,Renfro,3765,ok
-22R-Hx0146,N,Rudd,3574,ok
-22R-Hx0146,N,Selman,3772,ok
-22R-Hx0146,N,Swayne,3604,ok
-22R-Hx0146,N,Terrell,3222,ok
-22R-Hx0146,N,Williamson,3779,ok
-22R-Hx0146,N,Wilson of Harrison,3059,ok
-22R-Hx0146,N,Womack,3781,ok
-22R-Hx0146,N,Wurzbach,3782,ok
-22R-Hx0146,N,York,3783,ok
+22R-Hx0145,Y,Agnew,3486,ok
+22R-Hx0145,Y,Baker of Tom Green,3722,ok
+22R-Hx0145,Y,Brown,3725,ok
+22R-Hx0145,Y,Browning of Lampasas,3598,ok
+22R-Hx0145,Y,Cain,3728,ok
+22R-Hx0145,Y,Clegg,3729,ok
+22R-Hx0145,Y,Crayton,3732,ok
+22R-Hx0145,Y,Davis,3522,ok
+22R-Hx0145,Y,Derden,3353,ok
+22R-Hx0145,Y,Dills,3628,ok
+22R-Hx0145,Y,Doggett,3735,ok
+22R-Hx0145,Y,Fulton,3740,ok
+22R-Hx0145,Y,Gough,3322,ok
+22R-Hx0145,Y,Goodman,2004,ok
+22R-Hx0145,Y,Hodges,3261,ok
+22R-Hx0145,Y,Jones,3267,ok
+22R-Hx0145,Y,Keith,3744,ok
+22R-Hx0145,Y,Kirk,3654,ok
+22R-Hx0145,Y,Lloyd,3316,ok
+22R-Hx0145,Y,Malone,3756,ok
+22R-Hx0145,Y,McCunningham,3753,ok
+22R-Hx0145,Y,McElwee,3655,ok
+22R-Hx0145,Y,McGregor,3754,ok
+22R-Hx0145,Y,Moody,3662,ok
+22R-Hx0145,Y,Murchison,3559,ok
+22R-Hx0145,Y,Murrell,2604,ok
+22R-Hx0145,Y,Nimitz,3759,ok
+22R-Hx0145,Y,Peebles,3761,ok
+22R-Hx0145,Y,Perry,3762,ok
+22R-Hx0145,Y,Peter,3676,ok
+22R-Hx0145,Y,Phillips,3675,ok
+22R-Hx0145,Y,Reynolds,3766,ok
+22R-Hx0145,Y,Rogan of Brown,3769,ok
+22R-Hx0145,Y,Rogan of Caldwell,3668,ok
+22R-Hx0145,Y,Rogers,3484,ok
+22R-Hx0145,Y,Rowland,3770,ok
+22R-Hx0145,Y,Sellers,3771,ok
+22R-Hx0145,Y,Shaw,3774,ok
+22R-Hx0145,Y,Shaper,3773,ok
+22R-Hx0145,Y,Strange,3586,ok
+22R-Hx0145,Y,Swan,3775,ok
+22R-Hx0145,Y,Templeton,3684,ok
+22R-Hx0145,Y,Tilson,2625,ok
+22R-Hx0145,Y,Tolbert,3287,ok
+22R-Hx0145,Y,Urbahn,3686,ok
+22R-Hx0145,Y,Vestal,3776,ok
+22R-Hx0145,Y,Waters,3777,ok
+22R-Hx0145,Y,Wilson of Hill,3780,ok
+22R-Hx0145,N,Baker of De Witt,3610,ok
+22R-Hx0145,N,Batts,3723,ok
+22R-Hx0145,N,Brietz,3724,ok
+22R-Hx0145,N,Browning of Donley,3726,ok
+22R-Hx0145,N,Cochran,3606,ok
+22R-Hx0145,N,Connellee,3730,ok
+22R-Hx0145,N,Crowley,3487,ok
+22R-Hx0145,N,Curry,2953,ok
+22R-Hx0145,N,Dix,3734,ok
+22R-Hx0145,N,Duncan,3736,ok
+22R-Hx0145,N,Erskine,3631,ok
+22R-Hx0145,N,Felder,3737,ok
+22R-Hx0145,N,Francis,3738,ok
+22R-Hx0145,N,Freeman,3739,ok
+22R-Hx0145,N,Gerald,3741,ok
+22R-Hx0145,N,Gossett,3638,ok
+22R-Hx0145,N,Graves,3640,ok
+22R-Hx0145,N,Gresham,3742,ok
+22R-Hx0145,N,Hamblen,3743,ok
+22R-Hx0145,N,Hood of Parker,3646,ok
+22R-Hx0145,N,Jester,3602,ok
+22R-Hx0145,N,Kirkpatrick,3748,ok
+22R-Hx0145,N,King of Bowie,3746,ok
+22R-Hx0145,N,King of Bell,3747,ok
+22R-Hx0145,N,Kleiber,3749,ok
+22R-Hx0145,N,Lewis,3750,ok
+22R-Hx0145,N,Lindsey,3751,ok
+22R-Hx0145,N,Lowry,3752,ok
+22R-Hx0145,N,Martin of Wise,3757,ok
+22R-Hx0145,N,Martin of Somervell,3758,ok
+22R-Hx0145,N,McKinney,3004,ok
+22R-Hx0145,N,McKinnon,3755,ok
+22R-Hx0145,N,O'Brien,2788,ok
+22R-Hx0145,N,Oliver,2796,ok
+22R-Hx0145,N,Patton,3760,ok
+22R-Hx0145,N,Peyton,3763,ok
+22R-Hx0145,N,Renfro,3765,ok
+22R-Hx0145,N,Rudd,3574,ok
+22R-Hx0145,N,Selman,3772,ok
+22R-Hx0145,N,Swayne,3604,ok
+22R-Hx0145,N,Terrell,3222,ok
+22R-Hx0145,N,Williamson,3779,ok
+22R-Hx0145,N,Wilson of Harrison,3059,ok
+22R-Hx0145,N,Womack,3781,ok
+22R-Hx0145,N,Wurzbach,3782,ok
+22R-Hx0145,N,York,3783,ok
 26R-Sx0676,Y,Davidson,3154,ok
 26R-Sx0676,Y,Gough,3322,ok
 26R-Sx0676,Y,Greer,3323,ok
@@ -13206,81 +13171,81 @@ rc_id,list,printed,member_id,verdict
 682-S0018,N,Washington,325,ok
 682-S0018,N,Whitmire,38,ok
 682-S0018,N,Williams,431,ok
-12A-Hx0463,Y,Abbott of Austin,4398,ok
-12A-Hx0463,Y,H. R. Allen,4404,ok
-12A-Hx0463,Y,Austin,4409,ok
-12A-Hx0463,Y,Booty,4412,ok
-12A-Hx0463,Y,Bonner,4411,ok
-12A-Hx0463,Y,Camp,4417,ok
-12A-Hx0463,Y,Cole,4419,ok
-12A-Hx0463,Y,Cox,4423,ok
-12A-Hx0463,Y,Elam,4429,ok
-12A-Hx0463,Y,Ellis,4431,ok
-12A-Hx0463,Y,Evans,4395,ok
-12A-Hx0463,Y,Gant,4434,ok
-12A-Hx0463,Y,George,4437,ok
-12A-Hx0463,Y,Gaston,4436,ok
-12A-Hx0463,Y,Grothaus,4438,ok
-12A-Hx0463,Y,Hamilton,4440,ok
-12A-Hx0463,Y,Hawkins,4443,ok
-12A-Hx0463,Y,Jenkins,4446,ok
-12A-Hx0463,Y,Jones,4329,ok
-12A-Hx0463,Y,Johnson,4447,ok
-12A-Hx0463,Y,Kyle,3203,ok
-12A-Hx0463,Y,Lacy,4506,ok
-12A-Hx0463,Y,Lane,4507,ok
-12A-Hx0463,Y,Leonard,4508,ok
-12A-Hx0463,Y,Locke,4504,ok
-12A-Hx0463,Y,Lorance,4509,ok
-12A-Hx0463,Y,Lyons,4510,ok
-12A-Hx0463,Y,McKee of Guadalupe,4511,ok
-12A-Hx0463,Y,Miller,4516,ok
-12A-Hx0463,Y,Pierson,4455,ok
-12A-Hx0463,Y,Plumley,3991,ok
-12A-Hx0463,Y,Posey,4461,ok
-12A-Hx0463,Y,Putnam,4464,ok
-12A-Hx0463,Y,Rainey,4466,ok
-12A-Hx0463,Y,Robb,4467,ok
-12A-Hx0463,Y,Robertson,4468,ok
-12A-Hx0463,Y,Ross,4470,ok
-12A-Hx0463,Y,Schlickum,4471,ok
-12A-Hx0463,Y,Schlotman,4472,ok
-12A-Hx0463,Y,Schutze,4473,ok
-12A-Hx0463,Y,Self,4474,ok
-12A-Hx0463,Y,Shelburne,4475,ok
-12A-Hx0463,Y,Sheriff,4476,ok
-12A-Hx0463,Y,Shoemaker,4478,ok
-12A-Hx0463,Y,Simmons,4479,ok
-12A-Hx0463,Y,Slaughter,4480,ok
-12A-Hx0463,Y,Spencer,4483,ok
-12A-Hx0463,Y,Stockbridge,4485,ok
-12A-Hx0463,Y,Tegener,4486,ok
-12A-Hx0463,Y,Tinsley,4487,ok
-12A-Hx0463,Y,Weaver,4492,ok
-12A-Hx0463,Y,Williams of Colorado,4193,ok
-12A-Hx0463,Y,Williams of Walker,4495,ok
-12A-Hx0463,Y,York,4496,ok
-12A-Hx0463,Y,Youngkin,4498,ok
-12A-Hx0463,Y,Zapp,4499,ok
-12A-Hx0463,Y,Zoeller,4500,ok
-12A-Hx0463,N,Richard Allen,4407,ok
-12A-Hx0463,N,Burley,4414,ok
-12A-Hx0463,N,Chambers,4418,ok
-12A-Hx0463,N,Cotton,4421,ok
-12A-Hx0463,N,Davis,4426,ok
-12A-Hx0463,N,Dorris,4427,ok
-12A-Hx0463,N,Dupree,4428,ok
-12A-Hx0463,N,Franks,4433,ok
-12A-Hx0463,N,Gardiner,4435,ok
-12A-Hx0463,N,Kendall,4448,ok
-12A-Hx0463,N,Medlock,4515,ok
-12A-Hx0463,N,Mitchell,4517,ok
-12A-Hx0463,N,Morris,4451,ok
-12A-Hx0463,N,Morrison,4452,ok
-12A-Hx0463,N,Patten,4454,ok
-12A-Hx0463,N,Polly,4459,ok
-12A-Hx0463,N,Robinson,4469,ok
-12A-Hx0463,N,Van Noy,4489,ok
+12A-Hx0462,Y,Abbott of Austin,4398,ok
+12A-Hx0462,Y,H. R. Allen,4404,ok
+12A-Hx0462,Y,Austin,4409,ok
+12A-Hx0462,Y,Booty,4412,ok
+12A-Hx0462,Y,Bonner,4411,ok
+12A-Hx0462,Y,Camp,4417,ok
+12A-Hx0462,Y,Cole,4419,ok
+12A-Hx0462,Y,Cox,4423,ok
+12A-Hx0462,Y,Elam,4429,ok
+12A-Hx0462,Y,Ellis,4431,ok
+12A-Hx0462,Y,Evans,4395,ok
+12A-Hx0462,Y,Gant,4434,ok
+12A-Hx0462,Y,George,4437,ok
+12A-Hx0462,Y,Gaston,4436,ok
+12A-Hx0462,Y,Grothaus,4438,ok
+12A-Hx0462,Y,Hamilton,4440,ok
+12A-Hx0462,Y,Hawkins,4443,ok
+12A-Hx0462,Y,Jenkins,4446,ok
+12A-Hx0462,Y,Jones,4329,ok
+12A-Hx0462,Y,Johnson,4447,ok
+12A-Hx0462,Y,Kyle,3203,ok
+12A-Hx0462,Y,Lacy,4506,ok
+12A-Hx0462,Y,Lane,4507,ok
+12A-Hx0462,Y,Leonard,4508,ok
+12A-Hx0462,Y,Locke,4504,ok
+12A-Hx0462,Y,Lorance,4509,ok
+12A-Hx0462,Y,Lyons,4510,ok
+12A-Hx0462,Y,McKee of Guadalupe,4511,ok
+12A-Hx0462,Y,Miller,4516,ok
+12A-Hx0462,Y,Pierson,4455,ok
+12A-Hx0462,Y,Plumley,3991,ok
+12A-Hx0462,Y,Posey,4461,ok
+12A-Hx0462,Y,Putnam,4464,ok
+12A-Hx0462,Y,Rainey,4466,ok
+12A-Hx0462,Y,Robb,4467,ok
+12A-Hx0462,Y,Robertson,4468,ok
+12A-Hx0462,Y,Ross,4470,ok
+12A-Hx0462,Y,Schlickum,4471,ok
+12A-Hx0462,Y,Schlotman,4472,ok
+12A-Hx0462,Y,Schutze,4473,ok
+12A-Hx0462,Y,Self,4474,ok
+12A-Hx0462,Y,Shelburne,4475,ok
+12A-Hx0462,Y,Sheriff,4476,ok
+12A-Hx0462,Y,Shoemaker,4478,ok
+12A-Hx0462,Y,Simmons,4479,ok
+12A-Hx0462,Y,Slaughter,4480,ok
+12A-Hx0462,Y,Spencer,4483,ok
+12A-Hx0462,Y,Stockbridge,4485,ok
+12A-Hx0462,Y,Tegener,4486,ok
+12A-Hx0462,Y,Tinsley,4487,ok
+12A-Hx0462,Y,Weaver,4492,ok
+12A-Hx0462,Y,Williams of Colorado,4193,ok
+12A-Hx0462,Y,Williams of Walker,4495,ok
+12A-Hx0462,Y,York,4496,ok
+12A-Hx0462,Y,Youngkin,4498,ok
+12A-Hx0462,Y,Zapp,4499,ok
+12A-Hx0462,Y,Zoeller,4500,ok
+12A-Hx0462,N,Richard Allen,4407,ok
+12A-Hx0462,N,Burley,4414,ok
+12A-Hx0462,N,Chambers,4418,ok
+12A-Hx0462,N,Cotton,4421,ok
+12A-Hx0462,N,Davis,4426,ok
+12A-Hx0462,N,Dorris,4427,ok
+12A-Hx0462,N,Dupree,4428,ok
+12A-Hx0462,N,Franks,4433,ok
+12A-Hx0462,N,Gardiner,4435,ok
+12A-Hx0462,N,Kendall,4448,ok
+12A-Hx0462,N,Medlock,4515,ok
+12A-Hx0462,N,Mitchell,4517,ok
+12A-Hx0462,N,Morris,4451,ok
+12A-Hx0462,N,Morrison,4452,ok
+12A-Hx0462,N,Patten,4454,ok
+12A-Hx0462,N,Polly,4459,ok
+12A-Hx0462,N,Robinson,4469,ok
+12A-Hx0462,N,Van Noy,4489,ok
 31-Sx0046,Y,Grimes,4989,ok
 31-Sx0046,Y,Hart,5226,ok
 31-Sx0046,Y,Latimer,5373,ok
@@ -14590,152 +14555,3455 @@ rc_id,list,printed,member_id,verdict
 39R-Hx0139,E,Kenyon,1781,ok
 39R-Hx0139,E,Powell,1795,ok
 39R-Hx0139,E,Simpson,2335,ok
-49R-Hx0960,Y,Adams,1908,ok
-49R-Hx0960,Y,Allison,980,ok
-49R-Hx0960,Y,Atkinson,1270,ok
-49R-Hx0960,Y,Baker,1519,ok
-49R-Hx0960,Y,Barber,1272,ok
-49R-Hx0960,Y,Barnes,1910,ok
-49R-Hx0960,Y,Bell of DeWitt,1192,ok
-49R-Hx0960,Y,Bell of Bexar,989,ok
-49R-Hx0960,Y,Blankenship,1453,ok
-49R-Hx0960,Y,Bond,1493,ok
-49R-Hx0960,Y,Bridgers,1495,ok
-49R-Hx0960,Y,Brown,1496,ok
-49R-Hx0960,Y,Bundy,1497,ok
-49R-Hx0960,Y,Callaway,1279,ok
-49R-Hx0960,Y,Cato,1500,ok
-49R-Hx0960,Y,Chapman,1282,ok
-49R-Hx0960,Y,Mrs. Colson,820,ok
-49R-Hx0960,Y,Conner,1285,ok
-49R-Hx0960,Y,Counts,1912,ok
-49R-Hx0960,Y,Cousins,1251,ok
-49R-Hx0960,Y,Covey,1913,ok
-49R-Hx0960,Y,Crawford,1289,ok
-49R-Hx0960,Y,Crosthwait,1023,ok
-49R-Hx0960,Y,Cummings,1914,ok
-49R-Hx0960,Y,Davis,1590,ok
-49R-Hx0960,Y,Deen,1507,ok
-49R-Hx0960,Y,Donnell,1915,ok
-49R-Hx0960,Y,Dunn,1511,ok
-49R-Hx0960,Y,Elliott,1916,ok
-49R-Hx0960,Y,Ellis,1513,ok
-49R-Hx0960,Y,Evans,1294,ok
-49R-Hx0960,Y,Fant,1295,ok
-49R-Hx0960,Y,Favors,1515,ok
-49R-Hx0960,Y,Fertsch,1296,ok
-49R-Hx0960,Y,Miss Files,1357,ok
-49R-Hx0960,Y,Foster,1917,ok
-49R-Hx0960,Y,Gathings,1302,ok
-49R-Hx0960,Y,Gerron,2142,ok
-49R-Hx0960,Y,Gray,1214,ok
-49R-Hx0960,Y,Greer,1919,ok
-49R-Hx0960,Y,Grisham,1920,ok
-49R-Hx0960,Y,Harrell,1686,ok
-49R-Hx0960,Y,Harris,1921,ok
-49R-Hx0960,Y,Hartzog,1527,ok
-49R-Hx0960,Y,Heflin,1052,ok
-49R-Hx0960,Y,Helpinstill,1309,ok
-49R-Hx0960,Y,Henderson,1310,ok
-49R-Hx0960,Y,Holstein,1056,ok
-49R-Hx0960,Y,Hoyo,1531,ok
-49R-Hx0960,Y,Hull,1220,ok
-49R-Hx0960,Y,Humphrey,1533,ok
-49R-Hx0960,Y,Hydrick,1314,ok
-49R-Hx0960,Y,Isaacks,1221,ok
-49R-Hx0960,Y,Johnson,1925,ok
-49R-Hx0960,Y,Jones of Bosque,1318,ok
-49R-Hx0960,Y,Jones of Hunt,1319,ok
-49R-Hx0960,Y,Jordan,1926,ok
-49R-Hx0960,Y,Kirby,1538,ok
-49R-Hx0960,Y,Lanier,1323,ok
-49R-Hx0960,Y,Lehman,1167,ok
-49R-Hx0960,Y,Leonard,1542,ok
-49R-Hx0960,Y,Leslie,1928,ok
-49R-Hx0960,Y,Lightfoot,1325,ok
-49R-Hx0960,Y,Little,1544,ok
-49R-Hx0960,Y,Lock of Rusk,1929,ok
-49R-Hx0960,Y,Lock of Angelina,969,ok
-49R-Hx0960,Y,Love,1545,ok
-49R-Hx0960,Y,Lucas,1546,ok
-49R-Hx0960,Y,Luedemann,1326,ok
-49R-Hx0960,Y,Mabe,1930,ok
-49R-Hx0960,Y,Manford,1328,ok
-49R-Hx0960,Y,Mangum of Hunt,1931,ok
-49R-Hx0960,Y,Mangum of Dallas,1329,ok
-49R-Hx0960,Y,Markle,1330,ok
-49R-Hx0960,Y,Messer,1932,ok
-49R-Hx0960,Y,Mills,1556,ok
-49R-Hx0960,Y,Montgomery,1557,ok
-49R-Hx0960,Y,Moore of Harris,1091,ok
-49R-Hx0960,Y,Moore of Red River,1332,ok
-49R-Hx0960,Y,Moore of Comanche,1559,ok
-49R-Hx0960,Y,Morgan,1560,ok
-49R-Hx0960,Y,McAlister,1548,ok
-49R-Hx0960,Y,McFarland,1336,ok
-49R-Hx0960,Y,McLellan,1338,ok
-49R-Hx0960,Y,Parkhouse,860,ok
-49R-Hx0960,Y,Pearson,1343,ok
-49R-Hx0960,Y,Pickens,1934,ok
-49R-Hx0960,Y,Pigg,1566,ok
-49R-Hx0960,Y,Price,1568,ok
-49R-Hx0960,Y,Proffer,1260,ok
-49R-Hx0960,Y,Pruett of Wise,1569,ok
-49R-Hx0960,Y,Ramsey,1570,ok
-49R-Hx0960,Y,Reader,1734,ok
-49R-Hx0960,Y,Reed,1470,ok
-49R-Hx0960,Y,Sadler,1195,ok
-49R-Hx0960,Y,Sellers,1235,ok
-49R-Hx0960,Y,Senterfitt,1237,ok
-49R-Hx0960,Y,Sharpe,1618,ok
-49R-Hx0960,Y,Simpson,1575,ok
-49R-Hx0960,Y,Smith of Bastrop,1588,ok
-49R-Hx0960,Y,Smith of Hays,1121,ok
-49R-Hx0960,Y,Smith of Jack,1353,ok
-49R-Hx0960,Y,Smith of Lubbock,1035,ok
-49R-Hx0960,Y,Smith of Jefferson,780,ok
-49R-Hx0960,Y,Spacek,1238,ok
-49R-Hx0960,Y,Sparks,1355,ok
-49R-Hx0960,Y,Storey,1124,ok
-49R-Hx0960,Y,Stubbs,1577,ok
-49R-Hx0960,Y,Miss Suiter,1360,ok
-49R-Hx0960,Y,Svadlenak,1240,ok
-49R-Hx0960,Y,Thomas,1364,ok
-49R-Hx0960,Y,Vale,1241,ok
-49R-Hx0960,Y,Ward,1190,ok
-49R-Hx0960,Y,Westbrook,1583,ok
-49R-Hx0960,Y,White,1938,ok
-49R-Hx0960,Y,Williams,1384,ok
-49R-Hx0960,Y,Winfree,1140,ok
-49R-Hx0960,Y,Wiseman,1388,ok
-49R-Hx0960,Y,Wood,1585,ok
-49R-Hx0960,Y,Yezak,1144,ok
-49R-Hx0960,N,Lansberry,1540,ok
-49R-Hx0960,N,Swanson,1361,ok
-49R-Hx0960,N,Walker,1580,ok
-49R-Hx0960,A,Calhoun,1911,ok
-49R-Hx0960,A,Celaya,1281,ok
-49R-Hx0960,A,Chambers,1008,ok
-49R-Hx0960,A,Coker,1503,ok
-49R-Hx0960,A,Duckett,1510,ok
-49R-Hx0960,A,Gandy,1300,ok
-49R-Hx0960,A,Green,1305,ok
-49R-Hx0960,A,Lee,1927,ok
-49R-Hx0960,A,Leyendecker,1543,ok
-49R-Hx0960,A,Parton,1565,ok
-49R-Hx0960,A,Peterman,1933,ok
-49R-Hx0960,A,Pruett of Travis,1935,ok
-49R-Hx0960,A,Rampy,1345,ok
-49R-Hx0960,A,Roark,1572,ok
-49R-Hx0960,A,Smith of Tarrant,1937,ok
-49R-Hx0960,E,Mrs. Fenley,1516,ok
-49R-Hx0960,E,Gardner,1301,ok
-49R-Hx0960,E,Hanna,1307,ok
-49R-Hx0960,E,Huddleston,1397,ok
-49R-Hx0960,E,McMurry,1552,ok
-49R-Hx0960,E,Nicholson,1563,ok
-49R-Hx0960,E,Read,1131,ok
-49R-Hx0960,E,Sallas,1349,ok
-49R-Hx0960,E,Voigt,1579,ok
-49R-Hx0960,E,Williamson,1382,ok
-49R-Hx0960,E,Woods,1939,ok
+37R-Sx0469,Y,Bailey,2119,ok
+37R-Sx0469,Y,Davidson,2429,ok
+37R-Sx0469,Y,Floyd,1909,ok
+37R-Sx0469,Y,McNealus,2413,ok
+37R-Sx0469,Y,Murphy,2290,ok
+37R-Sx0469,Y,Richards,2410,ok
+37R-Sx0469,Y,Watts,2439,ok
+37R-Sx0469,Y,Williams,2440,ok
+37R-Sx0469,N,Baugh,2384,ok
+37R-Sx0469,N,Bledsoe,2207,ok
+37R-Sx0469,N,Buchanan,2426,ok
+37R-Sx0469,N,Carlock,2427,ok
+37R-Sx0469,N,Clark,2385,ok
+37R-Sx0469,N,Cousins,2209,ok
+37R-Sx0469,N,Darwin,2428,ok
+37R-Sx0469,N,Dorough,2430,ok
+37R-Sx0469,N,Dudley,2386,ok
+37R-Sx0469,N,Fairchild,2210,ok
+37R-Sx0469,N,Harp,2415,ok
+37R-Sx0469,N,Hertzberg,2433,ok
+37R-Sx0469,N,Lewis,2211,ok
+37R-Sx0469,N,McMillin,2434,ok
+37R-Sx0469,N,Page,2411,ok
+37R-Sx0469,N,Suiter,2438,ok
+37R-Sx0469,N,Witt,2124,ok
+37R-Sx0469,N,Wood,2218,ok
+37R-Sx0469,N,Woods,2442,ok
+37R-Sx0469,A,Hall,2417,ok
+37R-Sx0469,A,Parr,1959,ok
+37R-Sx0469,E,Rogers,2435,ok
+49R-Hx0959,Y,Adams,1908,ok
+49R-Hx0959,Y,Allison,980,ok
+49R-Hx0959,Y,Atkinson,1270,ok
+49R-Hx0959,Y,Baker,1519,ok
+49R-Hx0959,Y,Barber,1272,ok
+49R-Hx0959,Y,Barnes,1910,ok
+49R-Hx0959,Y,Bell of DeWitt,1192,ok
+49R-Hx0959,Y,Bell of Bexar,989,ok
+49R-Hx0959,Y,Blankenship,1453,ok
+49R-Hx0959,Y,Bond,1493,ok
+49R-Hx0959,Y,Bridgers,1495,ok
+49R-Hx0959,Y,Brown,1496,ok
+49R-Hx0959,Y,Bundy,1497,ok
+49R-Hx0959,Y,Callaway,1279,ok
+49R-Hx0959,Y,Cato,1500,ok
+49R-Hx0959,Y,Chapman,1282,ok
+49R-Hx0959,Y,Mrs. Colson,820,ok
+49R-Hx0959,Y,Conner,1285,ok
+49R-Hx0959,Y,Counts,1912,ok
+49R-Hx0959,Y,Cousins,1251,ok
+49R-Hx0959,Y,Covey,1913,ok
+49R-Hx0959,Y,Crawford,1289,ok
+49R-Hx0959,Y,Crosthwait,1023,ok
+49R-Hx0959,Y,Cummings,1914,ok
+49R-Hx0959,Y,Davis,1590,ok
+49R-Hx0959,Y,Deen,1507,ok
+49R-Hx0959,Y,Donnell,1915,ok
+49R-Hx0959,Y,Dunn,1511,ok
+49R-Hx0959,Y,Elliott,1916,ok
+49R-Hx0959,Y,Ellis,1513,ok
+49R-Hx0959,Y,Evans,1294,ok
+49R-Hx0959,Y,Fant,1295,ok
+49R-Hx0959,Y,Favors,1515,ok
+49R-Hx0959,Y,Fertsch,1296,ok
+49R-Hx0959,Y,Miss Files,1357,ok
+49R-Hx0959,Y,Foster,1917,ok
+49R-Hx0959,Y,Gathings,1302,ok
+49R-Hx0959,Y,Gerron,2142,ok
+49R-Hx0959,Y,Gray,1214,ok
+49R-Hx0959,Y,Greer,1919,ok
+49R-Hx0959,Y,Grisham,1920,ok
+49R-Hx0959,Y,Harrell,1686,ok
+49R-Hx0959,Y,Harris,1921,ok
+49R-Hx0959,Y,Hartzog,1527,ok
+49R-Hx0959,Y,Heflin,1052,ok
+49R-Hx0959,Y,Helpinstill,1309,ok
+49R-Hx0959,Y,Henderson,1310,ok
+49R-Hx0959,Y,Holstein,1056,ok
+49R-Hx0959,Y,Hoyo,1531,ok
+49R-Hx0959,Y,Hull,1220,ok
+49R-Hx0959,Y,Humphrey,1533,ok
+49R-Hx0959,Y,Hydrick,1314,ok
+49R-Hx0959,Y,Isaacks,1221,ok
+49R-Hx0959,Y,Johnson,1925,ok
+49R-Hx0959,Y,Jones of Bosque,1318,ok
+49R-Hx0959,Y,Jones of Hunt,1319,ok
+49R-Hx0959,Y,Jordan,1926,ok
+49R-Hx0959,Y,Kirby,1538,ok
+49R-Hx0959,Y,Lanier,1323,ok
+49R-Hx0959,Y,Lehman,1167,ok
+49R-Hx0959,Y,Leonard,1542,ok
+49R-Hx0959,Y,Leslie,1928,ok
+49R-Hx0959,Y,Lightfoot,1325,ok
+49R-Hx0959,Y,Little,1544,ok
+49R-Hx0959,Y,Lock of Rusk,1929,ok
+49R-Hx0959,Y,Lock of Angelina,969,ok
+49R-Hx0959,Y,Love,1545,ok
+49R-Hx0959,Y,Lucas,1546,ok
+49R-Hx0959,Y,Luedemann,1326,ok
+49R-Hx0959,Y,Mabe,1930,ok
+49R-Hx0959,Y,Manford,1328,ok
+49R-Hx0959,Y,Mangum of Hunt,1931,ok
+49R-Hx0959,Y,Mangum of Dallas,1329,ok
+49R-Hx0959,Y,Markle,1330,ok
+49R-Hx0959,Y,Messer,1932,ok
+49R-Hx0959,Y,Mills,1556,ok
+49R-Hx0959,Y,Montgomery,1557,ok
+49R-Hx0959,Y,Moore of Harris,1091,ok
+49R-Hx0959,Y,Moore of Red River,1332,ok
+49R-Hx0959,Y,Moore of Comanche,1559,ok
+49R-Hx0959,Y,Morgan,1560,ok
+49R-Hx0959,Y,McAlister,1548,ok
+49R-Hx0959,Y,McFarland,1336,ok
+49R-Hx0959,Y,McLellan,1338,ok
+49R-Hx0959,Y,Parkhouse,860,ok
+49R-Hx0959,Y,Pearson,1343,ok
+49R-Hx0959,Y,Pickens,1934,ok
+49R-Hx0959,Y,Pigg,1566,ok
+49R-Hx0959,Y,Price,1568,ok
+49R-Hx0959,Y,Proffer,1260,ok
+49R-Hx0959,Y,Pruett of Wise,1569,ok
+49R-Hx0959,Y,Ramsey,1570,ok
+49R-Hx0959,Y,Reader,1734,ok
+49R-Hx0959,Y,Reed,1470,ok
+49R-Hx0959,Y,Sadler,1195,ok
+49R-Hx0959,Y,Sellers,1235,ok
+49R-Hx0959,Y,Senterfitt,1237,ok
+49R-Hx0959,Y,Sharpe,1618,ok
+49R-Hx0959,Y,Simpson,1575,ok
+49R-Hx0959,Y,Smith of Bastrop,1588,ok
+49R-Hx0959,Y,Smith of Hays,1121,ok
+49R-Hx0959,Y,Smith of Jack,1353,ok
+49R-Hx0959,Y,Smith of Lubbock,1035,ok
+49R-Hx0959,Y,Smith of Jefferson,780,ok
+49R-Hx0959,Y,Spacek,1238,ok
+49R-Hx0959,Y,Sparks,1355,ok
+49R-Hx0959,Y,Storey,1124,ok
+49R-Hx0959,Y,Stubbs,1577,ok
+49R-Hx0959,Y,Miss Suiter,1360,ok
+49R-Hx0959,Y,Svadlenak,1240,ok
+49R-Hx0959,Y,Thomas,1364,ok
+49R-Hx0959,Y,Vale,1241,ok
+49R-Hx0959,Y,Ward,1190,ok
+49R-Hx0959,Y,Westbrook,1583,ok
+49R-Hx0959,Y,White,1938,ok
+49R-Hx0959,Y,Williams,1384,ok
+49R-Hx0959,Y,Winfree,1140,ok
+49R-Hx0959,Y,Wiseman,1388,ok
+49R-Hx0959,Y,Wood,1585,ok
+49R-Hx0959,Y,Yezak,1144,ok
+49R-Hx0959,N,Lansberry,1540,ok
+49R-Hx0959,N,Swanson,1361,ok
+49R-Hx0959,N,Walker,1580,ok
+49R-Hx0959,A,Calhoun,1911,ok
+49R-Hx0959,A,Celaya,1281,ok
+49R-Hx0959,A,Chambers,1008,ok
+49R-Hx0959,A,Coker,1503,ok
+49R-Hx0959,A,Duckett,1510,ok
+49R-Hx0959,A,Gandy,1300,ok
+49R-Hx0959,A,Green,1305,ok
+49R-Hx0959,A,Lee,1927,ok
+49R-Hx0959,A,Leyendecker,1543,ok
+49R-Hx0959,A,Parton,1565,ok
+49R-Hx0959,A,Peterman,1933,ok
+49R-Hx0959,A,Pruett of Travis,1935,ok
+49R-Hx0959,A,Rampy,1345,ok
+49R-Hx0959,A,Roark,1572,ok
+49R-Hx0959,A,Smith of Tarrant,1937,ok
+49R-Hx0959,E,Mrs. Fenley,1516,ok
+49R-Hx0959,E,Gardner,1301,ok
+49R-Hx0959,E,Hanna,1307,ok
+49R-Hx0959,E,Huddleston,1397,ok
+49R-Hx0959,E,McMurry,1552,ok
+49R-Hx0959,E,Nicholson,1563,ok
+49R-Hx0959,E,Read,1131,ok
+49R-Hx0959,E,Sallas,1349,ok
+49R-Hx0959,E,Voigt,1579,ok
+49R-Hx0959,E,Williamson,1382,ok
+49R-Hx0959,E,Woods,1939,ok
+563-Sx0070,Y,Aikin,350,ok
+563-Sx0070,Y,Bradshaw,998,ok
+563-Sx0070,Y,Colson,820,ok
+563-Sx0070,Y,Crump,821,ok
+563-Sx0070,Y,Dies,822,ok
+563-Sx0070,Y,Fly,964,ok
+563-Sx0070,Y,Fuller,965,ok
+563-Sx0070,Y,Gonzalez,1031,ok
+563-Sx0070,Y,Hazlewood,825,ok
+563-Sx0070,Y,Herring,699,ok
+563-Sx0070,Y,Kazen,856,ok
+563-Sx0070,Y,Krueger,857,ok
+563-Sx0070,Y,Lane,967,ok
+563-Sx0070,Y,Martin,970,ok
+563-Sx0070,Y,Moore,554,ok
+563-Sx0070,Y,Parkhouse,860,ok
+563-Sx0070,Y,Phillips,972,ok
+563-Sx0070,Y,Ratliff,711,ok
+563-Sx0070,Y,Reagan,861,ok
+563-Sx0070,Y,Rogers,863,ok
+563-Sx0070,Y,Secrest,974,ok
+563-Sx0070,Y,Smith,1035,ok
+563-Sx0070,Y,Weinert,978,ok
+563-Sx0070,Y,Willis,308,ok
+563-Sx0070,N,Baker,984,ok
+563-Sx0070,N,Hardeman,823,ok
+563-Sx0070,N,Owen,859,ok
+563-Sx0070,N,Roberts,1034,ok
+563-Sx0070,A,Wood,1037,ok
+563-Sx0070,E,Hudson,1033,ok
+563-Sx0070,E,Moffett,858,ok
+60R-Hx0254,Y,Abraham,755,ok
+60R-Hx0254,Y,Allen of Gregg,605,ok
+60R-Hx0254,Y,Allen of Harris,590,ok
+60R-Hx0254,Y,Allred,559,ok
+60R-Hx0254,Y,Archer,759,ok
+60R-Hx0254,Y,Armstrong,760,ok
+60R-Hx0254,Y,Atwell,606,ok
+60R-Hx0254,Y,Atwood,718,ok
+60R-Hx0254,Y,Barton,787,ok
+60R-Hx0254,Y,Bass of Bowie,788,ok
+60R-Hx0254,Y,Bass of Harris,721,ok
+60R-Hx0254,Y,Bass of Van Zandt,720,ok
+60R-Hx0254,Y,Beckham,722,ok
+60R-Hx0254,Y,Birkner,789,ok
+60R-Hx0254,Y,Blaine,791,ok
+60R-Hx0254,Y,Blanton,723,ok
+60R-Hx0254,Y,Braecklein,548,ok
+60R-Hx0254,Y,Braun,725,ok
+60R-Hx0254,Y,Bridges,703,ok
+60R-Hx0254,Y,Burgess,726,ok
+60R-Hx0254,Y,Cahoon,792,ok
+60R-Hx0254,Y,Cain,794,ok
+60R-Hx0254,Y,Caldwell,614,ok
+60R-Hx0254,Y,Calhoun,615,ok
+60R-Hx0254,Y,Carrillo,727,ok
+60R-Hx0254,Y,Cavness,682,ok
+60R-Hx0254,Y,Clark of Dallas,795,ok
+60R-Hx0254,Y,Clark of Harris,567,ok
+60R-Hx0254,Y,Clayton,501,ok
+60R-Hx0254,Y,Cole,618,ok
+60R-Hx0254,Y,Cory,796,ok
+60R-Hx0254,Y,Crews of Montgomery,797,ok
+60R-Hx0254,Y,Cruz of Harris,730,ok
+60R-Hx0254,Y,Cummings,798,ok
+60R-Hx0254,Y,Davis,799,ok
+60R-Hx0254,Y,Dickson,75,ok
+60R-Hx0254,Y,Doran,623,ok
+60R-Hx0254,Y,Dramberger,625,ok
+60R-Hx0254,Y,Duggan,800,ok
+60R-Hx0254,Y,Field,801,ok
+60R-Hx0254,Y,Finck,735,ok
+60R-Hx0254,Y,Finnell,129,ok
+60R-Hx0254,Y,Finney,628,ok
+60R-Hx0254,Y,Floyd of Bexar,736,ok
+60R-Hx0254,Y,Floyd of Harris,802,ok
+60R-Hx0254,Y,Fondren,803,ok
+60R-Hx0254,Y,Foreman,629,ok
+60R-Hx0254,Y,Garwood,804,ok
+60R-Hx0254,Y,George,805,ok
+60R-Hx0254,Y,Gladden,806,ok
+60R-Hx0254,Y,Graves,739,ok
+60R-Hx0254,Y,Haines of Brazos,809,ok
+60R-Hx0254,Y,Hale,595,ok
+60R-Hx0254,Y,Hand,811,ok
+60R-Hx0254,Y,Hannah,740,ok
+60R-Hx0254,Y,Harris,631,ok
+60R-Hx0254,Y,Hawkins,742,ok
+60R-Hx0254,Y,Haynes of Orange,743,ok
+60R-Hx0254,Y,Head,575,ok
+60R-Hx0254,Y,Heatly,513,ok
+60R-Hx0254,Y,Hendricks of Collin,576,ok
+60R-Hx0254,Y,Hendryx of Brewster,812,ok
+60R-Hx0254,Y,Hinson,813,ok
+60R-Hx0254,Y,Holland,814,ok
+60R-Hx0254,Y,Holmes,744,ok
+60R-Hx0254,Y,Howard,815,ok
+60R-Hx0254,Y,Hull,746,ok
+60R-Hx0254,Y,Johnson of Bell,824,ok
+60R-Hx0254,Y,Johnson of Bexar,748,ok
+60R-Hx0254,Y,Johnson of Harris,826,ok
+60R-Hx0254,Y,Jones of Lubbock,186,ok
+60R-Hx0254,Y,Jones of Taylor,339,ok
+60R-Hx0254,Y,Jungmichel,750,ok
+60R-Hx0254,Y,Kilpatrick,751,ok
+60R-Hx0254,Y,Knapp,827,ok
+60R-Hx0254,Y,Kohler,828,ok
+60R-Hx0254,Y,Ligarde,756,ok
+60R-Hx0254,Y,Lombardino,552,ok
+60R-Hx0254,Y,Longoria,553,ok
+60R-Hx0254,Y,Lovell,757,ok
+60R-Hx0254,Y,McDonald,643,ok
+60R-Hx0254,Y,McKissack,758,ok
+60R-Hx0254,Y,McLaughlin,830,ok
+60R-Hx0254,Y,Miller,831,ok
+60R-Hx0254,Y,Moore of Hill,762,ok
+60R-Hx0254,Y,Moore of Dallas,763,ok
+60R-Hx0254,Y,Moore of McLennan,765,ok
+60R-Hx0254,Y,Moreno,214,ok
+60R-Hx0254,Y,Moyer,832,ok
+60R-Hx0254,Y,Muniz,833,ok
+60R-Hx0254,Y,Murphy,834,ok
+60R-Hx0254,Y,Murray,650,ok
+60R-Hx0254,Y,Musgrove,835,ok
+60R-Hx0254,Y,Neugent of Galveston,769,ok
+60R-Hx0254,Y,Newman,836,ok
+60R-Hx0254,Y,Nowlin,522,ok
+60R-Hx0254,Y,Nugent of Kerr,653,ok
+60R-Hx0254,Y,Ogg,541,ok
+60R-Hx0254,Y,Orr,684,ok
+60R-Hx0254,Y,Parker,68,ok
+60R-Hx0254,Y,Peeler,837,ok
+60R-Hx0254,Y,Pendleton,838,ok
+60R-Hx0254,Y,Pickens,772,ok
+60R-Hx0254,Y,Pickett,839,ok
+60R-Hx0254,Y,Pipkin,840,ok
+60R-Hx0254,Y,Price,773,ok
+60R-Hx0254,Y,Rapp,842,ok
+60R-Hx0254,Y,Ratcliff,843,ok
+60R-Hx0254,Y,Richardson,845,ok
+60R-Hx0254,Y,Rosson,663,ok
+60R-Hx0254,Y,Salter,775,ok
+60R-Hx0254,Y,Santiesteban,323,ok
+60R-Hx0254,Y,Schiller,846,ok
+60R-Hx0254,Y,Schulle,776,ok
+60R-Hx0254,Y,Scoggins of Nueces,847,ok
+60R-Hx0254,Y,Scoggins of El Paso,669,ok
+60R-Hx0254,Y,Semos,527,ok
+60R-Hx0254,Y,"Shannon, Joe",848,ok
+60R-Hx0254,Y,"Shannon, Tommy",777,ok
+60R-Hx0254,Y,Sherman,670,ok
+60R-Hx0254,Y,Simpson,849,ok
+60R-Hx0254,Y,Slider,779,ok
+60R-Hx0254,Y,Smith,780,ok
+60R-Hx0254,Y,Solomon,781,ok
+60R-Hx0254,Y,Stewart,782,ok
+60R-Hx0254,Y,Stroud,783,ok
+60R-Hx0254,Y,Swanson,784,ok
+60R-Hx0254,Y,Tarbox,674,ok
+60R-Hx0254,Y,Thomas,850,ok
+60R-Hx0254,Y,Traeger,430,ok
+60R-Hx0254,Y,Vale,489,ok
+60R-Hx0254,Y,Vance,851,ok
+60R-Hx0254,Y,Vickery,852,ok
+60R-Hx0254,Y,Ward,785,ok
+60R-Hx0254,Y,Wayne,786,ok
+60R-Hx0254,Y,Weldon,853,ok
+60R-Hx0254,Y,Whatley,854,ok
+60R-Hx0254,Y,Wieting,532,ok
+60R-Hx0254,Y,Williams,431,ok
+60R-Hx0254,Y,Williamson,680,ok
+60R-Hx0254,Y,Wright,855,ok
+60R-Hx0254,A,Hairgrove,810,ok
+60R-Hx0254,A,Harding,741,ok
+60R-Hx0254,A,Jamison,818,ok
+60R-Hx0254,A,Ray,844,ok
+60R-Hx0254,E,Lockridge,829,ok
+60R-Hx0254,E,Mutscher,767,ok
+60R-Hx0254,E,Quilliam,841,ok
+60R-Hx0254,E,Slack,586,ok
+60R-Sx1247,Y,Aikin,350,ok
+60R-Sx1247,Y,Bates,700,ok
+60R-Sx1247,Y,Bernal,702,ok
+60R-Sx1247,Y,Berry,871,ok
+60R-Sx1247,Y,Blanchard,695,ok
+60R-Sx1247,Y,Brooks,74,ok
+60R-Sx1247,Y,Christie,704,ok
+60R-Sx1247,Y,Cole,819,ok
+60R-Sx1247,Y,Connally,705,ok
+60R-Sx1247,Y,Creighton,550,ok
+60R-Sx1247,Y,Grover,706,ok
+60R-Sx1247,Y,Hardeman,823,ok
+60R-Sx1247,Y,Harrington,603,ok
+60R-Sx1247,Y,Hazlewood,825,ok
+60R-Sx1247,Y,Herring,699,ok
+60R-Sx1247,Y,Hightower,696,ok
+60R-Sx1247,Y,Jordan,708,ok
+60R-Sx1247,Y,Mauzy,428,ok
+60R-Sx1247,Y,Moore,554,ok
+60R-Sx1247,Y,Parkhouse,860,ok
+60R-Sx1247,Y,Patman,555,ok
+60R-Sx1247,Y,Ratliff,711,ok
+60R-Sx1247,Y,Reagan,861,ok
+60R-Sx1247,Y,Schwartz,556,ok
+60R-Sx1247,Y,Strong,865,ok
+60R-Sx1247,Y,Wade,950,ok
+60R-Sx1247,Y,Watson,712,ok
+60R-Sx1247,Y,Wilson,713,ok
+60R-Sx1247,Y,Word,714,ok
+60R-Sx1247,E,Hall,707,ok
+60R-Sx1247,E,Kennard,709,ok
+63R-HT0311,Y,Allred,559,ok
+63R-HT0311,Y,Atwell,606,ok
+63R-HT0311,Y,Bailey,607,ok
+63R-HT0311,Y,Baker,591,ok
+63R-HT0311,Y,Bales,608,ok
+63R-HT0311,Y,Barnhart,610,ok
+63R-HT0311,Y,Bigham,592,ok
+63R-HT0311,Y,Blake,424,ok
+63R-HT0311,Y,Blythe,535,ok
+63R-HT0311,Y,Bock,495,ok
+63R-HT0311,Y,Bowers,612,ok
+63R-HT0311,Y,Bynum,613,ok
+63R-HT0311,Y,Calhoun,615,ok
+63R-HT0311,Y,Canales,616,ok
+63R-HT0311,Y,Cavness,682,ok
+63R-HT0311,Y,Clark,567,ok
+63R-HT0311,Y,Clayton,501,ok
+63R-HT0311,Y,Cobb,617,ok
+63R-HT0311,Y,Coleman,504,ok
+63R-HT0311,Y,Coody,445,ok
+63R-HT0311,Y,Craddick,109,ok
+63R-HT0311,Y,Donaldson,569,ok
+63R-HT0311,Y,Doran,623,ok
+63R-HT0311,Y,Doyle,624,ok
+63R-HT0311,Y,Dramberger,625,ok
+63R-HT0311,Y,Foreman,629,ok
+63R-HT0311,Y,Garcia,453,ok
+63R-HT0311,Y,Geiger,630,ok
+63R-HT0311,Y,Grant,573,ok
+63R-HT0311,Y,"Green, F.",574,ok
+63R-HT0311,Y,Hale,595,ok
+63R-HT0311,Y,"Hall, A.",597,ok
+63R-HT0311,Y,Hanna,469,ok
+63R-HT0311,Y,Harris,631,ok
+63R-HT0311,Y,Heatly,513,ok
+63R-HT0311,Y,Henderson,58,ok
+63R-HT0311,Y,Hendricks,576,ok
+63R-HT0311,Y,Hernandez,471,ok
+63R-HT0311,Y,Hilliard,633,ok
+63R-HT0311,Y,Hollowell,353,ok
+63R-HT0311,Y,Howard,425,ok
+63R-HT0311,Y,Hubenak,635,ok
+63R-HT0311,Y,Hutchison,636,ok
+63R-HT0311,Y,Johnson,79,ok
+63R-HT0311,Y,"Jones, L.",578,ok
+63R-HT0311,Y,Kubiak,301,ok
+63R-HT0311,Y,Laney,198,ok
+63R-HT0311,Y,Leland,683,ok
+63R-HT0311,Y,Lewis,363,ok
+63R-HT0311,Y,Lombardino,552,ok
+63R-HT0311,Y,McAlister,642,ok
+63R-HT0311,Y,"McDonald, F.",643,ok
+63R-HT0311,Y,"McDonald, T.",644,ok
+63R-HT0311,Y,Madla,41,ok
+63R-HT0311,Y,Martin,645,ok
+63R-HT0311,Y,Massey,583,ok
+63R-HT0311,Y,Mattox,646,ok
+63R-HT0311,Y,Miller,676,ok
+63R-HT0311,Y,Montoya,648,ok
+63R-HT0311,Y,Munson,649,ok
+63R-HT0311,Y,Murray,650,ok
+63R-HT0311,Y,Nabers,521,ok
+63R-HT0311,Y,Newton,651,ok
+63R-HT0311,Y,Nichols,652,ok
+63R-HT0311,Y,Nowlin,522,ok
+63R-HT0311,Y,"Parker, C.",68,ok
+63R-HT0311,Y,Pentony,656,ok
+63R-HT0311,Y,Poerner,657,ok
+63R-HT0311,Y,Poff,658,ok
+63R-HT0311,Y,Presnal,481,ok
+63R-HT0311,Y,Preston,660,ok
+63R-HT0311,Y,Ragsdale,461,ok
+63R-HT0311,Y,Reyes,585,ok
+63R-HT0311,Y,Reynolds,661,ok
+63R-HT0311,Y,Rodriguez,662,ok
+63R-HT0311,Y,Rosson,663,ok
+63R-HT0311,Y,Russell,664,ok
+63R-HT0311,Y,Sage,665,ok
+63R-HT0311,Y,Salem,666,ok
+63R-HT0311,Y,Scoggins,669,ok
+63R-HT0311,Y,Sherman,670,ok
+63R-HT0311,Y,Short,543,ok
+63R-HT0311,Y,Simmons,671,ok
+63R-HT0311,Y,Sutton,673,ok
+63R-HT0311,Y,Temple,596,ok
+63R-HT0311,Y,Thompson,243,ok
+63R-HT0311,Y,Tupper,675,ok
+63R-HT0311,Y,Uher,248,ok
+63R-HT0311,Y,Vale,489,ok
+63R-HT0311,Y,Vecchio,677,ok
+63R-HT0311,Y,Vick,689,ok
+63R-HT0311,Y,Washington,325,ok
+63R-HT0311,Y,Waters,599,ok
+63R-HT0311,Y,Watson,422,ok
+63R-HT0311,Y,Weddington,679,ok
+63R-HT0311,Y,Whitehead,600,ok
+63R-HT0311,Y,Wieting,532,ok
+63R-HT0311,Y,Williams,431,ok
+63R-HT0311,Y,Williamson,680,ok
+63R-HT0311,Y,Willis,308,ok
+63R-HT0311,Y,Wyatt,681,ok
+63R-HT0311,N,Adams,589,ok
+63R-HT0311,N,Boone,611,ok
+63R-HT0311,N,Cates,594,ok
+63R-HT0311,N,Cooke,619,ok
+63R-HT0311,N,Davis,506,ok
+63R-HT0311,N,Denton,622,ok
+63R-HT0311,N,Edwards,570,ok
+63R-HT0311,N,Finnell,129,ok
+63R-HT0311,N,Gaston,509,ok
+63R-HT0311,N,"Green, R.",77,ok
+63R-HT0311,N,Hoestenbach,634,ok
+63R-HT0311,N,Kaster,637,ok
+63R-HT0311,N,Korioth,638,ok
+63R-HT0311,N,"Parker, W.",655,ok
+63R-HT0311,N,Peveto,479,ok
+63R-HT0311,N,Powers,659,ok
+63R-HT0311,N,Semos,527,ok
+63R-HT0311,N,Von Dohlen,529,ok
+63R-HT0311,N,Wilson,546,ok
+63R-HT0311,P,Mr. Speaker,620,ok
+63R-HT0311,P,Denson,621,ok
+63R-HT0311,P,Evans,373,ok
+63R-HT0311,P,Head,575,ok
+63R-HT0311,P,"Jones, G.",558,ok
+63R-HT0311,P,Maloney,519,ok
+63R-HT0311,P,Olson,654,ok
+63R-HT0311,P,Schieffer,668,ok
+63R-HT0311,P,Sullivant,588,ok
+63R-HT0311,P,Truan,42,ok
+63R-HT0311,P,Whitmire,38,ok
+63R-HT0311,E,Bird,560,data has P
+63R-HT0311,E,Hudson,156,data has P
+63R-HT0311,E,Nugent,653,data has P
+63R-HT0311,E,Slack,586,ok
+63R-HT0311,E,Spurlock,672,not in data
+63R-HT0311,E,Tarbox,674,data has P
+63R-HT0311,A,Agnich,349,not in data
+63R-HT0311,A,Caldwell,614,not in data
+63R-HT0311,A,Cole,618,not in data
+63R-HT0311,A,Finney,628,not in data
+63R-HT0311,A,Fox,438,not in data
+63R-HT0311,A,Hawn,632,not in data
+63R-HT0311,A,Lary,639,not in data
+63R-HT0311,A,Lee,640,not in data
+63R-HT0311,A,Menefee,647,not in data
+63R-HT0311,A,Sanchez,667,not in data
+63R-HT0311,Y,"Allen, Joe",590,"ok, name shared"
+63R-HT0311,Y,"Allen, John",605,ok
+63R-HT0311,Y,"Hall, W.",442,ok
+67R-S1197,Y,Blake,424,ok
+67R-S1197,Y,Doggett,488,ok
+67R-S1197,Y,Farabee,333,ok
+67R-S1197,Y,Glasgow,76,ok
+67R-S1197,Y,Harris,67,ok
+67R-S1197,Y,Jones,339,ok
+67R-S1197,Y,Kothmann,426,ok
+67R-S1197,Y,Mauzy,428,ok
+67R-S1197,Y,McKnight,538,ok
+67R-S1197,Y,Meier,539,ok
+67R-S1197,Y,Mengden,540,ok
+67R-S1197,Y,Richards,542,ok
+67R-S1197,Y,Santiesteban,323,ok
+67R-S1197,Y,Sarpalius,345,ok
+67R-S1197,Y,Short,543,ok
+67R-S1197,Y,Snelson,544,ok
+67R-S1197,Y,Traeger,430,ok
+67R-S1197,Y,Travis,545,ok
+67R-S1197,Y,Truan,42,ok
+67R-S1197,Y,Uribe,324,ok
+67R-S1197,Y,Vale,489,ok
+67R-S1197,Y,Williams,431,ok
+67R-S1197,N,Howard,425,ok
+67R-S1197,N,Leedom,59,ok
+67R-S1197,A,Andujar,537,ok
+67R-S1197,A,Brooks,74,ok
+67R-S1197,A,Brown,40,ok
+67R-S1197,A,Caperton,319,ok
+67R-S1197,A,Ogg,541,ok
+67R-S1197,A,Parker,68,ok
+67R-S1197,A,Wilson,546,ok
+69R-H0483,Y,Adkisson,432,ok
+69R-H0483,Y,Armbrister,22,ok
+69R-H0483,Y,Arnold,433,ok
+69R-H0483,Y,Berlanga,70,ok
+69R-H0483,Y,Burnett,355,ok
+69R-H0483,Y,Bush,436,ok
+69R-H0483,Y,Cain,27,ok
+69R-H0483,Y,Carriker,269,ok
+69R-H0483,Y,Cavazos,317,ok
+69R-H0483,Y,Ceverha,359,ok
+69R-H0483,Y,Colbert,331,ok
+69R-H0483,Y,Collazo,332,ok
+69R-H0483,Y,Danburg,114,ok
+69R-H0483,Y,Delco,286,ok
+69R-H0483,Y,Denton,287,ok
+69R-H0483,Y,Dutton,123,ok
+69R-H0483,Y,Earley,289,ok
+69R-H0483,Y,Edwards,124,ok
+69R-H0483,Y,"Evans, C",373,ok
+69R-H0483,Y,"Evans, L",340,ok
+69R-H0483,Y,"Garcia, A",439,ok
+69R-H0483,Y,"Garcia, O",341,ok
+69R-H0483,Y,Gavin,342,ok
+69R-H0483,Y,Gibson,343,ok
+69R-H0483,Y,Gilley,440,ok
+69R-H0483,Y,Glossbrenner,344,ok
+69R-H0483,Y,Granoff,298,ok
+69R-H0483,Y,Green,77,ok
+69R-H0483,Y,Guerrero,346,ok
+69R-H0483,Y,Hackney,377,ok
+69R-H0483,Y,Haley,66,ok
+69R-H0483,Y,Hall,442,ok
+69R-H0483,Y,Hightower,147,ok
+69R-H0483,Y,"Hill, P",352,ok
+69R-H0483,Y,Hinojosa,179,ok
+69R-H0483,Y,"Hudson, D",354,ok
+69R-H0483,Y,"Hudson, S",156,ok
+69R-H0483,Y,Hury,356,ok
+69R-H0483,Y,"Johnson, C",378,ok
+69R-H0483,Y,Lee,457,ok
+69R-H0483,Y,Leonard,380,ok
+69R-H0483,Y,"Luna, A",364,ok
+69R-H0483,Y,"Luna, G",48,ok
+69R-H0483,Y,McDonald,272,ok
+69R-H0483,Y,Madla,41,ok
+69R-H0483,Y,Martinez,365,ok
+69R-H0483,Y,Melton,369,ok
+69R-H0483,Y,Messer,459,ok
+69R-H0483,Y,Millsap,381,ok
+69R-H0483,Y,Morales,370,ok
+69R-H0483,Y,"Moreno, A",371,ok
+69R-H0483,Y,"Moreno, P",214,ok
+69R-H0483,Y,Oliveira,221,ok
+69R-H0483,Y,Oliver,460,ok
+69R-H0483,Y,Patronella,383,ok
+69R-H0483,Y,Pennington,384,ok
+69R-H0483,Y,Perez,385,ok
+69R-H0483,Y,Pierce,387,ok
+69R-H0483,Y,Polumbo,388,ok
+69R-H0483,Y,Price,281,ok
+69R-H0483,Y,Ragsdale,461,ok
+69R-H0483,Y,Rangel,227,ok
+69R-H0483,Y,Richardson,390,ok
+69R-H0483,Y,Roberts,403,ok
+69R-H0483,Y,Robnett,394,ok
+69R-H0483,Y,Russell,406,ok
+69R-H0483,Y,Schlueter,395,ok
+69R-H0483,Y,Shaw,411,ok
+69R-H0483,Y,Short,462,ok
+69R-H0483,Y,"Smith, T",399,ok
+69R-H0483,Y,Stiles,299,ok
+69R-H0483,Y,Sutton,417,ok
+69R-H0483,Y,Tejeda,87,ok
+69R-H0483,Y,"Thompson, S",243,ok
+69R-H0483,Y,Toomey,419,ok
+69R-H0483,Y,Wallace,407,ok
+69R-H0483,Y,Williamson,302,ok
+69R-H0483,Y,Willis,308,ok
+69R-H0483,Y,Wilson,254,ok
+69R-H0483,Y,Wolens,257,ok
+69R-H0483,N,Agnich,349,ok
+69R-H0483,N,Barton,327,ok
+69R-H0483,N,Blackwood,294,ok
+69R-H0483,N,Blanton,434,ok
+69R-H0483,N,Buchanan,435,ok
+69R-H0483,N,Campbell,285,ok
+69R-H0483,N,Carter,89,ok
+69R-H0483,N,Clark,360,ok
+69R-H0483,N,Clemons,91,ok
+69R-H0483,N,Connelly,334,ok
+69R-H0483,N,Cooper,362,ok
+69R-H0483,N,Craddick,109,ok
+69R-H0483,N,Eckels,290,ok
+69R-H0483,N,Edge,338,ok
+69R-H0483,N,Emmett,437,ok
+69R-H0483,N,Finnell,129,ok
+69R-H0483,N,Fox,438,ok
+69R-H0483,N,Geistweidt,375,ok
+69R-H0483,N,Godwin,441,ok
+69R-H0483,N,Hammond,347,ok
+69R-H0483,N,"Harris, C",34,ok
+69R-H0483,N,"Harris, J",142,ok
+69R-H0483,N,Harrison,348,ok
+69R-H0483,N,Heflin,145,ok
+69R-H0483,N,Hilbert,148,ok
+69R-H0483,N,"Hill, A.",351,ok
+69R-H0483,N,Horn,154,ok
+69R-H0483,N,Jackson,455,ok
+69R-H0483,N,"Johnson, S.",357,ok
+69R-H0483,N,Jones,379,ok
+69R-H0483,N,Keller,456,ok
+69R-H0483,N,Kubiak,358,ok
+69R-H0483,N,Kuempel,197,ok
+69R-H0483,N,Laney,198,ok
+69R-H0483,N,"Lewis, R",200,ok
+69R-H0483,N,McKenna,458,ok
+69R-H0483,N,McKinney,367,ok
+69R-H0483,N,Parker,374,ok
+69R-H0483,N,Patrick,382,ok
+69R-H0483,N,Patterson,278,ok
+69R-H0483,N,Perry,386,ok
+69R-H0483,N,Riley,391,ok
+69R-H0483,N,Robinson,393,ok
+69R-H0483,N,Saunders,295,ok
+69R-H0483,N,Schoolcraft,396,ok
+69R-H0483,N,Shea,414,ok
+69R-H0483,N,"Smith, C",463,ok
+69R-H0483,N,Smithee,238,ok
+69R-H0483,N,Staniswalis,416,ok
+69R-H0483,N,Tallas,314,ok
+69R-H0483,N,Taylor,402,ok
+69R-H0483,N,Uher,248,ok
+69R-H0483,N,Valigura,405,ok
+69R-H0483,N,Vowell,316,ok
+69R-H0483,N,Waldrop,420,ok
+69R-H0483,N,Watson,422,ok
+69R-H0483,N,Whaley,423,ok
+69R-H0483,N,Willy,412,ok
+69R-H0483,N,Wright,413,ok
+69R-H0483,N,Yost,311,ok
+69R-H0483,P,Mr. Speaker,363,ok
+69R-H0483,P,Hollowell,353,ok
+69R-H0483,P,McWilliams,368,ok
+69R-H0483,P,Rudd,307,ok
+69R-H0483,Y,"Thompson, G. W",315,"ok, name shared"
+69R-H0483,N,"Smith, A",310,"ok, name shared"
+69R-H0483,N,"Smith, R",398,ok
+69R-H0483,N,"Thompson, G. E",464,ok
+72R-S0011,E,Glasgow,76,ok
+72R-S0011,E,Lyon,86,ok
+72R-S0011,E,Parker,68,ok
+72R-S0011,E,Whitmire,38,ok
+12R-Hx0736,Y,Mr. Speaker,4397,ok
+12R-Hx0736,Y,C. L. Abbott,4398,ok
+12R-Hx0736,Y,H. R. Allen,4404,ok
+12R-Hx0736,Y,Austin,4409,ok
+12R-Hx0736,Y,Burley,4414,ok
+12R-Hx0736,Y,Camp,4417,ok
+12R-Hx0736,Y,Cotton,4421,ok
+12R-Hx0736,Y,Davis,4426,ok
+12R-Hx0736,Y,Dorris,4427,ok
+12R-Hx0736,Y,Gardiner,4435,ok
+12R-Hx0736,Y,George,4437,ok
+12R-Hx0736,Y,Gaston,4436,ok
+12R-Hx0736,Y,Hamilton,4440,ok
+12R-Hx0736,Y,Jenkins,4446,ok
+12R-Hx0736,Y,Johnson,4447,ok
+12R-Hx0736,Y,Kyle,3203,ok
+12R-Hx0736,Y,Lacy,4506,ok
+12R-Hx0736,Y,Lane,4507,ok
+12R-Hx0736,Y,Leonard,4508,ok
+12R-Hx0736,Y,Lorance,4509,ok
+12R-Hx0736,Y,Lyons,4510,ok
+12R-Hx0736,Y,McLean,4513,ok
+12R-Hx0736,Y,Miller,4516,ok
+12R-Hx0736,Y,Mitchell,4517,ok
+12R-Hx0736,Y,Morris,4451,ok
+12R-Hx0736,Y,Mullens,4453,ok
+12R-Hx0736,Y,Patten,4454,ok
+12R-Hx0736,Y,Pierson,4455,ok
+12R-Hx0736,Y,Plumley,3991,ok
+12R-Hx0736,Y,Posey,4461,ok
+12R-Hx0736,Y,Robb,4467,ok
+12R-Hx0736,Y,Robertson,4468,ok
+12R-Hx0736,Y,Ross,4470,ok
+12R-Hx0736,Y,Schutze,4473,ok
+12R-Hx0736,Y,Self,4474,ok
+12R-Hx0736,Y,Shelburne,4475,ok
+12R-Hx0736,Y,Shoemaker,4478,ok
+12R-Hx0736,Y,Simmons,4479,ok
+12R-Hx0736,Y,Slaughter,4480,ok
+12R-Hx0736,Y,Spencer,4483,ok
+12R-Hx0736,Y,Stirman,4484,ok
+12R-Hx0736,Y,Tegener,4486,ok
+12R-Hx0736,Y,J. C. Weaver,4492,ok
+12R-Hx0736,Y,York,4496,ok
+12R-Hx0736,Y,Young,4497,ok
+12R-Hx0736,Y,Youngkin,4498,ok
+12R-Hx0736,N,Butler,4416,ok
+12R-Hx0736,N,Dupree,4428,ok
+12R-Hx0736,N,Harn,4441,ok
+12R-Hx0736,N,Kendall,4448,ok
+12R-Hx0736,N,Manning,4514,ok
+12R-Hx0736,N,Medlock,4515,ok
+12R-Hx0736,N,Morrison,4452,ok
+12R-Hx0736,N,Henry Moore,4449,ok
+12R-Hx0736,N,Prissick,4463,ok
+12R-Hx0736,N,Schlickum,4471,ok
+12R-Hx0736,N,Schlotman,4472,ok
+12R-Hx0736,N,Sheriff,4476,ok
+12R-Hx0736,N,Stockbridge,4485,ok
+12R-Hx0736,N,B. F. Williams,4193,ok
+12R-Hx0736,N,R. Williams,4495,ok
+12R-Hx0736,N,Zoeller,4500,ok
+12R-Hx0736,Y,R. Allen,4407,ok
+11R-Sx0212,Y,Braswell,4535,ok
+11R-Sx0212,Y,Blount,4533,ok
+11R-Sx0212,Y,Brown,4536,ok
+11R-Sx0212,Y,Burney,4537,ok
+11R-Sx0212,Y,Cook,4538,ok
+11R-Sx0212,Y,Cooley,4539,ok
+11R-Sx0212,Y,Coppedge,4540,ok
+11R-Sx0212,Y,Dalrymple,4541,ok
+11R-Sx0212,Y,Knox,4547,ok
+11R-Sx0212,Y,Littleton,4549,ok
+11R-Sx0212,Y,McDade,5151,ok
+11R-Sx0212,Y,Neyland,4552,ok
+11R-Sx0212,Y,Randolph,4554,ok
+11R-Sx0212,Y,Record,4555,ok
+11R-Sx0212,Y,Shannon,4047,ok
+11R-Sx0212,Y,Shelley,4559,ok
+11R-Sx0212,Y,Voigt,4562,ok
+11R-Sx0212,Y,Yarbro,4564,ok
+11R-Sx0212,N,Boyd,4534,ok
+11R-Sx0212,N,Bumpass,3511,ok
+11R-Sx0212,N,Foscue,4542,ok
+11R-Sx0212,N,Guinn,4545,ok
+11R-Sx0212,N,Jowers,4546,ok
+11R-Sx0212,N,Nelson,4551,ok
+11R-Sx0212,N,Reed,4556,ok
+11R-Sx0212,N,Saufley,4557,ok
+11R-Sx0212,N,Selman,4558,ok
+26R-Hx0404,Y,Bailey,2119,ok
+26R-Hx0404,Y,Beaty,3093,ok
+26R-Hx0404,Y,Bridgers,1495,ok
+26R-Hx0404,Y,Caldwell,3343,ok
+26R-Hx0404,Y,Childers,3344,ok
+26R-Hx0404,Y,Clements,3105,ok
+26R-Hx0404,Y,Cocke,3346,ok
+26R-Hx0404,Y,Cole,3347,ok
+26R-Hx0404,Y,Collins,3348,ok
+26R-Hx0404,Y,Crawford,3350,ok
+26R-Hx0404,Y,Cross,3351,ok
+26R-Hx0404,Y,Dies,3354,ok
+26R-Hx0404,Y,Eckols,3356,ok
+26R-Hx0404,Y,Garner,3360,ok
+26R-Hx0404,Y,Goodlett,3363,ok
+26R-Hx0404,Y,Gordon,3364,ok
+26R-Hx0404,Y,Howard,3370,ok
+26R-Hx0404,Y,Kennedy,2854,ok
+26R-Hx0404,Y,Little,3376,ok
+26R-Hx0404,Y,Masterson,2256,ok
+26R-Hx0404,Y,Maxwell,3384,ok
+26R-Hx0404,Y,McFarland,3381,ok
+26R-Hx0404,Y,McKamy,2860,ok
+26R-Hx0404,Y,McKellar,3383,ok
+26R-Hx0404,Y,Meitzen,3270,ok
+26R-Hx0404,Y,Mercer,3385,ok
+26R-Hx0404,Y,Murphy,3388,ok
+26R-Hx0404,Y,Palmer,3390,ok
+26R-Hx0404,Y,Phillips of Lampasas,3394,ok
+26R-Hx0404,Y,Poole,3397,ok
+26R-Hx0404,Y,Prince,3399,ok
+26R-Hx0404,Y,Ratcliff,3400,ok
+26R-Hx0404,Y,Robertson of Bell,3042,ok
+26R-Hx0404,Y,Russell,3294,ok
+26R-Hx0404,Y,Sansom,3460,ok
+26R-Hx0404,Y,Stripling,3463,ok
+26R-Hx0404,Y,Teagle,3466,ok
+26R-Hx0404,Y,Terrell,2069,ok
+26R-Hx0404,Y,Thomas of Fannin,3223,ok
+26R-Hx0404,Y,Tompkins,3451,ok
+26R-Hx0404,Y,Walton,3470,ok
+26R-Hx0404,Y,Wheless,3471,ok
+26R-Hx0404,Y,Willacy,2802,ok
+26R-Hx0404,Y,Willrodt,3472,ok
+26R-Hx0404,N,Adams,3337,ok
+26R-Hx0404,N,Allen of Hopkins,3338,ok
+26R-Hx0404,N,Bean,2298,ok
+26R-Hx0404,N,Browne,3101,ok
+26R-Hx0404,N,Calvin,2826,ok
+26R-Hx0404,N,Childs,3345,ok
+26R-Hx0404,N,Conoly,3349,ok
+26R-Hx0404,N,Derden,3353,ok
+26R-Hx0404,N,Evans,3358,ok
+26R-Hx0404,N,Goodman,2963,ok
+26R-Hx0404,N,Graham,3365,ok
+26R-Hx0404,N,Grubbs,3367,ok
+26R-Hx0404,N,Hamilton,3368,ok
+26R-Hx0404,N,Henderson of Lamar,3235,ok
+26R-Hx0404,N,Jones,3372,ok
+26R-Hx0404,N,Lillard,3375,ok
+26R-Hx0404,N,Livsey,3377,ok
+26R-Hx0404,N,Loyd,3379,ok
+26R-Hx0404,N,Marsh,3207,ok
+26R-Hx0404,N,McAnally,3380,ok
+26R-Hx0404,N,McClellan,3205,ok
+26R-Hx0404,N,Monroe,3386,ok
+26R-Hx0404,N,Morris,3238,ok
+26R-Hx0404,N,Morrow,3387,ok
+26R-Hx0404,N,Murray,2795,ok
+26R-Hx0404,N,Neff,3243,ok
+26R-Hx0404,N,Oliver,2796,ok
+26R-Hx0404,N,Pfeuffer,3393,ok
+26R-Hx0404,N,Powell,3398,ok
+26R-Hx0404,N,Robertson of Harrison,3401,ok
+26R-Hx0404,N,Savage,3241,ok
+26R-Hx0404,N,Scurry,3462,ok
+26R-Hx0404,N,Shannon,3219,ok
+26R-Hx0404,N,Shelburne,3461,ok
+26R-Hx0404,N,Shropshire,3459,ok
+26R-Hx0404,N,Staples,3333,ok
+26R-Hx0404,N,Tarkington,3304,ok
+26R-Hx0404,N,Thomas of Wise,3467,ok
+26R-Hx0404,N,Tucker,3468,ok
+26R-Hx0404,N,Vaughan,3469,ok
+26R-Hx0404,N,Wells,3455,ok
+26R-Hx0404,N,Wooten,3473,ok
+26R-Hx0404,A,Ayers,3339,ok
+26R-Hx0404,A,Barbee,3340,ok
+26R-Hx0404,A,Bolin,3247,ok
+26R-Hx0404,A,Chambers,3079,ok
+26R-Hx0404,A,Culp,2366,ok
+26R-Hx0404,A,Dean,3352,ok
+26R-Hx0404,A,Decker,3155,ok
+26R-Hx0404,A,Frost,3359,ok
+26R-Hx0404,A,Garrett,3361,ok
+26R-Hx0404,A,Greenwood,2691,ok
+26R-Hx0404,A,Grogan,3366,ok
+26R-Hx0404,A,Henderson of Brazos,3369,ok
+26R-Hx0404,A,Kittrell,2201,ok
+26R-Hx0404,A,Looney,3378,ok
+26R-Hx0404,A,Nolan,3389,ok
+26R-Hx0404,A,Parish,3391,ok
+26R-Hx0404,A,Pitts,3395,ok
+26R-Hx0404,A,Rochelle,2966,ok
+26R-Hx0404,A,Rogers,3402,ok
+26R-Hx0404,A,Smith of Collin,3440,ok
+26R-Hx0404,A,Stewart,3300,ok
+26R-Hx0404,A,Tarver,3289,ok
+26R-Hx0404,A,Tate,3465,ok
+26R-Hx0404,A,Wright,3474,ok
+26R-Hx0404,E,Allen of Colorado,2931,ok
+26R-Hx0404,E,Barrett,3341,ok
+26R-Hx0404,E,Bennett,3292,ok
+26R-Hx0404,E,Blount,3342,ok
+26R-Hx0404,E,Dorroh,3355,ok
+26R-Hx0404,E,Ellis,3357,ok
+26R-Hx0404,E,Gill,3362,ok
+26R-Hx0404,E,Hurley,3371,ok
+26R-Hx0404,E,Lake,3373,ok
+26R-Hx0404,E,Lane,3374,ok
+26R-Hx0404,E,McDowell,3382,ok
+26R-Hx0404,E,Peery,3392,ok
+26R-Hx0404,E,Phillips of Camp,3396,ok
+26R-Hx0404,E,Schluter,3297,ok
+26R-Hx0404,E,Sutherland,3464,ok
+161-Sx0022,Y,Blassingame,4284,ok
+161-Sx0022,Y,Brown,4285,ok
+161-Sx0022,Y,Buchanan,4022,ok
+161-Sx0022,Y,Burnett,4286,ok
+161-Sx0022,Y,Burton,4203,ok
+161-Sx0022,Y,Duncan,3111,ok
+161-Sx0022,Y,Edwards,4287,ok
+161-Sx0022,Y,Ford,4288,ok
+161-Sx0022,Y,Gooch,4030,ok
+161-Sx0022,Y,Grace,4289,ok
+161-Sx0022,Y,Guy,4290,ok
+161-Sx0022,Y,Hobby,4291,ok
+161-Sx0022,Y,Houston,4032,ok
+161-Sx0022,Y,Lair,4208,ok
+161-Sx0022,Y,Lane,4209,ok
+161-Sx0022,Y,Ledbetter,4292,ok
+161-Sx0022,Y,Martin,4212,ok
+161-Sx0022,Y,McCulloch,4294,ok
+161-Sx0022,Y,Moore,4295,ok
+161-Sx0022,Y,Motley,4296,ok
+161-Sx0022,Y,Shannon,4047,ok
+161-Sx0022,Y,Stewart,5579,ok
+161-Sx0022,Y,Storey,4298,ok
+161-Sx0022,Y,Street,4299,ok
+161-Sx0022,Y,Swain,4220,ok
+161-Sx0022,Y,Terrell,3222,ok
+161-Sx0022,Y,Tilson,4221,ok
+161-Sx0022,N,Davenport,4204,ok
+161-Sx0022,N,Homan,4207,ok
+161-Sx0022,N,Ripetoe,4297,ok
+161-Sx0022,A,Patton,4042,not in data
+41R-Hx0669,Y,Mr. Speaker,2125,ok
+41R-Hx0669,Y,Ackerman,2127,ok
+41R-Hx0669,Y,Anderson,1593,ok
+41R-Hx0669,Y,Baker,2130,ok
+41R-Hx0669,Y,Barnett,2132,ok
+41R-Hx0669,Y,Bateman,2133,ok
+41R-Hx0669,Y,Beck,1978,ok
+41R-Hx0669,Y,Bounds,1981,ok
+41R-Hx0669,Y,Bradley,1952,ok
+41R-Hx0669,Y,Carpenter,1987,ok
+41R-Hx0669,Y,Chastain,1966,ok
+41R-Hx0669,Y,Coltrin,1989,ok
+41R-Hx0669,Y,Conway,2134,ok
+41R-Hx0669,Y,Cox of Navarro,2135,ok
+41R-Hx0669,Y,Cox of Lamar,1990,ok
+41R-Hx0669,Y,Cox of Limestone,5539,ok
+41R-Hx0669,Y,Davis,2136,ok
+41R-Hx0669,Y,DeWolfe,1993,ok
+41R-Hx0669,Y,Dunlap,1936,ok
+41R-Hx0669,Y,Duvall,1829,ok
+41R-Hx0669,Y,Enderby,2138,ok
+41R-Hx0669,Y,Finlay,2140,ok
+41R-Hx0669,Y,Forbes,2001,ok
+41R-Hx0669,Y,Fuchs,1520,ok
+41R-Hx0669,Y,Gates,2141,ok
+41R-Hx0669,Y,Gerron,2142,ok
+41R-Hx0669,Y,Gilbert,2002,ok
+41R-Hx0669,Y,Giles,2003,ok
+41R-Hx0669,Y,Graves of Erath,2143,ok
+41R-Hx0669,Y,Harman,2009,ok
+41R-Hx0669,Y,Harper,2145,ok
+41R-Hx0669,Y,Harrison,2010,ok
+41R-Hx0669,Y,Hefley,2013,ok
+41R-Hx0669,Y,Hines,2015,ok
+41R-Hx0669,Y,Hogg,2147,ok
+41R-Hx0669,Y,Holder,2016,ok
+41R-Hx0669,Y,Hopkins,1642,ok
+41R-Hx0669,Y,Hornaday,2148,ok
+41R-Hx0669,Y,Johnson of Dimmit,2023,ok
+41R-Hx0669,Y,Johnson of Smith,2150,ok
+41R-Hx0669,Y,Jones,1778,ok
+41R-Hx0669,Y,Justiss,2026,ok
+41R-Hx0669,Y,Kayton,2027,ok
+41R-Hx0669,Y,Keeton,2152,ok
+41R-Hx0669,Y,Keller,2028,ok
+41R-Hx0669,Y,Kennedy,2029,ok
+41R-Hx0669,Y,Kincaid,2154,ok
+41R-Hx0669,Y,Kinnear,2155,ok
+41R-Hx0669,Y,Land,2156,ok
+41R-Hx0669,Y,Lee,2107,ok
+41R-Hx0669,Y,Long of Wichita,2035,ok
+41R-Hx0669,Y,Loy,1954,ok
+41R-Hx0669,Y,Mankin,2160,ok
+41R-Hx0669,Y,Martin,2043,ok
+41R-Hx0669,Y,Mauritz,2162,ok
+41R-Hx0669,Y,McCombs,2037,ok
+41R-Hx0669,Y,McGill,2039,ok
+41R-Hx0669,Y,McKean,2159,ok
+41R-Hx0669,Y,Minor,1971,ok
+41R-Hx0669,Y,Montgomery,2164,ok
+41R-Hx0669,Y,Mullally,2166,ok
+41R-Hx0669,Y,Murphy,2048,ok
+41R-Hx0669,Y,Negley,2167,ok
+41R-Hx0669,Y,Nicholson,1563,ok
+41R-Hx0669,Y,O'Neill,2168,ok
+41R-Hx0669,Y,Palmer,2169,ok
+41R-Hx0669,Y,Pavlica,2092,ok
+41R-Hx0669,Y,Petsch,1708,ok
+41R-Hx0669,Y,Pool,2170,ok
+41R-Hx0669,Y,Pope of Jones,2171,ok
+41R-Hx0669,Y,Pope of Nueces,1710,ok
+41R-Hx0669,Y,Prendergast,2172,ok
+41R-Hx0669,Y,Purl,1964,ok
+41R-Hx0669,Y,Quinn,1797,ok
+41R-Hx0669,Y,Ray,2053,ok
+41R-Hx0669,Y,Reader,1734,ok
+41R-Hx0669,Y,Reid,2173,ok
+41R-Hx0669,Y,Renfro,2174,ok
+41R-Hx0669,Y,Rountree,2177,ok
+41R-Hx0669,Y,Savage,2060,ok
+41R-Hx0669,Y,Shaver,2178,ok
+41R-Hx0669,Y,Shelton,2062,ok
+41R-Hx0669,Y,Sherrill,2063,ok
+41R-Hx0669,Y,Shipman,2179,ok
+41R-Hx0669,Y,Simmons,2180,ok
+41R-Hx0669,Y,Sinks,2181,ok
+41R-Hx0669,Y,Snelgrove,2183,ok
+41R-Hx0669,Y,Speck,2184,ok
+41R-Hx0669,Y,Stephens,2066,ok
+41R-Hx0669,Y,Stevenson,1808,ok
+41R-Hx0669,Y,Storey,1124,ok
+41R-Hx0669,Y,Tarwater,1747,ok
+41R-Hx0669,Y,Thurmond,2187,ok
+41R-Hx0669,Y,Turner,2072,ok
+41R-Hx0669,Y,Van Zandt,1591,ok
+41R-Hx0669,Y,Veatch,2074,ok
+41R-Hx0669,Y,Waddell,2189,ok
+41R-Hx0669,Y,Wallace,2190,ok
+41R-Hx0669,Y,Warwick,2076,ok
+41R-Hx0669,Y,Williams of Sabine,2195,ok
+41R-Hx0669,Y,Williams of Travis,2197,ok
+41R-Hx0669,Y,Young,2083,ok
+41R-Hx0669,P,Brice,1983,ok
+41R-Hx0669,A,Acker,2126,ok
+41R-Hx0669,A,Adkins,1974,ok
+41R-Hx0669,A,Baldwin,2131,ok
+41R-Hx0669,A,Brooks,1984,ok
+41R-Hx0669,A,Ewing,2139,ok
+41R-Hx0669,A,Eickenroht,2137,ok
+41R-Hx0669,A,Finn,1999,ok
+41R-Hx0669,A,Hardy,2008,ok
+41R-Hx0669,A,Harding,2144,ok
+41R-Hx0669,A,Heaton,2146,ok
+41R-Hx0669,A,Hubbard,2019,ok
+41R-Hx0669,A,Jenkins,2149,ok
+41R-Hx0669,A,Johnson of Scurry,2151,ok
+41R-Hx0669,A,Kemble,2153,ok
+41R-Hx0669,A,Kenyon,1781,ok
+41R-Hx0669,A,King,1537,ok
+41R-Hx0669,A,Lemens,1483,ok
+41R-Hx0669,A,Maynard,2163,ok
+41R-Hx0669,A,Mehl,2045,ok
+41R-Hx0669,A,Metcalfe,1486,ok
+41R-Hx0669,A,Moore,1857,ok
+41R-Hx0669,A,Morse,1561,ok
+41R-Hx0669,A,Mosely,2165,ok
+41R-Hx0669,A,Olsen,1706,ok
+41R-Hx0669,A,Patterson,2052,ok
+41R-Hx0669,A,Richardson,2054,ok
+41R-Hx0669,A,Rogers,2176,ok
+41R-Hx0669,A,Sanders,2058,ok
+41R-Hx0669,A,Smith,2182,ok
+41R-Hx0669,A,Strong,2185,ok
+41R-Hx0669,A,Tillotson,2188,ok
+41R-Hx0669,A,Westbrook,2080,ok
+41R-Hx0669,A,White,2194,ok
+41R-Hx0669,A,Wiggs,2081,ok
+41R-Hx0669,A,Woodall,2198,ok
+41R-Hx0669,A,Woodruff,1724,ok
+41R-Hx0669,E,Albritton,1977,ok
+41R-Hx0669,E,Avis,2129,ok
+41R-Hx0669,E,Bond,1493,ok
+41R-Hx0669,E,Graves of Williamson,1767,ok
+41R-Hx0669,E,Long of Houston,2157,ok
+41R-Hx0669,E,McDonald,2158,ok
+41R-Hx0669,E,Thompson,2186,ok
+41R-Hx0669,E,Walters,2191,ok
+41R-Hx0669,E,Webb,2193,ok
+41R-Hx0669,E,Williams of Hardin,2196,ok
+37R-Sx0518,Y,Bledsoe,2207,ok
+37R-Sx0518,Y,Carlock,2427,ok
+37R-Sx0518,Y,Clark,2385,ok
+37R-Sx0518,Y,Cousins,2209,ok
+37R-Sx0518,Y,Davidson,2429,ok
+37R-Sx0518,Y,Dorough,2430,ok
+37R-Sx0518,Y,Dudley,2386,ok
+37R-Sx0518,Y,Fairchild,2210,ok
+37R-Sx0518,Y,Floyd,1909,ok
+37R-Sx0518,Y,Harp,2415,ok
+37R-Sx0518,Y,Hertzberg,2433,ok
+37R-Sx0518,Y,Lewis,2211,ok
+37R-Sx0518,Y,McNealus,2413,ok
+37R-Sx0518,Y,Page,2411,ok
+37R-Sx0518,Y,Suiter,2438,ok
+37R-Sx0518,Y,Watts,2439,ok
+37R-Sx0518,Y,Witt,2124,ok
+37R-Sx0518,Y,Wood,2218,ok
+37R-Sx0518,N,Bailey,2119,ok
+37R-Sx0518,N,Baugh,2384,ok
+37R-Sx0518,N,Buchanan,2426,ok
+37R-Sx0518,N,Darwin,2428,ok
+37R-Sx0518,N,McMillin,2434,ok
+37R-Sx0518,N,Parr,1959,ok
+37R-Sx0518,N,Williams,2440,ok
+37R-Sx0518,N,Woods,2442,ok
+37R-Sx0518,A,Hall,2417,ok
+37R-Sx0518,A,Murphy,2290,ok
+37R-Sx0518,A,Richards,2410,ok
+37R-Sx0518,E,Rogers,2435,ok
+55R-Hx0392,Y,Atwell,606,ok
+55R-Hx0392,Y,Baker,984,ok
+55R-Hx0392,Y,Bartram,996,ok
+55R-Hx0392,Y,Bass,1038,ok
+55R-Hx0392,Y,Bell,989,ok
+55R-Hx0392,Y,Bowers,1040,ok
+55R-Hx0392,Y,Boysen,872,ok
+55R-Hx0392,Y,Burkett,1004,ok
+55R-Hx0392,Y,Byrd,1042,ok
+55R-Hx0392,Y,Cowen,1018,ok
+55R-Hx0392,Y,Day,1046,ok
+55R-Hx0392,Y,de la Garza,890,ok
+55R-Hx0392,Y,Ehrle,1047,ok
+55R-Hx0392,Y,Ferrell,1030,ok
+55R-Hx0392,Y,Ford,1048,ok
+55R-Hx0392,Y,Foreman,629,ok
+55R-Hx0392,Y,Forsyth,1049,ok
+55R-Hx0392,Y,Green,901,ok
+55R-Hx0392,Y,Heatly,513,ok
+55R-Hx0392,Y,Hensley,1054,ok
+55R-Hx0392,Y,Holman,1055,ok
+55R-Hx0392,Y,Holstein,1056,ok
+55R-Hx0392,Y,Hooks,1057,ok
+55R-Hx0392,Y,Hosey,1058,ok
+55R-Hx0392,Y,Huffman,1060,ok
+55R-Hx0392,Y,Huffor,1061,ok
+55R-Hx0392,Y,Hughes of Dallas,907,ok
+55R-Hx0392,Y,Hutchins,1063,ok
+55R-Hx0392,Y,Jamison,818,ok
+55R-Hx0392,Y,Jones,1066,ok
+55R-Hx0392,Y,Kennard,709,ok
+55R-Hx0392,Y,Kilpatrick,751,ok
+55R-Hx0392,Y,Koliba,913,ok
+55R-Hx0392,Y,Kothmann,426,ok
+55R-Hx0392,Y,Latimer,1071,ok
+55R-Hx0392,Y,Laurel,1072,ok
+55R-Hx0392,Y,McDonald,1079,ok
+55R-Hx0392,Y,McGregor of El Paso,921,ok
+55R-Hx0392,Y,Mann,1074,ok
+55R-Hx0392,Y,Moore of Harris,1091,ok
+55R-Hx0392,Y,Moore of Tarrant,1092,ok
+55R-Hx0392,Y,Murray,650,ok
+55R-Hx0392,Y,Oliver,1095,ok
+55R-Hx0392,Y,Parish,1097,ok
+55R-Hx0392,Y,Parsons,1098,ok
+55R-Hx0392,Y,Patterson,1099,ok
+55R-Hx0392,Y,Pool,1100,ok
+55R-Hx0392,Y,Pressler,1101,ok
+55R-Hx0392,Y,Puckett,1102,ok
+55R-Hx0392,Y,Russell,1106,ok
+55R-Hx0392,Y,Sadler,1107,ok
+55R-Hx0392,Y,Sandahl,1108,ok
+55R-Hx0392,Y,Sanders,1109,ok
+55R-Hx0392,Y,Saul,1110,ok
+55R-Hx0392,Y,Schram,1112,ok
+55R-Hx0392,Y,Shannon of Erath,1117,ok
+55R-Hx0392,Y,Shannon of Tarrant,777,ok
+55R-Hx0392,Y,Sheridan,1119,ok
+55R-Hx0392,Y,Smith of Hays,1121,ok
+55R-Hx0392,Y,Smith of Jefferson,780,ok
+55R-Hx0392,Y,Spilman,1122,ok
+55R-Hx0392,Y,Storey,1124,ok
+55R-Hx0392,Y,Strickland,1125,ok
+55R-Hx0392,Y,Terrell,1130,ok
+55R-Hx0392,Y,Thurmond,1132,ok
+55R-Hx0392,Y,Tunnell,944,ok
+55R-Hx0392,Y,Watson,712,ok
+55R-Hx0392,Y,Wilson of Potter,1139,ok
+55R-Hx0392,Y,Winfree,1140,ok
+55R-Hx0392,Y,Woolsey,1143,ok
+55R-Hx0392,N,Anderson,981,ok
+55R-Hx0392,N,Armor,983,ok
+55R-Hx0392,N,Ballman,960,ok
+55R-Hx0392,N,Bishop,997,ok
+55R-Hx0392,N,Blanchard,695,ok
+55R-Hx0392,N,Bristow,1001,ok
+55R-Hx0392,N,Bullock,1041,ok
+55R-Hx0392,N,Chapman,880,ok
+55R-Hx0392,N,Cline,1044,ok
+55R-Hx0392,N,Cloud,1011,ok
+55R-Hx0392,N,Conley,1045,ok
+55R-Hx0392,N,Cory,796,ok
+55R-Hx0392,N,Cotten,884,ok
+55R-Hx0392,N,Cox,1020,ok
+55R-Hx0392,N,Dewey,1024,ok
+55R-Hx0392,N,Miss Duff,1025,ok
+55R-Hx0392,N,Dungan,892,ok
+55R-Hx0392,N,Elliott,1027,ok
+55R-Hx0392,N,Ellis,1028,ok
+55R-Hx0392,N,Fenoglio,1029,ok
+55R-Hx0392,N,Glass,1050,ok
+55R-Hx0392,N,Glusing,1051,ok
+55R-Hx0392,N,Hale,595,ok
+55R-Hx0392,N,Harrington,603,ok
+55R-Hx0392,N,Heflin,1052,ok
+55R-Hx0392,N,Hollowell,353,ok
+55R-Hx0392,N,Huebner,1059,ok
+55R-Hx0392,N,Hughes of Grayson,1062,ok
+55R-Hx0392,N,Miss Isaacks,908,ok
+55R-Hx0392,N,Jackson,1064,ok
+55R-Hx0392,N,Johnson,910,ok
+55R-Hx0392,N,Joseph,1067,ok
+55R-Hx0392,N,Kelly,1068,ok
+55R-Hx0392,N,Kennedy,1069,ok
+55R-Hx0392,N,Korioth,1070,ok
+55R-Hx0392,N,Lee,1073,ok
+55R-Hx0392,N,McCoppin,1078,ok
+55R-Hx0392,N,McGregor of McLennan,1089,ok
+55R-Hx0392,N,McIlhany,922,ok
+55R-Hx0392,N,Matthew,1076,ok
+55R-Hx0392,N,Mullen,1093,ok
+55R-Hx0392,N,Myatt,1094,ok
+55R-Hx0392,N,Osborn,1096,ok
+55R-Hx0392,N,Pipkin,840,ok
+55R-Hx0392,N,Seeligson,1114,ok
+55R-Hx0392,N,Shackelford,1115,ok
+55R-Hx0392,N,Shaw,1118,ok
+55R-Hx0392,N,Sherrill,1120,ok
+55R-Hx0392,N,Springer,1123,ok
+55R-Hx0392,N,Stewart,782,ok
+55R-Hx0392,N,Stroman,1126,ok
+55R-Hx0392,N,Sudderth,1127,ok
+55R-Hx0392,N,Sutton,1128,ok
+55R-Hx0392,N,Talasek,1129,ok
+55R-Hx0392,N,Turman,1133,ok
+55R-Hx0392,N,Walling,1134,ok
+55R-Hx0392,N,Welch,1135,ok
+55R-Hx0392,N,Wheeler,1136,ok
+55R-Hx0392,N,White,1137,ok
+55R-Hx0392,N,Wilson of Young,1138,ok
+55R-Hx0392,N,Yezak,1144,ok
+55R-Hx0392,N,Zbranek,1145,ok
+55R-Hx0392,P,Roberts,1105,ok
+55R-Hx0392,P,Martin,1075,ok
+52R-Sx0137,Y,Aikin,350,ok
+52R-Sx0137,Y,Ashley,961,ok
+52R-Sx0137,Y,Bell,1192,ok
+52R-Sx0137,Y,Bracewell,962,ok
+52R-Sx0137,Y,Carney,1249,ok
+52R-Sx0137,Y,Carter,1269,ok
+52R-Sx0137,Y,Colson,820,ok
+52R-Sx0137,Y,Corbin,963,ok
+52R-Sx0137,Y,Fuller,965,ok
+52R-Sx0137,Y,Hardeman,823,ok
+52R-Sx0137,Y,Hazlewood,825,ok
+52R-Sx0137,Y,Hudson,1278,ok
+52R-Sx0137,Y,Kelly of Tarrant,1255,ok
+52R-Sx0137,Y,Lane,967,ok
+52R-Sx0137,Y,Lock,969,ok
+52R-Sx0137,Y,Martin,970,ok
+52R-Sx0137,Y,Moffett,858,ok
+52R-Sx0137,Y,Moore,554,ok
+52R-Sx0137,Y,Nokes,1340,ok
+52R-Sx0137,Y,Parkhouse,860,ok
+52R-Sx0137,Y,Phillips,972,ok
+52R-Sx0137,Y,Russell,1193,ok
+52R-Sx0137,Y,Shofner,1369,ok
+52R-Sx0137,Y,Strauss,976,ok
+52R-Sx0137,Y,Tynan,1265,ok
+52R-Sx0137,Y,Vick,1266,ok
+52R-Sx0137,Y,Wagonseller,977,ok
+52R-Sx0137,Y,Weinert,978,ok
+52R-Sx0137,A,Kelley of Hidalgo,966,ok
+52R-Sx0137,E,Bullock,1248,ok
+52R-Sx0137,E,McDonald,971,ok
+58R-Hx0479,Y,Adams,866,ok
+58R-Hx0479,Y,Arledge,868,ok
+58R-Hx0479,Y,Atwell,606,ok
+58R-Hx0479,Y,Ball,869,ok
+58R-Hx0479,Y,Barnes,761,ok
+58R-Hx0479,Y,Bass of Bowie,788,ok
+58R-Hx0479,Y,Bass of Harris,721,ok
+58R-Hx0479,Y,Beckham,722,ok
+58R-Hx0479,Y,Berry,871,ok
+58R-Hx0479,Y,Birkner,789,ok
+58R-Hx0479,Y,Blaine,791,ok
+58R-Hx0479,Y,Boysen,872,ok
+58R-Hx0479,Y,Bridges,703,ok
+58R-Hx0479,Y,Brooks,74,ok
+58R-Hx0479,Y,Brown of Galveston,873,ok
+58R-Hx0479,Y,Butler,875,ok
+58R-Hx0479,Y,Cain,794,ok
+58R-Hx0479,Y,Caldwell,614,ok
+58R-Hx0479,Y,Canales,876,ok
+58R-Hx0479,Y,Carpenter,878,ok
+58R-Hx0479,Y,Carriker,879,ok
+58R-Hx0479,Y,Cavness,682,ok
+58R-Hx0479,Y,Chapman,880,ok
+58R-Hx0479,Y,Cherry,881,ok
+58R-Hx0479,Y,Clayton,501,ok
+58R-Hx0479,Y,Cole,618,ok
+58R-Hx0479,Y,Collins,882,ok
+58R-Hx0479,Y,Cook,883,ok
+58R-Hx0479,Y,Cowles,887,ok
+58R-Hx0479,Y,Crews,797,ok
+58R-Hx0479,Y,Davis,889,ok
+58R-Hx0479,Y,de la Garza,890,ok
+58R-Hx0479,Y,Doke,891,ok
+58R-Hx0479,Y,Duggan,800,ok
+58R-Hx0479,Y,Dungan,892,ok
+58R-Hx0479,Y,Eckhardt,893,ok
+58R-Hx0479,Y,Edwards,894,ok
+58R-Hx0479,Y,Esquivel,895,ok
+58R-Hx0479,Y,Fairchild,896,ok
+58R-Hx0479,Y,Finney,628,ok
+58R-Hx0479,Y,Fletcher,897,ok
+58R-Hx0479,Y,Floyd,802,ok
+58R-Hx0479,Y,Fondren,803,ok
+58R-Hx0479,Y,Foreman,629,ok
+58R-Hx0479,Y,Garrison,898,ok
+58R-Hx0479,Y,Gibbens,899,ok
+58R-Hx0479,Y,Gladden,806,ok
+58R-Hx0479,Y,Glenn,900,ok
+58R-Hx0479,Y,Green,901,ok
+58R-Hx0479,Y,Grover,706,ok
+58R-Hx0479,Y,Guffey,902,ok
+58R-Hx0479,Y,Haines of Brazos,809,ok
+58R-Hx0479,Y,Hallmark,903,ok
+58R-Hx0479,Y,Harding,741,ok
+58R-Hx0479,Y,Haring,904,ok
+58R-Hx0479,Y,Harris of Galveston,631,ok
+58R-Hx0479,Y,Harris of Dallas,67,ok
+58R-Hx0479,Y,Haynes of Orange,743,ok
+58R-Hx0479,Y,Heatly,513,ok
+58R-Hx0479,Y,Hendryx,812,ok
+58R-Hx0479,Y,Hinson,813,ok
+58R-Hx0479,Y,Hollowell,353,ok
+58R-Hx0479,Y,Houston,906,ok
+58R-Hx0479,Y,Hughes,907,ok
+58R-Hx0479,Y,Isaacks,908,ok
+58R-Hx0479,Y,Jamison,818,ok
+58R-Hx0479,Y,Jarvis,909,ok
+58R-Hx0479,Y,Johnson of Dallas,910,ok
+58R-Hx0479,Y,Johnson of Bexar,748,ok
+58R-Hx0479,Y,Kilpatrick,751,ok
+58R-Hx0479,Y,Klager,912,ok
+58R-Hx0479,Y,Knapp,827,ok
+58R-Hx0479,Y,Koliba,913,ok
+58R-Hx0479,Y,Kothmann,426,ok
+58R-Hx0479,Y,Lack,914,ok
+58R-Hx0479,Y,Ligarde,756,ok
+58R-Hx0479,Y,McClinton,919,ok
+58R-Hx0479,Y,McDonald of Hidalgo,643,ok
+58R-Hx0479,Y,McDonald of Rusk,920,ok
+58R-Hx0479,Y,McGregor,921,ok
+58R-Hx0479,Y,McIlhany,922,ok
+58R-Hx0479,Y,McLaughlin,830,ok
+58R-Hx0479,Y,McNutt,923,ok
+58R-Hx0479,Y,Macatee,916,ok
+58R-Hx0479,Y,Mann,917,ok
+58R-Hx0479,Y,Markgraf,918,ok
+58R-Hx0479,Y,Morgan,925,ok
+58R-Hx0479,Y,Moyer,832,ok
+58R-Hx0479,Y,Murray,650,ok
+58R-Hx0479,Y,Niemeyer,926,ok
+58R-Hx0479,Y,Nugent,653,ok
+58R-Hx0479,Y,Parker,68,ok
+58R-Hx0479,Y,Parmer,322,ok
+58R-Hx0479,Y,Parsley,927,ok
+58R-Hx0479,Y,Peeler,837,ok
+58R-Hx0479,Y,Pendleton,838,ok
+58R-Hx0479,Y,Petty,929,ok
+58R-Hx0479,Y,Pipkin,840,ok
+58R-Hx0479,Y,Price,773,ok
+58R-Hx0479,Y,Quilliam,841,ok
+58R-Hx0479,Y,Rapp,842,ok
+58R-Hx0479,Y,Richards,930,ok
+58R-Hx0479,Y,Richardson,845,ok
+58R-Hx0479,Y,Ritter,931,ok
+58R-Hx0479,Y,Roberts,932,ok
+58R-Hx0479,Y,Rosson,663,ok
+58R-Hx0479,Y,Satterwhite,933,ok
+58R-Hx0479,Y,Schiller,846,ok
+58R-Hx0479,Y,Scoggins,847,ok
+58R-Hx0479,Y,Segrest,935,ok
+58R-Hx0479,Y,Shannon,777,ok
+58R-Hx0479,Y,Shipley,936,ok
+58R-Hx0479,Y,Shutt,937,ok
+58R-Hx0479,Y,Simpson,849,ok
+58R-Hx0479,Y,Slack,586,ok
+58R-Hx0479,Y,Smith of Bexar,939,ok
+58R-Hx0479,Y,Smith of Jefferson,780,ok
+58R-Hx0479,Y,Stewart,782,ok
+58R-Hx0479,Y,Thompson,941,ok
+58R-Hx0479,Y,Thurmond,942,ok
+58R-Hx0479,Y,Townsend,943,ok
+58R-Hx0479,Y,Traeger,430,ok
+58R-Hx0479,Y,Walker,945,ok
+58R-Hx0479,Y,Ward,785,ok
+58R-Hx0479,Y,Weldon,853,ok
+58R-Hx0479,Y,Wells,946,ok
+58R-Hx0479,Y,Wheeler,947,ok
+58R-Hx0479,Y,Whitfield,948,ok
+58R-Hx0479,Y,Wieting,532,ok
+58R-Hx0479,Y,Wilson,713,ok
+58R-Hx0479,Y,Woods,949,ok
+58R-Hx0479,N,Allen,605,ok
+58R-Hx0479,N,Brown of Taylor,874,ok
+58R-Hx0479,N,Cotten,884,ok
+58R-Hx0479,N,Coughran,885,ok
+58R-Hx0479,N,Crain,888,ok
+58R-Hx0479,N,Hefton,905,ok
+58R-Hx0479,N,Miller,924,ok
+58R-Hx0479,N,Slider,779,ok
+58R-Hx0479,N,Stollenwerck,940,ok
+58R-Hx0479,A,Alaniz,867,ok
+58R-Hx0479,A,Banfield,870,ok
+58R-Hx0479,A,Cowden,886,ok
+58R-Hx0479,A,Mutscher,767,ok
+58R-Hx0479,A,Pearcy,928,ok
+58R-Hx0479,A,Rodriguez,662,ok
+58R-Hx0479,A,Whatley,854,ok
+58R-Hx0479,E,Cannon,877,ok
+58R-Hx0479,E,Cory,796,ok
+57R-Sx1129,Y,Aikin,350,ok
+57R-Sx1129,Y,Baker,984,ok
+57R-Sx1129,Y,Calhoun,817,ok
+57R-Sx1129,Y,Creighton,550,ok
+57R-Sx1129,Y,Crump,821,ok
+57R-Sx1129,Y,Dies,822,ok
+57R-Sx1129,Y,Fuller,965,ok
+57R-Sx1129,Y,Gonzalez,1031,ok
+57R-Sx1129,Y,Hardeman,823,ok
+57R-Sx1129,Y,Herring,699,ok
+57R-Sx1129,Y,Hudson,1033,ok
+57R-Sx1129,Y,Kazen,856,ok
+57R-Sx1129,Y,Krueger,857,ok
+57R-Sx1129,Y,Lane,967,ok
+57R-Sx1129,Y,Martin,970,ok
+57R-Sx1129,Y,Moffett,858,ok
+57R-Sx1129,Y,Moore,554,ok
+57R-Sx1129,Y,Owen,859,ok
+57R-Sx1129,Y,Parkhouse,860,ok
+57R-Sx1129,Y,Patman,555,ok
+57R-Sx1129,Y,Ratliff,711,ok
+57R-Sx1129,Y,Reagan,861,ok
+57R-Sx1129,Y,Roberts,1034,ok
+57R-Sx1129,Y,Rogers,863,ok
+57R-Sx1129,Y,Schwartz,556,ok
+57R-Sx1129,Y,Secrest,974,ok
+57R-Sx1129,Y,Smith,1035,ok
+57R-Sx1129,Y,Weinert,978,ok
+57R-Sx1129,N,Willis,308,ok
+57R-Sx1129,E,Colson,820,ok
+57R-Sx1129,E,Hazlewood,825,ok
+65R-S0423,E,Clower,549,ok
+73R-H0311,Y,Alexander,71,ok
+73R-H0311,Y,Alonzo,73,ok
+73R-H0311,Y,Alvarado,81,ok
+73R-H0311,Y,Bailey,97,ok
+73R-H0311,Y,Berlanga,70,ok
+73R-H0311,Y,Black,84,ok
+73R-H0311,Y,Bomer,85,ok
+73R-H0311,Y,Bosse,98,ok
+73R-H0311,Y,Cain,27,ok
+73R-H0311,Y,Clemons,91,ok
+73R-H0311,Y,Coleman,92,ok
+73R-H0311,Y,Conley,94,ok
+73R-H0311,Y,Counts,106,ok
+73R-H0311,Y,"Cuellar, H",111,ok
+73R-H0311,Y,Danburg,114,ok
+73R-H0311,Y,Davila,115,ok
+73R-H0311,Y,Davis,116,ok
+73R-H0311,Y,De La Garza,117,ok
+73R-H0311,Y,Dear,118,ok
+73R-H0311,Y,Delco,286,ok
+73R-H0311,Y,Denton,287,ok
+73R-H0311,Y,Dutton,123,ok
+73R-H0311,Y,Earley,289,ok
+73R-H0311,Y,Edwards,124,ok
+73R-H0311,Y,Finnell,129,ok
+73R-H0311,Y,Flores,293,ok
+73R-H0311,Y,Gallego,130,ok
+73R-H0311,Y,Gallegos,30,ok
+73R-H0311,Y,Giddings,131,ok
+73R-H0311,Y,Glaze,132,ok
+73R-H0311,Y,Granoff,298,ok
+73R-H0311,Y,Gray,136,ok
+73R-H0311,Y,Greenberg,137,ok
+73R-H0311,Y,Gutierrez,139,ok
+73R-H0311,Y,Hernandez,146,ok
+73R-H0311,Y,Hightower,147,ok
+73R-H0311,Y,Hirschi,151,ok
+73R-H0311,Y,Hochberg,152,ok
+73R-H0311,Y,Hudson,156,ok
+73R-H0311,Y,"Hunter, T",158,ok
+73R-H0311,Y,Johnson,160,ok
+73R-H0311,Y,"Jones, J",188,ok
+73R-H0311,Y,Kubiak,301,ok
+73R-H0311,Y,Linebarger,303,ok
+73R-H0311,Y,Longoria,201,ok
+73R-H0311,Y,Luna,202,ok
+73R-H0311,Y,Martin,304,ok
+73R-H0311,Y,Maxey,206,ok
+73R-H0311,Y,McCoulskey,271,ok
+73R-H0311,Y,McDonald,272,ok
+73R-H0311,Y,Moreno,214,ok
+73R-H0311,Y,Munoz,274,ok
+73R-H0311,Y,Naishtat,217,ok
+73R-H0311,Y,Nieto,305,ok
+73R-H0311,Y,Oakley,275,ok
+73R-H0311,Y,Oliveira,221,ok
+73R-H0311,Y,Patterson,278,ok
+73R-H0311,Y,Place,280,ok
+73R-H0311,Y,Price,281,ok
+73R-H0311,Y,Puente,225,ok
+73R-H0311,Y,Ramsay,226,ok
+73R-H0311,Y,Rangel,227,ok
+73R-H0311,Y,Raymond,228,ok
+73R-H0311,Y,Rodriguez,284,ok
+73R-H0311,Y,Romo,288,ok
+73R-H0311,Y,Sadler,232,ok
+73R-H0311,Y,Saunders,295,ok
+73R-H0311,Y,Seidlits,296,ok
+73R-H0311,Y,Solis,239,ok
+73R-H0311,Y,Telford,261,ok
+73R-H0311,Y,"Thompson, G",315,ok
+73R-H0311,Y,"Thompson, S",243,ok
+73R-H0311,Y,"Turner, B",246,ok
+73R-H0311,Y,"Turner, S",247,ok
+73R-H0311,Y,Van de Putte,64,ok
+73R-H0311,Y,Williamson,302,ok
+73R-H0311,Y,Willis,308,ok
+73R-H0311,Y,Wilson,254,ok
+73R-H0311,Y,Wolens,257,ok
+73R-H0311,Y,Yarbrough,259,ok
+73R-H0311,Y,Zbranek,260,ok
+73R-H0311,N,Allen,72,ok
+73R-H0311,N,Averitt,82,ok
+73R-H0311,N,Brady,102,ok
+73R-H0311,N,Brimer,103,ok
+73R-H0311,N,Campbell,285,ok
+73R-H0311,N,Carter,89,ok
+73R-H0311,N,Chisum,90,ok
+73R-H0311,N,Combs,93,ok
+73R-H0311,N,Cook,95,ok
+73R-H0311,N,Crabb,107,ok
+73R-H0311,N,Craddick,109,ok
+73R-H0311,N,Culberson,113,ok
+73R-H0311,N,Delisi,119,ok
+73R-H0311,N,Driver,121,ok
+73R-H0311,N,Duncan,50,ok
+73R-H0311,N,Eckels,290,ok
+73R-H0311,N,Erickson,292,ok
+73R-H0311,N,Goodman,133,ok
+73R-H0311,N,Goolsby,134,ok
+73R-H0311,N,Grusendorf,138,ok
+73R-H0311,N,Hamric,141,ok
+73R-H0311,N,Hartnett,143,ok
+73R-H0311,N,Heflin,145,ok
+73R-H0311,N,Hilbert,148,ok
+73R-H0311,N,Hilderbran,149,ok
+73R-H0311,N,Hill,150,ok
+73R-H0311,N,Holzheauser,153,ok
+73R-H0311,N,Horn,154,ok
+73R-H0311,N,"Hunter, B.",157,ok
+73R-H0311,N,Jackson,35,ok
+73R-H0311,N,"Jones, D",186,ok
+73R-H0311,N,Kamel,267,ok
+73R-H0311,N,Krusee,196,ok
+73R-H0311,N,Madden,203,ok
+73R-H0311,N,McCall,207,ok
+73R-H0311,N,Moffat,273,ok
+73R-H0311,N,Mowery,216,ok
+73R-H0311,N,Ogden,29,ok
+73R-H0311,N,Park,277,ok
+73R-H0311,N,Pitts,224,ok
+73R-H0311,N,Rabuck,282,ok
+73R-H0311,N,Schechter,309,ok
+73R-H0311,N,Shields,235,ok
+73R-H0311,N,Siebert,265,ok
+73R-H0311,N,"Smith, D",312,ok
+73R-H0311,N,Smithee,238,ok
+73R-H0311,N,Stiles,299,ok
+73R-H0311,N,Swinford,241,ok
+73R-H0311,N,Talton,242,ok
+73R-H0311,N,Uher,248,ok
+73R-H0311,N,West,252,ok
+73R-H0311,P,Mr. Speaker,198,ok
+73R-H0311,E,Carona,39,ok
+73R-H0311,E,Corte,96,ok
+73R-H0311,E,Haggerty,140,ok
+73R-H0311,E,James,120,ok
+73R-H0311,E,Kuempel,197,ok
+73R-H0311,E,Lewis,200,ok
+73R-H0311,E,Marchant,204,ok
+73R-H0311,E,Parra,306,ok
+73R-H0311,E,Vowell,316,ok
+73R-H0311,Y,"Cuellar, R",112,ok
+73R-H0311,N,"Smith, A",310,ok
+101-Hx0008,Y,Mr. Speaker,4364,ok
+101-Hx0008,Y,Allen,4682,ok
+101-Hx0008,Y,Andrews,4691,ok
+101-Hx0008,Y,Adams,4053,ok
+101-Hx0008,Y,Barclay,4702,ok
+101-Hx0008,Y,Birdwell,4707,ok
+101-Hx0008,Y,Brady,4388,ok
+101-Hx0008,Y,Banton,4701,ok
+101-Hx0008,Y,Brazier,4716,ok
+101-Hx0008,Y,Bush,4721,ok
+101-Hx0008,Y,Buckley,4719,ok
+101-Hx0008,Y,Bowers,4343,ok
+101-Hx0008,Y,Bratton,4714,ok
+101-Hx0008,Y,Chance,4726,ok
+101-Hx0008,Y,Cook,4731,ok
+101-Hx0008,Y,Callahan,4724,ok
+101-Hx0008,Y,Daniel,4598,ok
+101-Hx0008,Y,DeBerry,4736,ok
+101-Hx0008,Y,Eastland,4737,ok
+101-Hx0008,Y,Emmert,4757,ok
+101-Hx0008,Y,Elder,4738,ok
+101-Hx0008,Y,Finley,4764,ok
+101-Hx0008,Y,Frazier,4766,ok
+101-Hx0008,Y,Griffith,4520,ok
+101-Hx0008,Y,Gibbons,4768,ok
+101-Hx0008,Y,Glasscock,4619,ok
+101-Hx0008,Y,Howard of Anderson,4788,ok
+101-Hx0008,Y,Howard of Lavaca,4789,ok
+101-Hx0008,Y,Hays,4785,ok
+101-Hx0008,Y,Hart,4783,ok
+101-Hx0008,Y,Holford,4628,ok
+101-Hx0008,Y,Inglish,4792,ok
+101-Hx0008,Y,Jones,4794,ok
+101-Hx0008,Y,Kyle,4686,ok
+101-Hx0008,Y,Keyes,4796,ok
+101-Hx0008,Y,Lipscomb,4800,ok
+101-Hx0008,Y,Lollar,4808,ok
+101-Hx0008,Y,Lane,4797,ok
+101-Hx0008,Y,Lacy,4798,ok
+101-Hx0008,Y,Loughridge,4809,ok
+101-Hx0008,Y,Lovejoy,4810,ok
+101-Hx0008,Y,Marshall,4860,ok
+101-Hx0008,Y,Mabray,4811,ok
+101-Hx0008,Y,McDonald,2600,ok
+101-Hx0008,Y,McCoy,4857,ok
+101-Hx0008,Y,McGuire,4858,ok
+101-Hx0008,Y,Maney,4859,ok
+101-Hx0008,Y,Means,4861,ok
+101-Hx0008,Y,Perkins,4866,ok
+101-Hx0008,Y,Poag,4867,ok
+101-Hx0008,Y,Pendleton,4865,ok
+101-Hx0008,Y,Redding,4871,ok
+101-Hx0008,Y,Rhea,4873,ok
+101-Hx0008,Y,Robinson,4875,ok
+101-Hx0008,Y,Reid,4556,ok
+101-Hx0008,Y,Ranck,4870,ok
+101-Hx0008,Y,Russell,4876,ok
+101-Hx0008,Y,Slaughter,4880,ok
+101-Hx0008,Y,Smith,4881,ok
+101-Hx0008,Y,Seele,4878,ok
+101-Hx0008,Y,Tyler,4884,ok
+101-Hx0008,Y,Thaxton,4882,ok
+101-Hx0008,Y,Willis,5514,ok
+101-Hx0008,Y,Wooten,5516,ok
+101-Hx0008,Y,Walker,4885,ok
+101-Hx0008,Y,Way,4886,ok
+101-Hx0008,N,Blake,4711,ok
+101-Hx0008,N,Butler,4723,ok
+101-Hx0008,N,Brown,4718,ok
+101-Hx0008,N,Foscue,4542,ok
+101-Hx0008,N,Harrison,4782,ok
+101-Hx0008,N,Patton,4864,ok
+101-Hx0008,N,Simpson,4879,ok
+101-Hx0008,N,Wilson,5515,ok
+4R-Sx0033,Y,Bigelow,5285,ok
+4R-Sx0033,Y,Bogart,5015,ok
+4R-Sx0033,Y,Burks,5057,ok
+4R-Sx0033,Y,Dancy,5169,ok
+4R-Sx0033,Y,Day,5288,ok
+4R-Sx0033,Y,Doane,5148,ok
+4R-Sx0033,Y,Gray,5290,ok
+4R-Sx0033,Y,Grimes,4989,ok
+4R-Sx0033,Y,Hill,5291,ok
+4R-Sx0033,Y,Kinney,5090,ok
+4R-Sx0033,Y,Merriman,4689,ok
+4R-Sx0033,Y,Parker,5405,ok
+4R-Sx0033,Y,Reaves,5293,ok
+4R-Sx0033,Y,Sterne,5294,ok
+4R-Sx0033,Y,Truit,5043,ok
+4R-Sx0033,Y,Williams,5221,ok
+4R-Sx0033,Y,Wilson,5295,ok
+4R-Sx0033,N,Davis,5287,ok
+4R-Sx0033,N,Duggan,4985,ok
+4R-Sx0033,N,Hart,5226,ok
+4R-Sx0033,N,Scott,4272,ok
+4R-Sx0033,N,Taylor,4364,ok
+19R-Hx0426,Y,Mr. Speaker,4089,ok
+19R-Hx0426,Y,Alexander,3937,ok
+19R-Hx0426,Y,Austin,4059,ok
+19R-Hx0426,Y,Bailey,4060,ok
+19R-Hx0426,Y,Barnett,4061,ok
+19R-Hx0426,Y,Barton,4062,ok
+19R-Hx0426,Y,Beard,4065,ok
+19R-Hx0426,Y,Bell,3942,ok
+19R-Hx0426,Y,Bergstrom,4069,ok
+19R-Hx0426,Y,Bishop,4071,ok
+19R-Hx0426,Y,Blackshear,4072,ok
+19R-Hx0426,Y,Blount of San Augustine,4063,ok
+19R-Hx0426,Y,Blount of VanZandt,4074,ok
+19R-Hx0426,Y,Brailsford,4092,ok
+19R-Hx0426,Y,Browning,3726,ok
+19R-Hx0426,Y,Camp of Hopkins,4094,ok
+19R-Hx0426,Y,Camp of Limestone,3950,ok
+19R-Hx0426,Y,Carleton,4096,ok
+19R-Hx0426,Y,Caven,4067,ok
+19R-Hx0426,Y,Cavitt,4102,ok
+19R-Hx0426,Y,Christian,4103,ok
+19R-Hx0426,Y,Combes of Dallas,4149,ok
+19R-Hx0426,Y,Combs of Hays,4109,ok
+19R-Hx0426,Y,Cook,4110,ok
+19R-Hx0426,Y,Cowles,4150,ok
+19R-Hx0426,Y,Crane,3697,ok
+19R-Hx0426,Y,Darroch,3520,ok
+19R-Hx0426,Y,Davis,4152,ok
+19R-Hx0426,Y,Faubion,3234,ok
+19R-Hx0426,Y,Fisher,4154,ok
+19R-Hx0426,Y,Greenwood,4155,ok
+19R-Hx0426,Y,Hailey,4158,ok
+19R-Hx0426,Y,Hamilton,4159,ok
+19R-Hx0426,Y,Hancock,4160,ok
+19R-Hx0426,Y,Haynes,4161,ok
+19R-Hx0426,Y,Hearne,4101,ok
+19R-Hx0426,Y,Humphrey,3810,ok
+19R-Hx0426,Y,Ingraham,4163,ok
+19R-Hx0426,Y,Jolley,4164,ok
+19R-Hx0426,Y,Jones of Gonzales,4565,ok
+19R-Hx0426,Y,Jones of Panola,3267,ok
+19R-Hx0426,Y,Jones of McLennan,4165,ok
+19R-Hx0426,Y,Kimbrough,3704,ok
+19R-Hx0426,Y,Latham,3978,ok
+19R-Hx0426,Y,Linn,3482,ok
+19R-Hx0426,Y,Lockett,4169,ok
+19R-Hx0426,Y,McClanahan,3982,ok
+19R-Hx0426,Y,McGaughey,3815,ok
+19R-Hx0426,Y,McKinney of Milam,3493,ok
+19R-Hx0426,Y,McKinney of Walker,3004,ok
+19R-Hx0426,Y,Moore of Travis,3431,ok
+19R-Hx0426,Y,Moore of Washington,3984,ok
+19R-Hx0426,Y,Page,3709,ok
+19R-Hx0426,Y,Pendleton of Tarrant,4178,ok
+19R-Hx0426,Y,Pounders,4179,ok
+19R-Hx0426,Y,Rainey,4133,ok
+19R-Hx0426,Y,Ramsdell,4180,ok
+19R-Hx0426,Y,Robinson of Bastrop,3907,ok
+19R-Hx0426,Y,Robinson of Jack,4134,ok
+19R-Hx0426,Y,Smith,3909,ok
+19R-Hx0426,Y,Steele,3496,ok
+19R-Hx0426,Y,Stewart,4184,ok
+19R-Hx0426,Y,Tipton,4186,ok
+19R-Hx0426,Y,Underwood,4188,ok
+19R-Hx0426,Y,Watson,4189,ok
+19R-Hx0426,Y,Webb,4190,ok
+19R-Hx0426,Y,Whaley,4191,ok
+19R-Hx0426,Y,White,4192,ok
+19R-Hx0426,Y,Williams,4193,ok
+19R-Hx0426,Y,Yeager,4196,ok
+19R-Hx0426,A,Armistead,3502,data has P
+19R-Hx0426,A,Atlee,3320,data has P
+19R-Hx0426,A,Cochrane,4107,data has P
+19R-Hx0426,A,Donaldson,4153,data has P
+19R-Hx0426,A,Groos,4156,data has P
+19R-Hx0426,A,Gunter,4157,data has P
+19R-Hx0426,A,Henderson,3235,data has P
+19R-Hx0426,A,King,4113,data has P
+19R-Hx0426,A,Lenox,4168,data has P
+19R-Hx0426,A,Loving,4170,data has P
+19R-Hx0426,A,Lowe,4171,data has P
+19R-Hx0426,A,Lusk,4172,data has P
+19R-Hx0426,A,Pendleton of Bell,4131,data has P
+19R-Hx0426,A,Stephens,4183,not in data
+19R-Hx0426,A,Tankersley,4185,data has P
+19R-Hx0426,A,Taylor,4141,data has P
+19R-Hx0426,A,Thompson,4143,data has P
+19R-Hx0426,A,Upton,4145,data has P
+19R-Hx0426,A,Wood of Aransas,4194,data has P
+19R-Hx0426,A,Woods of Kaufman,4195,data has P
+19R-Hx0426,Y,Foster,4090,ok
+23R-Sx0690,Y,Agnew,3486,ok
+23R-Sx0690,Y,Atlee,3320,ok
+23R-Sx0690,Y,Baldwin,3597,ok
+23R-Sx0690,Y,Boren,3478,ok
+23R-Sx0690,Y,Dickson,3488,ok
+23R-Sx0690,Y,Douglass,3233,ok
+23R-Sx0690,Y,Greer,3418,ok
+23R-Sx0690,Y,Hutchison,3600,ok
+23R-Sx0690,Y,McKinney,3493,ok
+23R-Sx0690,Y,Imboden,3601,ok
+23R-Sx0690,Y,Jester,3602,ok
+23R-Sx0690,Y,Lawhon,3491,ok
+23R-Sx0690,Y,Presler,3483,ok
+23R-Sx0690,Y,Shelburne,3494,ok
+23R-Sx0690,Y,Smith,3087,ok
+23R-Sx0690,Y,Steele,3496,ok
+23R-Sx0690,Y,Swayne,3604,ok
+23R-Sx0690,Y,Tips,3497,ok
+23R-Sx0690,Y,Woods,3007,ok
+23R-Sx0690,Y,Yoakum,3605,ok
+23R-Sx0690,N,Goss,3310,ok
+23R-Sx0690,P,Dean,5517,ok
+23R-Sx0690,P,McComb,3492,ok
+23R-Sx0690,P,Simpson,3495,ok
+23R-Sx0690,A,Bowser,3173,ok
+23R-Sx0690,A,Cranford,3599,ok
+23R-Sx0690,A,Crowley,3487,ok
+23R-Sx0690,A,Lewis,3325,ok
+23R-Sx0690,E,Browning,3598,ok
+23R-Sx0690,E,Kearby,3603,ok
+23R-Sx0690,E,Whitaker,3498,ok
+31R-Hx0426,Y,Adams,2930,ok
+31R-Hx0426,Y,Anderson,2932,ok
+31R-Hx0426,Y,Aston,2933,ok
+31R-Hx0426,Y,Baker of Hood,2650,ok
+31R-Hx0426,Y,Ballengee,2934,ok
+31R-Hx0426,Y,Barrett,2579,ok
+31R-Hx0426,Y,Bartlett,2935,ok
+31R-Hx0426,Y,Bell,2936,ok
+31R-Hx0426,Y,Bierschwale,2654,ok
+31R-Hx0426,Y,Bostic,2940,ok
+31R-Hx0426,Y,Boswell,2941,ok
+31R-Hx0426,Y,Bowles,2942,ok
+31R-Hx0426,Y,Branch,2227,ok
+31R-Hx0426,Y,Brookreson,2945,ok
+31R-Hx0426,Y,Brooks,2901,ok
+31R-Hx0426,Y,Brookshire,2916,ok
+31R-Hx0426,Y,Brown,2946,ok
+31R-Hx0426,Y,Brownlee,2938,ok
+31R-Hx0426,Y,Byrne,2666,ok
+31R-Hx0426,Y,Cable,2350,ok
+31R-Hx0426,Y,Canales,2588,ok
+31R-Hx0426,Y,Cathey,1651,ok
+31R-Hx0426,Y,Caves,2947,ok
+31R-Hx0426,Y,Cox,2899,ok
+31R-Hx0426,Y,Craven,2830,ok
+31R-Hx0426,Y,Crawford,2949,ok
+31R-Hx0426,Y,Crockett of Mitchell,2950,ok
+31R-Hx0426,Y,Crockett of Washington,2951,ok
+31R-Hx0426,Y,Cureton,2952,ok
+31R-Hx0426,Y,Dalby,2954,ok
+31R-Hx0426,Y,Dotson,2956,ok
+31R-Hx0426,Y,Driggers,2396,ok
+31R-Hx0426,Y,Elliott,2898,ok
+31R-Hx0426,Y,Fant,2957,ok
+31R-Hx0426,Y,Flournoy,2687,ok
+31R-Hx0426,Y,Fuller,2689,ok
+31R-Hx0426,Y,German,2960,ok
+31R-Hx0426,Y,Giesen,2961,ok
+31R-Hx0426,Y,Gilmore,2962,ok
+31R-Hx0426,Y,Goodman,2004,ok
+31R-Hx0426,Y,Graham,2964,ok
+31R-Hx0426,Y,Hamilton of Childress,2965,ok
+31R-Hx0426,Y,Hamilton of McCulloch,2591,ok
+31R-Hx0426,Y,Harman,2009,ok
+31R-Hx0426,Y,Haxthausen,2698,ok
+31R-Hx0426,Y,Horger,2970,ok
+31R-Hx0426,Y,Jennings,2972,ok
+31R-Hx0426,Y,Lawson,2978,ok
+31R-Hx0426,Y,Lively,2984,ok
+31R-Hx0426,Y,Luce,2992,ok
+31R-Hx0426,Y,Maddox,2714,ok
+31R-Hx0426,Y,Marshall,2929,ok
+31R-Hx0426,Y,Mason,3009,ok
+31R-Hx0426,Y,Maxwell,3014,ok
+31R-Hx0426,Y,McCallum,2994,ok
+31R-Hx0426,Y,McDonald,5649,ok
+31R-Hx0426,Y,McGown,2999,ok
+31R-Hx0426,Y,McKinney,3004,ok
+31R-Hx0426,Y,McLain,3005,ok
+31R-Hx0426,Y,Meeks,3015,ok
+31R-Hx0426,Y,Moller,3018,ok
+31R-Hx0426,Y,Morris,2863,ok
+31R-Hx0426,Y,Munson,3020,ok
+31R-Hx0426,Y,Nelson of Hopkins,3022,ok
+31R-Hx0426,Y,Nelson of Kaufman,3021,ok
+31R-Hx0426,Y,O'Bryan,3024,ok
+31R-Hx0426,Y,O'Bryant,3025,ok
+31R-Hx0426,Y,Odom,3026,ok
+31R-Hx0426,Y,Perkins,3029,ok
+31R-Hx0426,Y,Pharr,3030,ok
+31R-Hx0426,Y,Porter,3032,ok
+31R-Hx0426,Y,Rabb,3033,ok
+31R-Hx0426,Y,Ray,3036,ok
+31R-Hx0426,Y,Reedy,2872,ok
+31R-Hx0426,Y,Reid,3038,ok
+31R-Hx0426,Y,Roach,3040,ok
+31R-Hx0426,Y,Roberson of Erath,3041,ok
+31R-Hx0426,Y,Robertson of Bell,3042,ok
+31R-Hx0426,Y,Schluter,2895,ok
+31R-Hx0426,Y,Schofield,3044,ok
+31R-Hx0426,Y,Spradley,2739,ok
+31R-Hx0426,Y,Stamps,3046,ok
+31R-Hx0426,Y,Standifer,3047,ok
+31R-Hx0426,Y,Stratton,3051,ok
+31R-Hx0426,Y,Strickland,2559,ok
+31R-Hx0426,Y,Tarver,2881,ok
+31R-Hx0426,Y,Terrell of Bexar,2803,ok
+31R-Hx0426,Y,Trenckmann,3052,ok
+31R-Hx0426,Y,Turner,3053,ok
+31R-Hx0426,Y,Turney,2905,ok
+31R-Hx0426,Y,Vaughan,2073,ok
+31R-Hx0426,Y,Von Rosenberg,3054,ok
+31R-Hx0426,Y,Wahrmund,2461,ok
+31R-Hx0426,Y,Walter,3055,ok
+31R-Hx0426,Y,Werner,3056,ok
+31R-Hx0426,A,Baker of Panola,2295,ok
+31R-Hx0426,A,Bogard,2937,ok
+31R-Hx0426,A,Buchanan,2821,ok
+31R-Hx0426,A,Chaney,2948,ok
+31R-Hx0426,A,Crisp,2831,ok
+31R-Hx0426,A,Currey,2953,ok
+31R-Hx0426,A,Davis,2955,ok
+31R-Hx0426,A,Fitzhugh,2958,ok
+31R-Hx0426,A,Gaines,2959,ok
+31R-Hx0426,A,Highsmith,2967,ok
+31R-Hx0426,A,Jackson,2971,ok
+31R-Hx0426,A,Johnson,2973,ok
+31R-Hx0426,A,Leach,2980,ok
+31R-Hx0426,A,Lee,2983,ok
+31R-Hx0426,A,Mobley,3017,ok
+31R-Hx0426,A,Nickels,3023,ok
+31R-Hx0426,A,Pearson,3027,ok
+31R-Hx0426,A,Ralston,3034,ok
+31R-Hx0426,A,Rayburn,3037,ok
+31R-Hx0426,A,Ridgway,3039,ok
+31R-Hx0426,A,Robertson of Travis,3043,ok
+31R-Hx0426,A,Self,3045,ok
+31R-Hx0426,A,Smith,2272,ok
+31R-Hx0426,A,Stead,3048,ok
+31R-Hx0426,A,Stephenson,3049,ok
+31R-Hx0426,A,Stepter,3050,ok
+31R-Hx0426,A,Terrell of Cherokee,2069,ok
+31R-Hx0426,A,Westbrook,2122,ok
+31R-Hx0426,A,Wilson,3059,ok
+31R-Hx0426,A,Wortham,2755,ok
+31R-Hx0426,E,Bowman,2943,ok
+31R-Hx0426,E,Briscoe,2944,ok
+31R-Hx0426,E,Hill,2968,ok
+31R-Hx0426,E,Jenkins,2149,ok
+31R-Hx0426,E,Keeble,2976,ok
+31R-Hx0426,E,Pierce,3031,ok
+383-Sx0097,Y,Baugh,2384,ok
+383-Sx0097,Y,Bowers,2208,ok
+383-Sx0097,Y,Darwin,2428,ok
+383-Sx0097,Y,Floyd,1909,ok
+383-Sx0097,Y,Lewis,2211,ok
+383-Sx0097,Y,Murphy,2290,ok
+383-Sx0097,Y,Parr,1959,ok
+383-Sx0097,Y,Ridgeway,2539,ok
+383-Sx0097,Y,Rogers,2435,ok
+383-Sx0097,Y,Stuart,2216,ok
+383-Sx0097,Y,Witt,2124,ok
+383-Sx0097,Y,Wood,2218,ok
+383-Sx0097,N,Bailey,2119,ok
+383-Sx0097,N,Clark,2385,ok
+383-Sx0097,N,Cousins,2209,ok
+383-Sx0097,N,Fairchild,2210,ok
+383-Sx0097,N,Holbrook,1641,ok
+383-Sx0097,N,Pollard,1963,ok
+383-Sx0097,N,Strong,2292,ok
+383-Sx0097,N,Thomas,2550,ok
+383-Sx0097,N,Turner,2551,ok
+383-Sx0097,N,Wirtz,2123,ok
+383-Sx0097,N,Woods,2442,ok
+383-Sx0097,P,Rice,2537,ok
+383-Sx0097,A,Burkett,2388,ok
+383-Sx0097,A,McMillin,2434,ok
+383-Sx0097,E,Bledsoe,2207,ok
+383-Sx0097,E,Davis,2288,ok
+383-Sx0097,E,Doyle,2414,ok
+383-Sx0097,E,Watts,2439,ok
+423-Hx0026,Y,Mr. Speaker,1971,ok
+423-Hx0026,Y,Adams of Jasper,1973,ok
+423-Hx0026,Y,Adamson,1791,ok
+423-Hx0026,Y,Adkins,1974,ok
+423-Hx0026,Y,Akin,1975,ok
+423-Hx0026,Y,Albritton,1977,ok
+423-Hx0026,Y,Alsup,1448,ok
+423-Hx0026,Y,Anderson,1593,ok
+423-Hx0026,Y,Baker,1945,ok
+423-Hx0026,Y,Beck,1978,ok
+423-Hx0026,Y,Bedford,1951,ok
+423-Hx0026,Y,Bond,1493,ok
+423-Hx0026,Y,Boyd,1982,ok
+423-Hx0026,Y,Bradley,1952,ok
+423-Hx0026,Y,Brice,1983,ok
+423-Hx0026,Y,Brooks,1984,ok
+423-Hx0026,Y,Bryant,1985,ok
+423-Hx0026,Y,Burns of Walker,1636,ok
+423-Hx0026,Y,Burns of McCulloch,1986,ok
+423-Hx0026,Y,Claunch,5448,ok
+423-Hx0026,Y,Coltrin,1989,ok
+423-Hx0026,Y,Cox of Limestone,5539,ok
+423-Hx0026,Y,Daniel,1892,ok
+423-Hx0026,Y,Davis,1637,ok
+423-Hx0026,Y,Dodd,1994,ok
+423-Hx0026,Y,Donnell,1915,ok
+423-Hx0026,Y,Dowell,1672,ok
+423-Hx0026,Y,Dunlap,1936,ok
+423-Hx0026,Y,Duvall,1829,ok
+423-Hx0026,Y,Elliott,1995,ok
+423-Hx0026,Y,Engelhard,1996,ok
+423-Hx0026,Y,Farrar,1997,ok
+423-Hx0026,Y,Fisher,2000,ok
+423-Hx0026,Y,Forbes,2001,ok
+423-Hx0026,Y,Ford,1832,ok
+423-Hx0026,Y,Fuchs,1520,ok
+423-Hx0026,Y,Gilbert,2002,ok
+423-Hx0026,Y,Giles,2003,ok
+423-Hx0026,Y,Graves,1767,ok
+423-Hx0026,Y,Greathouse,1838,ok
+423-Hx0026,Y,Hanson,2007,ok
+423-Hx0026,Y,Hardy,2008,ok
+423-Hx0026,Y,Harman,2009,ok
+423-Hx0026,Y,Harrison of El Paso,2010,ok
+423-Hx0026,Y,Herzik,1770,ok
+423-Hx0026,Y,Hill,2014,ok
+423-Hx0026,Y,Hines,2015,ok
+423-Hx0026,Y,Holder,2016,ok
+423-Hx0026,Y,Holland,1843,ok
+423-Hx0026,Y,Holloway,2017,ok
+423-Hx0026,Y,Howsley,2018,ok
+423-Hx0026,Y,Hubbard,2019,ok
+423-Hx0026,Y,Hughes,1893,ok
+423-Hx0026,Y,Johnson of Dallam,2024,ok
+423-Hx0026,Y,Johnson of Dimmit,2023,ok
+423-Hx0026,Y,Jones of Shelby,1847,ok
+423-Hx0026,Y,Jones of Atascosa,1778,ok
+423-Hx0026,Y,Justiss,2026,ok
+423-Hx0026,Y,Kayton,2027,ok
+423-Hx0026,Y,Kennedy,2029,ok
+423-Hx0026,Y,Laird,2030,ok
+423-Hx0026,Y,Lasseter,1541,ok
+423-Hx0026,Y,Lee,2107,ok
+423-Hx0026,Y,Lockhart,2034,ok
+423-Hx0026,Y,McGregor,2041,ok
+423-Hx0026,Y,Magee,2042,ok
+423-Hx0026,Y,Mehl,2045,ok
+423-Hx0026,Y,Metcalfe,1486,ok
+423-Hx0026,Y,Moffett,858,ok
+423-Hx0026,Y,Moore,1857,ok
+423-Hx0026,Y,Munson,2047,ok
+423-Hx0026,Y,Murphy,2048,ok
+423-Hx0026,Y,Nicholson,1563,ok
+423-Hx0026,Y,Olsen,1706,ok
+423-Hx0026,Y,Patterson,2052,ok
+423-Hx0026,Y,Petsch,1708,ok
+423-Hx0026,Y,Ramsey,1261,ok
+423-Hx0026,Y,Ratliff,1246,ok
+423-Hx0026,Y,Ray,2053,ok
+423-Hx0026,Y,Richardson,2054,ok
+423-Hx0026,Y,Sanders,2058,ok
+423-Hx0026,Y,Satterwhite,2059,ok
+423-Hx0026,Y,Scott,2061,ok
+423-Hx0026,Y,Sherrill,2063,ok
+423-Hx0026,Y,Smith of Wood,2064,ok
+423-Hx0026,Y,Sparkman,2065,ok
+423-Hx0026,Y,Stevenson,1808,ok
+423-Hx0026,Y,Steward,1881,ok
+423-Hx0026,Y,Strong,2067,ok
+423-Hx0026,Y,Tarwater,1747,ok
+423-Hx0026,Y,Towery,2071,ok
+423-Hx0026,Y,Turner,2072,ok
+423-Hx0026,Y,Van Zandt,1591,ok
+423-Hx0026,Y,Vaughan,2073,ok
+423-Hx0026,Y,Wagstaff,2075,ok
+423-Hx0026,Y,Walker,1811,ok
+423-Hx0026,Y,Warwick,2076,ok
+423-Hx0026,Y,Weinert,2077,ok
+423-Hx0026,Y,West of Cameron,2079,ok
+423-Hx0026,Y,Westbrook,2080,ok
+423-Hx0026,Y,Young,2083,ok
+423-Hx0026,P,Farmer,1673,ok
+423-Hx0026,P,Goodman,2004,ok
+423-Hx0026,A,Barron,1949,ok
+423-Hx0026,A,Carpenter,1987,ok
+423-Hx0026,A,Caven,1960,ok
+423-Hx0026,A,Cox of Lamar,1990,ok
+423-Hx0026,A,Cunningham,1991,ok
+423-Hx0026,A,Dale,1992,ok
+423-Hx0026,A,Dwyer,1512,ok
+423-Hx0026,A,Ferguson,1998,ok
+423-Hx0026,A,Finn,1999,ok
+423-Hx0026,A,Harrison of Waller,2012,ok
+423-Hx0026,A,Hefley,2013,ok
+423-Hx0026,A,Hoskins,1771,ok
+423-Hx0026,A,Jackson,1773,ok
+423-Hx0026,A,Lemens,1483,ok
+423-Hx0026,A,Leonard,1542,ok
+423-Hx0026,A,Long,2035,ok
+423-Hx0026,A,McCombs,2037,ok
+423-Hx0026,A,McDougald,2038,ok
+423-Hx0026,A,McGill,2039,ok
+423-Hx0026,A,Martin,2043,ok
+423-Hx0026,A,O'Quinn,2050,ok
+423-Hx0026,A,Pope,1710,ok
+423-Hx0026,A,Reader,1734,ok
+423-Hx0026,A,Rogers,2055,ok
+423-Hx0026,A,Rountree,2056,ok
+423-Hx0026,A,Smith of Bastrop,1588,ok
+423-Hx0026,A,Stephens,2066,ok
+423-Hx0026,A,Sullivant,2068,ok
+423-Hx0026,A,Terrell of Cherokee,2069,ok
+423-Hx0026,A,Terrell of Val Verde,2070,ok
+423-Hx0026,A,West of Coryell,2078,ok
+423-Hx0026,A,Wiggs,2081,ok
+423-Hx0026,A,Wyatt,2082,ok
+423-Hx0026,E,Adams of Harris,1972,ok
+423-Hx0026,E,Bounds,1981,ok
+423-Hx0026,E,Coombes,1980,ok
+423-Hx0026,E,Grogan,2006,ok
+423-Hx0026,E,Keller,2028,ok
+423-Hx0026,E,Lilley,2032,ok
+423-Hx0026,E,Mathis,2044,ok
+423-Hx0026,E,Morse,1561,ok
+423-Hx0026,E,Savage,2060,ok
+423-Hx0026,E,Shelton,2062,ok
+46R-Sx0855,Y,Aikin,350,ok
+46R-Sx0855,Y,Beck,1476,ok
+46R-Sx0855,Y,Brownlee,1477,ok
+46R-Sx0855,Y,Burns,1636,ok
+46R-Sx0855,Y,Collie,1635,ok
+46R-Sx0855,Y,Cotten,1478,ok
+46R-Sx0855,Y,Graves,1481,ok
+46R-Sx0855,Y,Hardin,1877,ok
+46R-Sx0855,Y,Isbell,1629,ok
+46R-Sx0855,Y,Kelley,966,ok
+46R-Sx0855,Y,Lanning,1482,ok
+46R-Sx0855,Y,Lemens,1483,ok
+46R-Sx0855,Y,Martin,1485,ok
+46R-Sx0855,Y,Metcalfe,1486,ok
+46R-Sx0855,Y,Moffett,858,ok
+46R-Sx0855,Y,Moore,1487,ok
+46R-Sx0855,Y,Nelson,1711,ok
+46R-Sx0855,Y,Pace,1715,ok
+46R-Sx0855,Y,Roberts,1869,ok
+46R-Sx0855,Y,Shivers,1488,ok
+46R-Sx0855,Y,Small,1721,ok
+46R-Sx0855,Y,Stone of Galveston,1490,ok
+46R-Sx0855,Y,Stone of Washington,1722,ok
+46R-Sx0855,Y,Sulak,1491,ok
+46R-Sx0855,Y,Van Zandt,1591,ok
+46R-Sx0855,E,Head,1839,ok
+46R-Sx0855,E,Hill,1628,ok
+46R-Sx0855,E,Redditt,1718,ok
+46R-Sx0855,E,Spears,1489,ok
+46R-Sx0855,E,Weinert,978,ok
+46R-Sx0855,E,Winfield,1267,ok
+59R-Hx0811,Y,Alaniz,867,ok
+59R-Hx0811,Y,Allen,605,ok
+59R-Hx0811,Y,Arledge,868,ok
+59R-Hx0811,Y,Armstrong,760,ok
+59R-Hx0811,Y,Atwell,606,ok
+59R-Hx0811,Y,Atwood,718,ok
+59R-Hx0811,Y,Bass of Bowie,788,ok
+59R-Hx0811,Y,Bass of Harris,721,ok
+59R-Hx0811,Y,Beckham,722,ok
+59R-Hx0811,Y,Bernal,702,ok
+59R-Hx0811,Y,Berry,871,ok
+59R-Hx0811,Y,Birkner,789,ok
+59R-Hx0811,Y,Blaine,791,ok
+59R-Hx0811,Y,Blankenship,1179,ok
+59R-Hx0811,Y,Bonilla,1180,ok
+59R-Hx0811,Y,Brooks,74,ok
+59R-Hx0811,Y,Brown,874,ok
+59R-Hx0811,Y,Burgess,726,ok
+59R-Hx0811,Y,Cahoon,792,ok
+59R-Hx0811,Y,Cain,794,ok
+59R-Hx0811,Y,Caldwell,614,ok
+59R-Hx0811,Y,Canales,876,ok
+59R-Hx0811,Y,Cavness,682,ok
+59R-Hx0811,Y,Cherry,881,ok
+59R-Hx0811,Y,Clayton,501,ok
+59R-Hx0811,Y,Cole,618,ok
+59R-Hx0811,Y,Connally,705,ok
+59R-Hx0811,Y,Cory,796,ok
+59R-Hx0811,Y,Cowden,886,ok
+59R-Hx0811,Y,Cowles,887,ok
+59R-Hx0811,Y,Crain,888,ok
+59R-Hx0811,Y,Dickson,75,ok
+59R-Hx0811,Y,Duggan,800,ok
+59R-Hx0811,Y,Dungan,892,ok
+59R-Hx0811,Y,Eckhardt,893,ok
+59R-Hx0811,Y,Edwards,894,ok
+59R-Hx0811,Y,Field,801,ok
+59R-Hx0811,Y,Finney,628,ok
+59R-Hx0811,Y,Fletcher,897,ok
+59R-Hx0811,Y,Floyd,802,ok
+59R-Hx0811,Y,Fondren,803,ok
+59R-Hx0811,Y,Foreman,629,ok
+59R-Hx0811,Y,Garrison,898,ok
+59R-Hx0811,Y,Gates,1012,ok
+59R-Hx0811,Y,George,805,ok
+59R-Hx0811,Y,Gibbens,899,ok
+59R-Hx0811,Y,Green,901,ok
+59R-Hx0811,Y,Grover,706,ok
+59R-Hx0811,Y,Guffey,902,ok
+59R-Hx0811,Y,Haines of Brazos,809,ok
+59R-Hx0811,Y,Hale,595,ok
+59R-Hx0811,Y,Hallmark,903,ok
+59R-Hx0811,Y,Harding,741,ok
+59R-Hx0811,Y,Haring,904,ok
+59R-Hx0811,Y,Harris,631,ok
+59R-Hx0811,Y,Harrison,1014,ok
+59R-Hx0811,Y,Hawkins,742,ok
+59R-Hx0811,Y,Haynes of Orange,743,ok
+59R-Hx0811,Y,Heatly,513,ok
+59R-Hx0811,Y,Hefton,905,ok
+59R-Hx0811,Y,Hendryx,812,ok
+59R-Hx0811,Y,Hightower,1015,ok
+59R-Hx0811,Y,Hinson,813,ok
+59R-Hx0811,Y,Hollowell,353,ok
+59R-Hx0811,Y,Holmes,744,ok
+59R-Hx0811,Y,Howard,815,ok
+59R-Hx0811,Y,Isaacks,908,ok
+59R-Hx0811,Y,Ivy,1016,ok
+59R-Hx0811,Y,Jamison,818,ok
+59R-Hx0811,Y,Johnson of Bell,824,ok
+59R-Hx0811,Y,Johnson of Bexar,748,ok
+59R-Hx0811,Y,Johnson of Harris,826,ok
+59R-Hx0811,Y,Jones of Lubbock,186,ok
+59R-Hx0811,Y,Jones of Taylor,339,ok
+59R-Hx0811,Y,Jungmichel,750,ok
+59R-Hx0811,Y,Kilpatrick,751,ok
+59R-Hx0811,Y,Klager,912,ok
+59R-Hx0811,Y,Knapp,827,ok
+59R-Hx0811,Y,Kothmann,426,ok
+59R-Hx0811,Y,Lack,914,ok
+59R-Hx0811,Y,Lee,1022,ok
+59R-Hx0811,Y,Lewis,1086,ok
+59R-Hx0811,Y,Ligarde,756,ok
+59R-Hx0811,Y,Longoria,553,ok
+59R-Hx0811,Y,McClinton,919,ok
+59R-Hx0811,Y,McDonald of Hidalgo,643,ok
+59R-Hx0811,Y,McDonald of Rusk,920,ok
+59R-Hx0811,Y,McIlhany,922,ok
+59R-Hx0811,Y,McKissack,758,ok
+59R-Hx0811,Y,McLaughlin,830,ok
+59R-Hx0811,Y,Mann,917,ok
+59R-Hx0811,Y,Markgraf,918,ok
+59R-Hx0811,Y,Miller of Newton,831,ok
+59R-Hx0811,Y,Miller of Harris,924,ok
+59R-Hx0811,Y,Mobley,1182,ok
+59R-Hx0811,Y,Moyer,832,ok
+59R-Hx0811,Y,Muniz,833,ok
+59R-Hx0811,Y,Murray,650,ok
+59R-Hx0811,Y,Neugent of Galveston,769,ok
+59R-Hx0811,Y,Newman,836,ok
+59R-Hx0811,Y,Parker,68,ok
+59R-Hx0811,Y,Peeler,837,ok
+59R-Hx0811,Y,Pendleton,838,ok
+59R-Hx0811,Y,Pickens,772,ok
+59R-Hx0811,Y,Pipkin,840,ok
+59R-Hx0811,Y,Price,773,ok
+59R-Hx0811,Y,Quilliam,841,ok
+59R-Hx0811,Y,Rapp,842,ok
+59R-Hx0811,Y,Richards,930,ok
+59R-Hx0811,Y,Richardson,845,ok
+59R-Hx0811,Y,Roberts,932,ok
+59R-Hx0811,Y,Rosson,663,ok
+59R-Hx0811,Y,Satterwhite,933,ok
+59R-Hx0811,Y,Schiller,846,ok
+59R-Hx0811,Y,Scoggins,669,ok
+59R-Hx0811,Y,"Shannon, Joe",848,ok
+59R-Hx0811,Y,"Shannon, Tommy",777,ok
+59R-Hx0811,Y,Sherman,670,ok
+59R-Hx0811,Y,Simpson,849,ok
+59R-Hx0811,Y,Slack,586,ok
+59R-Hx0811,Y,Slider,779,ok
+59R-Hx0811,Y,Smith,780,ok
+59R-Hx0811,Y,Solomon,781,ok
+59R-Hx0811,Y,Stewart,782,ok
+59R-Hx0811,Y,Stroud,783,ok
+59R-Hx0811,Y,Thompson,941,ok
+59R-Hx0811,Y,Thurmond,942,ok
+59R-Hx0811,Y,Townsend,943,ok
+59R-Hx0811,Y,Traeger,430,ok
+59R-Hx0811,Y,Vale,489,ok
+59R-Hx0811,Y,Wade,950,ok
+59R-Hx0811,Y,Ward,785,ok
+59R-Hx0811,Y,Wayne,786,ok
+59R-Hx0811,Y,Whatley,854,ok
+59R-Hx0811,Y,Wheeler,947,ok
+59R-Hx0811,Y,Whitfield,948,ok
+59R-Hx0811,Y,Wieting,532,ok
+59R-Hx0811,Y,Williamson,680,ok
+59R-Hx0811,Y,Wilson,713,ok
+59R-Hx0811,Y,Woods,949,ok
+59R-Hx0811,Y,Wright,855,ok
+59R-Hx0811,A,Crews,797,ok
+59R-Hx0811,A,Doke,891,ok
+59R-Hx0811,A,Montoya,648,ok
+59R-Hx0811,A,Mutscher,767,ok
+59R-Hx0811,A,Nugent of Kerr,653,ok
+59R-Hx0811,A,Parsley,927,ok
+59R-Hx0811,E,Weldon,853,ok
+612-Sx0093,Y,Aikin,350,ok
+612-Sx0093,Y,Bates,700,ok
+612-Sx0093,Y,Bernal,702,ok
+612-Sx0093,Y,Blanchard,695,ok
+612-Sx0093,Y,Bridges,703,ok
+612-Sx0093,Y,Brooks,74,ok
+612-Sx0093,Y,Christie,704,ok
+612-Sx0093,Y,Cole,819,ok
+612-Sx0093,Y,Connally,705,ok
+612-Sx0093,Y,Creighton,550,ok
+612-Sx0093,Y,Hall,707,ok
+612-Sx0093,Y,Harrington,603,ok
+612-Sx0093,Y,Harris,67,ok
+612-Sx0093,Y,Hazlewood,825,ok
+612-Sx0093,Y,Herring,699,ok
+612-Sx0093,Y,Hightower,696,ok
+612-Sx0093,Y,Jordan,708,ok
+612-Sx0093,Y,Kennard,709,ok
+612-Sx0093,Y,Mauzy,428,ok
+612-Sx0093,Y,McKool,710,ok
+612-Sx0093,Y,Moore,554,ok
+612-Sx0093,Y,Patman,555,ok
+612-Sx0093,Y,Ratliff,711,ok
+612-Sx0093,Y,Schwartz,556,ok
+612-Sx0093,Y,Snelson,544,ok
+612-Sx0093,Y,Strong,865,ok
+612-Sx0093,Y,Watson,712,ok
+612-Sx0093,Y,Wilson,713,ok
+612-Sx0093,Y,Word,714,ok
+612-Sx0093,E,Berry,871,ok
+612-Sx0093,E,Grover,706,ok
+66R-S0406,Y,Blake,424,ok
+66R-S0406,Y,Brooks,74,ok
+66R-S0406,Y,Creighton,550,ok
+66R-S0406,Y,Doggett,488,ok
+66R-S0406,Y,Farabee,333,ok
+66R-S0406,Y,Howard,425,ok
+66R-S0406,Y,Jones of Harris,558,ok
+66R-S0406,Y,Jones of Taylor,339,ok
+66R-S0406,Y,Meier,539,ok
+66R-S0406,Y,Mengden,540,ok
+66R-S0406,Y,Moore,554,ok
+66R-S0406,Y,Ogg,541,ok
+66R-S0406,Y,Parker,68,ok
+66R-S0406,Y,Santiesteban,323,ok
+66R-S0406,Y,Snelson,544,ok
+66R-S0406,Y,Vale,489,ok
+66R-S0406,Y,Williams,431,ok
+66R-S0406,N,Braecklein,548,ok
+66R-S0406,N,Clower,549,ok
+66R-S0406,N,Kothmann,426,ok
+66R-S0406,N,Longoria,553,ok
+66R-S0406,N,Mauzy,428,ok
+66R-S0406,N,Patman,555,ok
+66R-S0406,N,Price,601,ok
+66R-S0406,N,Schwartz,556,ok
+66R-S0406,E,Short,543,ok
+66R-S0406,A,Andujar,537,ok
+66R-S0406,A,Harris,67,ok
+66R-S0406,A,McKnight,538,ok
+66R-S0406,A,Traeger,430,ok
+66R-S0406,A,Truan,42,ok
+682-H0058,Y,Armbrister,22,ok
+682-H0058,Y,Barrientos,23,ok
+682-H0058,Y,"Barton, B",443,ok
+682-H0058,Y,"Barton, E",327,ok
+682-H0058,Y,Berlanga,70,ok
+682-H0058,Y,Bomer,85,ok
+682-H0058,Y,Buchanan,435,ok
+682-H0058,Y,Burnett,355,ok
+682-H0058,Y,Bush,436,ok
+682-H0058,Y,Cain,27,ok
+682-H0058,Y,Carriker,269,ok
+682-H0058,Y,Carter,89,ok
+682-H0058,Y,Cary,444,ok
+682-H0058,Y,Cavazos,317,ok
+682-H0058,Y,Clark,360,ok
+682-H0058,Y,Clemons,91,ok
+682-H0058,Y,Colbert,331,ok
+682-H0058,Y,Collazo,332,ok
+682-H0058,Y,Coody,445,ok
+682-H0058,Y,Criss,336,ok
+682-H0058,Y,Crockett,446,ok
+682-H0058,Y,Danburg,114,ok
+682-H0058,Y,Davis,447,ok
+682-H0058,Y,Delco,286,ok
+682-H0058,Y,Denton,287,ok
+682-H0058,Y,Earley,289,ok
+682-H0058,Y,Edwards,124,ok
+682-H0058,Y,Eikenburg,449,ok
+682-H0058,Y,Emmett,437,ok
+682-H0058,Y,English,450,ok
+682-H0058,Y,"Evans, C",373,ok
+682-H0058,Y,"Evans, L",340,ok
+682-H0058,Y,Finnell,129,ok
+682-H0058,Y,Fox,438,ok
+682-H0058,Y,Gamez,451,ok
+682-H0058,Y,Gandy,452,ok
+682-H0058,Y,"Garcia, A",439,ok
+682-H0058,Y,"Garcia, O",341,ok
+682-H0058,Y,Gavin,342,ok
+682-H0058,Y,"Gibson, B",343,ok
+682-H0058,Y,"Gibson, J",465,ok
+682-H0058,Y,Gilley,440,ok
+682-H0058,Y,Glossbrenner,344,ok
+682-H0058,Y,Granoff,298,ok
+682-H0058,Y,Green,77,ok
+682-H0058,Y,Grisham,466,ok
+682-H0058,Y,Hackney,377,ok
+682-H0058,Y,Haley,66,ok
+682-H0058,Y,"Hall, T",468,ok
+682-H0058,Y,Hammond,347,ok
+682-H0058,Y,"Harrison, D",348,ok
+682-H0058,Y,"Harrison, W",470,ok
+682-H0058,Y,Hernandez,471,ok
+682-H0058,Y,Hightower,147,ok
+682-H0058,Y,"Hill, P",352,ok
+682-H0058,Y,Hinojosa,179,ok
+682-H0058,Y,Hollowell,353,ok
+682-H0058,Y,"Hudson, D",354,ok
+682-H0058,Y,"Hudson, S",156,ok
+682-H0058,Y,Hury,356,ok
+682-H0058,Y,Jackson,455,ok
+682-H0058,Y,Jones,379,ok
+682-H0058,Y,Keller,456,ok
+682-H0058,Y,Kemp,474,ok
+682-H0058,Y,Khoury,475,ok
+682-H0058,Y,Kubiak,358,ok
+682-H0058,Y,Laney,198,ok
+682-H0058,Y,"Lee, D",457,ok
+682-H0058,Y,Leonard,380,ok
+682-H0058,Y,"Lewis, N",953,ok
+682-H0058,Y,Luna,364,ok
+682-H0058,Y,McDonald,272,ok
+682-H0058,Y,McKinney,367,ok
+682-H0058,Y,McWilliams,368,ok
+682-H0058,Y,Madla,41,ok
+682-H0058,Y,Mankins,477,ok
+682-H0058,Y,"Martinez, R",365,ok
+682-H0058,Y,"Martinez, W",478,ok
+682-H0058,Y,Messer,459,ok
+682-H0058,Y,Millsap,381,ok
+682-H0058,Y,"Moreno, A",371,ok
+682-H0058,Y,"Moreno, P",214,ok
+682-H0058,Y,Oliveira,221,ok
+682-H0058,Y,Oliver,460,ok
+682-H0058,Y,Parker,374,ok
+682-H0058,Y,Patrick,382,ok
+682-H0058,Y,Patronella,383,ok
+682-H0058,Y,Pennington,384,ok
+682-H0058,Y,Peveto,479,ok
+682-H0058,Y,Pierce,387,ok
+682-H0058,Y,Polumbo,388,ok
+682-H0058,Y,Price,281,ok
+682-H0058,Y,Ragsdale,461,ok
+682-H0058,Y,Rangel,227,ok
+682-H0058,Y,Robinson,393,ok
+682-H0058,Y,Robnett,394,ok
+682-H0058,Y,Rudd,307,ok
+682-H0058,Y,Russell,406,ok
+682-H0058,Y,Salinas,482,ok
+682-H0058,Y,Saunders,295,ok
+682-H0058,Y,Schlueter,395,ok
+682-H0058,Y,Schoolcraft,396,ok
+682-H0058,Y,Shaw,411,ok
+682-H0058,Y,Short,462,ok
+682-H0058,Y,Simpson,483,ok
+682-H0058,Y,"Smith, T",399,ok
+682-H0058,Y,Stiles,299,ok
+682-H0058,Y,Sutton,417,ok
+682-H0058,Y,Tejeda,87,ok
+682-H0058,Y,"Thompson, G",464,ok
+682-H0058,Y,"Thompson, S",243,ok
+682-H0058,Y,Tidwell,952,ok
+682-H0058,Y,Tow,484,ok
+682-H0058,Y,Valles,485,ok
+682-H0058,Y,Vowell,316,ok
+682-H0058,Y,Wallace,407,ok
+682-H0058,Y,Watson,422,ok
+682-H0058,Y,Whaley,423,ok
+682-H0058,Y,Willis,308,ok
+682-H0058,Y,Wilson,254,ok
+682-H0058,Y,Wolens,257,ok
+682-H0058,Y,Word,487,ok
+682-H0058,Y,Wright,413,ok
+682-H0058,N,Agnich,349,ok
+682-H0058,N,Arnold,433,ok
+682-H0058,N,Blanton,434,ok
+682-H0058,N,Connelly,334,ok
+682-H0058,N,Craddick,109,ok
+682-H0058,N,DeLay,448,ok
+682-H0058,N,Eckels,290,ok
+682-H0058,N,Geistweidt,375,ok
+682-H0058,N,Hanna,469,ok
+682-H0058,N,Heflin,145,ok
+682-H0058,N,Hilbert,148,ok
+682-H0058,N,"Hill, A",351,ok
+682-H0058,N,Horn,154,ok
+682-H0058,N,Kuempel,197,ok
+682-H0058,N,McKenna,458,ok
+682-H0058,N,Patterson,278,ok
+682-H0058,N,Shea,414,ok
+682-H0058,N,"Smith, C",463,ok
+682-H0058,N,Staniswalis,416,ok
+682-H0058,N,Toomey,419,ok
+682-H0058,N,Uher,248,ok
+682-H0058,N,Waldrop,420,ok
+682-H0058,P,Mr. Speaker,363,ok
+682-H0058,A,Ceverha,359,ok
+682-H0058,A,"Smith, A.",310,ok
+682-H0058,Y,"Hall, W",442,ok
+682-H0058,Y,"Lee, E. F",476,ok
+73R-S1314,E,Luna,48,ok
+12R-Hx0365,Y,C. L. Abbott,4398,ok
+12R-Hx0365,Y,"Abbott, J.",4399,ok
+12R-Hx0365,Y,H. R. Allen,4404,ok
+12R-Hx0365,Y,Austin,4409,ok
+12R-Hx0365,Y,Becton,4410,ok
+12R-Hx0365,Y,Booty,4412,ok
+12R-Hx0365,Y,Bonner,4411,ok
+12R-Hx0365,Y,Chambers,4418,ok
+12R-Hx0365,Y,Cole,4419,ok
+12R-Hx0365,Y,Cox,4423,ok
+12R-Hx0365,Y,Ellis,4431,ok
+12R-Hx0365,Y,Gaston,4436,ok
+12R-Hx0365,Y,Haswell,4442,ok
+12R-Hx0365,Y,Hawkins,4443,ok
+12R-Hx0365,Y,Jenkins,4446,ok
+12R-Hx0365,Y,Johnson,4447,ok
+12R-Hx0365,Y,Kyle,3203,ok
+12R-Hx0365,Y,Lacy,4506,ok
+12R-Hx0365,Y,Lane,4507,ok
+12R-Hx0365,Y,Leonard,4508,ok
+12R-Hx0365,Y,Lyons,4510,ok
+12R-Hx0365,Y,McLean,4513,ok
+12R-Hx0365,Y,Miller,4516,ok
+12R-Hx0365,Y,Morris,4451,ok
+12R-Hx0365,Y,R. L. Moore,4450,ok
+12R-Hx0365,Y,Pierson,4455,ok
+12R-Hx0365,Y,Plumley,3991,ok
+12R-Hx0365,Y,Posey,4461,ok
+12R-Hx0365,Y,Robb,4467,ok
+12R-Hx0365,Y,Ross,4470,ok
+12R-Hx0365,Y,Schutze,4473,ok
+12R-Hx0365,Y,Self,4474,ok
+12R-Hx0365,Y,Shelburne,4475,ok
+12R-Hx0365,Y,Sheriff,4476,ok
+12R-Hx0365,Y,Simmons,4479,ok
+12R-Hx0365,Y,Smyth,4482,ok
+12R-Hx0365,Y,Spencer,4483,ok
+12R-Hx0365,Y,Stirman,4484,ok
+12R-Hx0365,Y,Tegener,4486,ok
+12R-Hx0365,Y,Van Noy,4489,ok
+12R-Hx0365,Y,S. S. Weaver,4493,ok
+12R-Hx0365,Y,J. C. Weaver,4492,ok
+12R-Hx0365,Y,Young,4497,ok
+12R-Hx0365,N,Burley,4414,ok
+12R-Hx0365,N,Butler,4416,ok
+12R-Hx0365,N,Cotton,4421,ok
+12R-Hx0365,N,Davis,4426,ok
+12R-Hx0365,N,Dorris,4427,ok
+12R-Hx0365,N,Dupree,4428,ok
+12R-Hx0365,N,Gardiner,4435,ok
+12R-Hx0365,N,George,4437,ok
+12R-Hx0365,N,Grothaus,4438,ok
+12R-Hx0365,N,Hamilton,4440,ok
+12R-Hx0365,N,Harn,4441,ok
+12R-Hx0365,N,Kendall,4448,ok
+12R-Hx0365,N,Locke,4504,ok
+12R-Hx0365,N,Lorance,4509,ok
+12R-Hx0365,N,Manning,4514,ok
+12R-Hx0365,N,Medlock,4515,ok
+12R-Hx0365,N,Mitchell,4517,ok
+12R-Hx0365,N,Morrison,4452,ok
+12R-Hx0365,N,Henry Moore,4449,ok
+12R-Hx0365,N,Mullens,4453,ok
+12R-Hx0365,N,Patten,4454,ok
+12R-Hx0365,N,Prissick,4463,ok
+12R-Hx0365,N,Robertson,4468,ok
+12R-Hx0365,N,Robinson,4469,ok
+12R-Hx0365,N,Schlotman,4472,ok
+12R-Hx0365,N,Shoemaker,4478,ok
+12R-Hx0365,N,Sinclair,4397,ok
+12R-Hx0365,N,Slaughter,4480,ok
+12R-Hx0365,N,Stockbridge,4485,ok
+12R-Hx0365,N,B. F. Williams,4193,ok
+12R-Hx0365,N,R. Williams,4495,ok
+12R-Hx0365,N,York,4496,ok
+12R-Hx0365,N,Youngkin,4498,ok
+12R-Hx0365,N,Zapp,4499,ok
+12R-Hx0365,N,Zoeller,4500,ok
+12R-Hx0365,N,R. Allen,4407,ok
+12R-Hx0365,N,J. F. McKee,4511,"ok, name shared"
+12A-Sx0267,Y,Baker,4341,ok
+12A-Sx0267,Y,Bell,4342,ok
+12A-Sx0267,Y,Ford,4356,ok
+12A-Sx0267,Y,Gaines,4360,ok
+12A-Sx0267,Y,Hall,4369,ok
+12A-Sx0267,Y,Hertzberg,4370,ok
+12A-Sx0267,Y,Hillebrand,4371,ok
+12A-Sx0267,Y,Parsons,4375,ok
+12A-Sx0267,Y,Pettit,4376,ok
+12A-Sx0267,Y,Pridgen,4378,ok
+12A-Sx0267,Y,Rawson,4381,ok
+12A-Sx0267,Y,Ruby,4382,ok
+12A-Sx0267,Y,Saylor,4383,ok
+12A-Sx0267,Y,Tendick,4386,ok
+12A-Sx0267,N,Bowers,4343,ok
+12A-Sx0267,N,Broughton,4344,ok
+12A-Sx0267,N,Cole,4349,ok
+12A-Sx0267,N,Dillard,3871,ok
+12A-Sx0267,N,Dohoney,4350,ok
+12A-Sx0267,N,Douglas,4351,ok
+12A-Sx0267,N,Evans,4354,ok
+12A-Sx0267,N,Mills,4373,ok
+12A-Sx0267,N,Pickett,4377,ok
+12A-Sx0267,N,Pyle,4380,ok
+12A-Sx0267,N,Shannon,4384,ok
+12A-Sx0267,N,Swift,4385,ok
+12A-Sx0267,Y,Mr. President,4355,"ok, name shared"
+15R-Hx0482,Y,Allison,3855,ok
+15R-Hx0482,Y,Adkisson,4424,ok
+15R-Hx0482,Y,Andrews,4439,ok
+15R-Hx0482,Y,Boyd,4460,ok
+15R-Hx0482,Y,Burrows,4465,ok
+15R-Hx0482,Y,Campbell,4477,ok
+15R-Hx0482,Y,Chambers,4070,ok
+15R-Hx0482,Y,Chesley,4024,ok
+15R-Hx0482,Y,Cochran,3606,ok
+15R-Hx0482,Y,Cone,4501,ok
+15R-Hx0482,Y,Conley,4502,ok
+15R-Hx0482,Y,Douglass,3233,ok
+15R-Hx0482,Y,Downs,4518,ok
+15R-Hx0482,Y,Garrison,3928,ok
+15R-Hx0482,Y,Graham,4519,ok
+15R-Hx0482,Y,Harris,4521,ok
+15R-Hx0482,Y,Hart,4522,ok
+15R-Hx0482,Y,Haynes,4523,ok
+15R-Hx0482,Y,Holland,4525,ok
+15R-Hx0482,Y,Holly,4526,ok
+15R-Hx0482,Y,Horton,4527,ok
+15R-Hx0482,Y,Hunter,4528,ok
+15R-Hx0482,Y,Hutchins,4529,ok
+15R-Hx0482,Y,Ikard,4530,ok
+15R-Hx0482,Y,Jones of Gonzales,4565,ok
+15R-Hx0482,Y,Jones of McLennan,4532,ok
+15R-Hx0482,Y,Kinnison,4567,ok
+15R-Hx0482,Y,Key,4167,ok
+15R-Hx0482,Y,Kopperl,4568,ok
+15R-Hx0482,Y,Lang,4569,ok
+15R-Hx0482,Y,Lathrop,4570,ok
+15R-Hx0482,Y,McComb,4257,ok
+15R-Hx0482,Y,McCorkle,4571,ok
+15R-Hx0482,Y,McCuistian,4572,ok
+15R-Hx0482,Y,McKinnion,4581,not in data
+15R-Hx0482,Y,Marshall,4591,ok
+15R-Hx0482,Y,Martin,4213,ok
+15R-Hx0482,Y,Mead,4594,ok
+15R-Hx0482,Y,Middlebrook,3895,ok
+15R-Hx0482,Y,Moses,3897,ok
+15R-Hx0482,Y,Newland,4602,ok
+15R-Hx0482,Y,Parker,4610,ok
+15R-Hx0482,Y,Pattie,4613,ok
+15R-Hx0482,Y,Peers,4130,ok
+15R-Hx0482,Y,Pickett,3674,ok
+15R-Hx0482,Y,Quin,4618,ok
+15R-Hx0482,Y,Rainey,4133,ok
+15R-Hx0482,Y,Roberts of Harrison,4630,ok
+15R-Hx0482,Y,Schrier,4640,ok
+15R-Hx0482,Y,Shaw,4641,ok
+15R-Hx0482,Y,Stewart,4275,ok
+15R-Hx0482,Y,Schmidt of Harris,4639,ok
+15R-Hx0482,Y,Smith of Denton,4643,ok
+15R-Hx0482,Y,Smith of Walker,4642,ok
+15R-Hx0482,Y,Snead,4645,ok
+15R-Hx0482,Y,Swisher,4647,ok
+15R-Hx0482,Y,Stone,4646,ok
+15R-Hx0482,Y,Thompson,4648,ok
+15R-Hx0482,Y,Towles,3917,ok
+15R-Hx0482,Y,Warren,4650,ok
+15R-Hx0482,Y,Watson,4651,ok
+15R-Hx0482,Y,Wurzbach,3782,ok
+15R-Hx0482,Y,Young,4655,ok
+15R-Hx0482,N,Baker,4227,ok
+15R-Hx0482,N,Griffith,4520,ok
+15R-Hx0482,N,Wilson,4654,ok
+15R-Hx0482,Y,,4587,not on page
+25R-Sx0011,Y,Bailey,3476,ok
+25R-Sx0011,Y,Beall,3477,ok
+25R-Sx0011,Y,Bowser,3173,ok
+25R-Sx0011,Y,Burns,3321,ok
+25R-Sx0011,Y,Darwin,3480,ok
+25R-Sx0011,Y,Dibrell,3309,ok
+25R-Sx0011,Y,Goss,3310,ok
+25R-Sx0011,Y,Harrison,3481,ok
+25R-Sx0011,Y,Kerr,3324,ok
+25R-Sx0011,Y,Lewis,3325,ok
+25R-Sx0011,Y,Linn of Wharton,3269,ok
+25R-Sx0011,Y,Morriss,3328,ok
+25R-Sx0011,Y,Neal,3318,ok
+25R-Sx0011,Y,Presler,3483,ok
+25R-Sx0011,Y,Rogers,3484,ok
+25R-Sx0011,Y,Ross,3329,ok
+25R-Sx0011,Y,Stafford,3161,ok
+25R-Sx0011,Y,Terrell,2913,ok
+25R-Sx0011,Y,Tillett,3485,ok
+25R-Sx0011,Y,Turney,3331,ok
+25R-Sx0011,Y,Wayland,3332,ok
+25R-Sx0011,Y,Woods,3007,ok
+25R-Sx0011,Y,Yantis,3334,ok
+25R-Sx0011,Y,Yett,3335,ok
+25R-Sx0011,N,Colquitt,3479,ok
+25R-Sx0011,E,Atlee,3320,ok
+25R-Sx0011,E,Boren,3478,ok
+25R-Sx0011,E,Linn of Victoria,3482,ok
+25R-Sx0011,A,Gough,3322,ok
+25R-Sx0011,A,Greer,3323,ok
+25R-Sx0011,A,Stone,3330,ok
+32R-Hx0252,Y,Aston,2933,ok
+32R-Hx0252,Y,Bagby,2577,ok
+32R-Hx0252,Y,Baker of Hood,2650,ok
+32R-Hx0252,Y,Baker of Panola,2295,ok
+32R-Hx0252,Y,Barrett,2579,ok
+32R-Hx0252,Y,Bierschwale,2654,ok
+32R-Hx0252,Y,Bonner,2904,ok
+32R-Hx0252,Y,Brooks,2901,ok
+32R-Hx0252,Y,Brookshire,2916,ok
+32R-Hx0252,Y,Broughton,2808,ok
+32R-Hx0252,Y,Brownlee,2938,ok
+32R-Hx0252,Y,Buchanan,2821,ok
+32R-Hx0252,Y,Buffington,2939,ok
+32R-Hx0252,Y,Burns,2824,ok
+32R-Hx0252,Y,Byrne,2666,ok
+32R-Hx0252,Y,Camp,2981,ok
+32R-Hx0252,Y,Campbell,2668,ok
+32R-Hx0252,Y,Cathey,1651,ok
+32R-Hx0252,Y,Caves,2947,ok
+32R-Hx0252,Y,Chapin,2900,ok
+32R-Hx0252,Y,Coffey,2828,ok
+32R-Hx0252,Y,Corder,2985,ok
+32R-Hx0252,Y,Cox of Eastland,2986,ok
+32R-Hx0252,Y,Cox of Rockwall,2899,ok
+32R-Hx0252,Y,Craven,2830,ok
+32R-Hx0252,Y,Crisp,2831,ok
+32R-Hx0252,Y,Cureton,2952,ok
+32R-Hx0252,Y,Davis,2136,ok
+32R-Hx0252,Y,Dillard,2996,ok
+32R-Hx0252,Y,Donegan,2997,ok
+32R-Hx0252,Y,Dotson,2956,ok
+32R-Hx0252,Y,Dunn,2682,ok
+32R-Hx0252,Y,Elliott,2898,ok
+32R-Hx0252,Y,Fant,2957,ok
+32R-Hx0252,Y,Fountain,2836,ok
+32R-Hx0252,Y,Gaither,3001,ok
+32R-Hx0252,Y,Gieptner,3008,ok
+32R-Hx0252,Y,Gilmore,2962,ok
+32R-Hx0252,Y,Goodner,2839,ok
+32R-Hx0252,Y,Graham,2964,ok
+32R-Hx0252,Y,Gross,3010,ok
+32R-Hx0252,Y,Hall,3012,ok
+32R-Hx0252,Y,Hamilton of Childress,2965,ok
+32R-Hx0252,Y,Hamilton of McCulloch,2591,ok
+32R-Hx0252,Y,Haney,2695,ok
+32R-Hx0252,Y,Harmon,3019,ok
+32R-Hx0252,Y,Haxthausen,2698,ok
+32R-Hx0252,Y,Heilig,2843,ok
+32R-Hx0252,Y,Henry,2844,ok
+32R-Hx0252,Y,Herder,2846,ok
+32R-Hx0252,Y,Hill,2968,ok
+32R-Hx0252,Y,Hillyer,3060,ok
+32R-Hx0252,Y,Hornby,2531,ok
+32R-Hx0252,Y,Hubbard,2897,ok
+32R-Hx0252,Y,Hunt,2851,ok
+32R-Hx0252,Y,Kennedy,2854,ok
+32R-Hx0252,Y,Lawson,2978,ok
+32R-Hx0252,Y,Leach,2980,ok
+32R-Hx0252,Y,Lee,2983,data has E
+32R-Hx0252,Y,Logan,3063,ok
+32R-Hx0252,Y,Mangum,1931,ok
+32R-Hx0252,Y,McDaniel,2858,ok
+32R-Hx0252,Y,McDowra,2601,ok
+32R-Hx0252,Y,McGown,2999,ok
+32R-Hx0252,Y,McKinney,3004,ok
+32R-Hx0252,Y,Mikeska,3065,ok
+32R-Hx0252,Y,Minton,3016,ok
+32R-Hx0252,Y,Morris,2863,ok
+32R-Hx0252,Y,Mulcahy,2865,ok
+32R-Hx0252,Y,Nickels of Hill,3023,ok
+32R-Hx0252,Y,Nichols of Hunt,2722,ok
+32R-Hx0252,Y,Oliver,2867,ok
+32R-Hx0252,Y,Pharr,3030,ok
+32R-Hx0252,Y,Porter,3032,ok
+32R-Hx0252,Y,Robertson of Bell,3042,ok
+32R-Hx0252,Y,Robertson of Travis,3043,ok
+32R-Hx0252,Y,Rogers,2877,ok
+32R-Hx0252,Y,Rucks,3067,ok
+32R-Hx0252,Y,Russell,3068,ok
+32R-Hx0252,Y,Schlick,3069,ok
+32R-Hx0252,Y,Schluter,2895,ok
+32R-Hx0252,Y,Self,3045,ok
+32R-Hx0252,Y,Shannon,3070,ok
+32R-Hx0252,Y,Smith of Atascosa,2272,ok
+32R-Hx0252,Y,Smith of Houston,3072,ok
+32R-Hx0252,Y,Spradley,2739,ok
+32R-Hx0252,Y,Stamps,3046,ok
+32R-Hx0252,Y,Standifer,3047,ok
+32R-Hx0252,Y,Stepter,3050,ok
+32R-Hx0252,Y,Stevenson,3073,ok
+32R-Hx0252,Y,Stone,2880,ok
+32R-Hx0252,Y,Tarver,2881,ok
+32R-Hx0252,Y,Terrell of Bexar,2803,ok
+32R-Hx0252,Y,Terrell of Cherokee,2069,ok
+32R-Hx0252,Y,Turney,2905,ok
+32R-Hx0252,Y,Wahrmund,2461,ok
+32R-Hx0252,Y,Watson,2886,not in data
+32R-Hx0252,Y,White,2894,ok
+32R-Hx0252,Y,Wood,3077,ok
+32R-Hx0252,Y,Woods,2442,ok
+32R-Hx0252,Y,Wortham,2755,ok
+32R-Hx0252,Y,Yarbrough,2889,ok
+32R-Hx0252,P,Kraitcher,2896,ok
+32R-Hx0252,A,Birdsong,2915,ok
+32R-Hx0252,A,Cranke,2988,ok
+32R-Hx0252,A,Flournoy,2687,ok
+32R-Hx0252,A,Humphrey,2850,ok
+32R-Hx0252,A,Johnston,2975,ok
+32R-Hx0252,A,Lane,3062,ok
+32R-Hx0252,A,Martin,2488,ok
+32R-Hx0252,A,Maxwell,3014,ok
+32R-Hx0252,A,Ross,1800,ok
+32R-Hx0252,A,Singleton,3071,ok
+32R-Hx0252,A,Stead,3048,ok
+32R-Hx0252,A,Stevens,2879,ok
+32R-Hx0252,A,Walker,3075,ok
+32R-Hx0252,A,Williams of Dallas,3076,ok
+32R-Hx0252,A,Williams of McLennan,2557,ok
+32R-Hx0252,E,Bolin,2521,ok
+32R-Hx0252,E,Brown,2628,ok
+32R-Hx0252,E,Cable,2350,ok
+32R-Hx0252,E,German,2960,ok
+32R-Hx0252,E,Highsmith,2967,ok
+32R-Hx0252,E,Keeble,2976,ok
+32R-Hx0252,E,Landry,3061,ok
+32R-Hx0252,E,Maddox,2714,ok
+32R-Hx0252,E,McNeal,2861,ok
+32R-Hx0252,E,Parker,2870,ok
+32R-Hx0252,E,Randolph,3066,ok
+32R-Hx0252,E,Rowell,2731,ok
+32R-Hx0252,E,Savage,2733,ok
+32R-Hx0252,E,Teel,3074,data has Y
+314-Sx0117,Y,Adams,2906,ok
+314-Sx0117,Y,Brachfield,2918,ok
+314-Sx0117,Y,Harper,2919,ok
+314-Sx0117,Y,Hume,2908,ok
+314-Sx0117,Y,Kellie,2922,ok
+314-Sx0117,Y,Meachum,2910,ok
+314-Sx0117,Y,Paulus,2797,ok
+314-Sx0117,Y,Peeler,2902,ok
+314-Sx0117,Y,Ratliff,2911,ok
+314-Sx0117,Y,Senter,2924,ok
+314-Sx0117,Y,Terrell of McLennan,2646,ok
+314-Sx0117,Y,Watson,2801,ok
+314-Sx0117,N,Alexander,2917,ok
+314-Sx0117,N,Cofer,2907,ok
+314-Sx0117,N,Holsey,2921,ok
+314-Sx0117,N,Hudspeth,2639,ok
+314-Sx0117,N,Kauffman,2794,ok
+314-Sx0117,N,Mayfield,2909,ok
+314-Sx0117,N,Terrell of Bowie,2926,ok
+314-Sx0117,N,Terrell of Wise,2913,ok
+314-Sx0117,N,Ward,2217,ok
+314-Sx0117,N,Weinert,2077,ok
+314-Sx0117,A,Bryan,2891,ok
+314-Sx0117,A,Greer,2793,ok
+314-Sx0117,A,Murray,2795,ok
+314-Sx0117,A,Real,2213,ok
+314-Sx0117,E,Perkins,2903,ok
+314-Sx0117,E,Sturgeon,2912,ok
+314-Sx0117,E,Veale,2928,ok
+314-Sx0117,E,Willacy,2802,ok
+54R-Hx0674,Y,Allen,979,ok
+54R-Hx0674,Y,Allison,980,ok
+54R-Hx0674,Y,Anderson,981,ok
+54R-Hx0674,Y,Andis,982,ok
+54R-Hx0674,Y,Armor,983,ok
+54R-Hx0674,Y,Atwell,606,ok
+54R-Hx0674,Y,Baker,984,ok
+54R-Hx0674,Y,Banks,986,ok
+54R-Hx0674,Y,Bates,987,ok
+54R-Hx0674,Y,Bell,989,ok
+54R-Hx0674,Y,Benton,991,ok
+54R-Hx0674,Y,Bergman,993,ok
+54R-Hx0674,Y,Berlin,994,ok
+54R-Hx0674,Y,Berry,995,ok
+54R-Hx0674,Y,Bishop,997,ok
+54R-Hx0674,Y,Bradshaw,998,ok
+54R-Hx0674,Y,Brashear,999,ok
+54R-Hx0674,Y,Briscoe,1000,ok
+54R-Hx0674,Y,Bristow,1001,ok
+54R-Hx0674,Y,Bryan,1003,ok
+54R-Hx0674,Y,Carmichall,1005,ok
+54R-Hx0674,Y,Carpenter,1006,ok
+54R-Hx0674,Y,Carr,1007,ok
+54R-Hx0674,Y,Chapman,880,ok
+54R-Hx0674,Y,Clements,1010,ok
+54R-Hx0674,Y,Cloud,1011,ok
+54R-Hx0674,Y,Cobb,1013,ok
+54R-Hx0674,Y,Cole,819,ok
+54R-Hx0674,Y,Cooper,1017,ok
+54R-Hx0674,Y,Cory,796,ok
+54R-Hx0674,Y,Cowen,1018,ok
+54R-Hx0674,Y,Cox of Montgomery,1019,ok
+54R-Hx0674,Y,Cox of Bell,1020,ok
+54R-Hx0674,Y,Crim,1021,ok
+54R-Hx0674,Y,Crosthwait,1023,ok
+54R-Hx0674,Y,de la Garza,890,ok
+54R-Hx0674,Y,Dewey,1024,ok
+54R-Hx0674,Y,Miss Duff,1025,ok
+54R-Hx0674,Y,Dugas,1026,ok
+54R-Hx0674,Y,Elliott,1027,ok
+54R-Hx0674,Y,Ellis,1028,ok
+54R-Hx0674,Y,Fenoglio,1029,ok
+54R-Hx0674,Y,Ferrell,1030,ok
+54R-Hx0674,Y,Ford of Nueces,1152,ok
+54R-Hx0674,Y,Ford of Red River,1048,ok
+54R-Hx0674,Y,Garrett,1153,ok
+54R-Hx0674,Y,Gillham,1154,ok
+54R-Hx0674,Y,Glass,1050,ok
+54R-Hx0674,Y,Glusing,1051,ok
+54R-Hx0674,Y,Hale,595,ok
+54R-Hx0674,Y,Hardeman,1225,ok
+54R-Hx0674,Y,Hazlett,1155,ok
+54R-Hx0674,Y,Heatly,513,ok
+54R-Hx0674,Y,Heideke,1157,ok
+54R-Hx0674,Y,Heitman,1053,ok
+54R-Hx0674,Y,Hogue,1158,ok
+54R-Hx0674,Y,Holstein,1056,ok
+54R-Hx0674,Y,Hosey,1058,ok
+54R-Hx0674,Y,Houston,906,ok
+54R-Hx0674,Y,Huffman,1060,ok
+54R-Hx0674,Y,Hughes,1062,ok
+54R-Hx0674,Y,Hunt,1159,ok
+54R-Hx0674,Y,Hutchins,1063,ok
+54R-Hx0674,Y,Miss Isaacks,908,ok
+54R-Hx0674,Y,Jackson of Cass,1160,ok
+54R-Hx0674,Y,Jackson of Navarro,1064,ok
+54R-Hx0674,Y,Jamison,818,ok
+54R-Hx0674,Y,Jones,1066,ok
+54R-Hx0674,Y,Joseph,1067,ok
+54R-Hx0674,Y,Kelly,1068,ok
+54R-Hx0674,Y,Kennard,709,ok
+54R-Hx0674,Y,Kennedy,1069,ok
+54R-Hx0674,Y,King,1162,ok
+54R-Hx0674,Y,Kirkham,1163,ok
+54R-Hx0674,Y,Koliba,913,ok
+54R-Hx0674,Y,Lane,1165,ok
+54R-Hx0674,Y,Latimer,1071,ok
+54R-Hx0674,Y,Lee,1166,ok
+54R-Hx0674,Y,Lehman,1167,ok
+54R-Hx0674,Y,McDaniel,1173,ok
+54R-Hx0674,Y,McDonald,1079,ok
+54R-Hx0674,Y,McGregor of McLennan,1089,ok
+54R-Hx0674,Y,McGregor of El Paso,921,ok
+54R-Hx0674,Y,McIlhany,922,ok
+54R-Hx0674,Y,McNeil,1174,ok
+54R-Hx0674,Y,Maverick,1169,ok
+54R-Hx0674,Y,Moore of Harris,1091,ok
+54R-Hx0674,Y,Moore of Tarrant,1092,ok
+54R-Hx0674,Y,Morgan,1175,ok
+54R-Hx0674,Y,Mullen,1093,ok
+54R-Hx0674,Y,Murphy,1176,ok
+54R-Hx0674,Y,Murray,650,ok
+54R-Hx0674,Y,Niemann,1177,ok
+54R-Hx0674,Y,Osborn,1096,ok
+54R-Hx0674,Y,Parish,1097,ok
+54R-Hx0674,Y,Patten,1178,ok
+54R-Hx0674,Y,Patterson,1099,ok
+54R-Hx0674,Y,Pipkin,840,ok
+54R-Hx0674,Y,Pool,1100,ok
+54R-Hx0674,Y,Puckett,1102,ok
+54R-Hx0674,Y,Pyle,1181,ok
+54R-Hx0674,Y,Reeves,1183,ok
+54R-Hx0674,Y,Ross,1184,ok
+54R-Hx0674,Y,Sadler,1107,ok
+54R-Hx0674,Y,Sandahl,1108,ok
+54R-Hx0674,Y,Sanders,1109,ok
+54R-Hx0674,Y,Saul,1110,ok
+54R-Hx0674,Y,Sayers,1185,ok
+54R-Hx0674,Y,Schram,1112,ok
+54R-Hx0674,Y,Schwartz of Galveston,556,ok
+54R-Hx0674,Y,Schwartz of Washington,1113,ok
+54R-Hx0674,Y,Seeligson,1114,ok
+54R-Hx0674,Y,Shannon,1117,ok
+54R-Hx0674,Y,Sheridan,1119,ok
+54R-Hx0674,Y,Slack,586,ok
+54R-Hx0674,Y,Smith of Hays,1121,ok
+54R-Hx0674,Y,Smith of Jefferson,780,ok
+54R-Hx0674,Y,Smith of Tarrant,1186,ok
+54R-Hx0674,Y,Spilman,1122,ok
+54R-Hx0674,Y,Spring,1187,ok
+54R-Hx0674,Y,Stewart,782,ok
+54R-Hx0674,Y,Stilwell,1188,ok
+54R-Hx0674,Y,Stone,1189,ok
+54R-Hx0674,Y,Storey,1124,ok
+54R-Hx0674,Y,Strickland,1125,ok
+54R-Hx0674,Y,Stroman,1126,ok
+54R-Hx0674,Y,Talasek,1129,ok
+54R-Hx0674,Y,Thurmond,1132,ok
+54R-Hx0674,Y,Turman,1133,ok
+54R-Hx0674,Y,Walling,1134,ok
+54R-Hx0674,Y,Ward,1190,ok
+54R-Hx0674,Y,Welch,1135,ok
+54R-Hx0674,Y,Wheeler,1136,ok
+54R-Hx0674,Y,White,1137,ok
+54R-Hx0674,Y,Wilson,1139,ok
+54R-Hx0674,Y,Winfree,1140,ok
+54R-Hx0674,Y,Wohlford,1142,ok
+54R-Hx0674,Y,Wood,1037,ok
+54R-Hx0674,Y,Yancy,1191,ok
+54R-Hx0674,Y,Yezak,1144,ok
+54R-Hx0674,Y,Zbranek,1145,ok
+54R-Hx0674,N,Burkett,1004,ok
+54R-Hx0674,N,Cheatham,1009,ok
+54R-Hx0674,N,Kirklin,1164,ok
+54R-Hx0674,N,Johnson,1161,ok
+54R-Hx0674,A,Blaine,791,ok
+54R-Hx0674,A,Chambers,1008,ok
+54R-Hx0674,A,Lieck,1168,ok
+54R-Hx0674,E,Martin,1075,ok
+55R-Sx0733,Y,Aikin,350,ok
+55R-Sx0733,Y,Ashley,961,ok
+55R-Sx0733,Y,Bracewell,962,ok
+55R-Sx0733,Y,Bradshaw,998,ok
+55R-Sx0733,Y,Colson,820,ok
+55R-Sx0733,Y,Fly,964,ok
+55R-Sx0733,Y,Fuller,965,ok
+55R-Sx0733,Y,Gonzalez,1031,ok
+55R-Sx0733,Y,Hardeman,823,ok
+55R-Sx0733,Y,Hazlewood,825,ok
+55R-Sx0733,Y,Herring,699,ok
+55R-Sx0733,Y,Hudson,1033,ok
+55R-Sx0733,Y,Kazen,856,ok
+55R-Sx0733,Y,Krueger,857,ok
+55R-Sx0733,Y,Lane,967,ok
+55R-Sx0733,Y,Lock,969,ok
+55R-Sx0733,Y,Martin,970,ok
+55R-Sx0733,Y,Moffett,858,ok
+55R-Sx0733,Y,Moore,554,ok
+55R-Sx0733,Y,Owen,859,ok
+55R-Sx0733,Y,Parkhouse,860,ok
+55R-Sx0733,Y,Phillips,972,ok
+55R-Sx0733,Y,Ratliff,711,ok
+55R-Sx0733,Y,Reagan,861,ok
+55R-Sx0733,Y,Roberts,1034,ok
+55R-Sx0733,Y,Secrest,974,ok
+55R-Sx0733,Y,Smith,1035,ok
+55R-Sx0733,Y,Weinert,978,ok
+55R-Sx0733,Y,Willis,308,ok
+55R-Sx0733,Y,Wood,1037,ok
+55R-Sx0733,A,Rogers,863,ok
+58R-Hx0560,Y,Adams,866,ok
+58R-Hx0560,Y,Alaniz,867,ok
+58R-Hx0560,Y,Allen,605,ok
+58R-Hx0560,Y,Arledge,868,ok
+58R-Hx0560,Y,Atwell,606,ok
+58R-Hx0560,Y,Ball,869,ok
+58R-Hx0560,Y,Banfield,870,ok
+58R-Hx0560,Y,Barnes,761,ok
+58R-Hx0560,Y,Bass of Bowie,788,ok
+58R-Hx0560,Y,Bass of Harris,721,ok
+58R-Hx0560,Y,Beckham,722,ok
+58R-Hx0560,Y,Berry,871,ok
+58R-Hx0560,Y,Birkner,789,ok
+58R-Hx0560,Y,Blaine,791,ok
+58R-Hx0560,Y,Boysen,872,ok
+58R-Hx0560,Y,Bridges,703,ok
+58R-Hx0560,Y,Brooks,74,ok
+58R-Hx0560,Y,Brown of Galveston,873,ok
+58R-Hx0560,Y,Brown of Taylor,874,ok
+58R-Hx0560,Y,Butler,875,ok
+58R-Hx0560,Y,Cain,794,ok
+58R-Hx0560,Y,Caldwell,614,ok
+58R-Hx0560,Y,Canales,876,ok
+58R-Hx0560,Y,Cannon,877,ok
+58R-Hx0560,Y,Carpenter,878,ok
+58R-Hx0560,Y,Carriker,879,ok
+58R-Hx0560,Y,Cavness,682,ok
+58R-Hx0560,Y,Chapman,880,ok
+58R-Hx0560,Y,Cherry,881,ok
+58R-Hx0560,Y,Clayton,501,ok
+58R-Hx0560,Y,Cole,618,ok
+58R-Hx0560,Y,Collins,882,ok
+58R-Hx0560,Y,Cory,796,ok
+58R-Hx0560,Y,Coughran,885,ok
+58R-Hx0560,Y,Cowden,886,ok
+58R-Hx0560,Y,Cowles,887,ok
+58R-Hx0560,Y,Crain,888,ok
+58R-Hx0560,Y,Crews,797,ok
+58R-Hx0560,Y,Davis,889,ok
+58R-Hx0560,Y,de la Garza,890,ok
+58R-Hx0560,Y,Doke,891,ok
+58R-Hx0560,Y,Duggan,800,ok
+58R-Hx0560,Y,Dungan,892,ok
+58R-Hx0560,Y,Edwards,894,ok
+58R-Hx0560,Y,Esquivel,895,ok
+58R-Hx0560,Y,Fairchild,896,ok
+58R-Hx0560,Y,Finney,628,ok
+58R-Hx0560,Y,Fletcher,897,ok
+58R-Hx0560,Y,Floyd,802,ok
+58R-Hx0560,Y,Fondren,803,ok
+58R-Hx0560,Y,Foreman,629,ok
+58R-Hx0560,Y,Garrison,898,ok
+58R-Hx0560,Y,Gibbens,899,ok
+58R-Hx0560,Y,Gladden,806,ok
+58R-Hx0560,Y,Glenn,900,ok
+58R-Hx0560,Y,Green,901,ok
+58R-Hx0560,Y,Grover,706,ok
+58R-Hx0560,Y,Guffey,902,ok
+58R-Hx0560,Y,Haines of Brazos,809,ok
+58R-Hx0560,Y,Hallmark,903,ok
+58R-Hx0560,Y,Harding,741,ok
+58R-Hx0560,Y,Haring,904,ok
+58R-Hx0560,Y,Harris of Galveston,631,ok
+58R-Hx0560,Y,Harris of Dallas,67,ok
+58R-Hx0560,Y,Haynes of Orange,743,ok
+58R-Hx0560,Y,Heatly,513,ok
+58R-Hx0560,Y,Hefton,905,ok
+58R-Hx0560,Y,Hendryx,812,ok
+58R-Hx0560,Y,Hinson,813,ok
+58R-Hx0560,Y,Hollowell,353,ok
+58R-Hx0560,Y,Houston,906,ok
+58R-Hx0560,Y,Hughes,907,ok
+58R-Hx0560,Y,Isaacks,908,ok
+58R-Hx0560,Y,Jamison,818,ok
+58R-Hx0560,Y,Jarvis,909,ok
+58R-Hx0560,Y,Johnson of Dallas,910,ok
+58R-Hx0560,Y,Johnson of Bexar,748,ok
+58R-Hx0560,Y,Kilpatrick,751,ok
+58R-Hx0560,Y,Klager,912,ok
+58R-Hx0560,Y,Knapp,827,ok
+58R-Hx0560,Y,Koliba,913,ok
+58R-Hx0560,Y,Kothmann,426,ok
+58R-Hx0560,Y,Lack,914,ok
+58R-Hx0560,Y,Ligarde,756,ok
+58R-Hx0560,Y,McClinton,919,ok
+58R-Hx0560,Y,McDonald of Hidalgo,643,ok
+58R-Hx0560,Y,McDonald of Rusk,920,ok
+58R-Hx0560,Y,McGregor,921,ok
+58R-Hx0560,Y,McIlhany,922,ok
+58R-Hx0560,Y,McLaughlin,830,ok
+58R-Hx0560,Y,McNutt,923,ok
+58R-Hx0560,Y,Macatee,916,ok
+58R-Hx0560,Y,Mann,917,ok
+58R-Hx0560,Y,Markgraf,918,ok
+58R-Hx0560,Y,Miller,924,ok
+58R-Hx0560,Y,Morgan,925,ok
+58R-Hx0560,Y,Moyer,832,ok
+58R-Hx0560,Y,Murray,650,ok
+58R-Hx0560,Y,Mutscher,767,ok
+58R-Hx0560,Y,Niemeyer,926,ok
+58R-Hx0560,Y,Nugent,653,ok
+58R-Hx0560,Y,Parker,68,ok
+58R-Hx0560,Y,Parmer,322,ok
+58R-Hx0560,Y,Parsley,927,ok
+58R-Hx0560,Y,Pearcy,928,ok
+58R-Hx0560,Y,Peeler,837,ok
+58R-Hx0560,Y,Pendleton,838,ok
+58R-Hx0560,Y,Petty,929,ok
+58R-Hx0560,Y,Pipkin,840,ok
+58R-Hx0560,Y,Price,773,ok
+58R-Hx0560,Y,Quilliam,841,ok
+58R-Hx0560,Y,Rapp,842,ok
+58R-Hx0560,Y,Richards,930,ok
+58R-Hx0560,Y,Richardson,845,ok
+58R-Hx0560,Y,Ritter,931,ok
+58R-Hx0560,Y,Roberts,932,ok
+58R-Hx0560,Y,Rodriguez,662,ok
+58R-Hx0560,Y,Rosson,663,ok
+58R-Hx0560,Y,Satterwhite,933,ok
+58R-Hx0560,Y,Schiller,846,ok
+58R-Hx0560,Y,Scoggins,847,ok
+58R-Hx0560,Y,Segrest,935,ok
+58R-Hx0560,Y,Shannon,777,ok
+58R-Hx0560,Y,Shipley,936,ok
+58R-Hx0560,Y,Shutt,937,ok
+58R-Hx0560,Y,Simpson,849,ok
+58R-Hx0560,Y,Slack,586,ok
+58R-Hx0560,Y,Slider,779,ok
+58R-Hx0560,Y,Smith of Bexar,939,ok
+58R-Hx0560,Y,Smith of Jefferson,780,ok
+58R-Hx0560,Y,Stewart,782,ok
+58R-Hx0560,Y,Stollenwerck,940,ok
+58R-Hx0560,Y,Thompson,941,ok
+58R-Hx0560,Y,Thurmond,942,ok
+58R-Hx0560,Y,Townsend,943,ok
+58R-Hx0560,Y,Traeger,430,ok
+58R-Hx0560,Y,Walker,945,ok
+58R-Hx0560,Y,Ward,785,ok
+58R-Hx0560,Y,Weldon,853,ok
+58R-Hx0560,Y,Wells,946,ok
+58R-Hx0560,Y,Whatley,854,ok
+58R-Hx0560,Y,Wheeler,947,ok
+58R-Hx0560,Y,Whitfield,948,ok
+58R-Hx0560,Y,Wieting,532,ok
+58R-Hx0560,Y,Wilson,713,ok
+58R-Hx0560,Y,Woods,949,ok
+58R-Hx0560,A,Cook,883,ok
+58R-Hx0560,A,Cotten,884,ok
+58R-Hx0560,A,Eckhardt,893,ok
+57R-Sx0353,Y,Aikin,350,ok
+57R-Sx0353,Y,Baker,984,ok
+57R-Sx0353,Y,Calhoun,817,ok
+57R-Sx0353,Y,Colson,820,ok
+57R-Sx0353,Y,Creighton,550,ok
+57R-Sx0353,Y,Crump,821,ok
+57R-Sx0353,Y,Dies,822,ok
+57R-Sx0353,Y,Fuller,965,ok
+57R-Sx0353,Y,Gonzalez,1031,ok
+57R-Sx0353,Y,Hardeman,823,ok
+57R-Sx0353,Y,Hazlewood,825,ok
+57R-Sx0353,Y,Herring,699,ok
+57R-Sx0353,Y,Kazen,856,ok
+57R-Sx0353,Y,Krueger,857,ok
+57R-Sx0353,Y,Lane,967,ok
+57R-Sx0353,Y,Martin,970,ok
+57R-Sx0353,Y,Moffett,858,ok
+57R-Sx0353,Y,Moore,554,ok
+57R-Sx0353,Y,Owen,859,ok
+57R-Sx0353,Y,Parkhouse,860,ok
+57R-Sx0353,Y,Patman,555,ok
+57R-Sx0353,Y,Ratliff,711,ok
+57R-Sx0353,Y,Reagan,861,ok
+57R-Sx0353,Y,Roberts,1034,ok
+57R-Sx0353,Y,Rogers,863,ok
+57R-Sx0353,Y,Schwartz,556,ok
+57R-Sx0353,Y,Secrest,974,ok
+57R-Sx0353,Y,Smith,1035,ok
+57R-Sx0353,Y,Weinert,978,ok
+57R-Sx0353,Y,Willis,308,ok
+57R-Sx0353,E,Hudson,1033,ok
+66R-S0754,Y,Blake,424,ok
+66R-S0754,Y,Clower,549,ok
+66R-S0754,Y,Doggett,488,ok
+66R-S0754,Y,Farabee,333,ok
+66R-S0754,Y,Jones of Taylor,339,ok
+66R-S0754,Y,Mauzy,428,ok
+66R-S0754,Y,Meier,539,ok
+66R-S0754,Y,Snelson,544,ok
+66R-S0754,N,Andujar,537,ok
+66R-S0754,N,Braecklein,548,ok
+66R-S0754,N,Brooks,74,ok
+66R-S0754,N,Howard,425,ok
+66R-S0754,N,Jones of Harris,558,ok
+66R-S0754,N,Kothmann,426,ok
+66R-S0754,N,Longoria,553,ok
+66R-S0754,N,Moore,554,ok
+66R-S0754,N,Parker,68,ok
+66R-S0754,N,Patman,555,ok
+66R-S0754,N,Santiesteban,323,ok
+66R-S0754,N,Schwartz,556,ok
+66R-S0754,N,Short,543,ok
+66R-S0754,N,Traeger,430,ok
+66R-S0754,N,Truan,42,ok
+66R-S0754,N,Vale,489,ok
+66R-S0754,N,Williams,431,ok
+66R-S0754,E,McKnight,538,ok
+68R-H0562,Y,Armbrister,22,ok
+68R-H0562,Y,Barrientos,23,ok
+68R-H0562,Y,"Barton, B",443,ok
+68R-H0562,Y,"Barton, E",327,ok
+68R-H0562,Y,Berlanga,70,ok
+68R-H0562,Y,Bomer,85,ok
+68R-H0562,Y,Burnett,355,ok
+68R-H0562,Y,Bush,436,ok
+68R-H0562,Y,Cain,27,ok
+68R-H0562,Y,Carriker,269,ok
+68R-H0562,Y,Cary,444,ok
+68R-H0562,Y,Cavazos,317,ok
+68R-H0562,Y,Colbert,331,ok
+68R-H0562,Y,Collazo,332,ok
+68R-H0562,Y,Coody,445,ok
+68R-H0562,Y,Criss,336,ok
+68R-H0562,Y,Danburg,114,ok
+68R-H0562,Y,Davis,447,ok
+68R-H0562,Y,Delco,286,ok
+68R-H0562,Y,Denton,287,ok
+68R-H0562,Y,Edwards,124,ok
+68R-H0562,Y,English,450,ok
+68R-H0562,Y,"Evans, C",373,ok
+68R-H0562,Y,"Evans, L",340,ok
+68R-H0562,Y,Finnell,129,ok
+68R-H0562,Y,Gamez,451,ok
+68R-H0562,Y,Gandy,452,ok
+68R-H0562,Y,"Garcia, A",439,ok
+68R-H0562,Y,"Garcia, M",453,ok
+68R-H0562,Y,Gavin,342,ok
+68R-H0562,Y,"Gibson, B",343,ok
+68R-H0562,Y,Gilley,440,ok
+68R-H0562,Y,Glossbrenner,344,ok
+68R-H0562,Y,Granoff,298,ok
+68R-H0562,Y,Green,77,ok
+68R-H0562,Y,Grisham,466,ok
+68R-H0562,Y,Hackney,377,ok
+68R-H0562,Y,"Hall, L",467,ok
+68R-H0562,Y,"Harrison, W",470,ok
+68R-H0562,Y,Hightower,147,ok
+68R-H0562,Y,"Hill, A",351,ok
+68R-H0562,Y,"Hill, G",473,ok
+68R-H0562,Y,Hinojosa,179,ok
+68R-H0562,Y,"Hudson, D",354,ok
+68R-H0562,Y,"Hudson, S",156,ok
+68R-H0562,Y,Hury,356,ok
+68R-H0562,Y,Kemp,474,ok
+68R-H0562,Y,"Lee, D",457,ok
+68R-H0562,Y,Luna,364,ok
+68R-H0562,Y,Madla,41,ok
+68R-H0562,Y,"Martinez, R",365,ok
+68R-H0562,Y,"Martinez, W",478,ok
+68R-H0562,Y,Millsap,381,ok
+68R-H0562,Y,"Moreno, A",371,ok
+68R-H0562,Y,"Moreno, P",214,ok
+68R-H0562,Y,Oliveira,221,ok
+68R-H0562,Y,Oliver,460,ok
+68R-H0562,Y,Parker,374,ok
+68R-H0562,Y,Patronella,383,ok
+68R-H0562,Y,Pierce,387,ok
+68R-H0562,Y,Polk,480,ok
+68R-H0562,Y,Polumbo,388,ok
+68R-H0562,Y,Price,281,ok
+68R-H0562,Y,Ragsdale,461,ok
+68R-H0562,Y,Rangel,227,ok
+68R-H0562,Y,Salinas,482,ok
+68R-H0562,Y,Schoolcraft,396,ok
+68R-H0562,Y,Shaw,411,ok
+68R-H0562,Y,"Smith, C",463,ok
+68R-H0562,Y,"Smith, T",399,ok
+68R-H0562,Y,Stiles,299,ok
+68R-H0562,Y,Tejeda,87,ok
+68R-H0562,Y,"Thompson, S",243,ok
+68R-H0562,Y,Tow,484,ok
+68R-H0562,Y,Turner,57,ok
+68R-H0562,Y,Valles,485,ok
+68R-H0562,Y,Vowell,316,ok
+68R-H0562,Y,Wallace,407,ok
+68R-H0562,Y,Watson,422,ok
+68R-H0562,Y,Wieting,532,ok
+68R-H0562,Y,Willis,308,ok
+68R-H0562,Y,Wilson,254,ok
+68R-H0562,Y,Wolens,257,ok
+68R-H0562,N,Agnich,349,ok
+68R-H0562,N,Blanton,434,ok
+68R-H0562,N,Buchanan,435,ok
+68R-H0562,N,Ceverha,359,ok
+68R-H0562,N,Connelly,334,ok
+68R-H0562,N,Craddick,109,ok
+68R-H0562,N,DeLay,448,ok
+68R-H0562,N,Eckels,290,ok
+68R-H0562,N,Eikenburg,449,ok
+68R-H0562,N,Fox,438,ok
+68R-H0562,N,Geistweidt,375,ok
+68R-H0562,N,"Gibson, J",465,ok
+68R-H0562,N,Haley,66,ok
+68R-H0562,N,"Hall, T",468,ok
+68R-H0562,N,Hammond,347,ok
+68R-H0562,N,Hanna,469,ok
+68R-H0562,N,"Harrison, D",348,ok
+68R-H0562,N,Heflin,145,ok
+68R-H0562,N,Hilbert,148,ok
+68R-H0562,N,"Hill, P",352,ok
+68R-H0562,N,Hollowell,353,ok
+68R-H0562,N,Horn,154,ok
+68R-H0562,N,Jackson,455,ok
+68R-H0562,N,Jones,379,ok
+68R-H0562,N,Keller,456,ok
+68R-H0562,N,Khoury,475,ok
+68R-H0562,N,Kubiak,358,ok
+68R-H0562,N,Kuempel,197,ok
+68R-H0562,N,Laney,198,ok
+68R-H0562,N,McKenna,458,ok
+68R-H0562,N,McWilliams,368,ok
+68R-H0562,N,Mankins,477,ok
+68R-H0562,N,Messer,459,ok
+68R-H0562,N,Patrick,382,ok
+68R-H0562,N,Patterson,278,ok
+68R-H0562,N,Pennington,384,ok
+68R-H0562,N,Peveto,479,ok
+68R-H0562,N,Presnal,481,ok
+68R-H0562,N,Robinson,393,ok
+68R-H0562,N,Robnett,394,ok
+68R-H0562,N,Rudd,307,ok
+68R-H0562,N,Russell,406,ok
+68R-H0562,N,Shea,414,ok
+68R-H0562,N,Short,462,ok
+68R-H0562,N,Simpson,483,ok
+68R-H0562,N,"Smith, A",310,ok
+68R-H0562,N,Staniswalis,416,ok
+68R-H0562,N,"Thompson, G",464,ok
+68R-H0562,N,Toomey,419,ok
+68R-H0562,N,Uher,248,ok
+68R-H0562,N,Waldrop,420,ok
+68R-H0562,N,Whaley,423,ok
+68R-H0562,N,Word,487,ok
+68R-H0562,N,Wright,413,ok
+68R-H0562,P,Mr. Speaker,363,ok
+68R-H0562,E,Arnold,433,ok
+68R-H0562,E,Crockett,446,ok
+68R-H0562,E,Saunders,295,ok
+68R-H0562,E,Schlueter,395,ok
+68R-H0562,Y,"Hall, W",442,ok
+68R-H0562,Y,"Lee, E. F",476,ok

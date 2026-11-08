@@ -1,0 +1,7 @@
+# House 1911-03-02, page 51 (journal p. 1038): rules suspended for HB 583, "Yeas—102." (102 names), no nays; Present—Not Voting Kraitcher;
+# Absent 16; Excused 14.
+Y: Aston; Bagby; Baker of Hood; Baker of Panola; Barrett; Bierschwale; Bonner; Brooks; Brookshire; Broughton; Brownlee; Buchanan; Buffington; Burns; Byrne; Camp; Campbell; Cathey; Caves; Chapin; Coffey; Corder; Cox of Eastland; Cox of Rockwall; Craven; Crisp; Cureton; Davis; Dillard; Donegan; Dotson; Dunn; Elliott; Fant; Fountain; Gaither; Gieptner; Gilmore; Goodner; Graham; Gross; Hall; Hamilton of Childress; Hamilton of McCulloch; Haney; Harmon; Haxthausen; Heilig; Henry; Herder; Hill; Hillyer; Hornby; Hubbard; Hunt; Kennedy; Lawson; Leach; Lee; Logan; Mangum; McDaniel; McDowra; McGown; McKinney; Mikeska; Minton; Morris; Mulcahy; Nickels of Hill; Nichols of Hunt; Oliver; Pharr; Porter; Robertson of Bell; Robertson of Travis; Rogers; Rucks; Russell; Schlick; Schluter; Self; Shannon; Smith of Atascosa; Smith of Houston; Spradley; Stamps; Standifer; Stepter; Stevenson; Stone; Tarver; Terrell of Bexar; Terrell of Cherokee; Turney; Wahrmund; Watson; White; Wood; Woods; Wortham; Yarbrough
+N:
+P: Kraitcher
+A: Birdsong; Cranke; Flournoy; Humphrey; Johnston; Lane; Martin; Maxwell; Ross; Singleton; Stead; Stevens; Walker; Williams of Dallas; Williams of McLennan
+E: Bolin; Brown; Cable; German; Highsmith; Keeble; Landry; Maddox; McNeal; Parker; Randolph; Rowell; Savage; Teel

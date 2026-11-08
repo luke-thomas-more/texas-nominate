@@ -234,19 +234,21 @@ class SessionMatcher:
         if county in self.county_cache:
             return self.county_cache[county]
         cw = county.split()
-        bonus = np.where(self.has_places, -20.0, 0.0)
+        # a printed county is binding: it's how the journal tells same-surname members apart (1879: "Smith of
+        # Harris" went to Smith of Titus, 1887: "Newton of C." to Newton of Tarrant when it was only a hint)
+        bonus = np.where(self.has_places, -40.0, 0.0)
         if len(county.replace(" ", "")) <= 3:
             # an abbreviated county ("Williams of L."): a prefix of a county the member represented
             pre = county.replace(" ", "")
             for n, (owners, names) in self.places_by_len.items():
                 hit = np.array([nm.replace(" ", "").startswith(pre) for nm in names])
-                np.maximum.at(bonus, owners, np.where(hit, 6.0, -8.0))
+                np.maximum.at(bonus, owners, np.where(hit, 6.0, -30.0))
             self.county_cache[county] = bonus
             return bonus
         for n, (owners, names) in self.places_by_len.items():
             head = " ".join(cw[:n])
             sim = process.cdist([head], names, scorer=fuzz.ratio)[0]
-            val = np.clip((sim - 70) / 2, -20, 10) - 10 * max(len(cw) - n, 0)
+            val = np.clip((sim - 70) / 2, -40, 10) - 10 * max(len(cw) - n, 0)
             np.maximum.at(bonus, owners, val)
         self.county_cache[county] = bonus
         return bonus

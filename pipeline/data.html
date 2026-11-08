@@ -34,7 +34,7 @@
 <h2>Columns</h2>
 <h3>rollcalls.csv.gz</h3>
 <div class="tablewrap"><table><thead><tr><th>Column</th><th>Meaning</th></tr></thead><tbody>
-  <tr><td><code>rc_id</code></td><td>The roll call's id: legislature, session and chamber, then its number in the journal's order (<code>57R-Hx0899</code>: 57th Legislature, regular session, House; <code>x</code> marks a vote read from the scans, <code>T</code> a tally sheet).</td></tr>
+  <tr><td><code>rc_id</code></td><td>The roll call's id: legislature, session and chamber, then its number in the journal's order (<code>57R-Hx0899</code>: 57th Legislature, regular session, House; <code>x</code> marks a vote read from the scans, <code>T</code> a tally sheet). Ids stay the same from one data version to the next: a roll call first found in a later version takes the id before it plus a letter (<code>14R-Hx0127a</code>), and an id whose roll call no longer passes the checks is retired, never reused.</td></tr>
   <tr><td><code>chamber</code></td><td><code>H</code> House, <code>S</code> Senate.</td></tr>
   <tr><td><code>leg</code></td><td>The legislature (1 = 1846–47, 89 = 2025–26).</td></tr>
   <tr><td><code>session</code></td><td><code>R</code> regular, <code>1</code>, <code>2</code>, … called sessions, <code>A</code> adjourned, <code>P</code> provisional.</td></tr>

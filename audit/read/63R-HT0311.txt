@@ -1,0 +1,8 @@
+# House 1973-03-21, tally grid RECORD NO. 4 (passage of SB 133 as amended), page 41 of 03211973_42_1531.pdf. Printed summary
+# YEA 104, NAY 019, PNV 011, ABSENT 016. At 300 dpi the marks give exactly that: 104 Y, 19 N (Denton's N a hand tick), 11 P (incl. the
+# Speaker, C), 6 X (drawn across the N/P columns) + 10 blank = 16 absent.
+Y: Allen, Joe; Allen, John; Allred; Atwell; Bailey; Baker; Bales; Barnhart; Bigham; Blake; Blythe; Bock; Bowers; Bynum; Calhoun; Canales; Cavness; Clark; Clayton; Cobb; Coleman; Coody; Craddick; Donaldson; Doran; Doyle; Dramberger; Foreman; Garcia; Geiger; Grant; Green, F.; Hale; Hall, A.; Hall, W.; Hanna; Harris; Heatly; Henderson; Hendricks; Hernandez; Hilliard; Hollowell; Howard; Hubenak; Hutchison; Johnson; Jones, L.; Kubiak; Laney; Leland; Lewis; Lombardino; McAlister; McDonald, F.; McDonald, T.; Madla; Martin; Massey; Mattox; Miller; Montoya; Munson; Murray; Nabers; Newton; Nichols; Nowlin; Parker, C.; Pentony; Poerner; Poff; Presnal; Preston; Ragsdale; Reyes; Reynolds; Rodriguez; Rosson; Russell; Sage; Salem; Scoggins; Sherman; Short; Simmons; Sutton; Temple; Thompson; Tupper; Uher; Vale; Vecchio; Vick; Washington; Waters; Watson; Weddington; Whitehead; Wieting; Williams; Williamson; Willis; Wyatt
+N: Adams; Boone; Cates; Cooke; Davis; Denton; Edwards; Finnell; Gaston; Green, R.; Hoestenbach; Kaster; Korioth; Parker, W.; Peveto; Powers; Semos; Von Dohlen; Wilson
+P: Mr. Speaker; Denson; Evans; Head; Jones, G.; Maloney; Olson; Schieffer; Sullivant; Truan; Whitmire
+E: Bird; Hudson; Nugent; Slack; Spurlock; Tarbox
+A: Agnich; Caldwell; Cole; Finney; Fox; Hawn; Lary; Lee; Menefee; Sanchez

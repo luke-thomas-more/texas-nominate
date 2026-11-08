@@ -27,6 +27,8 @@ pipeline/extract_history.py   1846–1972 end to end: re-reads pages with failin
                               combines readings, checks every roll call against its printed totals
 pipeline/shared_pages.py      a page two days' files share: each roll call on it kept once, under its own day
 pipeline/check_terms.py       takes out votes credited to members out of office that day (misread names)
+pipeline/stable_ids.py        after a rebuild, gives each scan roll call its released id back (the scans number
+                              roll calls in page order, so a found or dropped one shifts the rest)
 pipeline/nominate.py          DW-NOMINATE, implemented from the published model
 pipeline/stitch_start.py      starting positions for the all-history fit, from era-by-era fits
 pipeline/fit_texas.py         fit House and Senate, 1846–2025, together in one shared space
@@ -86,14 +88,23 @@ data is in `docs/data/` (see `docs/data/downloads/`).
 
 ## Accuracy and stability
 
-- **Audit** (`pipeline/audit.py`, readings in `audit/`): 194 roll calls drawn at random across eras, chambers and
-  verification statuses were read name by name off the page images (13,588 names). Weighted to the data, about 0.04%
-  of yeas and nays were wrong and 0.08% lost; nearly all errors sat in roll calls that passed the looser checks. The
-  causes found, and the v1.0 fixes, are in `audit/findings.md`.
+- **Audit** (`pipeline/audit.py`, readings in `audit/`): 240 roll calls drawn at random across eras, chambers and
+  verification statuses were read name by name off the page images (16,486 names). Weighted to the v1.1 data, about
+  0.02% of yeas and nays were wrong and 0.07% lost (v1.0: 0.04% and 0.08% on 194 roll calls); nearly all errors sit in
+  roll calls that passed the looser checks. The causes found, and the fixes, are in `audit/findings.md`.
 - **LegiScan** (`pipeline/validate_legiscan.py`, 2013 on; LegiScan's 2009–12 files hold no Texas votes to match): 99.75% of 3.09 million individual votes agree.
 - **Stability** (`pipeline/stability.py`): refits started with the pre-1961 eras turned 25 degrees either way came
   back to within about 5 degrees of each other relative to the modern eras, so the angle between eras is set by the
   votes; the map's overall orientation can float a few degrees (the second dimension's weight is near 1).
+- **Sensitivity** (`fit_texas.py` with `SENS_STATUSES=ok`, `SENS_NO_IMPLIED=1` or `SENS_NO_TALLY=1`, compared by
+  `stability.py compare`): keeping only roll calls that match their printed totals exactly, or dropping the Senate's
+  filled-in yeas, leaves every era within 3.4 degrees and r ≥ 0.96 of the map. Dropping the 1973–82 House tally
+  sheets turns the eras since 1973 by 8–16 degrees (r ≥ 0.88): the sheets help tie the modern map to the older one.
+- **W-NOMINATE** (`pipeline/validate_wnominate.py`, R package `wnominate`): each legislature and chamber scaled on its
+  own, then turned to line up with the map (orthogonal Procrustes) and correlated axis by axis. Since 1961 (59
+  sessions) the median r is 0.89 on the first axis and 0.66 on the second; before 1961 (109 sessions) 0.68 and 0.83.
+  The weaker first axis in the older sessions isn't explained by their size (it barely varies with the number of
+  votes) and hasn't been traced.
 - **Standard errors** for each member (`se1`, `se2` in `member_scores.csv`) come from the information in their own
   votes, holding the roll calls fixed: a lower bound.
 

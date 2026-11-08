@@ -1,8 +1,8 @@
 rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,draw
 121-Hx0112,1846-73,H,scan,ok,2598,169166,12,1
-12A-Hx0523,1846-73,H,scan,other,890,56548,4,1
+12A-Hx0522,1846-73,H,scan,other,890,56548,4,1
 6R-Sx0015,1846-73,S,scan,ok,3225,77111,12,1
-13R-Sx0438,1846-73,S,scan,other,594,13722,4,1
+13R-Sx0437,1846-73,S,scan,other,594,13722,4,1
 19R-Hx0077,1874-1900,H,scan,ok,4479,385228,12,1
 19R-Hx0372,1874-1900,H,scan,other,1565,134498,4,1
 15R-Sx0578,1874-1900,S,scan,ok,9759,240153,12,1
@@ -48,7 +48,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 431-Sx0370,1931-60,S,scan,ok,28129,781399,12,2
 53R-Sx0758,1931-60,S,scan,other,555,14782,4,2
 573-Hx0067,1961-72,H,scan,ok,6160,852453,12,2
-62R-Hx1872,1961-72,H,scan,other,832,114677,4,2
+62R-Hx1871,1961-72,H,scan,other,832,114677,4,2
 59R-Sx1609,1961-72,S,scan,ok,11582,344080,12,2
 57R-Sx0008,1961-72,S,scan,other,153,4481,4,2
 63R-HT0217,1973-82,H,tally,ok,4141,554970,12,2
@@ -64,7 +64,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 87R-S0309,1995-2025,S,journal,ok,32246,982659,4,2
 75R-S0839,1995-2025,S,scan,ok,3702,111178,6,2
 12R-Hx0596,1846-73,H,scan,ok,2598,169166,12,3
-2R-Hx0098,1846-73,H,scan,other,890,56548,4,3
+2R-Hx0097,1846-73,H,scan,other,890,56548,4,3
 8R-Sx0337,1846-73,S,scan,ok,3225,77111,12,3
 3R-Sx0142,1846-73,S,scan,other,594,13722,4,3
 181-Hx0096,1874-1900,H,scan,ok,4479,385228,12,3
@@ -80,7 +80,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 432-Sx0168,1931-60,S,scan,ok,28129,781399,12,3
 42R-Sx0160,1931-60,S,scan,other,555,14782,4,3
 62R-Hx0428,1961-72,H,scan,ok,6160,852453,12,3
-59R-Hx0825,1961-72,H,scan,other,832,114677,4,3
+59R-Hx0823,1961-72,H,scan,other,832,114677,4,3
 57R-Sx0843,1961-72,S,scan,ok,11582,344080,12,3
 59R-Sx1280,1961-72,S,scan,other,153,4481,4,3
 67R-HT0025,1973-82,H,tally,ok,4141,554970,12,3
@@ -97,7 +97,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 74R-S0662,1995-2025,S,scan,ok,3702,111178,6,3
 8R-Hx0292,1846-73,H,scan,ok,2598,169166,12,4
 12R-Hx0122,1846-73,H,scan,other,890,56548,4,4
-13R-Sx0399,1846-73,S,scan,ok,3225,77111,12,4
+13R-Sx0398,1846-73,S,scan,ok,3225,77111,12,4
 11R-Sx0109,1846-73,S,scan,other,594,13722,4,4
 15R-Hx0272,1874-1900,H,scan,ok,4479,385228,12,4
 16R-Hx0027,1874-1900,H,scan,other,1565,134498,4,4
@@ -107,7 +107,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 41R-Hx0047,1901-30,H,scan,other,4816,514867,4,4
 36R-Sx0469,1901-30,S,scan,ok,20847,534133,12,4
 29R-Sx0387,1901-30,S,scan,other,807,20251,4,4
-53R-Hx1362,1931-60,H,scan,ok,27641,3416682,12,4
+53R-Hx1360,1931-60,H,scan,ok,27641,3416682,12,4
 53R-Hx0069,1931-60,H,scan,other,1918,233955,4,4
 42R-Sx0993,1931-60,S,scan,ok,28129,781399,12,4
 551-Sx0083,1931-60,S,scan,other,555,14782,4,4
@@ -161,7 +161,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 74R-S1210,1995-2025,S,scan,ok,3702,111178,6,6
 8R-Hx0291,1846-73,H,scan,ok,2598,169166,12,7
 31-Sx0082,1846-73,S,scan,ok,3225,77111,12,7
-22R-Hx0146,1874-1900,H,scan,ok,4479,385228,12,7
+22R-Hx0145,1874-1900,H,scan,ok,4479,385228,12,7
 26R-Sx0676,1874-1900,S,scan,ok,9759,240153,12,7
 401-Hx0108,1901-30,H,scan,ok,7054,737161,12,7
 35R-Sx0598,1901-30,S,scan,ok,20847,534133,12,7
@@ -173,7 +173,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 63R-S0080,1973-82,S,scan,ok,5673,165465,12,7
 72R-H0182,1983-94,H,scan,ok,3493,478194,12,7
 682-S0018,1983-94,S,scan,ok,10274,303339,12,7
-12A-Hx0463,1846-73,H,scan,ok,2598,169166,12,8
+12A-Hx0462,1846-73,H,scan,ok,2598,169166,12,8
 31-Sx0046,1846-73,S,scan,ok,3225,77111,12,8
 23R-Hx0019,1874-1900,H,scan,ok,4479,385228,12,8
 22R-Sx0751,1874-1900,S,scan,ok,9759,240153,12,8
@@ -193,7 +193,7 @@ rc_id,era,chamber,source,group,stratum_rollcalls,stratum_votes,stratum_sample,dr
 23R-Sx0061,1874-1900,S,scan,ok,9759,240153,12,9
 39R-Hx0139,1901-30,H,scan,ok,7054,737161,12,9
 37R-Sx0469,1901-30,S,scan,ok,20847,534133,12,9
-49R-Hx0960,1931-60,H,scan,ok,27641,3416682,12,9
+49R-Hx0959,1931-60,H,scan,ok,27641,3416682,12,9
 563-Sx0070,1931-60,S,scan,ok,28129,781399,12,9
 60R-Hx0254,1961-72,H,scan,ok,6160,852453,12,9
 60R-Sx1247,1961-72,S,scan,ok,11582,344080,12,9
