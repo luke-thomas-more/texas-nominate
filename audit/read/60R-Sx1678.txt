@@ -1,0 +1,5 @@
+# Senate 1967-05-23 (fresh sample): "Yeas—7", "Nays—20", "Absent" (2), "Absent—Excused" (2); followed by "(Senator Kennard in the Chair.)" and "House Bill 757 Re-referred".
+Y: Grover; Hardeman; Herring; Hightower; Jordan; Parkhouse; Ratliff
+N: Aikin; Bates; Bernal; Berry; Brooks; Christie; Connally; Hall; Harrington; Hazlewood; Kennard; Mauzy; Patman; Reagan; Schwartz; Strong; Wade; Watson; Wilson; Word
+A: Creighton; Moore
+E: Blanchard; Cole

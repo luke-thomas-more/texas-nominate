@@ -1,0 +1,4 @@
+# Senate 1995-05-15 (fresh sample), journal p. 2057: motion to suspend the three-day rule for HJR 64 "prevailed by the following vote: Yeas 30, Nays 0, Present-not voting 1." No yea list; "Present-not voting: Leedom." Final passage follows, "Same as previous roll call".
+Y: implied
+N:
+P: Leedom

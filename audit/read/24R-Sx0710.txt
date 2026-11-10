@@ -1,0 +1,5 @@
+# Senate 1895-04-03 (fresh sample): column lists "Yeas—21.", "Nays—6.", "Absent, excused." (2), "Absent, not excused." (1); followed by "Bill read (by caption) second time."
+Y: Agnew; Atlee; Beall; Boren; Bowser; Colquitt; Darwin; Dean; Dickson; Gage; Goss; Greer; Harrison; Lawhon; McComb; Presler; Sherrill; Smith; Stafford; Steele; Woods
+N: Bailey; Dibrell; Lewis; Shelburne; Simpson; Tips
+A: McKinney
+E: Rogers; Whitaker

@@ -1,5 +1,5 @@
 {
- "built": "2026-11-08",
+ "built": "2026-11-10",
  "dims": 2,
  "w": [
   1.0,
@@ -444,9 +444,9 @@
    "chambers": {
     "H": {
      "members": 151,
-     "rollcalls": 446,
-     "scaled": 295,
-     "excluded": 23
+     "rollcalls": 449,
+     "scaled": 298,
+     "excluded": 20
     },
     "S": {
      "members": 31,
@@ -468,9 +468,9 @@
     },
     "S": {
      "members": 31,
-     "rollcalls": 1790,
-     "scaled": 527,
-     "excluded": 27
+     "rollcalls": 1791,
+     "scaled": 528,
+     "excluded": 26
     }
    }
   },
@@ -480,14 +480,14 @@
    "chambers": {
     "H": {
      "members": 153,
-     "rollcalls": 580,
-     "scaled": 260,
-     "excluded": 19
+     "rollcalls": 581,
+     "scaled": 261,
+     "excluded": 18
     },
     "S": {
      "members": 32,
      "rollcalls": 2036,
-     "scaled": 1154,
+     "scaled": 1155,
      "excluded": 23
     }
    }
@@ -498,15 +498,15 @@
    "chambers": {
     "H": {
      "members": 150,
-     "rollcalls": 554,
+     "rollcalls": 555,
      "scaled": 301,
-     "excluded": 20
+     "excluded": 19
     },
     "S": {
      "members": 31,
-     "rollcalls": 1824,
+     "rollcalls": 1823,
      "scaled": 1175,
-     "excluded": 8
+     "excluded": 9
     }
    }
   },
@@ -552,9 +552,9 @@
    "chambers": {
     "H": {
      "members": 154,
-     "rollcalls": 907,
-     "scaled": 676,
-     "excluded": 112
+     "rollcalls": 906,
+     "scaled": 675,
+     "excluded": 113
     },
     "S": {
      "members": 31,
@@ -612,9 +612,9 @@
     },
     "S": {
      "members": 31,
-     "rollcalls": 1080,
+     "rollcalls": 1081,
      "scaled": 627,
-     "excluded": 17
+     "excluded": 16
     }
    }
   },
@@ -662,7 +662,7 @@
      "members": 152,
      "rollcalls": 1374,
      "scaled": 716,
-     "excluded": 110
+     "excluded": 109
     },
     "S": {
      "members": 31,
@@ -678,9 +678,9 @@
    "chambers": {
     "H": {
      "members": 161,
-     "rollcalls": 871,
-     "scaled": 487,
-     "excluded": 299
+     "rollcalls": 910,
+     "scaled": 507,
+     "excluded": 265
     },
     "S": {
      "members": 32,
@@ -696,14 +696,14 @@
    "chambers": {
     "H": {
      "members": 151,
-     "rollcalls": 737,
-     "scaled": 392,
+     "rollcalls": 736,
+     "scaled": 391,
      "excluded": 116
     },
     "S": {
      "members": 31,
      "rollcalls": 2001,
-     "scaled": 490,
+     "scaled": 491,
      "excluded": 8
     }
    }
@@ -714,14 +714,14 @@
    "chambers": {
     "H": {
      "members": 152,
-     "rollcalls": 561,
+     "rollcalls": 560,
      "scaled": 371,
      "excluded": 20
     },
     "S": {
      "members": 31,
-     "rollcalls": 1303,
-     "scaled": 479,
+     "rollcalls": 1304,
+     "scaled": 480,
      "excluded": 12
     }
    }
@@ -732,9 +732,9 @@
    "chambers": {
     "H": {
      "members": 156,
-     "rollcalls": 1376,
-     "scaled": 869,
-     "excluded": 112
+     "rollcalls": 1387,
+     "scaled": 876,
+     "excluded": 103
     },
     "S": {
      "members": 32,
@@ -750,13 +750,13 @@
    "chambers": {
     "H": {
      "members": 153,
-     "rollcalls": 1583,
-     "scaled": 1048,
-     "excluded": 168
+     "rollcalls": 1606,
+     "scaled": 1049,
+     "excluded": 155
     },
     "S": {
      "members": 31,
-     "rollcalls": 1703,
+     "rollcalls": 1702,
      "scaled": 729,
      "excluded": 5
     }
@@ -768,9 +768,9 @@
    "chambers": {
     "H": {
      "members": 152,
-     "rollcalls": 1508,
-     "scaled": 655,
-     "excluded": 238
+     "rollcalls": 1514,
+     "scaled": 657,
+     "excluded": 229
     },
     "S": {
      "members": 31,
@@ -792,7 +792,7 @@
     },
     "S": {
      "members": 31,
-     "rollcalls": 1611,
+     "rollcalls": 1610,
      "scaled": 546,
      "excluded": 3
     }
@@ -804,15 +804,15 @@
    "chambers": {
     "H": {
      "members": 155,
-     "rollcalls": 1677,
-     "scaled": 1292,
-     "excluded": 125
+     "rollcalls": 1679,
+     "scaled": 1295,
+     "excluded": 123
     },
     "S": {
      "members": 31,
-     "rollcalls": 1566,
+     "rollcalls": 1567,
      "scaled": 427,
-     "excluded": 17
+     "excluded": 16
     }
    }
   },
@@ -822,15 +822,15 @@
    "chambers": {
     "H": {
      "members": 157,
-     "rollcalls": 1703,
+     "rollcalls": 1709,
      "scaled": 585,
-     "excluded": 56
+     "excluded": 49
     },
     "S": {
      "members": 31,
      "rollcalls": 1566,
-     "scaled": 441,
-     "excluded": 2
+     "scaled": 440,
+     "excluded": 3
     }
    }
   },
@@ -840,9 +840,9 @@
    "chambers": {
     "H": {
      "members": 156,
-     "rollcalls": 2469,
-     "scaled": 1042,
-     "excluded": 76
+     "rollcalls": 2481,
+     "scaled": 1045,
+     "excluded": 66
     },
     "S": {
      "members": 32,
@@ -858,9 +858,9 @@
    "chambers": {
     "H": {
      "members": 152,
-     "rollcalls": 1684,
-     "scaled": 851,
-     "excluded": 76
+     "rollcalls": 1694,
+     "scaled": 853,
+     "excluded": 65
     },
     "S": {
      "members": 33,
@@ -876,9 +876,9 @@
    "chambers": {
     "H": {
      "members": 151,
-     "rollcalls": 1424,
-     "scaled": 503,
-     "excluded": 43
+     "rollcalls": 1427,
+     "scaled": 504,
+     "excluded": 39
     },
     "S": {
      "members": 31,
@@ -896,7 +896,7 @@
      "members": 151,
      "rollcalls": 1461,
      "scaled": 554,
-     "excluded": 111
+     "excluded": 110
     },
     "S": {
      "members": 31,
@@ -912,9 +912,9 @@
    "chambers": {
     "H": {
      "members": 156,
-     "rollcalls": 2478,
-     "scaled": 1119,
-     "excluded": 33
+     "rollcalls": 2479,
+     "scaled": 1120,
+     "excluded": 32
     },
     "S": {
      "members": 32,
@@ -930,9 +930,9 @@
    "chambers": {
     "H": {
      "members": 153,
-     "rollcalls": 2470,
+     "rollcalls": 2467,
      "scaled": 1110,
-     "excluded": 31
+     "excluded": 34
     },
     "S": {
      "members": 31,
@@ -948,13 +948,13 @@
    "chambers": {
     "H": {
      "members": 153,
-     "rollcalls": 2404,
+     "rollcalls": 2405,
      "scaled": 1187,
-     "excluded": 31
+     "excluded": 30
     },
     "S": {
      "members": 32,
-     "rollcalls": 2292,
+     "rollcalls": 2291,
      "scaled": 1006,
      "excluded": 29
     }
@@ -966,15 +966,15 @@
    "chambers": {
     "H": {
      "members": 155,
-     "rollcalls": 2221,
+     "rollcalls": 2223,
      "scaled": 1300,
-     "excluded": 44
+     "excluded": 42
     },
     "S": {
      "members": 35,
      "rollcalls": 2416,
      "scaled": 1248,
-     "excluded": 44
+     "excluded": 43
     }
    }
   },
@@ -984,15 +984,15 @@
    "chambers": {
     "H": {
      "members": 158,
-     "rollcalls": 2754,
-     "scaled": 1788,
-     "excluded": 44
+     "rollcalls": 2755,
+     "scaled": 1789,
+     "excluded": 43
     },
     "S": {
      "members": 31,
      "rollcalls": 2795,
      "scaled": 1471,
-     "excluded": 203
+     "excluded": 204
     }
    }
   },
@@ -1004,7 +1004,7 @@
      "members": 150,
      "rollcalls": 1977,
      "scaled": 1191,
-     "excluded": 37
+     "excluded": 38
     },
     "S": {
      "members": 32,
@@ -1020,9 +1020,9 @@
    "chambers": {
     "H": {
      "members": 158,
-     "rollcalls": 2232,
+     "rollcalls": 2234,
      "scaled": 1419,
-     "excluded": 265
+     "excluded": 263
     },
     "S": {
      "members": 31,
@@ -1038,9 +1038,9 @@
    "chambers": {
     "H": {
      "members": 155,
-     "rollcalls": 907,
-     "scaled": 619,
-     "excluded": 261
+     "rollcalls": 927,
+     "scaled": 632,
+     "excluded": 243
     },
     "S": {
      "members": 31,
@@ -1056,9 +1056,9 @@
    "chambers": {
     "H": {
      "members": 164,
-     "rollcalls": 1179,
-     "scaled": 482,
-     "excluded": 657
+     "rollcalls": 1185,
+     "scaled": 485,
+     "excluded": 658
     },
     "S": {
      "members": 32,
@@ -1073,16 +1073,16 @@
    "years": "1923–24",
    "chambers": {
     "H": {
-     "members": 152,
-     "rollcalls": 1323,
-     "scaled": 944,
-     "excluded": 151
+     "members": 151,
+     "rollcalls": 1325,
+     "scaled": 946,
+     "excluded": 149
     },
     "S": {
      "members": 31,
-     "rollcalls": 1314,
-     "scaled": 750,
-     "excluded": 29
+     "rollcalls": 1316,
+     "scaled": 751,
+     "excluded": 28
     }
    }
   },
@@ -1092,15 +1092,15 @@
    "chambers": {
     "H": {
      "members": 145,
-     "rollcalls": 407,
-     "scaled": 250,
-     "excluded": 71
+     "rollcalls": 405,
+     "scaled": 249,
+     "excluded": 73
     },
     "S": {
      "members": 34,
-     "rollcalls": 1010,
+     "rollcalls": 1013,
      "scaled": 453,
-     "excluded": 21
+     "excluded": 20
     }
    }
   },
@@ -1110,9 +1110,9 @@
    "chambers": {
     "H": {
      "members": 159,
-     "rollcalls": 610,
-     "scaled": 283,
-     "excluded": 87
+     "rollcalls": 614,
+     "scaled": 286,
+     "excluded": 85
     },
     "S": {
      "members": 35,
@@ -1128,15 +1128,15 @@
    "chambers": {
     "H": {
      "members": 160,
-     "rollcalls": 563,
-     "scaled": 396,
-     "excluded": 219
+     "rollcalls": 554,
+     "scaled": 390,
+     "excluded": 220
     },
     "S": {
      "members": 33,
-     "rollcalls": 1565,
-     "scaled": 628,
-     "excluded": 88
+     "rollcalls": 1567,
+     "scaled": 629,
+     "excluded": 87
     }
    }
   },
@@ -1146,15 +1146,15 @@
    "chambers": {
     "H": {
      "members": 146,
-     "rollcalls": 517,
+     "rollcalls": 518,
      "scaled": 385,
-     "excluded": 39
+     "excluded": 38
     },
     "S": {
      "members": 32,
-     "rollcalls": 1135,
-     "scaled": 598,
-     "excluded": 9
+     "rollcalls": 1137,
+     "scaled": 599,
+     "excluded": 8
     }
    }
   },
@@ -1164,9 +1164,9 @@
    "chambers": {
     "H": {
      "members": 158,
-     "rollcalls": 378,
-     "scaled": 242,
-     "excluded": 163
+     "rollcalls": 394,
+     "scaled": 250,
+     "excluded": 152
     },
     "S": {
      "members": 38,
@@ -1182,15 +1182,15 @@
    "chambers": {
     "H": {
      "members": 136,
-     "rollcalls": 507,
-     "scaled": 276,
+     "rollcalls": 508,
+     "scaled": 277,
      "excluded": 54
     },
     "S": {
      "members": 31,
      "rollcalls": 1350,
      "scaled": 647,
-     "excluded": 48
+     "excluded": 47
     }
    }
   },
@@ -1200,14 +1200,14 @@
    "chambers": {
     "H": {
      "members": 146,
-     "rollcalls": 874,
-     "scaled": 484,
-     "excluded": 39
+     "rollcalls": 875,
+     "scaled": 485,
+     "excluded": 38
     },
     "S": {
      "members": 34,
      "rollcalls": 1697,
-     "scaled": 666,
+     "scaled": 668,
      "excluded": 71
     }
    }
@@ -1218,15 +1218,15 @@
    "chambers": {
     "H": {
      "members": 133,
-     "rollcalls": 743,
+     "rollcalls": 744,
      "scaled": 490,
-     "excluded": 21
+     "excluded": 20
     },
     "S": {
      "members": 31,
-     "rollcalls": 1467,
-     "scaled": 824,
-     "excluded": 5
+     "rollcalls": 1466,
+     "scaled": 823,
+     "excluded": 6
     }
    }
   },
@@ -1236,15 +1236,15 @@
    "chambers": {
     "H": {
      "members": 137,
-     "rollcalls": 601,
-     "scaled": 453,
-     "excluded": 37
+     "rollcalls": 600,
+     "scaled": 452,
+     "excluded": 38
     },
     "S": {
      "members": 32,
-     "rollcalls": 1159,
-     "scaled": 702,
-     "excluded": 26
+     "rollcalls": 1162,
+     "scaled": 705,
+     "excluded": 23
     }
    }
   },
@@ -1274,7 +1274,7 @@
      "members": 131,
      "rollcalls": 556,
      "scaled": 447,
-     "excluded": 40
+     "excluded": 39
     },
     "S": {
      "members": 31,
@@ -1290,7 +1290,7 @@
    "chambers": {
     "H": {
      "members": 129,
-     "rollcalls": 718,
+     "rollcalls": 719,
      "scaled": 535,
      "excluded": 50
     },
@@ -1308,9 +1308,9 @@
    "chambers": {
     "H": {
      "members": 129,
-     "rollcalls": 858,
-     "scaled": 725,
-     "excluded": 92
+     "rollcalls": 860,
+     "scaled": 727,
+     "excluded": 91
     },
     "S": {
      "members": 31,
@@ -1328,13 +1328,13 @@
      "members": 131,
      "rollcalls": 517,
      "scaled": 421,
-     "excluded": 58
+     "excluded": 59
     },
     "S": {
      "members": 32,
      "rollcalls": 1045,
      "scaled": 850,
-     "excluded": 17
+     "excluded": 16
     }
    }
   },
@@ -1344,15 +1344,15 @@
    "chambers": {
     "H": {
      "members": 128,
-     "rollcalls": 519,
-     "scaled": 417,
-     "excluded": 159
+     "rollcalls": 521,
+     "scaled": 419,
+     "excluded": 158
     },
     "S": {
      "members": 31,
-     "rollcalls": 701,
+     "rollcalls": 702,
      "scaled": 524,
-     "excluded": 74
+     "excluded": 73
     }
    }
   },
@@ -1362,15 +1362,15 @@
    "chambers": {
     "H": {
      "members": 109,
-     "rollcalls": 201,
-     "scaled": 139,
-     "excluded": 189
+     "rollcalls": 203,
+     "scaled": 140,
+     "excluded": 181
     },
     "S": {
      "members": 33,
-     "rollcalls": 876,
-     "scaled": 608,
-     "excluded": 40
+     "rollcalls": 879,
+     "scaled": 611,
+     "excluded": 38
     }
    }
   },
@@ -1380,14 +1380,14 @@
    "chambers": {
     "H": {
      "members": 106,
-     "rollcalls": 216,
-     "scaled": 118,
-     "excluded": 118
+     "rollcalls": 218,
+     "scaled": 121,
+     "excluded": 111
     },
     "S": {
      "members": 32,
      "rollcalls": 548,
-     "scaled": 346,
+     "scaled": 344,
      "excluded": 87
     }
    }
@@ -1398,15 +1398,15 @@
    "chambers": {
     "H": {
      "members": 109,
-     "rollcalls": 445,
-     "scaled": 354,
-     "excluded": 82
+     "rollcalls": 444,
+     "scaled": 356,
+     "excluded": 80
     },
     "S": {
      "members": 32,
-     "rollcalls": 682,
-     "scaled": 533,
-     "excluded": 34
+     "rollcalls": 683,
+     "scaled": 532,
+     "excluded": 36
     }
    }
   },
@@ -1416,15 +1416,15 @@
    "chambers": {
     "H": {
      "members": 106,
-     "rollcalls": 337,
-     "scaled": 259,
-     "excluded": 81
+     "rollcalls": 350,
+     "scaled": 272,
+     "excluded": 72
     },
     "S": {
      "members": 31,
-     "rollcalls": 535,
+     "rollcalls": 538,
      "scaled": 393,
-     "excluded": 43
+     "excluded": 39
     }
    }
   },
@@ -1434,9 +1434,9 @@
    "chambers": {
     "H": {
      "members": 112,
-     "rollcalls": 611,
-     "scaled": 494,
-     "excluded": 52
+     "rollcalls": 613,
+     "scaled": 495,
+     "excluded": 50
     },
     "S": {
      "members": 31,
@@ -1452,15 +1452,15 @@
    "chambers": {
     "H": {
      "members": 97,
-     "rollcalls": 442,
-     "scaled": 364,
-     "excluded": 83
+     "rollcalls": 449,
+     "scaled": 371,
+     "excluded": 75
     },
     "S": {
      "members": 35,
-     "rollcalls": 695,
-     "scaled": 378,
-     "excluded": 44
+     "rollcalls": 696,
+     "scaled": 379,
+     "excluded": 47
     }
    }
   },
@@ -1470,15 +1470,15 @@
    "chambers": {
     "H": {
      "members": 95,
-     "rollcalls": 512,
-     "scaled": 381,
-     "excluded": 182
+     "rollcalls": 503,
+     "scaled": 374,
+     "excluded": 190
     },
     "S": {
      "members": 32,
-     "rollcalls": 1306,
+     "rollcalls": 1305,
      "scaled": 745,
-     "excluded": 97
+     "excluded": 96
     }
    }
   },
@@ -1488,15 +1488,15 @@
    "chambers": {
     "H": {
      "members": 94,
-     "rollcalls": 464,
-     "scaled": 304,
-     "excluded": 136
+     "rollcalls": 466,
+     "scaled": 311,
+     "excluded": 132
     },
     "S": {
      "members": 31,
-     "rollcalls": 873,
-     "scaled": 592,
-     "excluded": 54
+     "rollcalls": 875,
+     "scaled": 594,
+     "excluded": 51
     }
    }
   },
@@ -1506,15 +1506,15 @@
    "chambers": {
     "H": {
      "members": 95,
-     "rollcalls": 156,
-     "scaled": 128,
-     "excluded": 129
+     "rollcalls": 155,
+     "scaled": 127,
+     "excluded": 124
     },
     "S": {
      "members": 33,
-     "rollcalls": 351,
+     "rollcalls": 354,
      "scaled": 305,
-     "excluded": 51
+     "excluded": 53
     }
    }
   },
@@ -1523,16 +1523,16 @@
    "years": "1873–74",
    "chambers": {
     "H": {
-     "members": 93,
-     "rollcalls": 296,
-     "scaled": 273,
+     "members": 92,
+     "rollcalls": 295,
+     "scaled": 272,
      "excluded": 36
     },
     "S": {
      "members": 30,
-     "rollcalls": 325,
-     "scaled": 221,
-     "excluded": 115
+     "rollcalls": 328,
+     "scaled": 222,
+     "excluded": 113
     }
    }
   },
@@ -1542,15 +1542,15 @@
    "chambers": {
     "H": {
      "members": 103,
-     "rollcalls": 1562,
-     "scaled": 1532,
-     "excluded": 162
+     "rollcalls": 1578,
+     "scaled": 1547,
+     "excluded": 152
     },
     "S": {
      "members": 35,
-     "rollcalls": 1284,
+     "rollcalls": 1285,
      "scaled": 1095,
-     "excluded": 49
+     "excluded": 48
     }
    }
   },
@@ -1560,15 +1560,15 @@
    "chambers": {
     "H": {
      "members": 90,
-     "rollcalls": 305,
-     "scaled": 219,
-     "excluded": 64
+     "rollcalls": 304,
+     "scaled": 218,
+     "excluded": 63
     },
     "S": {
-     "members": 33,
-     "rollcalls": 305,
+     "members": 32,
+     "rollcalls": 306,
      "scaled": 190,
-     "excluded": 14
+     "excluded": 13
     }
    }
   },
@@ -1595,7 +1595,7 @@
    "years": "1863–64",
    "chambers": {
     "H": {
-     "members": 108,
+     "members": 107,
      "rollcalls": 27,
      "scaled": 20,
      "excluded": 16
@@ -1614,15 +1614,15 @@
    "chambers": {
     "H": {
      "members": 103,
-     "rollcalls": 318,
-     "scaled": 279,
-     "excluded": 100
+     "rollcalls": 313,
+     "scaled": 273,
+     "excluded": 108
     },
     "S": {
      "members": 37,
      "rollcalls": 348,
      "scaled": 273,
-     "excluded": 41
+     "excluded": 40
     }
    }
   },
@@ -1632,14 +1632,14 @@
    "chambers": {
     "H": {
      "members": 90,
-     "rollcalls": 115,
-     "scaled": 112,
-     "excluded": 30
+     "rollcalls": 119,
+     "scaled": 113,
+     "excluded": 28
     },
     "S": {
      "members": 33,
-     "rollcalls": 223,
-     "scaled": 182,
+     "rollcalls": 224,
+     "scaled": 183,
      "excluded": 9
     }
    }
@@ -1650,15 +1650,15 @@
    "chambers": {
     "H": {
      "members": 97,
-     "rollcalls": 180,
-     "scaled": 165,
-     "excluded": 60
+     "rollcalls": 182,
+     "scaled": 166,
+     "excluded": 61
     },
     "S": {
      "members": 33,
-     "rollcalls": 195,
-     "scaled": 168,
-     "excluded": 58
+     "rollcalls": 193,
+     "scaled": 165,
+     "excluded": 63
     }
    }
   },
@@ -1667,16 +1667,16 @@
    "years": "1854–55",
    "chambers": {
     "H": {
-     "members": 81,
+     "members": 82,
      "rollcalls": 4,
      "scaled": 2,
-     "excluded": 68
+     "excluded": 71
     },
     "S": {
      "members": 33,
-     "rollcalls": 220,
+     "rollcalls": 218,
      "scaled": 188,
-     "excluded": 29
+     "excluded": 31
     }
    }
   },
@@ -1686,15 +1686,15 @@
    "chambers": {
     "H": {
      "members": 73,
-     "rollcalls": 93,
+     "rollcalls": 95,
      "scaled": 77,
-     "excluded": 136
+     "excluded": 131
     },
     "S": {
      "members": 29,
-     "rollcalls": 251,
+     "rollcalls": 252,
      "scaled": 237,
-     "excluded": 25
+     "excluded": 24
     }
    }
   },
@@ -1704,7 +1704,7 @@
    "chambers": {
     "H": {
      "members": 57,
-     "rollcalls": 276,
+     "rollcalls": 277,
      "scaled": 270,
      "excluded": 43
     },
@@ -1712,7 +1712,7 @@
      "members": 23,
      "rollcalls": 220,
      "scaled": 186,
-     "excluded": 96
+     "excluded": 98
     }
    }
   },
@@ -1722,15 +1722,15 @@
    "chambers": {
     "H": {
      "members": 68,
-     "rollcalls": 123,
-     "scaled": 117,
+     "rollcalls": 126,
+     "scaled": 120,
      "excluded": 52
     },
     "S": {
      "members": 21,
-     "rollcalls": 83,
-     "scaled": 69,
-     "excluded": 8
+     "rollcalls": 84,
+     "scaled": 70,
+     "excluded": 7
     }
    }
   },
@@ -1740,9 +1740,9 @@
    "chambers": {
     "H": {
      "members": 65,
-     "rollcalls": 140,
-     "scaled": 132,
-     "excluded": 43
+     "rollcalls": 137,
+     "scaled": 130,
+     "excluded": 44
     },
     "S": {
      "members": 21,
@@ -1755,51 +1755,51 @@
  ],
  "fit": {
   "2": {
-   "correct": 0.8444852099763409,
-   "apre": 0.3932061271244226,
-   "gmp": 0.7229276976947173,
-   "loglik": -2662318.106839451,
-   "n_votes": 8205734,
+   "correct": 0.8444707542229811,
+   "apre": 0.39302100821379127,
+   "gmp": 0.7229293331731799,
+   "loglik": -2666109.4866135716,
+   "n_votes": 8217477,
    "beta": 12.149849727779976,
    "w": [
     1.0,
     0.9702165407434867
    ],
-   "seconds": 4937.8
+   "seconds": 3501.3
   },
   "1": {
-   "correct": 0.8246122772198076,
-   "apre": 0.3156651174821996,
-   "gmp": 0.6932224006089244,
-   "loglik": -3006617.0992674213,
-   "n_votes": 8205734,
-   "beta": 14.624246142303615,
+   "correct": 0.8246251252057049,
+   "apre": 0.3155701093035018,
+   "gmp": 0.6933093396916091,
+   "loglik": -3009889.272609176,
+   "n_votes": 8217477,
+   "beta": 15.69912867267381,
    "w": [
     1.0
    ],
-   "seconds": 4448.2
+   "seconds": 4427.8
   },
   "3": {
-   "correct": 0.8592647531591933,
-   "apre": 0.4508735441327372,
-   "gmp": 0.7524151174244791,
-   "loglik": -2334261.268079618,
-   "n_votes": 8205734,
-   "beta": 33.282521863590524,
+   "correct": 0.8594448149961357,
+   "apre": 0.4514597942159142,
+   "gmp": 0.7530833936305817,
+   "loglik": -2330306.447748267,
+   "n_votes": 8217477,
+   "beta": 40.83847905312315,
    "w": [
     1.0,
-    1.9999858346017194,
-    1.592448262178056
+    1.999995510254777,
+    1.7110557658246888
    ],
-   "seconds": 6494.6
+   "seconds": 6451.5
   }
  },
  "totals": {
-  "rollcalls": 219883,
-  "scaled": 114661,
+  "rollcalls": 220109,
+  "scaled": 114780,
   "members": 5483,
   "both_chambers": 403,
-  "votes": 8205734,
-  "excluded": 10003
+  "votes": 8217477,
+  "excluded": 9809
  }
 }

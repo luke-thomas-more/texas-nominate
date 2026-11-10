@@ -1,0 +1,4 @@
+# Senate 1915-03-08 (fresh sample): HB 392 passed by the following vote, column lists "Yeas—29.", "Nays—1.", "Absent." (1).
+Y: Bailey of DeWitt; Bailey of Harris; Bee; Brelsford; Clark; Conner; Cowell; Darwin; Gibson; Hall; Harley; Harris; Henderson; Hudspeth; Johnson; King; Lattimore; McCollum; McGregor; McNealus; Morrow; Nugent; Page; Parr; Robbins; Smith; Suiter; Townsend; Wiley
+N: Westbrook
+A: Astin

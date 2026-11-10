@@ -1,9 +1,12 @@
 # Scale each legislature-chamber vote matrix written by validate_wnominate.py with W-NOMINATE (2 dimensions).
-# Usage: Rscript pipeline/wnominate.R data/processed/wnominate
+# Usage: Rscript pipeline/wnominate.R data/processed/wnominate [k n]
+# With k and n it does only every n-th job, starting at the k-th (0-based), so n copies can share the work.
 suppressMessages({library(pscl); library(wnominate)})
-dir <- commandArgs(trailingOnly = TRUE)[1]
+args <- commandArgs(trailingOnly = TRUE)
+dir <- args[1]
 jobs <- read.table(file.path(dir, "jobs.txt"), colClasses = "character")
 for (i in seq_len(nrow(jobs))) {
+  if (length(args) >= 3 && (i - 1) %% as.integer(args[3]) != as.integer(args[2])) next
   name <- jobs[i, 1]
   out <- file.path(dir, paste0(name, ".coords.csv"))
   if (file.exists(out)) next

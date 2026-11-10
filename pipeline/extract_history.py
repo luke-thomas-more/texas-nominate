@@ -152,7 +152,16 @@ def run_session(days, roster, workers):
         sm.set_date(d["date"])
         return sm.match(rv["lists"])
     day_of = {d["file"]: d for d in days}
-    sm.learn_activity([match(day_of[f], rv)[0] for f, rvs in layer.items() for rv in rvs]); sm.cache = {}
+
+    def learn(by_file):
+        """Who's active in the session, and who votes each day, from one pass over these readings."""
+        first, sure = [], collections.defaultdict(list)
+        sm.day_voters = {}
+        for f, rvs in by_file.items():
+            for rv in rvs:
+                first.append(match(day_of[f], rv)[0]); sure[day_of[f]["date"]].append(sm.sure)
+        sm.learn_activity(first); sm.learn_days(sure); sm.cache = {}
+    learn(layer)
 
     memo = {}
 
@@ -340,7 +349,7 @@ def run_session(days, roster, workers):
     for f in chosen:
         chosen[f] = sorted(chosen[f], key=lambda r: (r["page_in_day"], r["seq"]))
     # final pass: learn who's active from everything, then match for keeps
-    sm.learn_activity([match(day_of[f], rv)[0] for f, rvs in chosen.items() for rv in rvs]); sm.cache = {}
+    learn(chosen)
     out, taken = [], set()
     for d in days:
         for rv in chosen[d["file"]]:

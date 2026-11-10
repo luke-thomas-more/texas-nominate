@@ -1,0 +1,4 @@
+# Senate 1995-05-26 (fresh sample): H.J.R. 72, "The motion prevailed by the following vote: Yeas 30, Nays 0, Present-not voting 1." "Present-not voting: Bivins." (the passage vote that follows is "Same as previous roll call"). No yea names printed.
+Y: implied
+N:
+P: Bivins

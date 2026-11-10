@@ -28,7 +28,8 @@ LABELS = [
     ("N", r"N[a-z]{1,2}[s8z5&]|Nay|Noes"),
     ("P", r"Present[\s,—–-]*(?:and\s+)?not\s+voting|Present"),
     ("E", r"Absent[\s,—–-]*(?:and\s+)?excused|Excused|Absent\s+on\s+leave"),
-    ("A", r"Absent|Not\s+voting"),                 # 1881: "NOT VOTING—6." (present or not, the journal doesn't say)
+    # 1881: "NOT VOTING—6." (present or not, the journal doesn't say); 1885: "Absent, not voting"
+    ("A", r"Absent[\s,—–-]*(?:and\s+)?not\s+voting|Absent|Not\s+voting"),
     ("R", r"Paired"),
 ]
 LABEL_RE = re.compile(r"^(" + "|".join(f"(?P<{c}>{p})" for c, p in LABELS) + r")(?:" + DASH + r"(?P<n>[\dIlOoSsZz&]{1,3}))?\W{0,3}$", re.I)
@@ -95,7 +96,8 @@ def label_code(m):
 LABEL_WORDS = [("Y", "yeas"), ("Y", "yea"), ("Y", "ayes"), ("N", "nays"), ("N", "nay"), ("N", "noes"),
                ("P", "present not voting"), ("P", "present"), ("P", "in the chair"),
                ("E", "absent excused"), ("E", "excused"), ("E", "absent on leave"),
-               ("A", "absent not excused"), ("A", "absent"), ("A", "not voting"), ("R", "paired")]
+               ("A", "absent not excused"), ("A", "absent not voting"), ("A", "absent and not voting"), ("A", "absent"),
+               ("A", "not voting"), ("R", "paired")]
 
 
 def nay_like(label):

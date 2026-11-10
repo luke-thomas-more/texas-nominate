@@ -1,5 +1,5 @@
 {
- "data_version": "1.1",
+ "data_version": "1.2",
  "sample": 244,
  "done": 240,
  "not_in_data": [
@@ -7,130 +7,130 @@
  ],
  "all": {
   "rollcalls": 240,
-  "votes_checked": 17024,
+  "votes_checked": 17028,
   "names_read": 16486,
-  "errors": 40,
-  "wrong": 9,
-  "lost": 31,
-  "wrong_member": 7,
+  "errors": 30,
+  "wrong": 4,
+  "lost": 26,
+  "wrong_member": 2,
   "extra": 1,
   "yea_nay_swapped": 1,
-  "missing": 29,
-  "not_voting_in_data": 2,
-  "vote_error_rate": 0.0008266414450243256,
+  "missing": 25,
+  "not_voting_in_data": 1,
+  "vote_error_rate": 0.00058661793549232,
   "vote_error_ci": [
-   0.0005085597191101448,
-   0.0012228043080842054
+   0.00032106799381168645,
+   0.0009427249409188371
   ],
-  "wrong_vote_rate": 0.00016046816136677453,
+  "wrong_vote_rate": 4.3162319538831766e-05,
   "wrong_vote_ci": [
-   6.929342698285748e-05,
-   0.0002649157324703285
+   1.0462457518396694e-05,
+   8.330518653797573e-05
   ],
-  "lost_vote_rate": 0.000666173283657551,
+  "lost_vote_rate": 0.0005434556159534882,
   "lost_vote_ci": [
-   0.00036123615169315475,
-   0.0010505863824645761
+   0.0002750160804888455,
+   0.0009026682829334571
   ],
-  "rollcalls_with_error": 0.04499680645610466,
+  "rollcalls_with_error": 0.03281214999667024,
   "rollcalls_with_error_ci": [
-   0.030044976373829288,
-   0.0613724973815967
+   0.01914730107702646,
+   0.04776564495964934
   ]
  },
  "by_era": {
   "1846-73": {
    "rollcalls": 32,
-   "votes_checked": 1488,
+   "votes_checked": 1490,
    "names_read": 1493,
-   "errors": 9,
-   "wrong": 4,
-   "lost": 5,
-   "wrong_member": 4,
-   "extra": 0,
+   "errors": 7,
+   "wrong": 3,
+   "lost": 4,
+   "wrong_member": 2,
+   "extra": 1,
    "yea_nay_swapped": 0,
-   "missing": 5,
+   "missing": 4,
    "not_voting_in_data": 0,
-   "vote_error_rate": 0.004778020091940791,
+   "vote_error_rate": 0.0034695668683038645,
    "vote_error_ci": [
-    0.0027734324620571856,
-    0.007175140576490215
+    0.0018446388486291806,
+    0.005598843103298087
    ],
-   "wrong_vote_rate": 0.002173607085064746,
+   "wrong_vote_rate": 0.0015194959754851335,
    "wrong_vote_ci": [
-    0.0004926024198043835,
-    0.004266331938643743
+    0.0004013797494702384,
+    0.003177274561947255
    ],
-   "lost_vote_rate": 0.0026044130068760447,
+   "lost_vote_rate": 0.0019500708928187312,
    "lost_vote_ci": [
-    0.0010076517521172203,
-    0.0039776022494104404
+    0.0007740895168354598,
+    0.0033182191882964976
    ],
-   "rollcalls_with_error": 0.20145066374709183,
+   "rollcalls_with_error": 0.14137128780621322,
    "rollcalls_with_error_ci": [
-    0.111742165047215,
-    0.29198029286985083
+    0.0812919118653346,
+    0.23107978650609004
    ]
   },
   "1874-1900": {
    "rollcalls": 32,
-   "votes_checked": 1735,
+   "votes_checked": 1736,
    "names_read": 1740,
-   "errors": 10,
-   "wrong": 4,
-   "lost": 6,
-   "wrong_member": 3,
-   "extra": 1,
-   "yea_nay_swapped": 0,
-   "missing": 6,
-   "not_voting_in_data": 0,
-   "vote_error_rate": 0.004358516489183301,
-   "vote_error_ci": [
-    0.002175060578668139,
-    0.00660090247628366
-   ],
-   "wrong_vote_rate": 0.0019640266840957044,
-   "wrong_vote_ci": [
-    0.00047566207637024705,
-    0.003827039358555756
-   ],
-   "lost_vote_rate": 0.002394489805087597,
-   "lost_vote_ci": [
-    0.0007201809131987814,
-    0.0042085408755518335
-   ],
-   "rollcalls_with_error": 0.16549735418276948,
-   "rollcalls_with_error_ci": [
-    0.08167845888578394,
-    0.25429276413579865
-   ]
-  },
-  "1901-30": {
-   "rollcalls": 32,
-   "votes_checked": 2105,
-   "names_read": 2113,
-   "errors": 9,
+   "errors": 4,
    "wrong": 0,
-   "lost": 9,
+   "lost": 4,
    "wrong_member": 0,
    "extra": 0,
    "yea_nay_swapped": 0,
-   "missing": 8,
-   "not_voting_in_data": 1,
-   "vote_error_rate": 0.003166533241698113,
+   "missing": 4,
+   "not_voting_in_data": 0,
+   "vote_error_rate": 0.0016680620127247278,
    "vote_error_ci": [
-    0.0009305939888482744,
-    0.006175388735543091
+    0.0,
+    0.003516176121511994
    ],
    "wrong_vote_rate": 0.0,
    "wrong_vote_ci": [
     0.0,
     0.0
    ],
-   "lost_vote_rate": 0.003166533241698113,
+   "lost_vote_rate": 0.0016680620127247278,
    "lost_vote_ci": [
-    0.0009305939888482744,
-    0.006175388735543091
+    0.0,
+    0.003516176121511994
+   ],
+   "rollcalls_with_error": 0.06055651346691242,
+   "rollcalls_with_error_ci": [
+    0.0,
+    0.12822997800107008
+   ]
+  },
+  "1901-30": {
+   "rollcalls": 32,
+   "votes_checked": 2105,
+   "names_read": 2113,
+   "errors": 8,
+   "wrong": 0,
+   "lost": 8,
+   "wrong_member": 0,
+   "extra": 0,
+   "yea_nay_swapped": 0,
+   "missing": 8,
+   "not_voting_in_data": 0,
+   "vote_error_rate": 0.002838230573577985,
+   "vote_error_ci": [
+    0.0008206259708776384,
+    0.005641527590241123
+   ],
+   "wrong_vote_rate": 0.0,
+   "wrong_vote_ci": [
+    0.0,
+    0.0
+   ],
+   "lost_vote_rate": 0.002838230573577985,
+   "lost_vote_ci": [
+    0.0008206259708776384,
+    0.005641527590241123
    ],
    "rollcalls_with_error": 0.11893469355287753,
    "rollcalls_with_error_ci": [
@@ -140,35 +140,35 @@
   },
   "1931-60": {
    "rollcalls": 31,
-   "votes_checked": 2438,
+   "votes_checked": 2439,
    "names_read": 2442,
-   "errors": 2,
+   "errors": 1,
    "wrong": 0,
-   "lost": 2,
+   "lost": 1,
    "wrong_member": 0,
    "extra": 0,
    "yea_nay_swapped": 0,
-   "missing": 2,
+   "missing": 1,
    "not_voting_in_data": 0,
-   "vote_error_rate": 0.00014523850946188488,
+   "vote_error_rate": 4.207816106947325e-05,
    "vote_error_ci": [
     0.0,
-    0.00036288168350928987
+    0.0001108058241496129
    ],
    "wrong_vote_rate": 0.0,
    "wrong_vote_ci": [
     0.0,
     0.0
    ],
-   "lost_vote_rate": 0.00014523850946188488,
+   "lost_vote_rate": 4.207816106947325e-05,
    "lost_vote_ci": [
     0.0,
-    0.00036288168350928987
+    0.0001108058241496129
    ],
-   "rollcalls_with_error": 0.011409096372096217,
+   "rollcalls_with_error": 0.003176347372216404,
    "rollcalls_with_error_ci": [
     0.0,
-    0.027874594371855844
+    0.00952904211664921
    ]
   },
   "1961-72": {
@@ -307,35 +307,35 @@
  "by_source": {
   "scan": {
    "rollcalls": 219,
-   "votes_checked": 14591,
+   "votes_checked": 14595,
    "names_read": 14142,
-   "errors": 37,
-   "wrong": 8,
-   "lost": 29,
-   "wrong_member": 7,
+   "errors": 27,
+   "wrong": 3,
+   "lost": 24,
+   "wrong_member": 2,
    "extra": 1,
    "yea_nay_swapped": 0,
-   "missing": 28,
-   "not_voting_in_data": 1,
-   "vote_error_rate": 0.0011963267935818686,
+   "missing": 24,
+   "not_voting_in_data": 0,
+   "vote_error_rate": 0.0008346689152466493,
    "vote_error_ci": [
-    0.0007415256947603838,
-    0.001793959905025377
+    0.0004270111335783765,
+    0.0013922704830887408
    ],
-   "wrong_vote_rate": 0.00022537915702291873,
+   "wrong_vote_rate": 4.862737985517618e-05,
    "wrong_vote_ci": [
-    9.284143474951384e-05,
-    0.00037937996734797977
+    1.2845078801497421e-05,
+    0.00010276710295246719
    ],
-   "lost_vote_rate": 0.0009709476365589498,
+   "lost_vote_rate": 0.000786041535391473,
    "lost_vote_ci": [
-    0.0005153495989612442,
-    0.001548054023937991
+    0.00038472512325134466,
+    0.0013254980109399363
    ],
-   "rollcalls_with_error": 0.05924682228259046,
+   "rollcalls_with_error": 0.04237201093336016,
    "rollcalls_with_error_ci": [
-    0.03879913566505684,
-    0.08182196555236944
+    0.023373987574202632,
+    0.06363259895780929
    ]
   },
   "tally": {
@@ -408,68 +408,68 @@
  "by_check": {
   "ok": {
    "rollcalls": 185,
-   "votes_checked": 13086,
+   "votes_checked": 13087,
    "names_read": 12520,
-   "errors": 9,
-   "wrong": 5,
-   "lost": 4,
-   "wrong_member": 5,
-   "extra": 0,
+   "errors": 4,
+   "wrong": 1,
+   "lost": 3,
+   "wrong_member": 0,
+   "extra": 1,
    "yea_nay_swapped": 0,
    "missing": 3,
-   "not_voting_in_data": 1,
-   "vote_error_rate": 0.00027457516719358964,
+   "not_voting_in_data": 0,
+   "vote_error_rate": 0.00013043602425843182,
    "vote_error_ci": [
-    0.00010014342107055519,
-    0.00048710317391382037
+    1.6053523594222907e-05,
+    0.00026119124555007466
    ],
-   "wrong_vote_rate": 0.00011585773740327706,
+   "wrong_vote_rate": 1.5114122289280302e-05,
    "wrong_vote_ci": [
-    2.9123416562265864e-05,
-    0.00021510002004083281
+    0.0,
+    4.730926091519899e-05
    ],
-   "lost_vote_rate": 0.00015871742979031258,
+   "lost_vote_rate": 0.00011532190196915154,
    "lost_vote_ci": [
     0.0,
-    0.0003603092537822423
+    0.00024247488790998852
    ],
-   "rollcalls_with_error": 0.015040352757290246,
+   "rollcalls_with_error": 0.008560716635228206,
    "rollcalls_with_error_ci": [
-    0.006470341976080909,
-    0.025121268400388575
+    0.0010498344025642145,
+    0.017121433270456413
    ]
   },
   "other": {
    "rollcalls": 55,
-   "votes_checked": 3938,
+   "votes_checked": 3941,
    "names_read": 3966,
-   "errors": 31,
-   "wrong": 4,
-   "lost": 27,
+   "errors": 26,
+   "wrong": 3,
+   "lost": 23,
    "wrong_member": 2,
-   "extra": 1,
+   "extra": 0,
    "yea_nay_swapped": 1,
-   "missing": 26,
+   "missing": 22,
    "not_voting_in_data": 1,
-   "vote_error_rate": 0.0069218967370611294,
+   "vote_error_rate": 0.0056232327772927785,
    "vote_error_ci": [
-    0.003782562227059075,
-    0.010874479298245024
+    0.0027285167209687915,
+    0.00946864230379704
    ],
-   "wrong_vote_rate": 0.0006530030863615626,
+   "wrong_vote_rate": 0.00035283695387655444,
    "wrong_vote_ci": [
-    0.00011793534860166079,
-    0.0012340787204088775
+    9.724493656628172e-05,
+    0.0006773051598685994
    ],
-   "lost_vote_rate": 0.0062688936506995665,
+   "lost_vote_rate": 0.005270395823416224,
    "lost_vote_ci": [
-    0.0032084045657998755,
-    0.01023621454286414
+    0.0023697310694484977,
+    0.009188282173133583
    ],
-   "rollcalls_with_error": 0.48585242275030327,
+   "rollcalls_with_error": 0.3897095554128309,
    "rollcalls_with_error_ci": [
-    0.29635204809819454,
-    0.6756088096767286
+    0.20109630343252693,
+    0.5733867658602725
    ]
   }
  }

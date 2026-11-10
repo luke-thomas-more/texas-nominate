@@ -88,23 +88,30 @@ data is in `docs/data/` (see `docs/data/downloads/`).
 
 ## Accuracy and stability
 
-- **Audit** (`pipeline/audit.py`, readings in `audit/`): 240 roll calls drawn at random across eras, chambers and
-  verification statuses were read name by name off the page images (16,486 names). Weighted to the v1.1 data, about
-  0.02% of yeas and nays were wrong and 0.07% lost (v1.0: 0.04% and 0.08% on 194 roll calls); nearly all errors sit in
-  roll calls that passed the looser checks. The causes found, and the fixes, are in `audit/findings.md`.
+- **Audit** (`pipeline/audit.py`, readings in `audit/`): for v1.2 a fresh sample of 94 roll calls, drawn at random
+  across eras, chambers and verification statuses and used for nothing else, was read name by name off the page
+  images (6,413 names). Weighted to the data, about 0.02% of yeas and nays are wrong (95% interval 0.01–0.04%) and
+  0.11% lost (0.04–0.20%); nearly all errors sit in roll calls that passed the looser checks, most in journals before
+  1874. The first sample (240 roll calls, 16,486 names) was used to find and fix errors in v1.0–v1.2, so it now
+  flatters the data (0.00% wrong, 0.05% lost; on v1.1, 0.02% and 0.07%). The causes found, the fixes, and the errors
+  the fresh sample found and left in place are in `audit/findings.md`.
 - **LegiScan** (`pipeline/validate_legiscan.py`, 2013 on; LegiScan's 2009–12 files hold no Texas votes to match): 99.75% of 3.09 million individual votes agree.
 - **Stability** (`pipeline/stability.py`): refits started with the pre-1961 eras turned 25 degrees either way came
   back to within about 5 degrees of each other relative to the modern eras, so the angle between eras is set by the
   votes; the map's overall orientation can float a few degrees (the second dimension's weight is near 1).
 - **Sensitivity** (`fit_texas.py` with `SENS_STATUSES=ok`, `SENS_NO_IMPLIED=1` or `SENS_NO_TALLY=1`, compared by
   `stability.py compare`): keeping only roll calls that match their printed totals exactly, or dropping the Senate's
-  filled-in yeas, leaves every era within 3.4 degrees and r ≥ 0.96 of the map. Dropping the 1973–82 House tally
-  sheets turns the eras since 1973 by 8–16 degrees (r ≥ 0.88): the sheets help tie the modern map to the older one.
-- **W-NOMINATE** (`pipeline/validate_wnominate.py`, R package `wnominate`): each legislature and chamber scaled on its
-  own, then turned to line up with the map (orthogonal Procrustes) and correlated axis by axis. Since 1961 (59
-  sessions) the median r is 0.89 on the first axis and 0.66 on the second; before 1961 (109 sessions) 0.68 and 0.83.
-  The weaker first axis in the older sessions isn't explained by their size (it barely varies with the number of
-  votes) and hasn't been traced.
+  filled-in yeas, leaves every era within 3.3 degrees and r ≥ 0.94 of the map. Dropping the 1973–82 House tally
+  sheets turns the eras since 1973 by 8–15 degrees (r ≥ 0.88): the sheets help tie the modern map to the older one.
+- **W-NOMINATE** (`pipeline/validate_wnominate.py`, `wnominate_halves.py`, `wnominate_trace.py`; R package
+  `wnominate`): each legislature and chamber scaled on its own, and each of its two dimensions predicted from
+  members' positions on the map (multiple correlation, so no rotation to choose). A session's main divide is
+  recovered in every period: median R 0.97 since 1961 (59 sessions) and 0.89 before (109). Its second divide is
+  recovered less well, 0.52 and 0.61, though W-NOMINATE finds it reliably (split halves agree at about 0.91): one
+  map for 180 years carries only part of each session's own second quarrel. v1.1 reported a weak first axis before
+  1961 (r 0.68) as untraced. That was the comparison, not the map: before 1961 a session's main divide runs nearer
+  the map's second axis in 66% of sessions, so matching first axis to first axis compared the wrong pair. The
+  trace is in `audit/findings.md`.
 - **Standard errors** for each member (`se1`, `se2` in `member_scores.csv`) come from the information in their own
   votes, holding the roll calls fixed: a lower bound.
 

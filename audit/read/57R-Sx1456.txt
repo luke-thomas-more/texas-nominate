@@ -1,0 +1,4 @@
+# Senate 1961-05-24 (fresh sample): bill "passed by the following vote", "Yeas—29" (lists run from the foot of journal p. 1417 to the top of p. 1418), no nays, "Absent—Excused" (2); followed by "House Bill 912 on Second Reading".
+Y: Aikin; Baker; Calhoun; Colson; Creighton; Crump; Dies; Fuller; Gonzalez; Hardeman; Hazlewood; Herring; Kazen; Krueger; Lane; Martin; Moffett; Moore; Owen; Parkhouse; Patman; Ratliff; Reagan; Roberts; Rogers; Schwartz; Secrest; Smith; Willis
+N:
+E: Hudson; Weinert

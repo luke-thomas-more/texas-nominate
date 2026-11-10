@@ -1,0 +1,3 @@
+# House 1876-05-26 (fresh sample): "The bill was then passed by the following vote", "Yeas ... —56.", "Nays ... —7." Running text.
+Y: Allison; Andrews; Baker; Boyd; Brooks; Burrows; Campbell; Carrington; Chambers; Chesley; Cochran; Conley; Dennis; Gaston; Garrison; Graham; Griffith; Harris; Hart; Haynes; Holland; Holly; Horton; Hunter; Ikard; Jones of Gonzales; Jones of McLennan; Key; Kopperl; Lathrop; McCorkle; McCuistian; McGinnis; McKinnion; Manion; Marshall; Mead; Moses; Parker; Pattie; Perrenot; Price; Quin; Roberts of Bee; Roberts of Harrison; Rogers; Rust; Schrier; Stewart; Smith of Denton; Stone; Thompson; Towles; Von Biberstein; Warren; Watts
+N: Douglass; Hutchins; Isaacs; Lang; Smyth of Limestone; Wilson; Young

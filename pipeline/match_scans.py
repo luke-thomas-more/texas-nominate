@@ -26,6 +26,8 @@ INTERIM = os.path.join(ROOT, "data", "interim")
 OUT = os.path.join(ROOT, "data", "processed")
 MATCH = 68          # confident name -> member pairing
 MATCH2 = 56         # second pass, among members not already placed in the roll call
+# "of" between a name and its county, as OCR reads it: "or", "ot", "ol", "0f", "nf", "pf" ("Smith ,pf Harris", 1879)
+OF = r"(?:[o0][flrt]|[npce]f)"
 TITLES = r"(?:Mrs|Miss|Mr|Messrs|Mitis|Mlas|Mi55|Mis|Mn|Mra|Mre|Mr8)"       # and OCR's "Mn." (Still, Mrs., 1949)
 # words that begin a surname, so a name never splits right after one ("De La Garza", "Van de Putte")
 PARTICLES = {"de", "la", "le", "du", "van", "von", "der", "den", "del", "di", "da", "mc", "mac", "st", "san", "ten", "ter", "des", "el"}
@@ -52,6 +54,18 @@ HEADING = re.compile(r"^\W*(?:absent|present|excused|paired|pairs|nays?|yeas?|ay
 class CommaPiece(str):
     """What follows a comma in "Townsend, Angelina" (his county) or "Allen, John" (1971, beside
     "Allen, Joe": his given name); scored as whichever fits the member."""
+
+
+class Folded(str):
+    """A surname folded for comparison (fold), with the unfolded spelling (.plain): folding "ni" to "m" makes
+    "Danids" (Daniel, 1860) nearer Edwards than Daniel, so names are compared both ways."""
+    def __new__(cls, plain):
+        s = super().__new__(cls, fold(plain))
+        s.plain = plain
+        return s
+
+    def __getnewargs__(self):
+        return (self.plain,)
 
 
 class Leftover(str):
@@ -141,6 +155,7 @@ def parse_raw(raw):
     s = normalize_ocr(raw)
     s = re.sub(r"\s*\(\s*[CG]\s*\)?\W*$", "", s)                     # "Hall(C)": presiding, and voting
     s = re.sub(r"(?<![A-Za-z])[1lI|]-[IiljJf](?=[a-z]{2})", "H", s)     # an H read as "1-I": "Jones of 1-Iarris"
+    s = re.sub(r"(?<=[a-z])!", "l", s)                                # an l read as "!": "Tee!." (Teel, 1911), "Hal!."
     s = re.sub(r"^[^A-Za-z]+|[^A-Za-z]+$", "", s)                    # "Townsen, Lampasas-.", "Moore, Fort Bend:,.."
     s = re.sub(r"^M\S{0,5}rs\b\W*(?=[A-Z])", "", s)                # "Messrs.", "Méssrs.", "Messrs~" before a name (not "Mears.")
     s = re.sub(r"(\w)\s+sof\s+", r"\1s of ", s)                       # "Rhode sof Van Zandt" -> "Rhodes of ..."
@@ -155,8 +170,8 @@ def parse_raw(raw):
     s = re.sub(r"^(?:Hon|Mrs?|Miss)\.?\s+(?=[A-Z])", "", s)            # "Hon. J. S. Sherrill", not initial M
     s = re.sub(r",?\s*\b" + TITLES + r"\.?$", "", s).strip(" ,.")
     county = None
-    m = re.match(r"^(.*?\S)\s*,?\s*\b(?:[o0][flrt]|nf)\.?\s+\W*([A-Za-z].*)$", s) or re.match(r"^(.*?[a-z])\s*of(?=[A-Z])(.+)$", s) \
-        or re.match(r"^(.*?[a-z]{3})of\s+([A-Z].+)$", s)                  # "Rhodesof VanZandt"
+    m = re.match(r"^(.*?\S)\s*,?\s*\b" + OF + r"\.?\s+\W*([A-Za-z].*)$", s) or re.match(r"^(.*?[a-z])\s*of(?=[A-Z])(.+)$", s) \
+        or re.match(r"^(.*?[a-z]{3})of\s+([A-Z].*)$", s)                  # "Rhodesof VanZandt", "Newtonof C" (1887)
     if m:
         # OCR noise inside the county is dropped, not made a word break: "H3.rris" is Harris, not "h rris"
         s, county = m.group(1), fold(norm(re.sub(r"(?<=[A-Za-z])[.,:;2-47-9]+(?=[a-z])", "", m.group(2))))
@@ -176,7 +191,7 @@ def parse_raw(raw):
     m = re.match(r"^([A-Za-z][^\s,.]+),\s*(?!(?:Jr|Sr)\b)([A-Z][a-z]+\.?(?:\s*[A-Z]\.?)*)$", s)    # "Davis, John E. of Dallas" (1921)
     if m and not initials:
         s, initials = m.group(1), "".join(c.lower() for c in re.findall(r"[A-Z]", m.group(2)))
-    return fold(norm(s)), initials, county, None
+    return Folded(norm(s)), initials, county, None
 
 
 class SessionMatcher:
@@ -184,15 +199,16 @@ class SessionMatcher:
         self.members = sorted({t["member_id"] for t in roster})
         self.terms = {t["member_id"]: t for t in roster}
         self.idx = {m: i for i, m in enumerate(self.members)}
-        keys, owner, weak = [], [], []
+        keys, plain, owner, weak = [], [], [], []
         for t in roster:
             for k in t["surn"] | {x for x in t["weak"] if len(x) >= 4}:
-                keys.append(fold(k)); owner.append(self.idx[t["member_id"]]); weak.append(k not in t["surn"])
-        self.keys, self.owner, self.weak = keys, np.array(owner), np.array(weak, dtype=bool)
+                keys.append(fold(k)); plain.append(k); owner.append(self.idx[t["member_id"]]); weak.append(k not in t["surn"])
+        self.keys, self.keys_plain, self.owner, self.weak = keys, plain, np.array(owner), np.array(weak, dtype=bool)
         self.speaker = [self.idx[m] for m in speaker_ids if m in self.idx]
         self.cache = {}
         self.active = np.zeros(len(self.members))
         self.offday, self.offday_cache = np.zeros(len(self.members)), {}
+        self.day_voters, self.voters, self.sure = {}, None, set()
         # places each member represented, grouped by word count, for vectorized county scoring
         by_len = collections.defaultdict(lambda: ([], []))
         for m in self.members:
@@ -272,6 +288,20 @@ class SessionMatcher:
         if date not in self.offday_cache:
             self.offday_cache[date] = np.array([0.0 if serving(self.terms[m], date) else -10.0 for m in self.members])
         self.offday = self.offday_cache[date]
+        self.voters = self.day_voters.get(date)
+
+    def learn_days(self, by_date):
+        """by_date: {date: [the members each roll call of the day placed among its yeas and nays with confidence
+        (.sure after match)]}. On a day with three or more roll calls of ten such members, a yea or nay too
+        garbled for a confident match goes only to a member one of them has voting that day: "enman" (Stirman,
+        1870) went to Evans and "Danids" (Daniel, 1860) to Edwards, members absent all day whose names were free."""
+        self.day_voters = {}
+        for date, sets in by_date.items():
+            full = [s for s in sets if len(s) >= 10]
+            if len(full) >= 3:
+                seen = np.zeros(len(self.members), dtype=bool)
+                seen[[self.idx[m] for s in full for m in s]] = True
+                self.day_voters[date] = seen
 
     def learn_activity(self, results):
         """results: [{member_id: code}] from a first pass over the session."""
@@ -295,6 +325,12 @@ class SessionMatcher:
             r1 = process.cdist([sn], self.keys, scorer=fuzz.ratio)[0]
             r2 = process.cdist([sn.replace(" ", "")], [k.replace(" ", "") for k in self.keys], scorer=fuzz.ratio)[0]
             r = np.maximum(r1, r2)
+            if getattr(sn, "plain", sn) != sn:      # as spelled too, where folding changed the name
+                r = np.maximum(r, process.cdist([sn.plain], self.keys_plain, scorer=fuzz.ratio)[0])
+            # between names equally near, the one that starts the same: "Danids" (1860) is Daniel, not Dennis
+            p = getattr(sn, "plain", sn)
+            lead = np.array([len(os.path.commonprefix([p, k])) for k in self.keys_plain])
+            r = np.where(r < 100, np.minimum(r + 0.3 * np.minimum(lead, 4), 99.9), r)
             # a middle name ("Neave" for Victoria Neave Criado) counts only as written, and below a surname,
             # even one out of office that day: "Robertson" isn't Silas Robert Crawford, nor "Butler" George
             # Butler Terrell beside a Butler
@@ -327,7 +363,7 @@ class SessionMatcher:
             # name the rest doesn't help, the rest a name of its own garbled past matching ("Edwards.
             # Ket>uan"): apart, so that name isn't lost inside a good one
             sc = [self.best(p).max(initial=0) for p in parts]
-            apart = not any(re.search(r"\b(?:of|nf|[o0][flrt])$", p, re.I) for p in parts[:-1])     # "Buchanan or. Bell"
+            apart = not any(re.search(r"\b(?:of|" + OF + r")$", p, re.I) for p in parts[:-1])     # "Buchanan or. Bell"
             if apart and (min(sc) >= 80 or sc[0] >= 85 and whole <= sc[0] and all(
                     len(re.sub(r"[^A-Za-z]", "", p)) >= 3 and not re.match(HEADING, p) for p in parts[1:])):
                 return [x for p in parts for x in self.split(p)]
@@ -360,7 +396,7 @@ class SessionMatcher:
             a, b = " ".join(words[:k]), " ".join(words[k:])
             if self.is_county(b) and self.best(a + ", " + b).max(initial=0) >= max(whole, self.best(a).max(initial=0)) + 3:
                 return [a + ", " + b]           # "Baker Tcm Green" (1892): a member and his county, the comma lost
-            if re.match(r"^(of|nf|[o0][flrt])\b", b, re.I) or words[k - 1].lower().rstrip(".") in PARTICLES:
+            if re.match(r"^(?:of|" + OF + r")\b", b, re.I) or words[k - 1].lower().rstrip(".") in PARTICLES:
                 continue        # "of" + county stays together; so does a surname's particle ("De La | Garza")
             sa, sb = self.best(a).max(initial=0), self.best(b).max(initial=0)
             # two names glued together: both halves match members about as well as the whole does, or
@@ -430,6 +466,7 @@ class SessionMatcher:
                    for part in self.rejoin([p for raw in names for piece in self.unbreak(raw)
                                             for p in self.split(piece) if p.strip()])
                    if any(parse_raw(part)[::3])]          # not a title left alone ("Mr" | "Speaker.", 1926)
+        self.sure = set()
         if not entries or not self.members:
             return {}, [Leftover(r, code) for code, r in entries]
         S = np.vstack([self.best(r) for _, r in entries])
@@ -448,6 +485,12 @@ class SessionMatcher:
             if not todo or not free:
                 break
             sub = S[np.ix_(todo, free)]
+            if floor == MATCH2:     # a speck of two letters is no one's garbled name: "oo" made Moody a nay (1889)
+                speck = np.array([len(re.sub(r"[^A-Za-z]", "", entries[r][1])) < 3 for r in todo])
+                sub = np.where(speck[:, None], 0.0, sub)
+            if floor == MATCH2 and self.voters is not None:
+                weak_vote = np.array([entries[r][0] in ("Y", "N") for r in todo])
+                sub = np.where(weak_vote[:, None] & ~self.voters[free][None, :], 0.0, sub)
             cost = np.hstack([np.where(sub >= floor, 100.0 - sub, 1e6), np.full((len(todo), len(todo)), 1e6)])
             cost[np.arange(len(todo)), len(free) + np.arange(len(todo))] = 101.0 - floor
             rows, cols = linear_sum_assignment(cost)
@@ -455,6 +498,8 @@ class SessionMatcher:
                 if c < len(free) and cost[r, c] < 1e6:
                     votes[self.members[free[c]]] = entries[todo[r]][0]
                     used.add(todo[r]); taken.add(free[c])
+            if floor == MATCH:
+                self.sure = {m for m, c in votes.items() if c in ("Y", "N")}
         # left over but no member's name: what isn't a name at all (junk), or a name printed twice in one
         # list ("Davis of Harris" twice among the yeas, 1969) whose member that list placed already
         placed = {self.idx[m]: c for m, c in votes.items()}

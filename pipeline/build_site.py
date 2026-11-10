@@ -217,34 +217,55 @@ def legiscan_html():
 
 
 def audit_html():
-    """The Data page's account of the accuracy audit, from audit/report.json (pipeline/audit.py report)."""
+    """The Data page's account of the accuracy audit, from audit/report_fresh.json (a sample no fix has drawn on) and
+    audit/report.json (the first sample, since used to find and fix errors); both from pipeline/audit.py report."""
     path = os.path.join(ROOT, "audit", "report.json")
     if not os.path.exists(path):
         return "<p>The accuracy audit isn't done yet.</p>"
-    a = json.load(open(path))
-    al = a["all"]
+    first = json.load(open(path))
+    fpath = os.path.join(ROOT, "audit", "report_fresh.json")
+    fresh = json.load(open(fpath)) if os.path.exists(fpath) else None
+    version = json.load(open(os.path.join(ROOT, "pipeline", "dataset.json")))["version"].split()[0]
     pct = lambda x: f"{100 * x:.2f}%"
     ci = lambda x: f"{100 * x[0]:.2f}–{100 * x[1]:.2f}%"
+    which = lambda r: "this release" if r["data_version"] == version else "the release before this one"
+    rates = lambda r: (f"an estimated {pct(r['all']['wrong_vote_rate'])} of yeas and nays are wrong (95% interval "
+                       f"{ci(r['all']['wrong_vote_ci'])}) and {pct(r['all']['lost_vote_rate'])} are lost ({ci(r['all']['lost_vote_ci'])})")
+
+    def by_check(r):
+        ok, other = r.get("by_check", {}).get("ok", {}), r.get("by_check", {}).get("other", {})
+        if not (ok and other):
+            return ""
+        return (f"Roll calls whose counts match the printed totals exactly were almost always exactly right ({ok.get('wrong', 0)} wrong "
+                f"and {ok.get('lost', 0)} lost votes in {ok.get('rollcalls', 0)} of them); the errors gather in the roll calls that "
+                f"passed a looser check ({other.get('wrong', 0)} wrong and {other.get('lost', 0)} lost in {other.get('rollcalls', 0)}). ")
+
+    kinds = ("Two kinds of error count. A <b>wrong</b> vote is credited to the wrong member, isn't on the page, or has yea and nay "
+             "swapped; a <b>lost</b> vote is on the page but missing from the data or recorded as not voting. Wrong votes mislead "
+             "the scores; a lost one only leaves the member out of that roll call.")
+    drawn = ("drawn from every era, both chambers and each way of verifying a roll call (the looser checks oversampled), was read "
+             "name by name off the journal pages and compared with the data")
+    main = fresh if fresh and fresh["data_version"] == version else first
+    if main is fresh:
+        text = (f"<p>To measure the data's accuracy, a fresh random sample of {fresh['done']} roll calls, none of them used to find or "
+                f"fix an error, {drawn} (version {fresh['data_version']}, this release): {fresh['all']['names_read']:,} names. {kinds}</p>\n"
+                f"<p>Weighting each part of the sample by its share of the data, {rates(fresh)}. {by_check(fresh)}"
+                f"An earlier sample of {first['done']} roll calls ({first['all']['names_read']:,} names) was read for versions 1.0 and "
+                f"1.1 and then used to find and fix errors (listed in the repository's <code>audit/findings.md</code>), so it "
+                f"flatters the data it helped correct: against {which(first)} it shows {pct(first['all']['wrong_vote_rate'])} wrong and "
+                f"{pct(first['all']['lost_vote_rate'])} lost. The errors the fresh sample found are listed in the same file and are "
+                f"still in the data. The pages read and every name are in <code>audit_fresh.csv</code> and <code>audit.csv</code>; "
+                f"the readings themselves are in the repository's <code>audit/</code> folder.</p>\n")
+    else:
+        text = (f"<p>To measure the data's accuracy, a random sample of {first['done']} roll calls of data version {first['data_version']} "
+                f"({which(first)}; the fixes it led to are listed in the repository's <code>audit/findings.md</code>), {drawn}: "
+                f"{first['all']['names_read']:,} names. {kinds}</p>\n"
+                f"<p>Weighting each part of the sample by its share of the data, {rates(first)}. {by_check(first)}"
+                "The pages read and every name are in <code>audit.csv</code>; the readings themselves are in the repository's "
+                "<code>audit/</code> folder.</p>\n")
     rows = "\n".join(f'    <tr><td>{era}</td><td class="num">{x["rollcalls"]}</td><td class="num">{x["names_read"]:,}</td>'
-                     f'<td class="num">{x["wrong"]}</td><td class="num">{x["lost"]}</td></tr>' for era, x in a["by_era"].items())
-    ck = a.get("by_check", {})
-    ok, other = ck.get("ok", {}), ck.get("other", {})
-    current = json.load(open(os.path.join(ROOT, "pipeline", "dataset.json")))["version"].split()[0] == a["data_version"]
-    which = "this release" if current else "the release before this one"
-    return (f"<p>To measure the data's accuracy, a random sample of {a['done']} roll calls of data version {a['data_version']} ({which}; "
-            f"the fixes it led to are listed in the repository's <code>audit/findings.md</code>), drawn from every era, both chambers and "
-            f"each way of verifying a roll call (the looser checks oversampled), was read name by name off the journal pages and "
-            f"compared with the data: {al['names_read']:,} names. Two kinds of error count. A <b>wrong</b> vote is credited to the wrong "
-            f"member, isn't on the page, or has yea and nay swapped; a <b>lost</b> vote is on the page but missing from the data or "
-            f"recorded as not voting. Wrong votes mislead the scores; a lost one only leaves the member out of that roll call.</p>\n"
-            f"<p>Weighting each part of the sample by its share of the data, an estimated {pct(al['wrong_vote_rate'])} of yeas and nays "
-            f"are wrong (95% interval {ci(al['wrong_vote_ci'])}) and {pct(al['lost_vote_rate'])} are lost ({ci(al['lost_vote_ci'])}). "
-            + (f"Roll calls whose counts match the printed totals exactly were almost always exactly right ({ok.get('wrong', 0)} wrong "
-               f"and {ok.get('lost', 0)} lost votes in {ok.get('rollcalls', 0)} of them); the errors gather in the roll calls that "
-               f"passed a looser check ({other.get('wrong', 0)} wrong and {other.get('lost', 0)} lost in {other.get('rollcalls', 0)}). "
-               if ok and other else "")
-            + "The pages read and every name are in <code>audit.csv</code>; the readings themselves are in the repository's "
-            "<code>audit/</code> folder.</p>\n" + legiscan_html() +
+                     f'<td class="num">{x["wrong"]}</td><td class="num">{x["lost"]}</td></tr>' for era, x in main["by_era"].items())
+    return (text + legiscan_html() +
             '<div class="tablewrap"><table>\n  <thead><tr><th>Era</th><th class="num">Roll calls read</th><th class="num">Names</th>'
             '<th class="num">Wrong</th><th class="num">Lost</th></tr></thead>\n  <tbody>\n' + rows + "\n  </tbody>\n</table></div>")
 
@@ -303,16 +324,21 @@ def tally_page(r, path):
 
 
 def wnominate_fill(wn):
-    """The About page's W-NOMINATE numbers (validate_wnominate.py), split at 1961 (the 57th Legislature), where the
-    agreement on the first axis changes."""
-    keys = ("WN_N", "WN_R1_NEW", "WN_R2_NEW", "WN_N_OLD", "WN_R1_OLD", "WN_R2_OLD", "WN_MEMBERS_OLD")
+    """The About page's W-NOMINATE numbers (validate_wnominate.py, wnominate_trace.py), split at 1961 (the 57th
+    Legislature): before it most sessions' main divide lies nearer the map's second axis."""
+    keys = ("WN_N", "WN_W1_NEW", "WN_W2_NEW", "WN_N_OLD", "WN_W1_OLD", "WN_W2_OLD", "WN_AX2_OLD", "WN_HALF2")
     if not wn:
         return dict.fromkeys(keys, "–")
     new = [v for k, v in wn["by_legislature"].items() if int(k[:-1]) >= 57]
     old = [v for k, v in wn["by_legislature"].items() if int(k[:-1]) < 57]
     med = lambda vs, c: f"{statistics.median(v[c] for v in vs):.2f}"
-    return dict(zip(keys, (str(len(new)), med(new, "r_dim1"), med(new, "r_dim2"), str(len(old)), med(old, "r_dim1"),
-                           med(old, "r_dim2"), f"{statistics.median(v['members'] for v in old):.0f}")))
+    half = "–"
+    path = os.path.join(PROC, "wnominate_trace.json")
+    if os.path.exists(path):
+        h = [v["halves"]["full2"] for v in json.load(open(path))["by_session"].values() if v.get("halves")]
+        half = f"{statistics.median(h):.2f}" if h else half
+    return dict(zip(keys, (str(len(new)), med(new, "R_w1"), med(new, "R_w2"), str(len(old)), med(old, "R_w1"), med(old, "R_w2"),
+                           f"{100 * statistics.mean(45 < v['w1_angle'] < 135 for v in old):.0f}%", half)))
 
 
 def sensitivity(fit_name):
@@ -516,6 +542,8 @@ def main():
             w.writerow({**r, **{c: se.get(r["member_id"], {}).get(c, "") for c in se_cols}})
     if os.path.exists(os.path.join(ROOT, "audit", "audit.csv")):
         shutil.copy(os.path.join(ROOT, "audit", "audit.csv"), os.path.join(dl, "audit.csv"))
+    if os.path.exists(os.path.join(ROOT, "audit", "audit_fresh.csv")):
+        shutil.copy(os.path.join(ROOT, "audit", "audit_fresh.csv"), os.path.join(dl, "audit_fresh.csv"))
     # how much of each legislature's record the data holds: roll calls verified and kept, and those the scans held
     # that failed the checks and were left out
     with open(os.path.join(dl, "coverage.csv"), "w", newline="") as f:
@@ -600,7 +628,8 @@ def main():
               "congress_bridge.csv": "members who also served in Congress, with their Voteview scores",
               "blocs.csv": "each member's voting bloc, by legislature and chamber",
               "coverage.csv": "by legislature and chamber: roll calls kept, and those the scans held that failed the checks",
-              "audit.csv": "the accuracy audit: every name read off the journal pages for a random sample of roll calls, and what the data has"}
+              "audit.csv": "the accuracy audit: every name read off the journal pages for a random sample of roll calls, and what the data has",
+              "audit_fresh.csv": "the same for the fresh sample read for version 1.2, which no fix has drawn on"}
     size = lambda n: f"{os.path.getsize(os.path.join(dl, n)) / 1e6:.1f}&nbsp;MB" if os.path.getsize(os.path.join(dl, n)) >= 1e5 else f"{os.path.getsize(os.path.join(dl, n)) / 1e3:.0f}&nbsp;KB"
     files = "\n".join(f'    <tr><td><a href="data/downloads/{n}">{n}</a></td><td>{labels[n]}</td><td class="num">{size(n)}</td></tr>'
                       for n in labels if os.path.exists(os.path.join(dl, n)))

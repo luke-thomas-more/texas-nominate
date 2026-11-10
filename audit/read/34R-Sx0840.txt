@@ -1,0 +1,4 @@
+# Senate 1915-03-17 (fresh sample): column lists "Yeas—22.", "Nays—2.", "Absent." (7), just before Bailey of Harris's motion to suspend the constitutional rule for HB 40 (the next roll call, Yeas—24).
+Y: Astin; Bailey of Harris; Bee; Brelsford; Clark; Cowell; Darwin; Gibson; Harley; Henderson; Hudspeth; Johnson; King; Lattimore; McGregor; Page; Parr; Smith; Suiter; Townsend; Westbrook; Wiley
+N: Conner; Morrow
+A: Bailey of DeWitt; Hall; Harris; McCollum; McNealus; Nugent; Robbins

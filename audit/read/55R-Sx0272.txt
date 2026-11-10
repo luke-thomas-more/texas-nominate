@@ -1,0 +1,4 @@
+# Senate 1957-03-18 (fresh sample): "The motion prevailed by the following vote:" (the first of two 29-1 votes; the second is the passage vote that follows), "Yeas—29", "Nays—1", "Absent—Excused" (1)
+Y: Aikin; Ashley; Bracewell; Bradshaw; Colson; Fly; Fuller; Gonzalez; Hardeman; Hazlewood; Herring; Hudson; Kazen; Krueger; Lane; Lock; Martin; Moffett; Moore; Phillips; Ratliff; Reagan; Roberts; Rogers; Secrest; Smith; Weinert; Willis; Wood
+N: Owen
+E: Parkhouse

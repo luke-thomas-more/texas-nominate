@@ -1,0 +1,4 @@
+# Senate 1856-01-03 (fresh sample), journal p. 289: Potter's motion to table the motion to reconsider, lost: "Yeas ... —15.", "Nays ... —16."
+# (the page prints "Bryan Flanagan" without a comma)
+Y: Allen; Bryan; Flanagan; Grimes; Hord; McDade; Martin; Maverick; Palmer; Pedigo; Potter; Scarborough; Superviele; Taylor of Fannin; Weatherford
+N: Armstrong; Burroughs; Caldwell; Doane; Guinn; Lott; McCulloch; Millican; Pirkey; Russell; Taylor of Cass; Taylor of Houston; Truit; Whitaker; White; Wren

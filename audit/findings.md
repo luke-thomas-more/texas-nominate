@@ -3,6 +3,101 @@
 Yea and nay errors are counted by `pipeline/audit.py report`. This file keeps the patterns behind them, and anything
 else the readings turn up, for the v1.0 data pass.
 
+## v1.2 (2026-11-10)
+
+Decisions made on my own judgement for this pass (Luke: "go for it, prioritize 4"), for later review.
+
+- **Traced: the wrong-member matches v1.1 left** (all in `pipeline/match_scans.py`):
+  - 20R-Hx0107 "Newton of C." was read "Nt>wtonof C": the "of" glued to the name with a one-letter county wasn't taken
+    as a county, so the name went to whichever Newton was free. Now parsed (three letters before a glued "of").
+  - 16R-Hx0258 "Smith of Harris" was read "Smith ,pf Harris": "pf" wasn't a known misreading of "of", so the whole
+    string scored 56 against every Smith and went to a free one in the second tier. "pf" added.
+  - 8R-Hx0292 "Daniels" was read "Danids". Folding OCR look-alikes ("ni" ~ "m") made it "damds", nearer Edwards than
+    Daniel. A name is now compared as spelled as well as folded (the better counts), and between names equally
+    near (Daniel and Dennis, both 67) a small edge goes to the one that starts the same way.
+  - 121-Hx0301 "Stirman" was read "enman": Evans 60, Stirman 50, and Evans, absent all day, was free. A yea or nay
+    too garbled for a confident match now goes only to a member whom some roll call that day has voting with
+    confidence (days with three or more roll calls; `SessionMatcher.learn_days`). Absent, excused and
+    present-not-voting lists are not restricted: those are exactly the members with no votes that day.
+  - 15R-Hx0482 "McKinnion" read "MeKinnion", folded to "mekmmon", went to Manion; as spelled it is McKinnon.
+  - 32R-Hx0252 Lee/Teel: the yea "Lee" was read "T...~ee." and the excused "Teel" as "Tee!."; both came out "tee" and
+    the two members were handed out the wrong way round. "!" after a lowercase letter is now read as "l". Watson's yea
+    ("VfltMn.") stays lost: nothing in the reading says Watson.
+  - 21R-Hx0010's false nay for Moody was not a page-break problem (my note of Nov 2 guessed wrong): a two-letter
+    speck "oo" among the nays scored 57 against "Moody" and was placed in the second tier. A string of fewer than
+    three letters can no longer be matched weakly.
+- **"Absent, not voting" (1885) coded P.** `parse_scans.cell_label` had no such label and took the nearest,
+  "present not voting". Added, with "Absent and not voting"; the 19th Legislature's 2,822 P codes should become A.
+  No effect on the map (neither is a yea or nay).
+- **The rebuilt data, reviewed against v1.1 before the refit** (every scan re-matched; ids kept by `stable_ids.py`):
+  - Verified scan roll calls 134,271 -> 134,492; yeas and nays in them 8,632,884 -> 8,656,144. 337 roll calls that
+    failed their checks now pass; 134 that passed now fail (mostly a weak match no longer allowed by the day rule,
+    which leaves a name unresolved and the roll call outside "within one"; a few where the combined reading of two
+    OCRs no longer comes out exact). Among roll calls verified both times, 1,658 differ in a yea or nay, 1,515 of
+    them by one or two names.
+  - Against the first audit sample's 159 scan roll calls: wrong votes 9 -> 3, lost votes 32 -> 22, P/A code errors
+    33 -> 1. Every case traced above is fixed (121-Hx0301 too), and 32R-Hx0252 regained Watson from the other OCR.
+    Three new errors: 8R-Hx0292 gained a false yea for Kinney (the layer split "Franklin" into "Frnn" and "klin";
+    one took Franklin, the other now scores 60 against Kinney as spelled); 23R-Hx0019 and 32R-Hx0252 each lost one
+    name (Barbee of Wharton, Hall) by passing to a different OCR reading that gained another (King of Ellis; Lee and
+    Watson). Left as they are: the first sample was used to find these bugs, so it no longer measures anything.
+  - The 20 scan roll calls of the fresh sample read by then: identical in both versions.
+  - Modern journals and tally sheets (same matcher): 87,135 roll calls both times, 167 vote cells differ, 70 roll
+    calls move from a looser check to exact, 3 fail that passed.
+- **Traced: the weak agreement with W-NOMINATE before 1961** (item 4, the priority; `pipeline/wnominate_trace.py`,
+  `wnominate_halves.py`, `data/processed/wnominate_trace_v7.log`). v1.1 turned each session's W-NOMINATE map onto
+  ours and correlated axis by axis, by OUR axes: median r 0.68 on axis 1 before 1961. That number was a labelling
+  artifact. Taking W-NOMINATE's dimensions as it orders them (first = the session's main divide) and predicting each
+  from both of our axes (multiple R), on the v1.2 fit:
+  - The main divide is recovered in every era: median R 0.89, 0.90, 0.92, 0.87 for 1846–73, 1874–1900, 1901–30,
+    1931–60, against 0.91–0.98 since 1961. Before 1961 it lies nearer our axis 2 than axis 1 in 55–79% of sessions
+    (0–39% since), so "axis 1 against axis 1" was mostly comparing our first axis with the session's second divide.
+  - The real gap is each session's own second divide: R 0.57–0.63 before 1961 (0.44–0.55 since). It isn't noise:
+    W-NOMINATE on two interleaved halves of a session's votes finds it in both (0.70–0.90, stepped up to full length
+    0.82–0.95). A third shared dimension helps little (0.64–0.69). Our own estimator fit to one legislature at a
+    time (1st–44th only; the later ones take hours each) matches W-NOMINATE at 0.96–0.98 and 0.78–0.88, so it isn't
+    the estimator either.
+  - Reading: one map for 180 years with one position per career can't carry every session's own second quarrel.
+    The alternative would be era-specific or per-session axes, which gives up the shared space Luke chose. **No
+    model change.** The About page and README now report R of each W-NOMINATE dimension given the map and say what
+    the old 0.68 was.
+- **Refit (fit_v7)** from fit_v6 with beta and the weights held (`FIX_BETA=1 FIX_W=1`): every era within 2.1 degrees
+  of v1.1, r ≥ 0.992 on both axes. Sensitivity refits on the v1.2 data: exact-total roll calls only, at most 3.3
+  degrees and r ≥ 0.94; without the Senate's implied yeas, at most 1.4 degrees and r ≥ 0.998; without the 1973–82
+  tally sheets the eras since 1973 turn 8–15 degrees (r ≥ 0.88), as in v1.1.
+- **A fresh sample for an honest error rate** (`audit.py sample fresh`, seed in the script; `audit/sample_fresh.csv`,
+  `report_fresh.json`, `audit_fresh.csv`): 94 roll calls drawn the same way as the first sample, from the v1.1 list
+  (so the 337 roll calls v1.2 newly verifies couldn't be drawn; all 94 are still in the data), read off the page
+  images (6,413 names) and used for nothing else. Scored against v1.2: **5 votes wrong, 28 lost; weighted, 0.02% of
+  yeas and nays wrong (95% interval 0.01–0.04%) and 0.11% lost (0.04–0.20%); 5.0% of roll calls carry an error.**
+  The first sample, which found the bugs fixed in v1.0–v1.2, now shows 0.00% wrong (4 votes) and 0.05% lost (26) and
+  flatters the data; the fresh figures are the ones to quote. As before the errors gather in the looser checks (3
+  wrong and 27 lost in 28 roll calls, against 2 wrong and 1 lost in 66 exact ones) and in the oldest journals
+  (1846–73: 2 wrong and 18 lost in 12 roll calls; nothing wrong or lost in the 22 since 1983).
+  **Nothing found in the fresh sample was fixed**, so it stays a fair measure. Open, for a later data pass:
+  - Wrong: 1R-Hx0176 (ok; "Edwards of San Augustine", William C. Edwards [5224], nay credited to Haden Harrison
+    Edwards [5036]); 12R-Hx0521 (near; a yea for Ira Hobart Evans [4395], who isn't on the page); 23R-Sx0398 (near;
+    Kearby's nay recorded as a yea, Presler's yea lost); 434-Sx0065 (near; Woodruff's nay credited to Woodul);
+    74R-S1150 (ok, yeas implied; "Present-not voting: Leedom" was given to Teel Bivins, so Leedom has a yea he didn't
+    cast and Bivins lost his).
+  - Lost: 6R-Sx0058 (near, 1856 Senate: the whole nay list, 16 names, and the yea Bryan; the data has it 14–0 against
+    the page's 15–16, the worst roll call in either sample); 13R-Sx0246 (Word); 15R-Hx0231 (Adams, nay; Dennis, yea;
+    v1.1 also had Manion's nay as a yea, right in v1.2); 34R-Sx0840 (Bee); 35R-Hx0056 (Parks);
+    39R-Hx0095 (Hall); 551-Sx0106 (Herring); 57R-Hx0907 (Cowles); 60R-Hx0828 (Scoggins of Nueces); 66R-HT0573 (tally
+    sheet: Ezzell's nay recorded as excused).
+  - Codes for non-voters (not scaled, not counted): 57R-Hx0907 has Thurman, absent, as present-not voting and the
+    Speaker, Turman, as absent (the two names crossed); 66R-HT0180 has Whaley, present-not voting, as excused.
+    77R-S0977 prints "Present-not voting: Mr. President" for Senator Ratliff, then presiding: the data is right.
+    23R-Hx0693 leaves out Ragsdale, excused.
+  - Fixed between v1.1 and v1.2 without looking (the matcher changes above): 67R-HT0180 regained Wright's yea.
+  - Scoring change: a member the page lists as not voting whom the data credits with a yea or nay is now counted
+    as a wrong vote (`audit.tally_rc`). The yea and nay lists couldn't show it, and with implied yeas (74R-S1150)
+    nothing else can. It adds one wrong vote to the fresh sample and none to the first.
+  - Tool note: `audit.py show` pointed at pp. 201–203 for the tally sheet 66R-HT1237; the data's `journal_page`
+    (175) is right. Only the audit helper's page arithmetic is off for that file.
+- **Not done, by agreement:** bill and motion labels, multi-day Senate dating, the 1876 "not voting" lists, the 119
+  roll calls with no journal page.
+
 ## v1.1 (2026-11-08)
 
 - **Readings renamed to v1.0 ids.** The scans number roll calls in page order, so the rebuild for v1.0 shifted ids, and

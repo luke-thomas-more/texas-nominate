@@ -1,0 +1,5 @@
+# Senate 1931-05-11 (fresh sample): first vote in the column, "Yeas—15.", "Nays—11.", "Absent." (1), "Absent—Excused." (4); followed by "The bill was passed to engrossment by the following vote".
+Y: Beck; Berkeley; Cunningham; DeBerry; Gainer; Greer; Hopkins; Martin; Neal; Patton; Russek; Small; Thomason; Woodruff; Woodward
+N: Hornsby; Moore; Oneal; Parr; Parrish; Poage; Purl; Rawlings; Stevenson; Williamson; Woodul
+A: Cousins
+E: Hardin; Holbrook; Loy; Pollard

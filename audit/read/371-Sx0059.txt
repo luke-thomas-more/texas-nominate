@@ -1,0 +1,5 @@
+# Senate 1921-08-02 (fresh sample), 37th 1st called: column lists, 24 yeas, no nays, "Absent." (5), "Absent—Excused." (2); followed by "Simple Resolution No. 32."
+Y: Bailey; Baugh; Bledsoe; Buchanan; Clark; Darwin; Davidson; Dorough; Doyle; Dudley; Fairchild; Floyd; Hertzberg; Lewis; McMillin; Page; Parr; Richards; Rogers; Suiter; Watts; Williams; Willis; Wood
+N:
+A: Carlock; Cousins; Hall; Murphy; Witt
+E: Burkett; Woods

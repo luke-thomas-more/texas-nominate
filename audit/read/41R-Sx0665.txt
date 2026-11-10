@@ -1,0 +1,4 @@
+# Senate 1929-02-21 (fresh sample): bill finally passed, column lists, "Yeas—26.", "Nays—4.", "Absent—Excused."
+Y: Beck; Berkeley; Cousins; Cunningham; Gainer; Hardin; Holbrook; Hornsby; Hyer; Love; Martin; Miller; Moore; Parr; Parrish; Patton; Russek; Small; Stevenson; Thomason; Westbrook; Williamson; Wirtz; Witt; Woodul; Woodward
+N: DeBerry; Greer; McFarlane; Pollard
+E: Neal

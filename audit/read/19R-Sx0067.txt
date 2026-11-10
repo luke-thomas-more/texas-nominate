@@ -1,0 +1,3 @@
+# Senate 1885-01-26 (fresh sample): "Lost, by the following vote:", three-column lists, "Yeas—12.", "Nays—14."; followed by Senator Davis's motion to adopt the majority report (carried 15-11).
+Y: Bell; Calhoun; Camp; Evans; Fowler; Getzendaner; Glasscock; Harrison; Johnson; Kilgore; Kleberg; Stinson
+N: Davis; Farrar; Hall; Houston of Bexar; Houston of Wheeler; Jerdone; Jones; Pfeuffer; Pope; Randolph; Shannon; Terrell; Traylor; Woods

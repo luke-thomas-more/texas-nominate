@@ -1,0 +1,4 @@
+# Senate 1991-05-09 (fresh sample): rule suspension / passage votes on p. 1354, "The motion prevailed by the following vote: Yeas 30, Nays 0." "Absent-excused: Glasgow." No names printed.
+Y: implied
+N:
+E: Glasgow

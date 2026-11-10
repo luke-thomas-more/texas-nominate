@@ -1,0 +1,4 @@
+# Senate 1969-04-28 (fresh sample): column lists, "Yeas—28", no nays, "Absent", "Absent—Excused".
+Y: Aikin; Bates; Bernal; Berry; Blanchard; Bridges; Brooks; Christie; Cole; Connally; Creighton; Grover; Hall; Harrington; Harris; Hazlewood; Herring; Hightower; Mauzy; McKool; Moore; Patman; Ratliff; Schwartz; Snelson; Strong; Watson; Word
+A: Jordan; Wilson
+E: Kennard

@@ -282,13 +282,13 @@ rc_id,list,printed,member_id,verdict
 19R-Hx0077,N,Upton,4145,ok
 19R-Hx0077,N,Watson,4189,ok
 19R-Hx0077,N,Williams,4193,ok
-19R-Hx0077,A,Bergstrom,4069,data has P
-19R-Hx0077,A,Cochrane,4107,data has P
-19R-Hx0077,A,Donaldson,4153,data has P
-19R-Hx0077,A,Kennedy,3651,data has P
-19R-Hx0077,A,Key,4167,data has P
-19R-Hx0077,A,Stephens,4183,not in data
-19R-Hx0077,A,White,4192,data has P
+19R-Hx0077,A,Bergstrom,4069,ok
+19R-Hx0077,A,Cochrane,4107,ok
+19R-Hx0077,A,Donaldson,4153,ok
+19R-Hx0077,A,Kennedy,3651,ok
+19R-Hx0077,A,Key,4167,ok
+19R-Hx0077,A,Stephens,4183,ok
+19R-Hx0077,A,White,4192,ok
 19R-Hx0077,N,Foster,4089,"ok, name shared"
 19R-Hx0372,Y,Blackshear,4072,ok
 19R-Hx0372,Y,Combs of Hays,4109,ok
@@ -374,11 +374,11 @@ rc_id,list,printed,member_id,verdict
 19R-Hx0372,N,White,4192,ok
 19R-Hx0372,N,Wood of Aransas,4194,ok
 19R-Hx0372,N,Yeager,4196,ok
-19R-Hx0372,A,Donaldson,4153,data has P
-19R-Hx0372,A,Lowe,4171,data has P
-19R-Hx0372,A,Robinson of Jack,4134,data has P
-19R-Hx0372,A,Stephens,4183,not in data
-19R-Hx0372,A,Taylor,4141,data has P
+19R-Hx0372,A,Donaldson,4153,ok
+19R-Hx0372,A,Lowe,4171,ok
+19R-Hx0372,A,Robinson of Jack,4134,ok
+19R-Hx0372,A,Stephens,4183,ok
+19R-Hx0372,A,Taylor,4141,ok
 19R-Hx0372,N,Foster,4089,"ok, name shared"
 15R-Sx0578,Y,Ball,4387,ok
 15R-Sx0578,Y,Blassingame,4284,ok
@@ -432,9 +432,9 @@ rc_id,list,printed,member_id,verdict
 19R-Sx0642,N,Randolph,4046,ok
 19R-Sx0642,N,Stinson,3934,ok
 19R-Sx0642,N,Traylor,4049,ok
-19R-Sx0642,A,Farrar,4016,data has P
-19R-Sx0642,A,Hall,4019,data has P
-19R-Sx0642,A,Pope,3710,data has P
+19R-Sx0642,A,Farrar,4016,ok
+19R-Sx0642,A,Hall,4019,ok
+19R-Sx0642,A,Pope,3710,ok
 321-Hx0005,Y,Aston,2933,ok
 321-Hx0005,Y,Baker of Hood,2650,ok
 321-Hx0005,Y,Baker of Panola,2295,ok
@@ -3355,7 +3355,7 @@ rc_id,list,printed,member_id,verdict
 552-Hx0092,Y,Dewey,1024,ok
 552-Hx0092,Y,Dugas,1026,ok
 552-Hx0092,Y,Ehrle,1047,ok
-552-Hx0092,Y,Elliott,1027,not in data
+552-Hx0092,Y,Elliott,1027,ok
 552-Hx0092,Y,Ellis,1028,ok
 552-Hx0092,Y,Fenoglio,1029,ok
 552-Hx0092,Y,Foreman,629,ok
@@ -5222,7 +5222,6 @@ rc_id,list,printed,member_id,verdict
 21R-Hx0010,N,Williamson,3779,ok
 21R-Hx0010,N,Wood,3921,ok
 21R-Hx0010,N,Woodruff,3922,ok
-21R-Hx0010,N,,3662,not on page
 17R-Sx0628,Y,Buchanan of Grimes,4202,ok
 17R-Sx0628,Y,Buchanan of Wood,4022,ok
 17R-Sx0628,Y,Burges,3843,ok
@@ -7306,7 +7305,7 @@ rc_id,list,printed,member_id,verdict
 8R-Hx0292,Y,Cumby,5027,ok
 8R-Hx0292,Y,Dale,5028,ok
 8R-Hx0292,Y,Darnell,4503,ok
-8R-Hx0292,Y,Daniels,5031,not in data
+8R-Hx0292,Y,Daniels,5031,ok
 8R-Hx0292,Y,Davis of B,4906,ok
 8R-Hx0292,Y,Davis of H,5033,ok
 8R-Hx0292,Y,Dickson,4658,ok
@@ -7349,7 +7348,7 @@ rc_id,list,printed,member_id,verdict
 8R-Hx0292,Y,Whitmore,5144,ok
 8R-Hx0292,Y,Wortham,4147,ok
 8R-Hx0292,Y,Wrede,5145,ok
-8R-Hx0292,Y,,5036,not on page
+8R-Hx0292,Y,,5090,not on page
 12R-Hx0122,Y,C. L. Abbott,4398,ok
 12R-Hx0122,Y,H. R. Allen,4404,ok
 12R-Hx0122,Y,Austin,4409,ok
@@ -7409,7 +7408,7 @@ rc_id,list,printed,member_id,verdict
 12R-Hx0122,N,Prissick,4463,ok
 12R-Hx0122,N,Robb,4467,ok
 12R-Hx0122,N,Robertson,4468,ok
-12R-Hx0122,N,Self,4474,not in data
+12R-Hx0122,N,Self,4474,ok
 12R-Hx0122,N,Shelburne,4475,ok
 12R-Hx0122,N,Sheriff,4476,ok
 12R-Hx0122,N,Shoemaker,4478,ok
@@ -7681,7 +7680,7 @@ rc_id,list,printed,member_id,verdict
 142-Sx0151,Y,Ledbetter,5761,ok
 142-Sx0151,Y,Morris,5305,ok
 142-Sx0151,Y,Randle,4741,ok
-142-Sx0151,Y,Stirman,4484,not in data
+142-Sx0151,Y,Stirman,4484,ok
 142-Sx0151,Y,Westfall,4835,ok
 142-Sx0151,N,Baker,5296,ok
 142-Sx0151,N,Bradshaw,5297,ok
@@ -7696,7 +7695,7 @@ rc_id,list,printed,member_id,verdict
 142-Sx0151,N,Moore,5304,ok
 142-Sx0151,N,Parker,5306,ok
 142-Sx0151,N,Swift,4385,ok
-142-Sx0151,N,Wood,4837,not in data
+142-Sx0151,N,Wood,4837,ok
 30R-Hx0123,Y,Mr. Speaker,2117,ok
 30R-Hx0123,Y,Adams,3089,ok
 30R-Hx0123,Y,Adkins,3090,ok
@@ -9725,12 +9724,11 @@ rc_id,list,printed,member_id,verdict
 121-Hx0301,N,Medlock,4515,ok
 121-Hx0301,N,Ross,4470,ok
 121-Hx0301,N,Schlotman,4472,ok
-121-Hx0301,N,Stirman,4484,not in data
+121-Hx0301,N,Stirman,4484,ok
 121-Hx0301,N,Stockbridge,4485,ok
 121-Hx0301,N,Shelburne,4475,ok
 121-Hx0301,N,Williams of Colorado,4193,ok
 121-Hx0301,N,Zoeller,4500,ok
-121-Hx0301,N,,4395,not on page
 6R-Sx0103,Y,Armstrong,4749,ok
 6R-Sx0103,Y,Bryan,5147,ok
 6R-Sx0103,Y,Caldwell,5025,ok
@@ -11042,7 +11040,7 @@ rc_id,list,printed,member_id,verdict
 20R-Hx0107,N,Melson,2376,ok
 20R-Hx0107,N,Mills,3237,ok
 20R-Hx0107,N,Moore of Travis,3431,ok
-20R-Hx0107,N,Newton of C,3985,not in data
+20R-Hx0107,N,Newton of C,3985,ok
 20R-Hx0107,N,Parks,3988,ok
 20R-Hx0107,N,Patterson,3989,ok
 20R-Hx0107,N,Richardson,3993,ok
@@ -11063,7 +11061,6 @@ rc_id,list,printed,member_id,verdict
 20R-Hx0107,N,Wilson,4010,ok
 20R-Hx0107,N,Woolsey,4011,ok
 20R-Hx0107,A,Robinson,3906,ok
-20R-Hx0107,N,,3677,not on page
 18R-Sx0587,Y,Buchanan,4022,ok
 18R-Sx0587,Y,Cooper,4027,ok
 18R-Sx0587,Y,Evans,4015,ok
@@ -13331,7 +13328,7 @@ rc_id,list,printed,member_id,verdict
 23R-Hx0019,Y,Wohlford,3690,ok
 23R-Hx0019,N,Baker of DeWitt,3610,ok
 23R-Hx0019,N,Ballowe,3613,ok
-23R-Hx0019,N,Barbee of Wharton,3614,ok
+23R-Hx0019,N,Barbee of Wharton,3614,not in data
 23R-Hx0019,N,Beall,3477,ok
 23R-Hx0019,N,Breeding,3619,ok
 23R-Hx0019,N,Broocks,3620,ok
@@ -13353,7 +13350,7 @@ rc_id,list,printed,member_id,verdict
 23R-Hx0019,N,Kennedy of Bee,3650,ok
 23R-Hx0019,N,Kennedy of Harris,3423,ok
 23R-Hx0019,N,Kennedy of Starr,3651,ok
-23R-Hx0019,N,King of Ellis,3653,not in data
+23R-Hx0019,N,King of Ellis,3653,ok
 23R-Hx0019,N,Maddox,3658,ok
 23R-Hx0019,N,Martin,3660,ok
 23R-Hx0019,N,McElwee,3655,ok
@@ -14369,7 +14366,7 @@ rc_id,list,printed,member_id,verdict
 16R-Hx0258,N,Reeves,4224,ok
 16R-Hx0258,N,Saunders,4347,ok
 16R-Hx0258,N,Sledge,4359,ok
-16R-Hx0258,N,Smith of Harris,4361,not in data
+16R-Hx0258,N,Smith of Harris,4361,ok
 16R-Hx0258,N,Smith of Travis,3909,ok
 16R-Hx0258,N,Taylor of Fannin,4365,ok
 16R-Hx0258,N,Thomas,4367,ok
@@ -14379,7 +14376,6 @@ rc_id,list,printed,member_id,verdict
 16R-Hx0258,A,Coleman,4307,not in data
 16R-Hx0258,A,Oxsheer,4262,not in data
 16R-Hx0258,Y,Cochran,3606,"ok, name shared"
-16R-Hx0258,N,,4274,not on page
 23R-Sx0061,Y,Agnew,3486,ok
 23R-Sx0061,Y,Bowser,3173,ok
 23R-Sx0061,Y,Cranford,3599,ok
@@ -16359,26 +16355,26 @@ rc_id,list,printed,member_id,verdict
 19R-Hx0426,Y,White,4192,ok
 19R-Hx0426,Y,Williams,4193,ok
 19R-Hx0426,Y,Yeager,4196,ok
-19R-Hx0426,A,Armistead,3502,data has P
-19R-Hx0426,A,Atlee,3320,data has P
-19R-Hx0426,A,Cochrane,4107,data has P
-19R-Hx0426,A,Donaldson,4153,data has P
-19R-Hx0426,A,Groos,4156,data has P
-19R-Hx0426,A,Gunter,4157,data has P
-19R-Hx0426,A,Henderson,3235,data has P
-19R-Hx0426,A,King,4113,data has P
-19R-Hx0426,A,Lenox,4168,data has P
-19R-Hx0426,A,Loving,4170,data has P
-19R-Hx0426,A,Lowe,4171,data has P
-19R-Hx0426,A,Lusk,4172,data has P
-19R-Hx0426,A,Pendleton of Bell,4131,data has P
-19R-Hx0426,A,Stephens,4183,not in data
-19R-Hx0426,A,Tankersley,4185,data has P
-19R-Hx0426,A,Taylor,4141,data has P
-19R-Hx0426,A,Thompson,4143,data has P
-19R-Hx0426,A,Upton,4145,data has P
-19R-Hx0426,A,Wood of Aransas,4194,data has P
-19R-Hx0426,A,Woods of Kaufman,4195,data has P
+19R-Hx0426,A,Armistead,3502,ok
+19R-Hx0426,A,Atlee,3320,ok
+19R-Hx0426,A,Cochrane,4107,ok
+19R-Hx0426,A,Donaldson,4153,ok
+19R-Hx0426,A,Groos,4156,ok
+19R-Hx0426,A,Gunter,4157,ok
+19R-Hx0426,A,Henderson,3235,ok
+19R-Hx0426,A,King,4113,ok
+19R-Hx0426,A,Lenox,4168,ok
+19R-Hx0426,A,Loving,4170,ok
+19R-Hx0426,A,Lowe,4171,ok
+19R-Hx0426,A,Lusk,4172,ok
+19R-Hx0426,A,Pendleton of Bell,4131,ok
+19R-Hx0426,A,Stephens,4183,ok
+19R-Hx0426,A,Tankersley,4185,ok
+19R-Hx0426,A,Taylor,4141,ok
+19R-Hx0426,A,Thompson,4143,ok
+19R-Hx0426,A,Upton,4145,ok
+19R-Hx0426,A,Wood of Aransas,4194,ok
+19R-Hx0426,A,Woods of Kaufman,4195,ok
 19R-Hx0426,Y,Foster,4090,ok
 23R-Sx0690,Y,Agnew,3486,ok
 23R-Sx0690,Y,Atlee,3320,ok
@@ -17251,7 +17247,7 @@ rc_id,list,printed,member_id,verdict
 15R-Hx0482,Y,McComb,4257,ok
 15R-Hx0482,Y,McCorkle,4571,ok
 15R-Hx0482,Y,McCuistian,4572,ok
-15R-Hx0482,Y,McKinnion,4581,not in data
+15R-Hx0482,Y,McKinnion,4581,ok
 15R-Hx0482,Y,Marshall,4591,ok
 15R-Hx0482,Y,Martin,4213,ok
 15R-Hx0482,Y,Mead,4594,ok
@@ -17283,7 +17279,6 @@ rc_id,list,printed,member_id,verdict
 15R-Hx0482,N,Baker,4227,ok
 15R-Hx0482,N,Griffith,4520,ok
 15R-Hx0482,N,Wilson,4654,ok
-15R-Hx0482,Y,,4587,not on page
 25R-Sx0011,Y,Bailey,3476,ok
 25R-Sx0011,Y,Beall,3477,ok
 25R-Sx0011,Y,Bowser,3173,ok
@@ -17356,7 +17351,7 @@ rc_id,list,printed,member_id,verdict
 32R-Hx0252,Y,Goodner,2839,ok
 32R-Hx0252,Y,Graham,2964,ok
 32R-Hx0252,Y,Gross,3010,ok
-32R-Hx0252,Y,Hall,3012,ok
+32R-Hx0252,Y,Hall,3012,not in data
 32R-Hx0252,Y,Hamilton of Childress,2965,ok
 32R-Hx0252,Y,Hamilton of McCulloch,2591,ok
 32R-Hx0252,Y,Haney,2695,ok
@@ -17373,7 +17368,7 @@ rc_id,list,printed,member_id,verdict
 32R-Hx0252,Y,Kennedy,2854,ok
 32R-Hx0252,Y,Lawson,2978,ok
 32R-Hx0252,Y,Leach,2980,ok
-32R-Hx0252,Y,Lee,2983,data has E
+32R-Hx0252,Y,Lee,2983,ok
 32R-Hx0252,Y,Logan,3063,ok
 32R-Hx0252,Y,Mangum,1931,ok
 32R-Hx0252,Y,McDaniel,2858,ok
@@ -17411,7 +17406,7 @@ rc_id,list,printed,member_id,verdict
 32R-Hx0252,Y,Terrell of Cherokee,2069,ok
 32R-Hx0252,Y,Turney,2905,ok
 32R-Hx0252,Y,Wahrmund,2461,ok
-32R-Hx0252,Y,Watson,2886,not in data
+32R-Hx0252,Y,Watson,2886,ok
 32R-Hx0252,Y,White,2894,ok
 32R-Hx0252,Y,Wood,3077,ok
 32R-Hx0252,Y,Woods,2442,ok
@@ -17446,7 +17441,7 @@ rc_id,list,printed,member_id,verdict
 32R-Hx0252,E,Randolph,3066,ok
 32R-Hx0252,E,Rowell,2731,ok
 32R-Hx0252,E,Savage,2733,ok
-32R-Hx0252,E,Teel,3074,data has Y
+32R-Hx0252,E,Teel,3074,ok
 314-Sx0117,Y,Adams,2906,ok
 314-Sx0117,Y,Brachfield,2918,ok
 314-Sx0117,Y,Harper,2919,ok

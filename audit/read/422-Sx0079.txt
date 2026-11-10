@@ -1,0 +1,3 @@
+# Senate 1931-09-18 (fresh sample): suspension of the three-day rule, column lists across the page break, "Yeas—22.", no nays, "Absent—Excused."
+Y: Beck; Cousins; Cunningham; DeBerry; Gainer; Hopkins; Hornsby; Loy; Moore; Neal; Parr; Parrish; Poage; Purl; Rawlings; Russek; Small; Thomason; Williamson; Woodruff; Woodul; Woodward
+E: Berkeley; Greer; Hardin; Holbrook; Martin; Oneal; Patton; Pollard; Stevenson

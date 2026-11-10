@@ -7,6 +7,10 @@ the published data (docs/data/downloads).
   check RC ...    compare the reading in audit/read/RC.txt with the data, list by list
   report          error rates by era, each stratum weighted by its share of the votes; writes audit/report.json
                   and docs/data/downloads/audit.csv (every name read, and what the data has for it)
+  sample fresh    a second, smaller sample (audit/sample_fresh.csv) from the roll calls the first didn't draw. The
+  report fresh    first sample's errors were traced and the code fixed against them, so its rate flatters later
+                  versions; this one is read after the fixes and used for nothing else (audit/report_fresh.json,
+                  audit_fresh.csv)
 
 A reading gives the names as the page prints them, one line per list, codes as in votes.csv:
     Y: Aikin; Alexander; Butler of Brazos; Barton, B; Mr. Speaker
@@ -39,6 +43,7 @@ JOURNALS = os.path.join(ROOT, "data", "raw", "journals")
 AUDIT = os.path.join(ROOT, "audit")
 PAGES = os.path.join(ROOT, "data", "audit", "pages")
 SEED = 20261101
+SEED_FRESH = 20261109
 ERAS = [(1, 13, "1846-73"), (14, 26, "1874-1900"), (27, 41, "1901-30"), (42, 56, "1931-60"), (57, 62, "1961-72"),
         (63, 67, "1973-82"), (68, 73, "1983-94"), (74, 89, "1995-2025")]
 LISTS = "YNPAE"
@@ -48,13 +53,16 @@ def era_of(leg):
     return next(name for a, b, name in ERAS if a <= leg <= b)
 
 
-def allocation(source, group, era):
+def allocation(source, group, era, fresh=False):
     """Roll calls to draw from a stratum: 12 verified exactly, 4 by the looser checks (near, ok_digit, ok_lists,
-    ok_rest), whose errors are likelier; fewer from the journal text, which needs no reading of scans."""
+    ok_rest), whose errors are likelier; fewer from the journal text, which needs no reading of scans. The fresh
+    sample draws a third as many, in the same proportions."""
     if source == "journal":
-        return 4
+        return 2 if fresh else 4
     if era == "1995-2025":
-        return 6
+        return 3 if fresh else 6
+    if fresh:
+        return 4 if group == "ok" else 2
     return 12 if group == "ok" else 4
 
 
@@ -63,17 +71,23 @@ def load_rollcalls():
         return {r["rc_id"]: r for r in csv.DictReader(f)}
 
 
-def sample():
+def sample_path(fresh=False):
+    return os.path.join(AUDIT, "sample_fresh.csv" if fresh else "sample.csv")
+
+
+def sample(fresh=False):
     rcs = load_rollcalls()
+    first = {s["rc_id"] for s in csv.DictReader(open(sample_path()))} if fresh else set()
     strata = collections.defaultdict(list)
     for rc, r in rcs.items():
         group = "ok" if r["status"] == "ok" else "other"
         strata[(era_of(int(r["leg"])), r["chamber"], r["source"], group)].append(rc)
-    rng = np.random.default_rng(SEED)
+    rng = np.random.default_rng(SEED_FRESH if fresh else SEED)
     rows = []
     for key in sorted(strata):
-        pop = sorted(strata[key])
-        n = min(len(pop), allocation(key[2], key[3], key[0]))
+        # (the fresh sample stands for the whole stratum, less the handful the first sample drew from it)
+        pop = sorted(rc for rc in strata[key] if rc not in first)
+        n = min(len(pop), allocation(key[2], key[3], key[0], fresh))
         votes = sum(int(rcs[rc]["n_y"]) + int(rcs[rc]["n_n"]) for rc in pop)
         for k, i in enumerate(rng.choice(len(pop), n, replace=False)):
             rows.append({"rc_id": pop[i], "era": key[0], "chamber": key[1], "source": key[2], "group": key[3],
@@ -81,11 +95,11 @@ def sample():
     # the work goes round the strata draw by draw, so an audit stopped part way still has a random sample of each
     rows.sort(key=lambda r: (r["draw"], r["era"], r["chamber"], r["source"], r["group"]))
     os.makedirs(AUDIT, exist_ok=True)
-    with open(os.path.join(AUDIT, "sample.csv"), "w", newline="") as f:
+    with open(sample_path(fresh), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0]))
         w.writeheader()
         w.writerows(rows)
-    print(f"{len(rows)} roll calls from {len(strata)} strata -> audit/sample.csv")
+    print(f"{len(rows)} roll calls from {len(strata)} strata -> {os.path.relpath(sample_path(fresh), ROOT)}")
 
 
 # ---- finding and rendering the page
@@ -331,9 +345,9 @@ def sample_votes(rc_ids):
     read all of votes.csv.gz; rebuilt when the downloads change."""
     cache = os.path.join(ROOT, "data", "audit", "votes.csv.gz")
     want = set(rc_ids)
-    sp = os.path.join(AUDIT, "sample.csv")
-    if os.path.exists(sp):
-        want |= {s["rc_id"] for s in csv.DictReader(open(sp))}
+    for sp in (sample_path(), sample_path(True)):
+        if os.path.exists(sp):
+            want |= {s["rc_id"] for s in csv.DictReader(open(sp))}
     src = os.path.join(DL, "votes.csv.gz")
     if os.path.exists(cache) and os.path.getmtime(cache) > os.path.getmtime(src):
         with gzip.open(cache, "rt") as f:
@@ -481,14 +495,19 @@ def tally_rc(rows, code_set="YN"):
         c["extra"] += extra - swap
         c["yea_nay_swapped"] += sum(1 for x in rs if x[3] in ("data has Y", "data has N"))
         c["not_voting_in_data"] += sum(1 for x in rs if x[3] in ("data has P", "data has A", "data has E"))
+    # a member the page lists as not voting (present, absent, excused) whom the data credits with a yea or nay: a vote
+    # the page doesn't have. The yea and nay lists can't show it (the member is taken by the not-voting list), and
+    # where the yeas are implied it is the only way a false yea shows at all.
+    c["extra"] += sum(1 for x in rows if x[0] not in code_set and x[3] in ("data has Y", "data has N"))
     c["wrong"] = c["wrong_member"] + c["extra"] + c["yea_nay_swapped"]
     c["lost"] = c["missing"] + c["not_voting_in_data"]
     c["errors"] = c["wrong"] + c["lost"]
     return c
 
 
-def report(boot=2000):
-    smp = list(csv.DictReader(open(os.path.join(AUDIT, "sample.csv"))))
+def report(boot=2000, fresh=False):
+    smp = list(csv.DictReader(open(sample_path(fresh))))
+    tag = "_fresh" if fresh else ""
     done = [s for s in smp if os.path.exists(os.path.join(AUDIT, "read", f"{s['rc_id']}.txt"))]
     d = Data([s["rc_id"] for s in done])
     # a sampled roll call a later rebuild no longer verifies isn't in the published data, so it has no votes to check
@@ -502,7 +521,7 @@ def report(boot=2000):
         per.append((s, c))
         for code, name, mid, verdict, how in rows:
             out_rows.append({"rc_id": s["rc_id"], "list": code, "printed": name, "member_id": mid or "", "verdict": verdict})
-    rng = np.random.default_rng(SEED)
+    rng = np.random.default_rng(SEED_FRESH if fresh else SEED)
 
     def rates(group):
         """Per-vote error rate, weighting each stratum by its votes; share of roll calls with an error,
@@ -533,8 +552,8 @@ def report(boot=2000):
            "by_source": {src: rates([x for x in per if x[0]["source"] == src]) for src in ("scan", "tally", "journal")
                          if any(x[0]["source"] == src for x in per)},
            "by_check": {g: rates([x for x in per if x[0]["group"] == g]) for g in ("ok", "other") if any(x[0]["group"] == g for x in per)}}
-    json.dump(res, open(os.path.join(AUDIT, "report.json"), "w"), indent=1)
-    with open(os.path.join(AUDIT, "audit.csv"), "w", newline="") as f:
+    json.dump(res, open(os.path.join(AUDIT, f"report{tag}.json"), "w"), indent=1)
+    with open(os.path.join(AUDIT, f"audit{tag}.csv"), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=["rc_id", "list", "printed", "member_id", "verdict"])
         w.writeheader()
         w.writerows(out_rows)
@@ -562,7 +581,7 @@ def data_version():
 if __name__ == "__main__":
     cmd, args = (sys.argv[1], sys.argv[2:]) if len(sys.argv) > 1 else ("", [])
     if cmd == "sample":
-        sample()
+        sample(args == ["fresh"])
     elif cmd == "show" and args:
         dpi = int(os.environ.get("DPI", 150))
         show(args, dpi)
@@ -572,6 +591,6 @@ if __name__ == "__main__":
     elif cmd == "check" and args:
         check(args)
     elif cmd == "report":
-        report()
+        report(fresh=args == ["fresh"])
     else:
         sys.exit(__doc__)

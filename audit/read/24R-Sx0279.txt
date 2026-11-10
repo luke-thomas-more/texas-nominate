@@ -1,0 +1,5 @@
+# Senate 1895-03-01 (fresh sample): "Bill passed by the following vote", column lists "Yeas—15.", "Nays—10.", "Absent, excused." (1), "Absent, not excused." (4).
+Y: Atlee; Beall; Boren; Dean; Dibrell; Gage; Greer; Lawhon; Lewis; Presler; Shelburne; Simpson; Smith; Steele; Whitaker
+N: Colquitt; Darwin; Dickson; Harrison; McKinney; Rogers; Sherrill; Stafford; Tips; Woods
+E: Agnew
+A: Bailey; Bowser; Goss; McComb

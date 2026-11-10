@@ -1,0 +1,4 @@
+# Senate 1911-03-10 (fresh sample): column lists, "Yeas—26.", no nays, "Absent." (5); followed by "The bill was read third time and passed." and "Seventh House Message." Printed "Terrell, McLennan", "Terrell, Wise".
+Y: Astin; Carter; Cofer; Collins; Greer; Hume; Johnson; Lattimore; Mayfield; McNealus; Meachum; Murray; Paulus; Peeler; Perkins; Real; Sturgeon; Terrell of McLennan; Terrell of Wise; Townsend; Vaughan; Ward; Warren; Watson; Weinert; Willacy
+N:
+A: Adams; Bryan; Hudspeth; Kauffman; Ratliff

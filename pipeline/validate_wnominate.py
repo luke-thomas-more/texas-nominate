@@ -5,8 +5,16 @@ W-NOMINATE is the static, one-session form of NOMINATE, estimated by its authors
 estimator and our choice of one shared space at once. For each legislature and chamber with at least 20 members,
 the contested roll calls (2.5% or more on the losing side) and members with 20 or more of those votes are written to
 data/processed/wnominate/<leg><chamber>.csv and scaled in 2 dimensions by pipeline/wnominate.R; its coordinates are
-then compared with ours: the correlation on each axis after the best rotation (orthogonal Procrustes), since each
-W-NOMINATE fit sets its own orientation. Writes data/processed/validation_wnominate.json.
+then compared with ours two ways:
+
+  - by W-NOMINATE's dimensions (the headline): how well each of its dimensions, first = that session's main divide,
+    is predicted from our two axes together (multiple correlation R), and which of our axes its first lies nearer.
+    No rotation to choose, and a session isn't marked down because its main divide runs along our second axis;
+  - by our axes: the correlation on each axis after the best rotation (orthogonal Procrustes). Before 1961 most
+    sessions' main divide lies nearer our axis 2, so "dim1" here measures the session's lesser divide, the one any
+    shared map recovers less well. v1.1 reported only this and read it as weaker agreement on the first axis.
+
+pipeline/wnominate_trace.py takes the comparison apart further. Writes data/processed/validation_wnominate.json.
 
 Needs R with the wnominate package (see README: micromamba env "rstats", install.packages("wnominate")).
 Usage: FIT_DIR=data/processed/fit_v5 python pipeline/validate_wnominate.py
@@ -14,6 +22,8 @@ Usage: FIT_DIR=data/processed/fit_v5 python pipeline/validate_wnominate.py
 import collections, csv, gzip, io, json, os, subprocess, sys
 
 import numpy as np
+
+from wnominate_trace import given
 
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 PROC = os.path.join(ROOT, "data", "processed")
@@ -78,7 +88,7 @@ def main():
         if not os.path.exists(path):
             continue
         key = (int(name[:-1]), name[-1])
-        rows = [r for r in csv.DictReader(open(path)) if r["coord1D"] not in ("", "NA")]
+        rows = [r for r in csv.DictReader(open(path)) if r["coord1D"] not in ("", "NA") and r["coord2D"] not in ("", "NA")]
         X = np.array([ours[key][r["member_id"]] for r in rows])
         Y = np.array([(float(r["coord1D"]), float(r["coord2D"])) for r in rows])
         U, _, Vt = np.linalg.svd((Y - Y.mean(0)).T @ (X - X.mean(0)))
@@ -86,16 +96,22 @@ def main():
         res[name] = {"members": len(rows), "r_dim1": float(np.corrcoef(Yr[:, 0], X[:, 0])[0, 1]),
                      "r_dim2": float(np.corrcoef(Yr[:, 1], X[:, 1])[0, 1]),
                      "r_dim1_raw": float(np.corrcoef(Y[:, 0], X[:, 0])[0, 1])}
+        g = given({r["member_id"]: tuple(y) for r, y in zip(rows, Y)}, ours[key], min_n=1)
+        res[name].update(R_w1=g["r1"], R_w2=g["r2"], w1_angle=g["angle"])
     era = lambda leg: next(e for a, b, e in [(1, 13, "1846-73"), (14, 26, "1874-1900"), (27, 41, "1901-30"), (42, 56, "1931-60"),
                                              (57, 62, "1961-72"), (63, 67, "1973-82"), (68, 73, "1983-94"), (74, 89, "1995-2025")] if a <= leg <= b)
     by_era = collections.defaultdict(list)
     for name, v in res.items():
         by_era[era(int(name[:-1]))].append(v)
-    summary = {e: {"sessions": len(v), "median_r_dim1": float(np.median([x["r_dim1"] for x in v])),
+    summary = {e: {"sessions": len(v), "median_R_w1": float(np.median([x["R_w1"] for x in v])),
+                   "median_R_w2": float(np.median([x["R_w2"] for x in v])),
+                   "w1_nearer_axis2": float(np.mean([45 < x["w1_angle"] < 135 for x in v])),
+                   "median_r_dim1": float(np.median([x["r_dim1"] for x in v])),
                    "median_r_dim2": float(np.median([x["r_dim2"] for x in v]))} for e, v in by_era.items()}
     json.dump({"by_legislature": res, "by_era": summary}, open(os.path.join(PROC, "validation_wnominate.json"), "w"), indent=1)
     for e, v in summary.items():
-        print(f"{e:10s} {v['sessions']:3d} sessions  median r dim1 {v['median_r_dim1']:.3f}  dim2 {v['median_r_dim2']:.3f}")
+        print(f"{e:10s} {v['sessions']:3d} sessions  median R of W-NOMINATE's 1st {v['median_R_w1']:.3f}  2nd {v['median_R_w2']:.3f}"
+              f"  (1st nearer our axis 2 in {v['w1_nearer_axis2']:.0%})   by our axes: r dim1 {v['median_r_dim1']:.3f}  dim2 {v['median_r_dim2']:.3f}")
 
 
 if __name__ == "__main__":
